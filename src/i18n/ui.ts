@@ -1,14 +1,14 @@
-// Chaînes d'interface — écrites à la main en EN / FR / DE. Aucune traduction
-// automatique. EN est la langue canonique (racine `/`).
+// Interface strings — hand-written in EN / FR / DE. No machine translation.
+// EN is the canonical language (root `/`).
 
 export const LANGUES = ["en", "fr", "de"] as const;
 export type Langue = (typeof LANGUES)[number];
 
 export const LANGUE_CANONIQUE: Langue = "en";
 
-// Flag de publication : seules ces langues sont activables dans le sélecteur
-// public. Les autres restent visibles mais grisées ; leurs routes existent et
-// sont accessibles en direct.
+// Publication flag: only these languages are selectable in the public switcher.
+// The others stay visible but greyed out; their routes exist and are reachable
+// directly.
 export const LANGUES_PUBLIEES: readonly Langue[] = ["en"];
 
 export function estPubliee(l: Langue): boolean {
@@ -16,16 +16,16 @@ export function estPubliee(l: Langue): boolean {
 }
 
 /**
- * Préfixe un chemin absolu (`/gouvernance/…`) par la `base` du site
- * (`import.meta.env.BASE_URL`, = `/` en local sans base, `/ai-manager-toolkit/`
- * en prod GitHub Pages). Tous les liens internes doivent passer par ici.
+ * Prefixes an absolute path (`/gouvernance/…`) with the site `base`
+ * (`import.meta.env.BASE_URL`, = `/` locally without base, `/ai-manager-toolkit/`
+ * in GitHub Pages production). Every internal link must go through here.
  */
 export function withBase(chemin: string): string {
   const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   return `${base}${chemin}`;
 }
 
-/** Chemin interne localisé ET préfixé par la base. */
+/** Internal path, localized AND base-prefixed. */
 export function cheminLocalise(lang: Langue, chemin: string): string {
   return withBase(
     lang === LANGUE_CANONIQUE ? chemin : `/${lang}${chemin}`,

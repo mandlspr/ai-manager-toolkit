@@ -1,6 +1,6 @@
-// Recherche plein texte + filtres cumulables, côté client, sur l'index
-// /search.json généré au build. État des filtres porté par l'URL (query params)
-// pour que la vue soit partageable — brief §5. Aucun localStorage.
+// Full-text search + stacking filters, client-side, over the /search.json index
+// generated at build time. Filter state lives in the URL (query params) so the
+// view is shareable — brief §5. No localStorage.
 
 interface Row {
   id: string;
@@ -52,12 +52,12 @@ export async function initCatalogue(): Promise<void> {
 
   const seedBloc = root.dataset.seedBloc ?? "";
   const lang = root.dataset.lang ?? "en";
-  // base du site (GitHub Pages) + préfixe de locale
+  // site base (GitHub Pages) + locale prefix
   const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   const prefixe = lang && lang !== "en" ? `/${lang}` : "";
   const url = (u: string): string => base + prefixe + u;
 
-  // chaînes localisées passées par le composant Astro
+  // localized strings passed in by the Astro component
   const tEmpty = root.dataset.tEmpty ?? "No card matches these filters.";
   const tProvenBy = root.dataset.tProvenby ?? "Proven by:";
   const tProves = root.dataset.tProves ?? "Proves:";
@@ -76,7 +76,7 @@ export async function initCatalogue(): Promise<void> {
   try {
     opt = { ...opt, ...(JSON.parse(root.dataset.tOpt ?? "{}") as OptLabels) };
   } catch {
-    /* garde les valeurs brutes */
+    /* keep raw values */
   }
   const lbl = (map: Record<string, string>, k: string): string => map[k] ?? k;
 
@@ -85,14 +85,14 @@ export async function initCatalogue(): Promise<void> {
     const res = await fetch(`${base}/search.json`);
     rows = (await res.json()) as Row[];
   } catch {
-    return; // on garde la liste rendue au build
+    return; // keep the list rendered at build time
   }
   const byId = new Map(rows.map((r) => [r.id, r]));
 
   const q = form.querySelector<HTMLInputElement>("[name=q]");
   if (!q) return;
 
-  // Pastilles de filtre (remplacent les <select>/<checkbox> natifs).
+  // Filter pills (replace the native <select>/<checkbox> controls).
   const pastilles = Array.from(
     form.querySelectorAll<HTMLButtonElement>(".pastille[data-value]"),
   );
@@ -117,7 +117,7 @@ export async function initCatalogue(): Promise<void> {
       .forEach((b) => setPresse(b, s.has(b.dataset.value ?? "")));
   };
 
-  // hydratation depuis l'URL (le query param l'emporte sur le bloc de la page)
+  // hydrate from the URL (the query param wins over the page's bloc)
   const p = new URLSearchParams(location.search);
   q.value = p.get("q") ?? "";
   appliquer(
@@ -140,7 +140,7 @@ export async function initCatalogue(): Promise<void> {
     if (f.bloc && r.bloc !== f.bloc) return false;
     if (f.type && r.type !== f.type) return false;
     if (f.statut && r.statut !== f.statut) return false;
-    // OR à l'intérieur de l'axe transversal, AND entre facettes
+    // OR within the cross-cutting axis, AND between facets
     if (f.axes.length && !f.axes.some((a) => r.transverses.includes(a)))
       return false;
     if (f.q) {
@@ -221,7 +221,7 @@ export async function initCatalogue(): Promise<void> {
       const name = facetteDe(btn);
       const presse = btn.getAttribute("aria-pressed") === "true";
       if (modeDe(name) === "single") {
-        // groupe à choix unique : un clic sur la pastille active la désactive
+        // single-choice group: clicking the active pill turns it off
         pastilles
           .filter((b) => facetteDe(b) === name)
           .forEach((b) => setPresse(b, false));

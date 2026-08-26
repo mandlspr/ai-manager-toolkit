@@ -2,7 +2,7 @@
 import BlocPage from "../../components/pages/BlocPage.astro";
 import type { BlocId } from "../../lib/entries";
 
-// `/cas/` a sa propre page dédiée (présentée comme preuves) — exclu ici.
+// `/cas/` has its own dedicated page (presented as evidence) — excluded here.
 export function getStaticPaths() {
   return (["gouvernance", "prompts", "build", "evaluation"] as const).map(
     (bloc) => ({ params: { bloc } }),

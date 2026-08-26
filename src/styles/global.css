@@ -1,18 +1,18 @@
-/* AI Manager Toolkit — feuille unique.
-   Direction visuelle brief §6. Palette et typographie imposées.
-   Pas de dégradé, pas d'ombre portée, pas de carte flottante, aucune animation
-   décorative. Densité assumée, hiérarchie typographique nette.
-   Polices chargées via <link> Google Fonts dans src/layouts/Base.astro. */
+/* AI Manager Toolkit — single stylesheet.
+   Visual direction: brief §6. Fixed palette and typography.
+   No gradient, no drop shadow, no floating card, no decorative animation.
+   Deliberate density, sharp typographic hierarchy.
+   Fonts loaded via a <link> to Google Fonts in src/layouts/Base.astro. */
 
 :root {
-  /* trois rôles typographiques distincts */
+  /* three distinct typographic roles */
   --titre: "Archivo", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
     Arial, sans-serif;
   --corps: "Newsreader", Georgia, Cambria, "Times New Roman", serif;
   --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas,
     monospace;
 
-  /* palette — hex exacts */
+  /* palette — exact hex */
   --fond: #f4f2fa;
   --encre: #171522;
   --accent: #5a3fd6;
@@ -84,7 +84,7 @@ a:hover {
   z-index: 10;
 }
 
-/* --- ossature ---------------------------------------------------------- */
+/* --- structure ---------------------------------------------------------- */
 
 .site-header {
   border-bottom: 1px solid var(--bordure);
@@ -166,7 +166,7 @@ main {
   color: var(--gris-meta);
 }
 
-/* --- accueil --------------------------------------------------------- */
+/* --- home --------------------------------------------------------- */
 
 .accueil h1 {
   font-size: 2.1rem;
@@ -229,7 +229,7 @@ main {
   font-size: 0.92rem;
 }
 
-/* --- page bloc ------------------------------------------------------ */
+/* --- bloc page ------------------------------------------------------ */
 
 .bloc-page h1,
 .fiche-tete h1 {
@@ -244,7 +244,7 @@ main {
   max-width: 44rem;
 }
 
-/* --- filtres : pastilles cumulables -------------------------------- */
+/* --- filters: stacking pills -------------------------------- */
 
 .filtres {
   border: 1px solid var(--bordure);
@@ -338,7 +338,7 @@ main {
   color: var(--gris-meta);
 }
 
-/* --- liste de fiches ---------------------------------------------- */
+/* --- card list ---------------------------------------------- */
 
 .resultat-compte {
   font-family: var(--mono);
@@ -402,7 +402,7 @@ main {
   font-style: italic;
 }
 
-/* --- cote : onglet plein accent (élément signature) --------------- */
+/* --- shelf code: solid accent tab (signature element) --------------- */
 
 .cote {
   font-family: var(--mono);
@@ -459,7 +459,7 @@ main {
   font-weight: 600;
 }
 
-/* --- fiche ---------------------------------------------------- */
+/* --- card ---------------------------------------------------- */
 
 .fiche {
   max-width: 44rem;
@@ -553,7 +553,7 @@ main {
   font-size: 0.92rem;
 }
 
-/* --- à propos ------------------------------------------------ */
+/* --- about ------------------------------------------------ */
 
 .prose {
   max-width: 42rem;
@@ -578,7 +578,7 @@ main {
   vertical-align: baseline;
 }
 
-/* --- sélecteur de langue ------------------------------------------- */
+/* --- language switcher ------------------------------------------- */
 
 .lang-selector {
   display: flex;
@@ -630,7 +630,7 @@ main {
   color: var(--bordure);
 }
 
-/* --- bandeau de bascule visible (fiche non traduite) --------------- */
+/* --- visible switch banner (untranslated card) --------------- */
 
 .bascule {
   background: #f5eedd;

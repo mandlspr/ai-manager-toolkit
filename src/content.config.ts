@@ -2,11 +2,11 @@ import { defineCollection } from "astro:content";
 import { glob } from "astro/loaders";
 import { entryFrontmatterSchema } from "./content/schema.mjs";
 
-// Une fiche = src/content/entries/{id}.{lang}.md  (brief, section 3).
+// One card = src/content/entries/{id}.{lang}.md  (brief, section 3).
 //
-// EN est la langue canonique du contenu : sa version garde l'id nu
-// (`gov-double-test`), FR/DE sont suffixées (`gov-double-test.fr`). Les liens
-// croisés (`liens`, `prouve`) pointent toujours l'id nu = version EN canonique.
+// EN is the canonical content language: its version keeps the bare id
+// (`gov-double-test`), FR/DE are suffixed (`gov-double-test.fr`). Cross-links
+// (`liens`, `prouve`) always point to the bare id = canonical EN version.
 const entries = defineCollection({
   loader: glob({
     pattern: "**/*.md",
@@ -14,7 +14,7 @@ const entries = defineCollection({
     generateId: ({ data }) => {
       const id = String(data.id ?? "").trim();
       const lang = String(data.lang ?? "en").trim();
-      // EN est la langue canonique : id nu. FR/DE sont suffixés (id.fr, id.de).
+      // EN is the canonical language: bare id. FR/DE are suffixed (id.fr, id.de).
       return lang === "en" ? id : `${id}.${lang}`;
     },
   }),

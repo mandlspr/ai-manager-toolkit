@@ -5,30 +5,32 @@ on:
     branches: [main]
   workflow_dispatch:
 
-# Permissions du GITHUB_TOKEN pour déployer sur Pages
+# GITHUB_TOKEN permissions needed to deploy to Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Un seul déploiement à la fois ; ne pas annuler un déploiement en cours
+# One deployment at a time; do not cancel an in-progress deployment
 concurrency:
   group: pages
   cancel-in-progress: false
 
 jobs:
   build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Build with Astro
         uses: withastro/action@v3
-        # Racine du projet, gestionnaire de paquets et version de Node sont
-        # auto-détectés (package-lock.json -> npm). `npm run build` exécute
-        # déjà check-content + astro check + astro build.
+        # Project root, package manager and Node version are auto-detected
+        # (package-lock.json -> npm). `npm run build` already runs
+        # check-content + astro check + astro build.
 
   deploy:
+    name: Deploy
     needs: build
     runs-on: ubuntu-latest
     environment:

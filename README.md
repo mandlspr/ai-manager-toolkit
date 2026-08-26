@@ -1,121 +1,123 @@
 # AI Manager Toolkit
 
-Manuel opérationnel de gouvernance et de pratique de l'IA : des principes durables et
-sourcés, des cas datés qui les prouvent. Le contenu est séparé du code — une fiche = un
-fichier Markdown, aucune base de données, aucun CMS.
+An operational manual for AI governance and practice: durable, sourced principles and
+dated cases that prove them. Content is separate from code — one card = one Markdown
+file, no database, no CMS.
 
-**Site en ligne :** https://mandlspr.github.io/ai-manager-toolkit
+**Live site:** https://mandlspr.github.io/ai-manager-toolkit
 
-Stack : [Astro](https://astro.build) en génération statique, Content Collections + schéma
-Zod, recherche/filtres côté client sur un index JSON généré au build. Déploiement
+Stack: [Astro](https://astro.build) static output, Content Collections + a Zod schema,
+client-side search and filters over a JSON index generated at build time. Deployed to
 GitHub Pages via GitHub Actions (`.github/workflows/deploy.yml`).
 
-## Lancer en local
+## Run locally
 
 ```sh
 npm install
 npm run dev      # http://localhost:4321/ai-manager-toolkit/
 ```
 
-Node ≥ 18.20.8 / 20.3 / 22.
+Node >= 18.20.8 / 20.3 / 22.
 
-## Ajouter ou modifier une fiche
+## Add or edit a card
 
-**Sans toucher au code.** Une fiche vit dans un seul fichier Markdown.
+**No code involved.** A card lives in a single Markdown file.
 
-### Où
+### Where
 
 `src/content/entries/{id}.{lang}.md`
 
-- `{id}` : identifiant stable en kebab-case, jamais renommé (les liens croisés en dépendent).
-- `{lang}` : `en` pour la version canonique (obligatoire), `fr` / `de` pour les traductions.
+- `{id}`: stable kebab-case identifier, never renamed (cross-links depend on it).
+- `{lang}`: `en` for the canonical version (required), `fr` / `de` for translations.
 
-Le plus simple : copier une fiche existante du même `type` et adapter le frontmatter.
-`gov-double-test.en.md` sert de gabarit pour un `principe`, `cas-stackfit.en.md` pour un `cas`.
+Easiest path: copy an existing card of the same `type` and adapt its frontmatter.
+`gov-double-test.en.md` is a template for a `principe`, `cas-stackfit.en.md` for a `cas`.
 
-### Le fichier
+### The file
 
-Un bloc frontmatter YAML entre `---`, puis un corps en sections `##`. Les corps sont pour
-l'instant des placeholders (`<!-- à rédiger -->`) ; on garde les titres de sections.
+A YAML frontmatter block between `---`, then a body of `##` sections. Bodies are
+placeholders for now (`<!-- to write -->`); keep the section headings.
 
-- `type: principe` → sections *Principe*, *Pourquoi ça compte*, *Comment l'appliquer*, *Point de vigilance* (la dernière est facultative).
-- `type: cas` → sections *Contexte*, *Ce qui a été fait*, *Résultat*, **plus** un champ frontmatter `prouve: [id, …]` listant les principes illustrés.
+- `type: principe` -> sections *Principle*, *Why it matters*, *How to apply it*,
+  *Watch out* (the last one is optional).
+- `type: cas` -> sections *Context*, *What was done*, *Result*, **plus** a frontmatter
+  field `prouve: [id, ...]` listing the principles it illustrates.
 
-### Champs du frontmatter
+### Frontmatter fields
 
-La liste complète, les valeurs autorisées et les règles de validation sont **dans le
-schéma** : [`src/content/schema.mjs`](src/content/schema.mjs). Ne pas le dupliquer ici —
-c'est lui qui fait autorité. En résumé : `id`, `titre`, `type`, `bloc`, `ordre`, `statut`,
-`transverses`, `lang`, `traductions`, `sources` (≥ 1), `verification` (`date` obligatoire),
-`liens`, `portfolio`, `resume` ; `prouve` uniquement pour les `cas`.
+The full list, allowed values, and validation rules live **in the schema**:
+[`src/content/schema.mjs`](src/content/schema.mjs). Do not duplicate them here — the
+schema is the source of truth. In short: `id`, `titre`, `type`, `bloc`, `ordre`,
+`statut`, `transverses`, `lang`, `traductions`, `sources` (>= 1), `verification`
+(`date` required), `liens`, `portfolio`, `resume`; `prouve` only for `cas`.
 
-### Comment `ordre` fonctionne
+### How `ordre` works
 
-Entier positif, **unique à l'intérieur d'un même `bloc`**, repartant de `1` à chaque bloc.
-Il sert à ranger les fiches et à dériver la cote affichée : préfixe du bloc + `ordre` sur
-deux chiffres — `gouvernance` ordre 2 → `GOV·02`. Pour insérer une fiche entre deux
-autres, renuméroter les suivantes du bloc.
+Positive integer, **unique within a `bloc`**, restarting at `1` for each bloc. It orders
+the cards and derives the displayed shelf code: bloc prefix + `ordre` on two digits —
+`gouvernance` ordre 2 -> `GOV·02`. To insert a card between two others, renumber the
+following cards in that bloc.
 
-### Ce qui casse le build si mal rempli
+### What breaks the build if filled in wrong
 
-`npm run check:content` (voir plus bas) refuse de laisser passer, entre autres :
+`npm run check:content` (see below) refuses, among other things:
 
-- `sources` vide, ou une source `nature: externe` sans `url`
-- `verification.date` absent
-- un `id` cité dans `liens` ou `prouve` qui ne correspond à aucune fiche
-- une fiche `type: cas` sans `prouve`, ou une fiche `type: principe` avec un `prouve`
-- `prouve` qui pointe vers autre chose qu'un `principe`
-- `ordre` absent, nul ou négatif ; deux fiches avec le même `ordre` dans un bloc
-- deux fiches avec le même couple `(id, lang)`
+- `sources` empty, or a source with `nature: externe` and no `url`
+- `verification.date` missing
+- an `id` cited in `liens` or `prouve` that matches no card
+- a `type: cas` card without `prouve`, or a `type: principe` card with a `prouve`
+- `prouve` pointing to something other than a `principe`
+- `ordre` missing, zero, or negative; two cards with the same `ordre` in one bloc
+- two cards sharing the same `(id, lang)` pair
 
-Règles d'affichage (ne cassent pas le build) : `statut: brouillon` est visible en dev mais
-exclu du build de production ; une `verification.date` de plus de 6 mois affiche
-automatiquement un badge « à revoir ».
+Display rules (these do not break the build): `statut: brouillon` is visible in dev but
+excluded from the production build; a `verification.date` older than 6 months
+automatically shows a "review" badge.
 
-## Publier une traduction FR ou DE
+## Publish an FR or DE translation later
 
-1. Déposer `src/content/entries/{id}.fr.md` (ou `.de.md`) à côté du `.en.md`, avec le
-   **même `id`** et `lang: fr`. Tant qu'elle n'existe pas, `/fr/…` sert la version EN
-   avec un bandeau ambre « pas encore traduite ».
-2. Quand un premier lot est prêt, ajouter la langue à `LANGUES_PUBLIEES` dans
-   [`src/i18n/ui.ts`](src/i18n/ui.ts) :
+1. Add `src/content/entries/{id}.fr.md` (or `.de.md`) next to the `.en.md`, with the
+   **same `id`** and `lang: fr`. Until it exists, `/fr/...` serves the EN version with
+   an amber "not yet translated" banner.
+2. When a first batch is ready, add the language to `LANGUES_PUBLIEES` in
+   [`src/i18n/ui.ts`](src/i18n/ui.ts):
 
    ```ts
    export const LANGUES_PUBLIEES: readonly Langue[] = ["en", "fr"];
    ```
 
-   La langue devient alors activable dans le sélecteur (au lieu d'être grisée). Les
-   routes `/fr/*` existent déjà dans les deux cas.
+   The language then becomes selectable in the switcher (instead of greyed out). The
+   `/fr/*` routes already exist either way.
 
-Les chaînes d'interface (nav, libellés, bandeau) sont déjà traduites EN/FR/DE dans
-`src/i18n/ui.ts` — seul le contenu des fiches reste à fournir.
+Interface strings (nav, labels, banner) are already translated EN/FR/DE in
+`src/i18n/ui.ts` — only the card content remains to be supplied.
 
-## `npm run build` et `npm run check:content`
+## `npm run build` and `npm run check:content`
 
-| Commande | Rôle |
+| Command | Purpose |
 |---|---|
-| `npm run check:content` | Valide tous les `.md` : schéma Zod par fiche + intégrité inter-fiches (liens croisés, unicité `ordre`/`id`). Messages en clair, en français. |
-| `npm run check:content:self-test` | Vérifie que chaque règle ci-dessus casse bien la validation (fixtures internes, aucune fiche modifiée). |
-| `npm run build` | `check:content` → `astro check` (types) → `astro build`. Le build échoue si l'une des trois étapes échoue. |
-| `npm run preview` | Sert `dist/` localement sous `/ai-manager-toolkit/` (rendu identique à la prod). |
+| `npm run check:content` | Validates every `.md`: per-card Zod schema + cross-card integrity (cross-links, `ordre`/`id` uniqueness). Plain-language messages. |
+| `npm run check:content:self-test` | Checks that each rule above actually fails validation (internal fixtures, no card touched). |
+| `npm run build` | `check:content` -> `astro check` (types) -> `astro build`. The build fails if any of the three steps fails. |
+| `npm run preview` | Serves `dist/` locally under `/ai-manager-toolkit/` (identical to production). |
 
-**Lire un échec de `check:content` :** la sortie liste chaque fichier fautif suivi de ses
-erreurs indentées, par exemple :
+**Reading a `check:content` failure:** the output lists each offending file followed by
+its errors, indented — for example:
 
 ```
-✖ Validation du contenu — 2 erreur(s)
+✖ Content validation — 2 error(s)
 
-  src/content/entries/evl-nouvelle-fiche.en.md
-    - sources — au moins une source est obligatoire
-    - prouve → « gov-inexistant » ne correspond à aucune fiche
+  src/content/entries/evl-new-card.en.md
+    - sources — at least one source is required
+    - prouve -> "gov-missing" matches no card
 
-Le build est interrompu.
+Build interrupted.
 ```
 
-Corriger le frontmatter du fichier nommé, relancer. `astro check` signale de son côté les
-erreurs de types dans les composants (`.astro` / `.ts`), pas dans le contenu.
+Fix the frontmatter of the named file, run again. `astro check` separately reports type
+errors in components (`.astro` / `.ts`), not in content.
 
-## Déploiement
+## Deployment
 
-Push sur `main` → GitHub Actions build et publie sur GitHub Pages. Prérequis côté dépôt :
-**Settings → Pages → Source : GitHub Actions**.
+Push to `main` -> GitHub Actions builds and publishes to GitHub Pages. Repo prerequisite:
+**Settings -> Pages -> Source: GitHub Actions**.

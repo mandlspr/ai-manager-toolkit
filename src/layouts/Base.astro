@@ -8,7 +8,7 @@ import { BLOC_ORDER } from "../lib/entries";
 interface Props {
   lang: Langue;
   titre: string;
-  chemin: string; // chemin locale-neutre de la page courante (ex. /gouvernance/)
+  chemin: string; // locale-neutral path of the current page (e.g. /gouvernance/)
   description?: string;
 }
 
@@ -79,7 +79,7 @@ const actif = (match: string) =>
     </footer>
 
     <script>
-      // Raccourci « / » : focus la recherche. « Échap » : efface (brief §5).
+      // "/" shortcut: focus the search field. "Esc": clear it (brief §5).
       document.addEventListener("keydown", (e) => {
         const input = document.querySelector<HTMLInputElement>(
           "[data-search-input]",

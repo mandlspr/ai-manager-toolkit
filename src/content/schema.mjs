@@ -1,16 +1,16 @@
-// Schéma de contenu — source de vérité : BRIEF_BUILD_Toolkit.md, section 3.
+// Content schema — source of truth: BRIEF_BUILD_Toolkit.md, section 3.
 //
-// Ce fichier est volontairement en JS (pas TS) et n'importe QUE `zod` :
-// il est partagé tel quel par
-//   - src/content.config.ts        (validation native Astro au build / `astro sync`)
-//   - scripts/check-content.mjs     (portail de validation qui casse `npm run build`)
+// This file is intentionally JS (not TS) and imports ONLY `zod`:
+// it is shared as-is by
+//   - src/content.config.ts        (native Astro validation at build / `astro sync`)
+//   - scripts/check-content.mjs     (validation gate that fails `npm run build`)
 //
-// Toute règle « le build échoue si … » du brief (section 3) est implémentée ici
-// ou dans la passe d'intégrité inter-fiches ci-dessous.
+// Every "the build fails if ..." rule from the brief (section 3) is implemented
+// here or in the cross-card integrity pass below.
 
 import { z } from "zod";
 
-// --- énumérations du brief ---------------------------------------------------
+// --- brief enumerations ----------------------------------------------------
 
 export const BLOCS = ["gouvernance", "prompts", "build", "evaluation", "cas"];
 export const TYPES = ["principe", "cas"];
@@ -20,7 +20,7 @@ export const LANGS = ["fr", "de", "en"];
 export const NATURES_SOURCE = ["projet", "notebook", "playbook", "externe"];
 export const PORTFOLIO = ["oui", "non", "pas-encore"];
 
-// --- sous-schéma : une source ---------------------------------------------------
+// --- sub-schema: a single source -----------------------------------------------
 
 const sourceSchema = z
   .object({
@@ -28,43 +28,43 @@ const sourceSchema = z
     emplacement: z.string().min(1),
     date_document: z.coerce.date(),
     nature: z.enum(NATURES_SOURCE),
-    // `url` obligatoire uniquement si nature = externe (vérifié plus bas).
+    // `url` is required only when nature = externe (checked further down).
     url: z.string().url().nullable().default(null),
   })
   .strict();
 
-// --- sous-schéma : vérification ------------------------------------------------
+// --- sub-schema: verification ------------------------------------------------
 
 const verificationSchema = z
   .object({
-    // Règle brief : le build échoue si `verification.date` est absent.
+    // Brief rule: the build fails if `verification.date` is missing.
     date: z.coerce.date({
-      required_error: "verification.date est obligatoire",
-      invalid_type_error: "verification.date doit être une date (AAAA-MM-JJ)",
+      required_error: "verification.date is required",
+      invalid_type_error: "verification.date must be a date (YYYY-MM-DD)",
     }),
     par: z.string().min(1),
-    // Texte si un angle mort connu subsiste, sinon null.
+    // Text if a known blind spot remains, otherwise null.
     perimetre_limite: z.string().min(1).nullable().default(null),
   })
   .strict();
 
-// --- schéma principal d'une fiche --------------------------------------------
+// --- main card schema ------------------------------------------------------
 
 export const entryFrontmatterSchema = z
   .object({
-    // id stable, jamais renommé — les liens croisés en dépendent.
+    // Stable id, never renamed — cross-links depend on it.
     id: z
       .string()
       .min(1)
       .regex(
         /^[a-z0-9]+(-[a-z0-9]+)*$/,
-        "id en kebab-case minuscule (ex. gov-double-test)",
+        "id must be lowercase kebab-case (e.g. gov-double-test)",
       ),
     titre: z.string().min(1),
     type: z.enum(TYPES),
     bloc: z.enum(BLOCS),
     ordre: z.coerce.number().int().positive({
-      message: "ordre doit être un entier positif (unique par bloc)",
+      message: "ordre must be a positive integer (unique per bloc)",
     }),
     statut: z.enum(STATUTS),
     transverses: z.array(z.enum(TRANSVERSES)).default([]),
@@ -73,17 +73,17 @@ export const entryFrontmatterSchema = z
 
     sources: z
       .array(sourceSchema)
-      // Règle brief : le build échoue si `sources` est vide.
-      .min(1, "au moins une source est obligatoire"),
+      // Brief rule: the build fails if `sources` is empty.
+      .min(1, "at least one source is required"),
 
     verification: verificationSchema,
 
-    // Liens croisés (ids de fiches). L'existence des ids est vérifiée par la
-    // passe d'intégrité inter-fiches (checkCrossReferences), pas ici : le schéma
-    // par-fiche n'a pas connaissance de la collection complète.
+    // Cross-links (card ids). Whether the ids exist is checked by the
+    // cross-card integrity pass (checkCrossReferences), not here: the per-card
+    // schema has no knowledge of the full collection.
     liens: z.array(z.string().min(1)).default([]),
 
-    // Présent UNIQUEMENT pour type: cas — ids des principes illustrés.
+    // Present ONLY for type: cas — ids of the principles it illustrates.
     prouve: z.array(z.string().min(1)).optional(),
 
     portfolio: z.enum(PORTFOLIO),
@@ -91,74 +91,74 @@ export const entryFrontmatterSchema = z
   })
   .strict()
   .superRefine((data, ctx) => {
-    // Règle brief : une source `externe` doit avoir une `url`.
+    // Brief rule: an `externe` source must have a `url`.
     data.sources.forEach((s, i) => {
       if (s.nature === "externe" && !s.url) {
         ctx.addIssue({
           code: z.ZodIssueCode.custom,
           path: ["sources", i, "url"],
-          message: "url obligatoire quand nature = externe",
+          message: "url is required when nature = externe",
         });
       }
     });
 
-    // Règle brief : une fiche `type: cas` DOIT avoir un champ `prouve` non vide.
+    // Brief rule: a `type: cas` card MUST have a non-empty `prouve` field.
     if (data.type === "cas") {
       if (!Array.isArray(data.prouve) || data.prouve.length === 0) {
         ctx.addIssue({
           code: z.ZodIssueCode.custom,
           path: ["prouve"],
           message:
-            "une fiche type: cas doit déclarer `prouve` (ids des principes illustrés)",
+            "a type: cas card must declare `prouve` (ids of the principles it illustrates)",
         });
       }
     }
 
-    // Règle brief : une fiche `type: principe` NE DOIT PAS avoir de champ `prouve`.
+    // Brief rule: a `type: principe` card MUST NOT have a `prouve` field.
     if (data.type === "principe" && data.prouve !== undefined) {
       ctx.addIssue({
         code: z.ZodIssueCode.custom,
         path: ["prouve"],
-        message: "une fiche type: principe ne peut pas porter de champ `prouve`",
+        message: "a type: principe card cannot carry a `prouve` field",
       });
     }
   });
 
-// --- intégrité inter-fiches -------------------------------------------------------
+// --- cross-card integrity -----------------------------------------------------
 //
-// Prend la liste des fiches déjà validées individuellement et vérifie ce que le
-// schéma par-fiche ne peut pas voir. Retourne un tableau d'erreurs
-// { fiche, message } ; vide = OK.
+// Takes the list of cards already validated individually and checks what the
+// per-card schema cannot see. Returns an array of errors
+// { fiche, message }; empty = OK.
 //
-// `entries` : Array<{ ref: string, data: <frontmatter validé> }>
-//   `ref` sert seulement à situer l'erreur (chemin de fichier, id…).
+// `entries`: Array<{ ref: string, data: <validated frontmatter> }>
+//   `ref` only serves to locate the error (file path, id...).
 
 export function checkCrossReferences(entries) {
   const errors = [];
   const push = (ref, message) => errors.push({ fiche: ref, message });
 
-  // 1. unicité de (id, lang) — un même id est autorisé sur plusieurs langues,
-  //    jamais deux fois sur la même.
+  // 1. uniqueness of (id, lang) — a given id is allowed across several
+  //    languages, never twice on the same one.
   const seen = new Map(); // `${id}::${lang}` -> ref
   for (const { ref, data } of entries) {
     const key = `${data.id}::${data.lang}`;
     if (seen.has(key)) {
-      push(ref, `id « ${data.id} » (lang ${data.lang}) déjà défini dans ${seen.get(key)}`);
+      push(ref, `id "${data.id}" (lang ${data.lang}) already defined in ${seen.get(key)}`);
     } else {
       seen.set(key, ref);
     }
   }
 
-  // 2. unicité de `ordre` par bloc (version FR canonique uniquement).
+  // 2. uniqueness of `ordre` per bloc (canonical EN version only).
   const ordreParBloc = new Map(); // `${bloc}::${ordre}` -> ref
   for (const { ref, data } of entries) {
-    // On ne vérifie l'unicité que sur la version FR canonique.
-    if (data.lang !== "fr") continue;
+    // Uniqueness is only checked on the canonical EN version.
+    if (data.lang !== "en") continue;
     const key = `${data.bloc}::${data.ordre}`;
     if (ordreParBloc.has(key)) {
       push(
         ref,
-        `ordre ${data.ordre} déjà utilisé dans le bloc « ${data.bloc} » (${ordreParBloc.get(key)})`,
+        `ordre ${data.ordre} already used in bloc "${data.bloc}" (${ordreParBloc.get(key)})`,
       );
     } else {
       ordreParBloc.set(key, ref);
@@ -166,27 +166,27 @@ export function checkCrossReferences(entries) {
   }
 
   const idsConnus = new Set(entries.map((e) => e.data.id));
-  // Map id -> type pour vérifier que `prouve` pointe vers des principes
+  // Map id -> type, to check that `prouve` points to principles.
   const typeParId = new Map(entries.map((e) => [e.data.id, e.data.type]));
 
-  // 3. tout id cité dans `liens` doit correspondre à une fiche existante.
+  // 3. every id cited in `liens` must match an existing card.
   for (const { ref, data } of entries) {
     for (const cible of data.liens ?? []) {
       if (!idsConnus.has(cible)) {
-        push(ref, `liens → « ${cible} » ne correspond à aucune fiche`);
+        push(ref, `liens -> "${cible}" matches no card`);
       }
     }
 
-    // 4. tout id cité dans `prouve` doit :
-    //    a) correspondre à une fiche existante
-    //    b) être une fiche `type: principe`
+    // 4. every id cited in `prouve` must:
+    //    a) match an existing card
+    //    b) be a `type: principe` card
     for (const cible of data.prouve ?? []) {
       if (!idsConnus.has(cible)) {
-        push(ref, `prouve → « ${cible} » ne correspond à aucune fiche`);
+        push(ref, `prouve -> "${cible}" matches no card`);
       } else if (typeParId.get(cible) !== "principe") {
         push(
           ref,
-          `prouve → « ${cible} » n'est pas une fiche type: principe (c'est un ${typeParId.get(cible)})`,
+          `prouve -> "${cible}" is not a type: principe card (it is a ${typeParId.get(cible)})`,
         );
       }
     }

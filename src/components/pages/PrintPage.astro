@@ -21,8 +21,8 @@ const { lang } = Astro.props;
 const tt = T[lang];
 const lx = (p: string) => cheminLocalise(lang, p);
 
-// Une seule page : toutes les fiches canoniques publiées, pas de pagination.
-// Base du futur export e-book PDF — un seul contenu, deux rendus.
+// A single page: every published canonical card, no pagination.
+// Basis for the future PDF e-book export — one content, two renderings.
 const all = await getCanonicalEntries();
 
 const rendus = await Promise.all(
@@ -192,7 +192,7 @@ const ax = (k: string) => tt.optAxe[k as keyof typeof tt.optAxe];
 </Base>
 
 <style is:global>
-  /* Rendu écran — mêmes tokens et classes que le reste du site. */
+  /* Screen rendering — same tokens and classes as the rest of the site. */
   .impression {
     max-width: 44rem;
   }

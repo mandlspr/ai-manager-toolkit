@@ -8,9 +8,9 @@ import {
 
 export type Entry = CollectionEntry<"entries">;
 
-// Repères de bloc language-neutral (brief §2, §6) : le préfixe de cote.
-// L'icône est rendue par src/components/BlocIcon.astro (line-art monochrome).
-// Les libellés et descriptions traduits vivent dans i18n/ui.ts.
+// Language-neutral bloc markers (brief §2, §6): the shelf-code prefix.
+// The icon is rendered by src/components/BlocIcon.astro (monochrome line-art).
+// Translated labels and descriptions live in i18n/ui.ts.
 export const BLOCS = {
   gouvernance: { prefixe: "GOV" },
   prompts: { prefixe: "PRM" },
@@ -29,8 +29,8 @@ export const BLOC_ORDER = [
   "cas",
 ] as const satisfies readonly BlocId[];
 
-// Le schéma de contenu est déclaré en JS (schema.mjs) : Astro type `bloc` comme
-// `string`. Ces accès recentrent le typage sans `any`.
+// The content schema is declared in JS (schema.mjs), so Astro types `bloc` as
+// `string`. These accessors narrow the typing without `any`.
 export function blocMeta(bloc: string) {
   return BLOCS[bloc as BlocId];
 }
@@ -45,8 +45,8 @@ export function blocDescription(lang: Langue, bloc: string): string {
 }
 
 /**
- * Fiches visibles. Règle d'affichage du brief §3 : `statut: brouillon` est
- * visible en dev mais exclu du build de production.
+ * Visible cards. Display rule from brief §3: `statut: brouillon` is visible in
+ * dev but excluded from the production build.
  */
 export async function getPublishedEntries(): Promise<Entry[]> {
   const all = await getCollection("entries");
@@ -60,16 +60,16 @@ export async function getPublishedEntries(): Promise<Entry[]> {
   );
 }
 
-/** Fiches canoniques (EN) publiées — la référence pour toutes les langues. */
+/** Published canonical (EN) cards — the reference for every language. */
 export async function getCanonicalEntries(): Promise<Entry[]> {
   const all = await getPublishedEntries();
   return all.filter((e) => e.data.lang === LANGUE_CANONIQUE);
 }
 
 /**
- * Résout la fiche à servir pour `canonicalId` dans `lang`. Si aucune version
- * traduite n'existe, renvoie la version canonique (EN) avec `translated: false`
- * — le bandeau de bascule visible s'appuie là-dessus. Jamais de 404.
+ * Resolves the card to serve for `canonicalId` in `lang`. If no translated
+ * version exists, returns the canonical (EN) version with `translated: false`
+ * — the visible switch banner relies on this. Never a 404.
  */
 export function resolveEntry(
   canonicalId: string,
@@ -83,13 +83,13 @@ export function resolveEntry(
   const canonique = published.find(
     (e) => e.data.id === canonicalId && e.data.lang === LANGUE_CANONIQUE,
   );
-  // canonique existe toujours (getStaticPaths est bâti dessus)
+  // the canonical always exists (getStaticPaths is built from it)
   return { entry: canonique as Entry, translated: false };
 }
 
 /**
- * Taux de complétion par langue, calculé depuis les fiches réellement présentes.
- * Dénominateur = nombre de fiches canoniques (EN).
+ * Completion rate per language, computed from the cards actually present.
+ * Denominator = number of canonical (EN) cards.
  */
 export async function completionParLangue(): Promise<
   Record<Langue, { fait: number; total: number }>
@@ -103,14 +103,14 @@ export async function completionParLangue(): Promise<
   return out;
 }
 
-/** Cote de rangement : préfixe du bloc + ordre sur deux chiffres (ex. GOV·02). */
+/** Shelf code: bloc prefix + ordre on two digits (e.g. GOV·02). */
 export function cote(e: Entry): string {
   return `${blocMeta(e.data.bloc).prefixe}·${String(e.data.ordre).padStart(2, "0")}`;
 }
 
 /**
- * Badge « à revoir » calculé automatiquement (brief §3) : vérification de plus
- * de 6 mois.
+ * "Review" badge, computed automatically (brief §3): verification older than
+ * 6 months.
  */
 export function aReVoir(date: Date, now: Date = new Date()): boolean {
   const seuil = new Date(now);
@@ -129,9 +129,9 @@ export function fmtDate(d: Date, lang: Langue = LANGUE_CANONIQUE): string {
   );
 }
 
-// --- liens croisés bidirectionnels ------------------------------------------
-// Le lien inverse (principe → cas qui le prouvent) est CALCULÉ, jamais saisi
-// dans le frontmatter (brief §5).
+// --- bidirectional cross-links ---------------------------------------------
+// The inverse link (principe -> cases that prove it) is COMPUTED, never entered
+// in the frontmatter (brief §5).
 
 export function casQuiProuvent(principe: Entry, all: Entry[]): Entry[] {
   return all.filter(

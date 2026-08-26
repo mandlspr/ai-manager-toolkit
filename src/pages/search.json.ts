@@ -1,7 +1,7 @@
 import type { APIRoute } from "astro";
 import { getPublishedEntries, cote } from "../lib/entries";
 
-/** Réduit le Markdown à du texte brut cherchable (titre/résumé/corps — brief §5). */
+/** Reduces Markdown to plain searchable text (title/summary/body — brief §5). */
 function toText(md: string): string {
   return md
     .replace(/<!--[\s\S]*?-->/g, " ")
@@ -12,8 +12,8 @@ function toText(md: string): string {
     .trim();
 }
 
-// Index de recherche généré au build. Aucun service externe : le client le
-// télécharge une fois et filtre côté navigateur.
+// Search index generated at build time. No external service: the client
+// downloads it once and filters in the browser.
 export const GET: APIRoute = async () => {
   const entries = await getPublishedEntries();
   const rows = entries.map((e) => ({

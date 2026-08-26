@@ -8,12 +8,12 @@ import {
   type Langue,
 } from "../i18n/ui";
 
-// Sélecteur de langue + taux de complétion par langue (calculé, jamais codé en
-// dur). Les langues hors LANGUES_PUBLIEES sont montrées mais grisées : leurs
-// routes existent et restent accessibles en direct.
+// Language switcher + per-language completion rate (computed, never hard-coded).
+// Languages outside LANGUES_PUBLIEES are shown but greyed out: their routes
+// exist and stay reachable directly.
 interface Props {
   lang: Langue;
-  chemin: string; // chemin locale-neutre de la page courante
+  chemin: string; // locale-neutral path of the current page
   completion: Record<Langue, { fait: number; total: number }>;
 }
 const { lang, chemin, completion } = Astro.props;

@@ -1,9 +1,9 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 
-// Étape 6 — déploiement GitHub Pages (mandlspr.github.io/ai-manager-toolkit).
-// Tous les liens internes passent par `import.meta.env.BASE_URL` via l'helper
-// `cheminLocalise` (src/i18n/ui.ts) et le script du catalogue.
+// GitHub Pages deployment (mandlspr.github.io/ai-manager-toolkit).
+// Every internal link goes through `import.meta.env.BASE_URL` via the
+// `cheminLocalise` helper (src/i18n/ui.ts) and the catalogue script.
 export default defineConfig({
   site: "https://mandlspr.github.io",
   base: "/ai-manager-toolkit",
