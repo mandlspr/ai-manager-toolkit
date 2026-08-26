@@ -31,46 +31,53 @@ const { entries, all, seedBloc } = Astro.props;
       />
     </div>
     <div class="facettes">
-      <label>
-        Bloc
-        <select name="bloc">
-          <option value="">Tous</option>
+      <div class="facette" data-facette="bloc" data-mode="single" aria-label="Bloc">
+        <span class="facette-label">Bloc</span>
+        <div class="pastilles">
           {
             Object.entries(BLOCS).map(([k, v]) => (
-              <option value={k}>{v.label}</option>
+              <button
+                type="button"
+                class="pastille"
+                data-value={k}
+                aria-pressed="false"
+              >
+                {v.label}
+              </button>
             ))
           }
-        </select>
-      </label>
-      <label>
-        Type
-        <select name="type">
-          <option value="">Tous</option>
-          <option value="principe">Principe</option>
-          <option value="cas">Cas</option>
-        </select>
-      </label>
-      <label>
-        Statut
-        <select name="statut">
-          <option value="">Tous</option>
-          <option value="valide">valide</option>
-          <option value="a-resourcer">a-resourcer</option>
-          <option value="brouillon">brouillon</option>
-        </select>
-      </label>
-      <fieldset class="axes">
-        <legend>Axes transversaux</legend>
-        <label><input type="checkbox" name="transverse" value="cout" /> coût</label
-        >
-        <label
-          ><input type="checkbox" name="transverse" value="hitl" /> HITL</label
-        >
-        <label
-          ><input type="checkbox" name="transverse" value="tracabilite" /> traçabilité</label
-        >
-      </fieldset>
-      <button type="button" data-reset>Réinitialiser</button>
+        </div>
+      </div>
+
+      <div class="facette" data-facette="type" data-mode="single" aria-label="Type">
+        <span class="facette-label">Type</span>
+        <div class="pastilles">
+          <button type="button" class="pastille" data-value="principe" aria-pressed="false">Principe</button>
+          <button type="button" class="pastille" data-value="cas" aria-pressed="false">Cas</button>
+        </div>
+      </div>
+
+      <div class="facette" data-facette="statut" data-mode="single" aria-label="Statut">
+        <span class="facette-label">Statut</span>
+        <div class="pastilles">
+          <button type="button" class="pastille" data-value="valide" aria-pressed="false">valide</button>
+          <button type="button" class="pastille" data-value="a-resourcer" aria-pressed="false">a-resourcer</button>
+          <button type="button" class="pastille" data-value="brouillon" aria-pressed="false">brouillon</button>
+        </div>
+      </div>
+
+      <div class="facette" data-facette="transverse" data-mode="multi" aria-label="Axes transversaux">
+        <span class="facette-label">Axes transversaux</span>
+        <div class="pastilles">
+          <button type="button" class="pastille" data-value="cout" aria-pressed="false">coût</button>
+          <button type="button" class="pastille" data-value="hitl" aria-pressed="false">HITL</button>
+          <button type="button" class="pastille" data-value="tracabilite" aria-pressed="false">traçabilité</button>
+        </div>
+      </div>
+
+      <button type="button" class="pastille pastille-reset" data-reset>
+        Réinitialiser
+      </button>
     </div>
   </form>
 

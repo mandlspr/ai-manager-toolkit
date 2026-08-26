@@ -62,29 +62,50 @@ export async function initCatalogue(): Promise<void> {
   const byId = new Map(rows.map((r) => [r.id, r]));
 
   const q = form.querySelector<HTMLInputElement>("[name=q]");
-  const selBloc = form.querySelector<HTMLSelectElement>("[name=bloc]");
-  const selType = form.querySelector<HTMLSelectElement>("[name=type]");
-  const selStatut = form.querySelector<HTMLSelectElement>("[name=statut]");
-  const axes = Array.from(
-    form.querySelectorAll<HTMLInputElement>("[name=transverse]"),
+  if (!q) return;
+
+  // Pastilles de filtre (remplacent les <select>/<checkbox> natifs).
+  const pastilles = Array.from(
+    form.querySelectorAll<HTMLButtonElement>(".pastille[data-value]"),
   );
-  if (!q || !selBloc || !selType || !selStatut) return;
+  const facetteDe = (b: HTMLElement): string =>
+    b.closest<HTMLElement>("[data-facette]")?.dataset.facette ?? "";
+  const modeDe = (name: string): string =>
+    form.querySelector<HTMLElement>(`[data-facette="${name}"]`)?.dataset.mode ??
+    "single";
+  const setPresse = (b: HTMLButtonElement, on: boolean): void =>
+    b.setAttribute("aria-pressed", on ? "true" : "false");
+  const actifs = (name: string): string[] =>
+    pastilles
+      .filter(
+        (b) =>
+          facetteDe(b) === name && b.getAttribute("aria-pressed") === "true",
+      )
+      .map((b) => b.dataset.value ?? "");
+  const appliquer = (name: string, values: string[]): void => {
+    const s = new Set(values);
+    pastilles
+      .filter((b) => facetteDe(b) === name)
+      .forEach((b) => setPresse(b, s.has(b.dataset.value ?? "")));
+  };
 
   // hydratation depuis l'URL (le query param l'emporte sur le bloc de la page)
   const p = new URLSearchParams(location.search);
   q.value = p.get("q") ?? "";
-  selBloc.value = p.get("bloc") ?? seedBloc;
-  selType.value = p.get("type") ?? "";
-  selStatut.value = p.get("statut") ?? "";
-  const axesActifs = new Set(p.getAll("transverse"));
-  axes.forEach((a) => (a.checked = axesActifs.has(a.value)));
+  appliquer(
+    "bloc",
+    p.has("bloc") ? p.getAll("bloc") : seedBloc ? [seedBloc] : [],
+  );
+  appliquer("type", p.getAll("type"));
+  appliquer("statut", p.getAll("statut"));
+  appliquer("transverse", p.getAll("transverse"));
 
   const lire = (): Filtres => ({
     q: q.value.trim().toLowerCase(),
-    bloc: selBloc.value,
-    type: selType.value,
-    statut: selStatut.value,
-    axes: axes.filter((a) => a.checked).map((a) => a.value),
+    bloc: actifs("bloc")[0] ?? "",
+    type: actifs("type")[0] ?? "",
+    statut: actifs("statut")[0] ?? "",
+    axes: actifs("transverse"),
   });
 
   const passe = (r: Row, f: Filtres): boolean => {
@@ -166,21 +187,32 @@ export async function initCatalogue(): Promise<void> {
     if (t) clearTimeout(t);
     t = setTimeout(rendre, 120);
   });
-  [selBloc, selType, selStatut, ...axes].forEach((el) =>
-    el.addEventListener("change", rendre),
-  );
-  form.addEventListener("submit", (e) => e.preventDefault());
-  form.querySelector<HTMLButtonElement>("[data-reset]")?.addEventListener(
-    "click",
-    () => {
-      q.value = "";
-      selBloc.value = "";
-      selType.value = "";
-      selStatut.value = "";
-      axes.forEach((a) => (a.checked = false));
+
+  pastilles.forEach((btn) =>
+    btn.addEventListener("click", () => {
+      const name = facetteDe(btn);
+      const presse = btn.getAttribute("aria-pressed") === "true";
+      if (modeDe(name) === "single") {
+        // groupe à choix unique : un clic sur la pastille active la désactive
+        pastilles
+          .filter((b) => facetteDe(b) === name)
+          .forEach((b) => setPresse(b, false));
+        setPresse(btn, !presse);
+      } else {
+        setPresse(btn, !presse);
+      }
       rendre();
-    },
+    }),
   );
+
+  form.addEventListener("submit", (e) => e.preventDefault());
+  form
+    .querySelector<HTMLButtonElement>("[data-reset]")
+    ?.addEventListener("click", () => {
+      q.value = "";
+      pastilles.forEach((b) => setPresse(b, false));
+      rendre();
+    });
 
   rendre();
 }

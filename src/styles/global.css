@@ -1,27 +1,27 @@
 /* AI Manager Toolkit — feuille unique.
-   Direction visuelle brief §6 : sobre, dense, lisible. Serif de lecture pour le
-   corps, sans-serif pour l'interface, monospace pour métadonnées et cotes.
-   Pas de dégradé, pas de carte flottante, pas d'animation décorative. */
+   Direction visuelle brief §6. Palette et typographie imposées.
+   Pas de dégradé, pas d'ombre portée, pas de carte flottante, aucune animation
+   décorative. Densité assumée, hiérarchie typographique nette.
+   Polices chargées via <link> Google Fonts dans src/layouts/Base.astro. */
 
 :root {
-  --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica,
+  /* trois rôles typographiques distincts */
+  --titre: "Archivo", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
     Arial, sans-serif;
-  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua",
-    Georgia, Cambria, "Times New Roman", serif;
-  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
-    "Liberation Mono", monospace;
+  --corps: "Newsreader", Georgia, Cambria, "Times New Roman", serif;
+  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas,
+    monospace;
 
-  --paper: #faf9f6;
-  --panel: #ffffff;
-  --ink: #1c1e21;
-  --ink-2: #45484d;
-  --ink-3: #6d7176;
-  --rule: #ddd9d1;
-  --rule-strong: #b7b2a6;
-  --signal: #f4c20d;
-  --signal-line: #7a5c05;
-  --link: #14508c;
-  --danger: #8f3617;
+  /* palette — hex exacts */
+  --fond: #f4f2fa;
+  --encre: #171522;
+  --accent: #5a3fd6;
+  --accent-clair: #ede9fb;
+  --gris-meta: #6b6875;
+  --bordure: #d8d5e0;
+  --valide: #3e6b4f;
+  --ambre: #b08a2e;
+  --blanc: #ffffff;
 
   --wrap: 66rem;
 }
@@ -36,32 +36,38 @@ html {
 
 body {
   margin: 0;
-  background: var(--paper);
-  color: var(--ink);
-  font-family: var(--serif);
-  line-height: 1.6;
+  background: var(--fond);
+  color: var(--encre);
+  font-family: var(--corps);
+  line-height: 1.62;
   -webkit-text-size-adjust: 100%;
-}
-
-a {
-  color: var(--link);
-  text-underline-offset: 2px;
-}
-a:hover {
-  text-decoration-thickness: 2px;
 }
 
 h1,
 h2,
 h3,
 h4 {
-  font-family: var(--sans);
-  line-height: 1.25;
-  color: var(--ink);
+  font-family: var(--titre);
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--encre);
+}
+h2,
+h3,
+h4 {
+  font-weight: 700;
+}
+
+a {
+  color: var(--accent);
+  text-underline-offset: 2px;
+}
+a:hover {
+  text-decoration-thickness: 2px;
 }
 
 :focus-visible {
-  outline: 3px solid var(--signal-line);
+  outline: 3px solid var(--accent);
   outline-offset: 2px;
 }
 
@@ -72,17 +78,17 @@ h4 {
 .skip:focus {
   left: 0.5rem;
   top: 0.5rem;
-  background: var(--panel);
+  background: var(--blanc);
   padding: 0.5rem 0.75rem;
-  border: 2px solid var(--ink);
+  border: 2px solid var(--encre);
   z-index: 10;
 }
 
-/* --- ossature ------------------------------------------------------------- */
+/* --- ossature ---------------------------------------------------------- */
 
 .site-header {
-  border-bottom: 2px solid var(--ink);
-  background: var(--paper);
+  border-bottom: 1px solid var(--bordure);
+  background: var(--fond);
 }
 .site-header-inner,
 main,
@@ -95,35 +101,39 @@ main,
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  gap: 0.5rem 1.5rem;
-  padding-top: 0.9rem;
-  padding-bottom: 0.9rem;
+  gap: 0.5rem 1.75rem;
+  padding-top: 0.95rem;
+  padding-bottom: 0.95rem;
 }
 .wordmark {
   font-family: var(--mono);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  font-size: 0.95rem;
-  color: var(--ink);
+  font-size: 0.9rem;
+  color: var(--encre);
   text-decoration: none;
 }
 .site-nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.25rem 1rem;
-  font-family: var(--sans);
+  gap: 0.25rem 1.1rem;
+  font-family: var(--titre);
+  font-weight: 600;
   font-size: 0.9rem;
 }
 .site-nav a {
-  color: var(--ink-2);
+  color: var(--gris-meta);
   text-decoration: none;
-  padding-bottom: 2px;
+  padding-bottom: 3px;
   border-bottom: 2px solid transparent;
 }
+.site-nav a:hover {
+  color: var(--encre);
+}
 .site-nav a[aria-current="page"] {
-  color: var(--ink);
-  border-bottom-color: var(--signal);
+  color: var(--encre);
+  border-bottom-color: var(--accent);
 }
 
 main {
@@ -132,35 +142,40 @@ main {
 }
 
 .site-footer {
-  border-top: 1px solid var(--rule);
-  font-family: var(--sans);
-  font-size: 0.85rem;
-  color: var(--ink-3);
+  border-top: 1px solid var(--bordure);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--gris-meta);
 }
 .site-footer-inner {
   padding-top: 1.25rem;
   padding-bottom: 1.75rem;
 }
+.site-footer a {
+  color: var(--gris-meta);
+}
 
 .fil {
-  font-family: var(--sans);
-  font-size: 0.82rem;
-  color: var(--ink-3);
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.02em;
+  color: var(--gris-meta);
   margin: 0 0 1rem;
 }
 .fil a {
-  color: var(--ink-3);
+  color: var(--gris-meta);
 }
 
-/* --- accueil ------------------------------------------------------------- */
+/* --- accueil --------------------------------------------------------- */
 
 .accueil h1 {
-  font-size: 2rem;
-  margin: 0 0 0.5rem;
+  font-size: 2.1rem;
+  margin: 0 0 0.6rem;
 }
 .accueil .intro {
   max-width: 42rem;
   margin: 0 0 2rem;
+  font-size: 1.1rem;
 }
 .blocs-grille {
   list-style: none;
@@ -171,254 +186,298 @@ main {
   gap: 0.9rem;
 }
 .bloc-carte {
-  background: var(--panel);
-  border: 1px solid var(--rule-strong);
+  background: var(--blanc);
+  border: 1px solid var(--bordure);
+  border-radius: 6px;
 }
 .bloc-carte a {
   display: grid;
-  gap: 0.35rem;
+  gap: 0.4rem;
   padding: 1.1rem 1.15rem 1.25rem;
   height: 100%;
   text-decoration: none;
-  color: var(--ink);
+  color: var(--encre);
 }
 .bloc-carte a:hover {
-  background: #fffdf3;
+  background: var(--accent-clair);
 }
 .bloc-marqueur {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
 }
 .bloc-carte-titre {
-  font-family: var(--sans);
+  font-family: var(--titre);
   font-weight: 700;
+  font-size: 1.02rem;
 }
 .bloc-carte-compte {
   font-family: var(--mono);
-  font-size: 0.8rem;
-  color: var(--ink-3);
+  font-size: 0.76rem;
+  color: var(--gris-meta);
 }
 .bloc-carte-desc {
-  font-size: 0.9rem;
-  color: var(--ink-2);
+  font-family: var(--corps);
+  font-size: 0.95rem;
+  color: var(--gris-meta);
 }
 .accueil-lien {
-  font-family: var(--sans);
-  font-size: 0.9rem;
+  font-family: var(--titre);
+  font-weight: 600;
+  font-size: 0.92rem;
 }
 
-/* --- page bloc + catalogue -------------------------------------------------- */
+/* --- page bloc ------------------------------------------------------ */
 
 .bloc-page h1,
 .fiche-tete h1 {
-  font-size: 1.6rem;
-  margin: 0 0 0.35rem;
+  font-size: 1.7rem;
+  margin: 0 0 0.4rem;
+}
+.bloc-marqueur {
+  margin-right: 0.35rem;
 }
 .bloc-desc {
-  color: var(--ink-2);
+  font-family: var(--corps);
+  font-style: italic;
+  color: var(--gris-meta);
   margin: 0 0 1.75rem;
+  max-width: 44rem;
 }
 
+/* --- filtres : pastilles cumulables -------------------------------- */
+
 .filtres {
-  border: 1px solid var(--rule-strong);
-  background: var(--panel);
-  padding: 1rem 1.1rem 1.1rem;
-  margin-bottom: 1.25rem;
-  font-family: var(--sans);
-  font-size: 0.9rem;
+  border: 1px solid var(--bordure);
+  background: var(--blanc);
+  border-radius: 6px;
+  padding: 1.1rem 1.15rem 1.2rem;
+  margin-bottom: 1.4rem;
 }
 .champ-recherche {
   display: grid;
-  gap: 0.3rem;
-  margin-bottom: 0.9rem;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
 }
 .champ-recherche label {
-  font-weight: 700;
-  font-size: 0.8rem;
+  font-family: var(--mono);
+  font-weight: 500;
+  font-size: 0.66rem;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--ink-3);
+  letter-spacing: 0.09em;
+  color: var(--gris-meta);
 }
 .filtres input[type="search"] {
   width: 100%;
-  font: inherit;
-  padding: 0.5rem 0.6rem;
-  border: 1px solid var(--rule-strong);
-  background: var(--paper);
+  font-family: var(--titre);
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--bordure);
+  border-radius: 6px;
+  background: var(--fond);
+  color: var(--encre);
 }
+.filtres input[type="search"]::placeholder {
+  color: var(--gris-meta);
+}
+
 .facettes {
+  display: grid;
+  gap: 0.65rem;
+}
+.facette {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.9rem 1.25rem;
-  align-items: end;
+  align-items: baseline;
+  gap: 0.4rem 0.7rem;
 }
-.facettes > label {
-  display: grid;
-  gap: 0.25rem;
-  font-size: 0.82rem;
-  color: var(--ink-2);
-}
-.facettes select {
-  font: inherit;
-  padding: 0.35rem 0.4rem;
-  border: 1px solid var(--rule-strong);
-  background: var(--paper);
-}
-.axes {
-  border: 1px solid var(--rule);
-  margin: 0;
-  padding: 0.4rem 0.7rem 0.55rem;
-}
-.axes legend {
-  font-size: 0.72rem;
+.facette-label {
+  font-family: var(--mono);
+  font-size: 0.64rem;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--ink-3);
-  padding: 0 0.3rem;
+  letter-spacing: 0.09em;
+  color: var(--gris-meta);
+  min-width: 6.5rem;
 }
-.axes label {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  margin-right: 0.8rem;
-  font-size: 0.85rem;
+.pastilles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
 }
-.filtres [data-reset] {
-  font: inherit;
-  font-size: 0.82rem;
-  padding: 0.4rem 0.7rem;
-  border: 1px solid var(--ink-2);
-  background: var(--paper);
-  color: var(--ink-2);
+.pastille {
+  font-family: var(--titre);
+  font-weight: 700;
+  font-size: 0.78rem;
+  line-height: 1;
+  padding: 0.46rem 0.82rem;
+  border: 1px solid var(--bordure);
+  border-radius: 999px;
+  background: var(--blanc);
+  color: var(--gris-meta);
   cursor: pointer;
 }
+.pastille:hover {
+  background: var(--accent-clair);
+  color: var(--accent);
+}
+.pastille[aria-pressed="true"] {
+  background: var(--accent-clair);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.pastille-reset {
+  margin-top: 0.25rem;
+  color: var(--encre);
+}
+.pastille-reset:hover {
+  background: var(--fond);
+  color: var(--encre);
+}
+
+/* --- liste de fiches ---------------------------------------------- */
 
 .resultat-compte {
   font-family: var(--mono);
-  font-size: 0.8rem;
-  color: var(--ink-3);
+  font-size: 0.74rem;
+  letter-spacing: 0.03em;
+  color: var(--gris-meta);
   margin: 0 0 0.5rem;
 }
-
 .liste-fiches {
   list-style: none;
   margin: 0;
   padding: 0;
-  border-top: 1px solid var(--rule);
+  border-top: 1px solid var(--bordure);
 }
 .liste-fiches > li {
-  padding: 1rem 0 1.1rem;
-  border-bottom: 1px solid var(--rule);
+  padding: 1.05rem 0 1.15rem;
+  border-bottom: 1px solid var(--bordure);
 }
 .fiche-lien {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  gap: 0.3rem 0.75rem;
+  gap: 0.4rem 0.7rem;
   text-decoration: none;
 }
 .fiche-lien:hover .fiche-titre {
   text-decoration: underline;
   text-underline-offset: 2px;
 }
-.cote {
-  font-family: var(--mono);
-  font-size: 0.8rem;
-  color: var(--ink-3);
-  letter-spacing: 0.03em;
-}
 .fiche-titre {
-  font-family: var(--sans);
+  font-family: var(--titre);
   font-weight: 700;
-  color: var(--ink);
-  font-size: 1.02rem;
+  color: var(--encre);
+  font-size: 1.05rem;
 }
 .fiche-resume {
-  margin: 0.35rem 0 0.5rem;
-  color: var(--ink-2);
+  font-family: var(--corps);
+  font-style: italic;
+  margin: 0.4rem 0 0.55rem;
+  color: var(--gris-meta);
   max-width: 46rem;
 }
 .fiche-meta,
 .fiche-liens {
-  font-family: var(--sans);
-  font-size: 0.8rem;
-  margin: 0.25rem 0 0;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  margin: 0.3rem 0 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.35rem 0.5rem;
+  gap: 0.4rem;
   align-items: center;
 }
 .fiche-liens {
-  color: var(--ink-3);
-  gap: 0.3rem;
+  color: var(--gris-meta);
+  letter-spacing: 0.02em;
 }
 .liste-vide {
-  padding: 1.25rem 0;
-  color: var(--ink-3);
-  border-bottom: 1px solid var(--rule);
+  padding: 1.5rem 0;
+  color: var(--gris-meta);
+  border-bottom: 1px solid var(--bordure);
+  font-style: italic;
 }
 
-/* --- tags -------------------------------------------------------------- */
+/* --- cote : onglet plein accent (élément signature) --------------- */
+
+.cote {
+  font-family: var(--mono);
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.17rem 0.44rem;
+  border-radius: 4px;
+  display: inline-block;
+}
+.cote-xl {
+  font-size: 0.9rem;
+  padding: 0.3rem 0.62rem;
+  margin: 0 0 0.55rem;
+}
+
+/* --- badges ----------------------------------------------------- */
 
 .tag {
   font-family: var(--mono);
-  font-size: 0.7rem;
+  font-size: 0.66rem;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  padding: 0.12rem 0.4rem;
-  border: 1px solid var(--rule-strong);
-  color: var(--ink-2);
+  letter-spacing: 0.06em;
+  padding: 0.16rem 0.46rem;
+  border-radius: 4px;
+  background: var(--accent-clair);
+  color: var(--accent);
   white-space: nowrap;
 }
-.tag.type {
-  border-color: var(--ink-3);
-}
 .tag.axe {
-  border-style: dashed;
+  background: transparent;
+  border: 1px solid var(--bordure);
+  color: var(--gris-meta);
 }
 .tag.statut-valide {
-  border-color: var(--ink-3);
+  background: #e7f0ea;
+  color: var(--valide);
 }
 .tag.statut-a-resourcer {
-  border-color: var(--danger);
-  color: var(--danger);
+  background: #f5eedd;
+  color: var(--ambre);
 }
 .tag.statut-brouillon {
-  border-style: dashed;
-  color: var(--ink-3);
+  background: transparent;
+  border: 1px dashed var(--bordure);
+  color: var(--gris-meta);
 }
 .tag.revoir {
-  background: var(--signal);
-  border-color: var(--signal-line);
-  color: var(--ink);
-  font-weight: 700;
+  background: #f5eedd;
+  color: var(--ambre);
+  border: 1px solid var(--ambre);
+  font-weight: 600;
 }
 
-/* --- fiche ------------------------------------------------------------- */
+/* --- fiche ---------------------------------------------------- */
 
 .fiche {
   max-width: 44rem;
 }
-.cote-xl {
-  font-size: 0.95rem;
-  margin: 0 0 0.35rem;
-}
 .fiche-resume-lead {
-  font-size: 1.05rem;
-  color: var(--ink-2);
-  margin: 0.4rem 0 0;
+  font-family: var(--corps);
+  font-style: italic;
+  font-size: 1.18rem;
+  color: var(--gris-meta);
+  margin: 0.5rem 0 0;
 }
 
 .bandeau {
-  border: 1px solid var(--ink);
-  border-left-width: 4px;
-  background: var(--panel);
-  padding: 1rem 1.15rem;
+  background: var(--blanc);
+  border: 1px solid var(--bordure);
+  border-radius: 6px;
+  padding: 1.1rem 1.25rem;
   margin: 1.5rem 0 2rem;
 }
 .bandeau dl {
   margin: 0;
   display: grid;
-  gap: 0.7rem;
+  gap: 0.75rem;
 }
 .bandeau dl > div {
   display: grid;
@@ -426,21 +485,22 @@ main {
   gap: 0.25rem 0.9rem;
 }
 .bandeau dt {
-  font-family: var(--sans);
-  font-size: 0.72rem;
+  font-family: var(--mono);
+  font-size: 0.64rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--ink-3);
-  padding-top: 0.1rem;
+  letter-spacing: 0.08em;
+  color: var(--gris-meta);
+  padding-top: 0.15rem;
 }
 .bandeau dd {
   margin: 0;
-  font-family: var(--sans);
-  font-size: 0.88rem;
-  color: var(--ink-2);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--encre);
   display: flex;
   flex-wrap: wrap;
-  gap: 0.3rem 0.5rem;
+  gap: 0.35rem 0.5rem;
   align-items: baseline;
 }
 .bandeau dd ul {
@@ -448,67 +508,77 @@ main {
   padding: 0;
   list-style: none;
   display: grid;
-  gap: 0.4rem;
+  gap: 0.45rem;
 }
 .bandeau dd p {
   margin: 0;
   flex-basis: 100%;
 }
 .source-detail {
-  color: var(--ink-3);
-  font-size: 0.82rem;
+  color: var(--gris-meta);
 }
 .perimetre {
-  color: var(--danger);
-  font-size: 0.82rem;
-  margin-top: 0.3rem;
+  color: var(--ambre);
+  margin-top: 0.35rem;
 }
 
 .fiche-corps {
-  font-size: 1.05rem;
+  font-family: var(--corps);
+  font-size: 1.1rem;
+  line-height: 1.68;
 }
 .fiche-corps h2 {
+  font-family: var(--titre);
+  font-weight: 700;
   font-size: 1.15rem;
-  margin: 1.8rem 0 0.5rem;
-  padding-bottom: 0.2rem;
-  border-bottom: 1px solid var(--rule);
+  margin: 1.9rem 0 0.5rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid var(--bordure);
 }
 .fiche-corps h2:first-child {
   margin-top: 0;
 }
 .fiche-corps p {
-  margin: 0.6rem 0;
+  margin: 0.65rem 0;
 }
 .fiche-retour {
   margin-top: 2.5rem;
-  font-family: var(--sans);
-  font-size: 0.9rem;
+  font-family: var(--titre);
+  font-weight: 600;
+  font-size: 0.92rem;
 }
 
-/* --- à propos -------------------------------------------------------- */
+/* --- à propos ------------------------------------------------ */
 
 .prose {
   max-width: 42rem;
 }
 .prose h1 {
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   margin: 0 0 1rem;
 }
 .prose h2 {
   font-size: 1.12rem;
-  margin: 2rem 0 0.4rem;
+  margin: 2rem 0 0.45rem;
 }
 .prose p,
 .prose li {
-  color: var(--ink-2);
+  font-family: var(--corps);
+  color: var(--encre);
 }
 .prose ul {
   padding-left: 1.2rem;
+}
+.prose .cote {
+  vertical-align: baseline;
 }
 
 @media (max-width: 34rem) {
   .bandeau dl > div {
     grid-template-columns: 1fr;
     gap: 0.15rem;
+  }
+  .facette-label {
+    min-width: 100%;
   }
 }
