@@ -28,11 +28,11 @@ const { entry, translated } = resolveEntry(canonicalId, lang, all);
 const d = entry.data;
 const { Content } = await render(entry);
 
-const label = blocLabel(lang, d.bloc);
-const chemin = `/${d.bloc}/${canonicalId}/`;
+const label = blocLabel(lang, d.section);
+const chemin = `/${d.section}/${canonicalId}/`;
 
-const prouves = d.type === "cas" ? principesProuves(entry, all) : [];
-const prouvePar = d.type === "principe" ? casQuiProuvent(entry, all) : [];
+const prouves = d.type === "case" ? principesProuves(entry, all) : [];
+const prouvePar = d.type === "principle" ? casQuiProuvent(entry, all) : [];
 const dejaMontre = new Set([...prouves, ...prouvePar].map((x) => x.data.id));
 const lies = fichesLiees(entry, all).filter((x) => !dejaMontre.has(x.data.id));
 const aDesLiens = prouves.length + prouvePar.length + lies.length > 0;
@@ -45,21 +45,21 @@ const ax = (k: string) => tt.optAxe[k as keyof typeof tt.optAxe];
 <Base
   lang={lang}
   chemin={chemin}
-  titre={`${cote(entry)} · ${d.titre}`}
-  description={d.resume}
+  titre={`${cote(entry)} · ${d.title}`}
+  description={d.summary}
 >
   <article class="fiche">
     {!translated && <BasculeBanner lang={lang} />}
 
     <p class="fil">
       <a href={lx("/")}>{tt.breadcrumbHome}</a> /
-      <a href={lx(`/${d.bloc}/`)}>{label}</a>
+      <a href={lx(`/${d.section}/`)}>{label}</a>
     </p>
 
     <header class="fiche-tete">
       <p class="cote cote-xl">{cote(entry)}</p>
-      <h1>{d.titre}</h1>
-      <p class="fiche-resume-lead">{d.resume}</p>
+      <h1>{d.title}</h1>
+      <p class="fiche-resume-lead">{d.summary}</p>
     </header>
 
     <aside class="bandeau" aria-label={tt.bandeau.liens}>
@@ -67,9 +67,9 @@ const ax = (k: string) => tt.optAxe[k as keyof typeof tt.optAxe];
         <div>
           <dt>{tt.bandeau.statut}</dt>
           <dd>
-            <span class={`tag statut statut-${d.statut}`}>{st(d.statut)}</span>
+            <span class={`tag statut statut-${d.status}`}>{st(d.status)}</span>
             {
-              aReVoir(d.verification.date) && (
+              aReVoir(d.verified.date) && (
                 <span class="tag revoir">{tt.reviewBadge}</span>
               )
             }
@@ -82,11 +82,11 @@ const ax = (k: string) => tt.optAxe[k as keyof typeof tt.optAxe];
         </div>
 
         {
-          d.transverses.length > 0 && (
+          d.crosscutting.length > 0 && (
             <div>
               <dt>{tt.bandeau.axes}</dt>
               <dd>
-                {d.transverses.map((t) => (
+                {d.crosscutting.map((t) => (
                   <span class="tag axe">{ax(t)}</span>
                 ))}
               </dd>
@@ -97,7 +97,7 @@ const ax = (k: string) => tt.optAxe[k as keyof typeof tt.optAxe];
         <div>
           <dt>{tt.bandeau.verifie}</dt>
           <dd>
-            {fmtDate(d.verification.date, lang)} — {d.verification.par}
+            {fmtDate(d.verified.date, lang)} — {d.verified.by}
           </dd>
         </div>
 
@@ -119,9 +119,9 @@ const ax = (k: string) => tt.optAxe[k as keyof typeof tt.optAxe];
               }
             </ul>
             {
-              d.verification.perimetre_limite && (
+              d.verified.scope_limit && (
                 <p class="perimetre">
-                  {tt.limitedScope} : {d.verification.perimetre_limite}
+                  {tt.limitedScope} : {d.verified.scope_limit}
                 </p>
               )
             }
@@ -139,8 +139,8 @@ const ax = (k: string) => tt.optAxe[k as keyof typeof tt.optAxe];
                     {prouves.map((x, i) => (
                       <>
                         {i > 0 && ", "}
-                        <a href={lx(`/${x.data.bloc}/${x.data.id}/`)}>
-                          {cote(x)} — {x.data.titre}
+                        <a href={lx(`/${x.data.section}/${x.data.id}/`)}>
+                          {cote(x)} — {x.data.title}
                         </a>
                       </>
                     ))}
@@ -152,8 +152,8 @@ const ax = (k: string) => tt.optAxe[k as keyof typeof tt.optAxe];
                     {prouvePar.map((x, i) => (
                       <>
                         {i > 0 && ", "}
-                        <a href={lx(`/${x.data.bloc}/${x.data.id}/`)}>
-                          {cote(x)} — {x.data.titre}
+                        <a href={lx(`/${x.data.section}/${x.data.id}/`)}>
+                          {cote(x)} — {x.data.title}
                         </a>
                       </>
                     ))}
@@ -165,8 +165,8 @@ const ax = (k: string) => tt.optAxe[k as keyof typeof tt.optAxe];
                     {lies.map((x, i) => (
                       <>
                         {i > 0 && ", "}
-                        <a href={lx(`/${x.data.bloc}/${x.data.id}/`)}>
-                          {cote(x)} — {x.data.titre}
+                        <a href={lx(`/${x.data.section}/${x.data.id}/`)}>
+                          {cote(x)} — {x.data.title}
                         </a>
                       </>
                     ))}
@@ -184,7 +184,7 @@ const ax = (k: string) => tt.optAxe[k as keyof typeof tt.optAxe];
     </div>
 
     <p class="fiche-retour">
-      <a href={lx(`/${d.bloc}/`)}>{tt.backPrefix} {label}</a>
+      <a href={lx(`/${d.section}/`)}>{tt.backPrefix} {label}</a>
     </p>
   </article>
 </Base>

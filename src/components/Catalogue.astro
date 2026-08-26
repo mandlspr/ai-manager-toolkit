@@ -73,17 +73,17 @@ const lx = (p: string) => cheminLocalise(lang, p);
       <div class="facette" data-facette="type" data-mode="single" aria-label={tt.facet.type}>
         <span class="facette-label">{tt.facet.type}</span>
         <div class="pastilles">
-          <button type="button" class="pastille" data-value="principe" aria-pressed="false">{tt.optType.principe}</button>
-          <button type="button" class="pastille" data-value="cas" aria-pressed="false">{tt.optType.cas}</button>
+          <button type="button" class="pastille" data-value="principle" aria-pressed="false">{tt.optType.principle}</button>
+          <button type="button" class="pastille" data-value="case" aria-pressed="false">{tt.optType.case}</button>
         </div>
       </div>
 
       <div class="facette" data-facette="statut" data-mode="single" aria-label={tt.facet.statut}>
         <span class="facette-label">{tt.facet.statut}</span>
         <div class="pastilles">
-          <button type="button" class="pastille" data-value="valide" aria-pressed="false">{tt.optStatut.valide}</button>
-          <button type="button" class="pastille" data-value="a-resourcer" aria-pressed="false">{tt.optStatut["a-resourcer"]}</button>
-          <button type="button" class="pastille" data-value="brouillon" aria-pressed="false">{tt.optStatut.brouillon}</button>
+          <button type="button" class="pastille" data-value="valid" aria-pressed="false">{tt.optStatut.valid}</button>
+          <button type="button" class="pastille" data-value="to-resource" aria-pressed="false">{tt.optStatut["to-resource"]}</button>
+          <button type="button" class="pastille" data-value="draft" aria-pressed="false">{tt.optStatut.draft}</button>
         </div>
       </div>
 
@@ -108,41 +108,41 @@ const lx = (p: string) => cheminLocalise(lang, p);
     {
       entries.map((e) => {
         const inv =
-          e.data.type === "principe"
+          e.data.type === "principle"
             ? casQuiProuvent(e, all)
             : principesProuves(e, all);
         return (
           <li>
-            <a class="fiche-lien" href={lx(`/${e.data.bloc}/${e.data.id}/`)}>
+            <a class="fiche-lien" href={lx(`/${e.data.section}/${e.data.id}/`)}>
               <span class="cote">{cote(e)}</span>
-              <span class="fiche-titre">{e.data.titre}</span>
+              <span class="fiche-titre">{e.data.title}</span>
             </a>
-            <p class="fiche-resume">{e.data.resume}</p>
+            <p class="fiche-resume">{e.data.summary}</p>
             <p class="fiche-meta">
-              <span class={`tag statut statut-${e.data.statut}`}>
-                {tt.optStatut[e.data.statut as keyof typeof tt.optStatut]}
+              <span class={`tag statut statut-${e.data.status}`}>
+                {tt.optStatut[e.data.status as keyof typeof tt.optStatut]}
               </span>
               <span class="tag type">
                 {tt.optType[e.data.type as keyof typeof tt.optType]}
               </span>
-              {e.data.transverses.map((t) => (
+              {e.data.crosscutting.map((t) => (
                 <span class="tag axe">
                   {tt.optAxe[t as keyof typeof tt.optAxe]}
                 </span>
               ))}
-              {aReVoir(e.data.verification.date) && (
+              {aReVoir(e.data.verified.date) && (
                 <span class="tag revoir">{tt.reviewBadge}</span>
               )}
             </p>
             {inv.length > 0 && (
               <p class="fiche-liens">
-                {e.data.type === "principe"
+                {e.data.type === "principle"
                   ? `${tt.listProvenBy} `
                   : `${tt.listProves} `}
                 {inv.map((x, i) => (
                   <>
                     {i > 0 && ", "}
-                    <a href={lx(`/${x.data.bloc}/${x.data.id}/`)}>{cote(x)}</a>
+                    <a href={lx(`/${x.data.section}/${x.data.id}/`)}>{cote(x)}</a>
                   </>
                 ))}
               </p>

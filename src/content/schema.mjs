@@ -10,17 +10,19 @@
 
 import { z } from "zod";
 
-// --- brief enumerations ----------------------------------------------------
+// --- enumerations --------------------------------------------------------
 
-export const BLOCS = ["gouvernance", "prompts", "build", "evaluation", "cas"];
-export const TYPES = ["principe", "cas"];
-export const STATUTS = ["valide", "a-resourcer", "brouillon"];
-export const TRANSVERSES = ["cout", "hitl", "tracabilite"];
+export const SECTIONS = ["governance", "prompts", "build", "evaluation", "cases"];
+export const TYPES = ["principle", "case"];
+export const STATUSES = ["valid", "to-resource", "draft"];
+// Cross-cutting axis values are kept as-is (not part of the data-vocabulary rename).
+export const CROSSCUTTING = ["cout", "hitl", "tracabilite"];
 export const LANGS = ["fr", "de", "en"];
 export const NATURES_SOURCE = ["projet", "notebook", "playbook", "externe"];
 export const PORTFOLIO = ["oui", "non", "pas-encore"];
 
 // --- sub-schema: a single source -----------------------------------------------
+// `sources` and its item shape are left unchanged.
 
 const sourceSchema = z
   .object({
@@ -33,18 +35,18 @@ const sourceSchema = z
   })
   .strict();
 
-// --- sub-schema: verification ------------------------------------------------
+// --- sub-schema: verified ------------------------------------------------
 
-const verificationSchema = z
+const verifiedSchema = z
   .object({
-    // Brief rule: the build fails if `verification.date` is missing.
+    // Brief rule: the build fails if `verified.date` is missing.
     date: z.coerce.date({
-      required_error: "verification.date is required",
-      invalid_type_error: "verification.date must be a date (YYYY-MM-DD)",
+      required_error: "verified.date is required",
+      invalid_type_error: "verified.date must be a date (YYYY-MM-DD)",
     }),
-    par: z.string().min(1),
+    by: z.string().min(1),
     // Text if a known blind spot remains, otherwise null.
-    perimetre_limite: z.string().min(1).nullable().default(null),
+    scope_limit: z.string().min(1).nullable().default(null),
   })
   .strict();
 
@@ -60,34 +62,34 @@ export const entryFrontmatterSchema = z
         /^[a-z0-9]+(-[a-z0-9]+)*$/,
         "id must be lowercase kebab-case (e.g. gov-double-test)",
       ),
-    titre: z.string().min(1),
+    title: z.string().min(1),
     type: z.enum(TYPES),
-    bloc: z.enum(BLOCS),
-    ordre: z.coerce.number().int().positive({
-      message: "ordre must be a positive integer (unique per bloc)",
+    section: z.enum(SECTIONS),
+    order: z.coerce.number().int().positive({
+      message: "order must be a positive integer (unique per section)",
     }),
-    statut: z.enum(STATUTS),
-    transverses: z.array(z.enum(TRANSVERSES)).default([]),
+    status: z.enum(STATUSES),
+    crosscutting: z.array(z.enum(CROSSCUTTING)).default([]),
     lang: z.enum(LANGS),
-    traductions: z.array(z.enum(LANGS)).default([]),
+    translations: z.array(z.enum(LANGS)).default([]),
 
     sources: z
       .array(sourceSchema)
       // Brief rule: the build fails if `sources` is empty.
       .min(1, "at least one source is required"),
 
-    verification: verificationSchema,
+    verified: verifiedSchema,
 
     // Cross-links (card ids). Whether the ids exist is checked by the
     // cross-card integrity pass (checkCrossReferences), not here: the per-card
     // schema has no knowledge of the full collection.
-    liens: z.array(z.string().min(1)).default([]),
+    links: z.array(z.string().min(1)).default([]),
 
-    // Present ONLY for type: cas — ids of the principles it illustrates.
-    prouve: z.array(z.string().min(1)).optional(),
+    // Present ONLY for type: case — ids of the principles it illustrates.
+    proves: z.array(z.string().min(1)).optional(),
 
     portfolio: z.enum(PORTFOLIO),
-    resume: z.string().min(1),
+    summary: z.string().min(1),
   })
   .strict()
   .superRefine((data, ctx) => {
@@ -102,24 +104,24 @@ export const entryFrontmatterSchema = z
       }
     });
 
-    // Brief rule: a `type: cas` card MUST have a non-empty `prouve` field.
-    if (data.type === "cas") {
-      if (!Array.isArray(data.prouve) || data.prouve.length === 0) {
+    // Brief rule: a `type: case` card MUST have a non-empty `proves` field.
+    if (data.type === "case") {
+      if (!Array.isArray(data.proves) || data.proves.length === 0) {
         ctx.addIssue({
           code: z.ZodIssueCode.custom,
-          path: ["prouve"],
+          path: ["proves"],
           message:
-            "a type: cas card must declare `prouve` (ids of the principles it illustrates)",
+            "a type: case card must declare `proves` (ids of the principles it illustrates)",
         });
       }
     }
 
-    // Brief rule: a `type: principe` card MUST NOT have a `prouve` field.
-    if (data.type === "principe" && data.prouve !== undefined) {
+    // Brief rule: a `type: principle` card MUST NOT have a `proves` field.
+    if (data.type === "principle" && data.proves !== undefined) {
       ctx.addIssue({
         code: z.ZodIssueCode.custom,
-        path: ["prouve"],
-        message: "a type: principe card cannot carry a `prouve` field",
+        path: ["proves"],
+        message: "a type: principle card cannot carry a `proves` field",
       });
     }
   });
@@ -149,44 +151,44 @@ export function checkCrossReferences(entries) {
     }
   }
 
-  // 2. uniqueness of `ordre` per bloc (canonical EN version only).
-  const ordreParBloc = new Map(); // `${bloc}::${ordre}` -> ref
+  // 2. uniqueness of `order` per section (canonical EN version only).
+  const orderPerSection = new Map(); // `${section}::${order}` -> ref
   for (const { ref, data } of entries) {
     // Uniqueness is only checked on the canonical EN version.
     if (data.lang !== "en") continue;
-    const key = `${data.bloc}::${data.ordre}`;
-    if (ordreParBloc.has(key)) {
+    const key = `${data.section}::${data.order}`;
+    if (orderPerSection.has(key)) {
       push(
         ref,
-        `ordre ${data.ordre} already used in bloc "${data.bloc}" (${ordreParBloc.get(key)})`,
+        `order ${data.order} already used in section "${data.section}" (${orderPerSection.get(key)})`,
       );
     } else {
-      ordreParBloc.set(key, ref);
+      orderPerSection.set(key, ref);
     }
   }
 
-  const idsConnus = new Set(entries.map((e) => e.data.id));
-  // Map id -> type, to check that `prouve` points to principles.
-  const typeParId = new Map(entries.map((e) => [e.data.id, e.data.type]));
+  const knownIds = new Set(entries.map((e) => e.data.id));
+  // Map id -> type, to check that `proves` points to principles.
+  const typeById = new Map(entries.map((e) => [e.data.id, e.data.type]));
 
-  // 3. every id cited in `liens` must match an existing card.
+  // 3. every id cited in `links` must match an existing card.
   for (const { ref, data } of entries) {
-    for (const cible of data.liens ?? []) {
-      if (!idsConnus.has(cible)) {
-        push(ref, `liens -> "${cible}" matches no card`);
+    for (const target of data.links ?? []) {
+      if (!knownIds.has(target)) {
+        push(ref, `links -> "${target}" matches no card`);
       }
     }
 
-    // 4. every id cited in `prouve` must:
+    // 4. every id cited in `proves` must:
     //    a) match an existing card
-    //    b) be a `type: principe` card
-    for (const cible of data.prouve ?? []) {
-      if (!idsConnus.has(cible)) {
-        push(ref, `prouve -> "${cible}" matches no card`);
-      } else if (typeParId.get(cible) !== "principe") {
+    //    b) be a `type: principle` card
+    for (const target of data.proves ?? []) {
+      if (!knownIds.has(target)) {
+        push(ref, `proves -> "${target}" matches no card`);
+      } else if (typeById.get(target) !== "principle") {
         push(
           ref,
-          `prouve -> "${cible}" is not a type: principe card (it is a ${typeParId.get(cible)})`,
+          `proves -> "${target}" is not a type: principle card (it is a ${typeById.get(target)})`,
         );
       }
     }

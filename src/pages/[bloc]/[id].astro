@@ -5,7 +5,7 @@ import { getCanonicalEntries } from "../../lib/entries";
 export async function getStaticPaths() {
   const canon = await getCanonicalEntries();
   return canon.map((e) => ({
-    params: { bloc: e.data.bloc, id: e.data.id },
+    params: { bloc: e.data.section, id: e.data.id },
     props: { canonicalId: e.data.id },
   }));
 }

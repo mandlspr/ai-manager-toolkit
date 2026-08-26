@@ -16,7 +16,7 @@ export function estPubliee(l: Langue): boolean {
 }
 
 /**
- * Prefixes an absolute path (`/gouvernance/…`) with the site `base`
+ * Prefixes an absolute path (`/governance/…`) with the site `base`
  * (`import.meta.env.BASE_URL`, = `/` locally without base, `/ai-manager-toolkit/`
  * in GitHub Pages production). Every internal link must go through here.
  */
@@ -38,7 +38,7 @@ export const NOM_LANGUE: Record<Langue, string> = {
   de: "Deutsch",
 };
 
-type BlocKey = "gouvernance" | "prompts" | "build" | "evaluation" | "cas";
+type BlocKey = "governance" | "prompts" | "build" | "evaluation" | "cases";
 
 interface Textes {
   htmlLang: string;
@@ -50,8 +50,8 @@ interface Textes {
   cards: (n: number) => string;
   search: { label: string; placeholder: string };
   facet: { bloc: string; type: string; statut: string; axes: string };
-  optType: Record<"principe" | "cas", string>;
-  optStatut: Record<"valide" | "a-resourcer" | "brouillon", string>;
+  optType: Record<"principle" | "case", string>;
+  optStatut: Record<"valid" | "to-resource" | "draft", string>;
   optAxe: Record<"cout" | "hitl" | "tracabilite", string>;
   reset: string;
   empty: string;
@@ -83,25 +83,25 @@ interface Textes {
 const commonBloc = {
   navBloc: {
     en: {
-      gouvernance: "Governance",
+      governance: "Governance",
       prompts: "Prompts",
       build: "Build",
       evaluation: "Evaluation",
-      cas: "Cases",
+      cases: "Cases",
     },
     fr: {
-      gouvernance: "Gouvernance",
+      governance: "Gouvernance",
       prompts: "Prompts",
       build: "Build",
       evaluation: "Évaluation",
-      cas: "Cas",
+      cases: "Cas",
     },
     de: {
-      gouvernance: "Governance",
+      governance: "Governance",
       prompts: "Prompts",
       build: "Build",
       evaluation: "Evaluierung",
-      cas: "Fälle",
+      cases: "Fälle",
     },
   },
 };
@@ -112,7 +112,7 @@ export const T: Record<Langue, Textes> = {
     nav: { about: "Method", print: "Printable version" },
     navBloc: commonBloc.navBloc.en,
     bloc: {
-      gouvernance: {
+      governance: {
         label: "Governance & risk",
         description: "Legal framework, controls, data, security.",
       },
@@ -128,7 +128,7 @@ export const T: Record<Langue, Textes> = {
         label: "Evaluation, tool choice & cost",
         description: "Comparison, selection, benchmarks, budget.",
       },
-      cas: {
+      cases: {
         label: "Case studies & evidence",
         description: "Real projects, dated trade-offs.",
       },
@@ -151,11 +151,11 @@ export const T: Record<Langue, Textes> = {
       statut: "Status",
       axes: "Cross-cutting axes",
     },
-    optType: { principe: "Principle", cas: "Case" },
+    optType: { principle: "Principle", case: "Case" },
     optStatut: {
-      valide: "valid",
-      "a-resourcer": "to re-source",
-      brouillon: "draft",
+      valid: "valid",
+      "to-resource": "to re-source",
+      draft: "draft",
     },
     optAxe: { cout: "cost", hitl: "HITL", tracabilite: "traceability" },
     reset: "Reset",
@@ -197,7 +197,7 @@ export const T: Record<Langue, Textes> = {
     nav: { about: "À propos", print: "Version imprimable" },
     navBloc: commonBloc.navBloc.fr,
     bloc: {
-      gouvernance: {
+      governance: {
         label: "Gouvernance & risque",
         description: "Cadre légal, contrôles, données, sécurité.",
       },
@@ -213,7 +213,7 @@ export const T: Record<Langue, Textes> = {
         label: "Évaluation, choix d'outils & coût",
         description: "Comparaison, sélection, benchmarks, budget.",
       },
-      cas: {
+      cases: {
         label: "Cas pratiques & preuves",
         description: "Projets réels, arbitrages datés.",
       },
@@ -236,11 +236,11 @@ export const T: Record<Langue, Textes> = {
       statut: "Statut",
       axes: "Axes transversaux",
     },
-    optType: { principe: "Principe", cas: "Cas" },
+    optType: { principle: "Principe", case: "Cas" },
     optStatut: {
-      valide: "valide",
-      "a-resourcer": "a-resourcer",
-      brouillon: "brouillon",
+      valid: "valide",
+      "to-resource": "a-resourcer",
+      draft: "brouillon",
     },
     optAxe: { cout: "coût", hitl: "HITL", tracabilite: "traçabilité" },
     reset: "Réinitialiser",
@@ -282,7 +282,7 @@ export const T: Record<Langue, Textes> = {
     nav: { about: "Methode", print: "Druckversion" },
     navBloc: commonBloc.navBloc.de,
     bloc: {
-      gouvernance: {
+      governance: {
         label: "Governance & Risiko",
         description: "Rechtsrahmen, Kontrollen, Daten, Sicherheit.",
       },
@@ -298,7 +298,7 @@ export const T: Record<Langue, Textes> = {
         label: "Evaluierung, Tool-Wahl & Kosten",
         description: "Vergleich, Auswahl, Benchmarks, Budget.",
       },
-      cas: {
+      cases: {
         label: "Fallstudien & Nachweise",
         description: "Reale Projekte, datierte Abwägungen.",
       },
@@ -321,11 +321,11 @@ export const T: Record<Langue, Textes> = {
       statut: "Status",
       axes: "Querschnittsachsen",
     },
-    optType: { principe: "Prinzip", cas: "Fall" },
+    optType: { principle: "Prinzip", case: "Fall" },
     optStatut: {
-      valide: "gültig",
-      "a-resourcer": "nachzubelegen",
-      brouillon: "Entwurf",
+      valid: "gültig",
+      "to-resource": "nachzubelegen",
+      draft: "Entwurf",
     },
     optAxe: {
       cout: "Kosten",

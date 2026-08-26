@@ -111,36 +111,36 @@ function runSelfTest() {
   };
   const verificationOk = {
     date: "2026-08-25",
-    par: "cross review + manual reread",
-    perimetre_limite: null,
+    by: "cross review + manual reread",
+    scope_limit: null,
   };
   const principeValide = {
     id: "gov-double-test",
-    titre: "Double-test before deciding",
-    type: "principe",
-    bloc: "gouvernance",
-    ordre: 1,
-    statut: "valide",
-    transverses: ["tracabilite"],
+    title: "Double-test before deciding",
+    type: "principle",
+    section: "governance",
+    order: 1,
+    status: "valid",
+    crosscutting: ["tracabilite"],
     lang: "en",
-    traductions: [],
+    translations: [],
     sources: [sourceProjet],
-    verification: verificationOk,
-    liens: [],
+    verified: verificationOk,
+    links: [],
     portfolio: "oui",
-    resume: "One sentence.",
+    summary: "One sentence.",
   };
   const casValide = {
     ...principeValide,
     id: "cas-stackfit",
-    type: "cas",
-    bloc: "cas",
-    ordre: 1,
-    prouve: ["gov-double-test"],
+    type: "case",
+    section: "cases",
+    order: 1,
+    proves: ["gov-double-test"],
   };
 
   const schemaCases = [
-    ["baseline — valid principe", principeValide, true],
+    ["baseline — valid principle", principeValide, true],
     ["rule: empty sources", { ...principeValide, sources: [] }, false],
     [
       "rule: externe source without url",
@@ -151,22 +151,22 @@ function runSelfTest() {
       false,
     ],
     [
-      "rule: missing verification.date",
+      "rule: missing verified.date",
       {
         ...principeValide,
-        verification: { par: "x", perimetre_limite: null },
+        verified: { by: "x", scope_limit: null },
       },
       false,
     ],
-    ["rule: missing ordre", { ...principeValide, ordre: undefined }, false],
-    ["rule: ordre <= 0", { ...principeValide, ordre: 0 }, false],
-    ["rule: type cas without prouve", { ...casValide, prouve: undefined }, false],
+    ["rule: missing order", { ...principeValide, order: undefined }, false],
+    ["rule: order <= 0", { ...principeValide, order: 0 }, false],
+    ["rule: type case without proves", { ...casValide, proves: undefined }, false],
     [
-      "rule: type principe with prouve",
-      { ...principeValide, prouve: ["gov-x"] },
+      "rule: type principle with proves",
+      { ...principeValide, proves: ["gov-x"] },
       false,
     ],
-    ["baseline — valid cas (with prouve)", casValide, true],
+    ["baseline — valid case (with proves)", casValide, true],
   ];
 
   let failed = 0;
@@ -180,14 +180,14 @@ function runSelfTest() {
     );
   }
 
-  // rule: unknown id in liens/prouve (cross-card integrity pass)
+  // rule: unknown id in links/proves (cross-card integrity pass)
   const crossRefErrors = checkCrossReferences([
-    { ref: "A", data: { ...entryFrontmatterSchema.parse(principeValide), liens: ["ghost-card"] } },
+    { ref: "A", data: { ...entryFrontmatterSchema.parse(principeValide), links: ["ghost-card"] } },
   ]);
   const crossRefGood = crossRefErrors.length > 0;
   if (!crossRefGood) failed++;
   console.log(
-    `${crossRefGood ? "✔" : "✖"} rule: unknown id in liens/prouve — ` +
+    `${crossRefGood ? "✔" : "✖"} rule: unknown id in links/proves — ` +
       `expected rejected, got ${crossRefGood ? "rejected" : "accepted"}`,
   );
 
@@ -203,30 +203,30 @@ function runSelfTest() {
       `expected rejected, got ${dupGood ? "rejected" : "accepted"}`,
   );
 
-  // uniqueness of ordre per bloc
-  const ordre2 = { ...principeValide, id: "gov-other", ordre: 1 };
+  // uniqueness of order per section
+  const ordre2 = { ...principeValide, id: "gov-other", order: 1 };
   const ordreErrors = checkCrossReferences([
     { ref: "A", data: entryFrontmatterSchema.parse(principeValide) },
     { ref: "B", data: entryFrontmatterSchema.parse(ordre2) },
   ]);
-  const ordreGood = ordreErrors.some((e) => /ordre.*already used/.test(e.message));
+  const ordreGood = ordreErrors.some((e) => /order.*already used/.test(e.message));
   if (!ordreGood) failed++;
   console.log(
-    `${ordreGood ? "✔" : "✖"} rule: duplicate ordre in bloc — ` +
+    `${ordreGood ? "✔" : "✖"} rule: duplicate order in section — ` +
       `expected rejected, got ${ordreGood ? "rejected" : "accepted"}`,
   );
 
-  // prouve pointing to a cas instead of a principe
-  const casQuiProuveUnCas = { ...casValide, id: "cas-bad", prouve: ["cas-x"] };
-  const casAutre = { ...casValide, id: "cas-x", ordre: 2 };
+  // proves pointing to a case instead of a principle
+  const casQuiProuveUnCas = { ...casValide, id: "cas-bad", proves: ["cas-x"] };
+  const casAutre = { ...casValide, id: "cas-x", order: 2 };
   const prouveErrors = checkCrossReferences([
     { ref: "A", data: entryFrontmatterSchema.parse(casQuiProuveUnCas) },
     { ref: "B", data: entryFrontmatterSchema.parse(casAutre) },
   ]);
-  const prouveGood = prouveErrors.some((e) => /is not a type: principe/.test(e.message));
+  const prouveGood = prouveErrors.some((e) => /is not a type: principle/.test(e.message));
   if (!prouveGood) failed++;
   console.log(
-    `${prouveGood ? "✔" : "✖"} rule: prouve pointing to a non-principe cas — ` +
+    `${prouveGood ? "✔" : "✖"} rule: proves pointing to a non-principle case — ` +
       `expected rejected, got ${prouveGood ? "rejected" : "accepted"}`,
   );
 

@@ -4,7 +4,7 @@ import type { BlocId } from "../../lib/entries";
 
 // `/cas/` has its own dedicated page (presented as evidence) — excluded here.
 export function getStaticPaths() {
-  return (["gouvernance", "prompts", "build", "evaluation"] as const).map(
+  return (["governance", "prompts", "build", "evaluation"] as const).map(
     (bloc) => ({ params: { bloc } }),
   );
 }

@@ -1,26 +1,26 @@
 ---
 id: evl-jagged-frontier
-titre: "Jagged Frontier"
-type: principe
-bloc: evaluation
-ordre: 2
-statut: valide
-transverses: []
+title: "Jagged Frontier"
+type: principle
+section: evaluation
+order: 2
+status: valid
+crosscutting: []
 lang: en
-traductions: []
+translations: []
 sources:
   - titre: "Notebook W2"
     emplacement: "Projet Claude / AI Manager Toolkit"
     date_document: 2026-08-19
     nature: notebook
     url: null
-verification:
+verified:
   date: 2026-08-25
-  par: "revue croisée ChatGPT + relecture manuelle"
-  perimetre_limite: null
-liens: []
+  by: "revue croisée ChatGPT + relecture manuelle"
+  scope_limit: null
+links: []
 portfolio: oui
-resume: "AI models excel at some tasks and stumble on others, with no linear progression. Performance is multi-dimensional."
+summary: "AI models excel at some tasks and stumble on others, with no linear progression. Performance is multi-dimensional."
 ---
 
 ## Principe

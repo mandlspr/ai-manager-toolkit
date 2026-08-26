@@ -19,15 +19,15 @@ export const GET: APIRoute = async () => {
   const rows = entries.map((e) => ({
     id: e.data.id,
     cote: cote(e),
-    titre: e.data.titre,
-    resume: e.data.resume,
-    bloc: e.data.bloc,
+    title: e.data.title,
+    summary: e.data.summary,
+    section: e.data.section,
     type: e.data.type,
-    statut: e.data.statut,
-    transverses: e.data.transverses,
-    prouve: e.data.prouve ?? [],
-    liens: e.data.liens ?? [],
-    url: `/${e.data.bloc}/${e.data.id}/`,
+    status: e.data.status,
+    crosscutting: e.data.crosscutting,
+    proves: e.data.proves ?? [],
+    links: e.data.links ?? [],
+    url: `/${e.data.section}/${e.data.id}/`,
     texte: toText(e.body ?? ""),
   }));
 

@@ -31,48 +31,50 @@ Node >= 18.20.8 / 20.3 / 22.
 - `{lang}`: `en` for the canonical version (required), `fr` / `de` for translations.
 
 Easiest path: copy an existing card of the same `type` and adapt its frontmatter.
-`gov-double-test.en.md` is a template for a `principe`, `cas-stackfit.en.md` for a `cas`.
+`gov-double-test.en.md` is a template for a `principle`, `cas-stackfit.en.md` for a `case`.
 
 ### The file
 
 A YAML frontmatter block between `---`, then a body of `##` sections. Bodies are
 placeholders for now (`<!-- to write -->`); keep the section headings.
 
-- `type: principe` -> sections *Principle*, *Why it matters*, *How to apply it*,
+- `type: principle` -> sections *Principle*, *Why it matters*, *How to apply it*,
   *Watch out* (the last one is optional).
-- `type: cas` -> sections *Context*, *What was done*, *Result*, **plus** a frontmatter
-  field `prouve: [id, ...]` listing the principles it illustrates.
+- `type: case` -> sections *Context*, *What was done*, *Result*, **plus** a frontmatter
+  field `proves: [id, ...]` listing the principles it illustrates.
 
 ### Frontmatter fields
 
 The full list, allowed values, and validation rules live **in the schema**:
 [`src/content/schema.mjs`](src/content/schema.mjs). Do not duplicate them here — the
-schema is the source of truth. In short: `id`, `titre`, `type`, `bloc`, `ordre`,
-`statut`, `transverses`, `lang`, `traductions`, `sources` (>= 1), `verification`
-(`date` required), `liens`, `portfolio`, `resume`; `prouve` only for `cas`.
+schema is the source of truth. In short: `id`, `title`, `type`, `section`, `order`,
+`status`, `crosscutting`, `lang`, `translations`, `sources` (>= 1), `verified`
+(`date` required, plus `by` and `scope_limit`), `links`, `portfolio`, `summary`;
+`proves` only for `case`. (`sources` item shape — `titre`, `emplacement`,
+`date_document`, `nature`, `url` — is left as-is.)
 
-### How `ordre` works
+### How `order` works
 
-Positive integer, **unique within a `bloc`**, restarting at `1` for each bloc. It orders
-the cards and derives the displayed shelf code: bloc prefix + `ordre` on two digits —
-`gouvernance` ordre 2 -> `GOV·02`. To insert a card between two others, renumber the
-following cards in that bloc.
+Positive integer, **unique within a `section`**, restarting at `1` for each section. It
+orders the cards and derives the displayed shelf code: section prefix + `order` on two
+digits — `governance` order 2 -> `GOV·02`. To insert a card between two others, renumber
+the following cards in that section.
 
 ### What breaks the build if filled in wrong
 
 `npm run check:content` (see below) refuses, among other things:
 
 - `sources` empty, or a source with `nature: externe` and no `url`
-- `verification.date` missing
-- an `id` cited in `liens` or `prouve` that matches no card
-- a `type: cas` card without `prouve`, or a `type: principe` card with a `prouve`
-- `prouve` pointing to something other than a `principe`
-- `ordre` missing, zero, or negative; two cards with the same `ordre` in one bloc
+- `verified.date` missing
+- an `id` cited in `links` or `proves` that matches no card
+- a `type: case` card without `proves`, or a `type: principle` card with a `proves`
+- `proves` pointing to something other than a `principle`
+- `order` missing, zero, or negative; two cards with the same `order` in one section
 - two cards sharing the same `(id, lang)` pair
 
-Display rules (these do not break the build): `statut: brouillon` is visible in dev but
-excluded from the production build; a `verification.date` older than 6 months
-automatically shows a "review" badge.
+Display rules (these do not break the build): `status: draft` is visible in dev but
+excluded from the production build; a `verified.date` older than 6 months automatically
+shows a "review" badge.
 
 ## Publish an FR or DE translation later
 
@@ -96,7 +98,7 @@ Interface strings (nav, labels, banner) are already translated EN/FR/DE in
 
 | Command | Purpose |
 |---|---|
-| `npm run check:content` | Validates every `.md`: per-card Zod schema + cross-card integrity (cross-links, `ordre`/`id` uniqueness). Plain-language messages. |
+| `npm run check:content` | Validates every `.md`: per-card Zod schema + cross-card integrity (cross-links, `order`/`id` uniqueness). Plain-language messages. |
 | `npm run check:content:self-test` | Checks that each rule above actually fails validation (internal fixtures, no card touched). |
 | `npm run build` | `check:content` -> `astro check` (types) -> `astro build`. The build fails if any of the three steps fails. |
 | `npm run preview` | Serves `dist/` locally under `/ai-manager-toolkit/` (identical to production). |
@@ -109,7 +111,7 @@ its errors, indented — for example:
 
   src/content/entries/evl-new-card.en.md
     - sources — at least one source is required
-    - prouve -> "gov-missing" matches no card
+    - proves -> "gov-missing" matches no card
 
 Build interrupted.
 ```

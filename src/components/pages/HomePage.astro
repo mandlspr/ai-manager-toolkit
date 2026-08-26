@@ -18,7 +18,7 @@ const lx = (p: string) => cheminLocalise(lang, p);
 
 const all = await getCanonicalEntries();
 const compte = (bloc: string) =>
-  all.filter((e) => e.data.bloc === bloc).length;
+  all.filter((e) => e.data.section === bloc).length;
 ---
 
 <Base
@@ -35,7 +35,7 @@ const compte = (bloc: string) =>
       {
         BLOC_ORDER.map((b) => (
           <li class="bloc-carte">
-            <a href={lx(b === "cas" ? "/cas/" : `/${b}/`)}>
+            <a href={lx(b === "cases" ? "/cases/" : `/${b}/`)}>
               <span class="bloc-marqueur" aria-hidden="true">
                 <BlocIcon bloc={b} />
               </span>

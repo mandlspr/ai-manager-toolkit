@@ -1,26 +1,26 @@
 ---
 id: prm-debug-agent
-titre: "Three questions before concluding \"the agent is bad\""
-type: principe
-bloc: prompts
-ordre: 3
-statut: valide
-transverses: []
+title: "Three questions before concluding \"the agent is bad\""
+type: principle
+section: prompts
+order: 3
+status: valid
+crosscutting: []
 lang: en
-traductions: []
+translations: []
 sources:
   - titre: "Notebook W4"
     emplacement: "Projet Claude / AI Manager Toolkit"
     date_document: 2026-08-08
     nature: notebook
     url: null
-verification:
+verified:
   date: 2026-08-25
-  par: "revue croisée ChatGPT + relecture manuelle"
-  perimetre_limite: null
-liens: []
+  by: "revue croisée ChatGPT + relecture manuelle"
+  scope_limit: null
+links: []
 portfolio: oui
-resume: "Before blaming the agent: check observability, the relevance of the knowledge base, and the quality of the feedback signal."
+summary: "Before blaming the agent: check observability, the relevance of the knowledge base, and the quality of the feedback signal."
 ---
 
 ## Principe

@@ -1,26 +1,26 @@
 ---
 id: bld-garde-fous-agents
-titre: "Eight guardrails for agents"
-type: principe
-bloc: build
-ordre: 6
-statut: valide
-transverses: [hitl, tracabilite]
+title: "Eight guardrails for agents"
+type: principle
+section: build
+order: 6
+status: valid
+crosscutting: [hitl, tracabilite]
 lang: en
-traductions: []
+translations: []
 sources:
   - titre: "Playbook AI Governance"
     emplacement: "Projet Claude / AI Manager Toolkit"
     date_document: 2026-08-14
     nature: playbook
     url: null
-verification:
+verified:
   date: 2026-08-25
-  par: "revue croisée ChatGPT + relecture manuelle"
-  perimetre_limite: null
-liens: [gov-responsible-ai]
+  by: "revue croisée ChatGPT + relecture manuelle"
+  scope_limit: null
+links: [gov-responsible-ai]
 portfolio: oui
-resume: "Token limits, tool allowlists, reversible archiving, monitoring — the essential guardrails for a production agent."
+summary: "Token limits, tool allowlists, reversible archiving, monitoring — the essential guardrails for a production agent."
 ---
 
 ## Principe

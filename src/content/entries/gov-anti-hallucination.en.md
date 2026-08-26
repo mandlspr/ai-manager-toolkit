@@ -1,26 +1,26 @@
 ---
 id: gov-anti-hallucination
-titre: "Three anti-hallucination levers, ranked"
-type: principe
-bloc: gouvernance
-ordre: 3
-statut: valide
-transverses: [hitl]
+title: "Three anti-hallucination levers, ranked"
+type: principle
+section: governance
+order: 3
+status: valid
+crosscutting: [hitl]
 lang: en
-traductions: []
+translations: []
 sources:
   - titre: "Playbook AI Governance"
     emplacement: "Projet Claude / AI Manager Toolkit"
     date_document: 2026-08-14
     nature: playbook
     url: null
-verification:
+verified:
   date: 2026-08-25
-  par: "revue croisée ChatGPT + relecture manuelle"
-  perimetre_limite: null
-liens: []
+  by: "revue croisée ChatGPT + relecture manuelle"
+  scope_limit: null
+links: []
 portfolio: oui
-resume: "Constrained format, explicit prohibition on inventing, real context. The third is the most impactful."
+summary: "Constrained format, explicit prohibition on inventing, real context. The third is the most impactful."
 ---
 
 ## Principe

@@ -18,7 +18,7 @@ const tt = T[lang];
 const lx = (p: string) => cheminLocalise(lang, p);
 
 const all = await getCanonicalEntries();
-const entries = all.filter((e) => e.data.bloc === bloc);
+const entries = all.filter((e) => e.data.section === bloc);
 const label = blocLabel(lang, bloc);
 ---
 

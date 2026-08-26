@@ -5,14 +5,14 @@
 interface Row {
   id: string;
   cote: string;
-  titre: string;
-  resume: string;
-  bloc: string;
+  title: string;
+  summary: string;
+  section: string;
   type: string;
-  statut: string;
-  transverses: string[];
-  prouve: string[];
-  liens: string[];
+  status: string;
+  crosscutting: string[];
+  proves: string[];
+  links: string[];
   url: string;
   texte: string;
 }
@@ -25,7 +25,7 @@ interface Filtres {
   axes: string[];
 }
 
-const BLOC_ORDER = ["gouvernance", "prompts", "build", "evaluation", "cas"];
+const BLOC_ORDER = ["governance", "prompts", "build", "evaluation", "cases"];
 
 function esc(s: string): string {
   return s.replace(
@@ -137,29 +137,29 @@ export async function initCatalogue(): Promise<void> {
   });
 
   const passe = (r: Row, f: Filtres): boolean => {
-    if (f.bloc && r.bloc !== f.bloc) return false;
+    if (f.bloc && r.section !== f.bloc) return false;
     if (f.type && r.type !== f.type) return false;
-    if (f.statut && r.statut !== f.statut) return false;
+    if (f.statut && r.status !== f.statut) return false;
     // OR within the cross-cutting axis, AND between facets
-    if (f.axes.length && !f.axes.some((a) => r.transverses.includes(a)))
+    if (f.axes.length && !f.axes.some((a) => r.crosscutting.includes(a)))
       return false;
     if (f.q) {
-      const foin = `${r.cote} ${r.titre} ${r.resume} ${r.texte}`.toLowerCase();
+      const foin = `${r.cote} ${r.title} ${r.summary} ${r.texte}`.toLowerCase();
       for (const tok of f.q.split(/\s+/)) if (!foin.includes(tok)) return false;
     }
     return true;
   };
 
   const inverse = (r: Row): { label: string; items: Row[] } => {
-    if (r.type === "principe") {
+    if (r.type === "principle") {
       return {
         label: `${tProvenBy} `,
-        items: rows.filter((x) => x.type === "cas" && x.prouve.includes(r.id)),
+        items: rows.filter((x) => x.type === "case" && x.proves.includes(r.id)),
       };
     }
     return {
       label: `${tProves} `,
-      items: r.prouve
+      items: r.proves
         .map((id) => byId.get(id))
         .filter((x): x is Row => Boolean(x)),
     };
@@ -172,13 +172,13 @@ export async function initCatalogue(): Promise<void> {
           .map((x) => `<a href="${url(x.url)}">${esc(x.cote)}</a>`)
           .join(", ")}</p>`
       : "";
-    const axesHtml = r.transverses
+    const axesHtml = r.crosscutting
       .map((t) => `<span class="tag axe">${esc(lbl(opt.axe, t))}</span>`)
       .join("");
     return `<li>
-      <a class="fiche-lien" href="${url(r.url)}"><span class="cote">${esc(r.cote)}</span><span class="fiche-titre">${esc(r.titre)}</span></a>
-      <p class="fiche-resume">${esc(r.resume)}</p>
-      <p class="fiche-meta"><span class="tag statut statut-${esc(r.statut)}">${esc(lbl(opt.statut, r.statut))}</span><span class="tag type">${esc(lbl(opt.type, r.type))}</span>${axesHtml}</p>
+      <a class="fiche-lien" href="${url(r.url)}"><span class="cote">${esc(r.cote)}</span><span class="fiche-titre">${esc(r.title)}</span></a>
+      <p class="fiche-resume">${esc(r.summary)}</p>
+      <p class="fiche-meta"><span class="tag statut statut-${esc(r.status)}">${esc(lbl(opt.statut, r.status))}</span><span class="tag type">${esc(lbl(opt.type, r.type))}</span>${axesHtml}</p>
       ${invHtml}
     </li>`;
   };
@@ -200,7 +200,7 @@ export async function initCatalogue(): Promise<void> {
       .filter((r) => passe(r, f))
       .sort(
         (a, b) =>
-          BLOC_ORDER.indexOf(a.bloc) - BLOC_ORDER.indexOf(b.bloc) ||
+          BLOC_ORDER.indexOf(a.section) - BLOC_ORDER.indexOf(b.section) ||
           a.cote.localeCompare(b.cote),
       );
     liste.innerHTML =

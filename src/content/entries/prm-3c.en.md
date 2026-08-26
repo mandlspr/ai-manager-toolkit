@@ -1,26 +1,26 @@
 ---
 id: prm-3c
-titre: "Framework 3C — Character, Context, Command"
-type: principe
-bloc: prompts
-ordre: 1
-statut: valide
-transverses: []
+title: "Framework 3C — Character, Context, Command"
+type: principle
+section: prompts
+order: 1
+status: valid
+crosscutting: []
 lang: en
-traductions: []
+translations: []
 sources:
   - titre: "Notebook W2"
     emplacement: "Projet Claude / AI Manager Toolkit"
     date_document: 2026-08-19
     nature: notebook
     url: null
-verification:
+verified:
   date: 2026-08-25
-  par: "revue croisée ChatGPT + relecture manuelle"
-  perimetre_limite: null
-liens: []
+  by: "revue croisée ChatGPT + relecture manuelle"
+  scope_limit: null
+links: []
 portfolio: oui
-resume: "A robust prompt separates the role (Character), the context (Context), and the task (Command)."
+summary: "A robust prompt separates the role (Character), the context (Context), and the task (Command)."
 ---
 
 ## Principe

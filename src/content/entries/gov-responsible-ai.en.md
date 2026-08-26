@@ -1,26 +1,26 @@
 ---
 id: gov-responsible-ai
-titre: "Responsible AI framework — six layers"
-type: principe
-bloc: gouvernance
-ordre: 8
-statut: valide
-transverses: [hitl, tracabilite]
+title: "Responsible AI framework — six layers"
+type: principle
+section: governance
+order: 8
+status: valid
+crosscutting: [hitl, tracabilite]
 lang: en
-traductions: []
+translations: []
 sources:
   - titre: "Playbook AI Governance"
     emplacement: "Projet Claude / AI Manager Toolkit"
     date_document: 2026-08-14
     nature: playbook
     url: null
-verification:
+verified:
   date: 2026-08-25
-  par: "revue croisée ChatGPT + relecture manuelle"
-  perimetre_limite: null
-liens: [cas-handshake, bld-garde-fous-agents]
+  by: "revue croisée ChatGPT + relecture manuelle"
+  scope_limit: null
+links: [cas-handshake, bld-garde-fous-agents]
 portfolio: oui
-resume: "A governed, safe AI model rests on six layers: data, model, deployment, interaction, monitoring, and review."
+summary: "A governed, safe AI model rests on six layers: data, model, deployment, interaction, monitoring, and review."
 ---
 
 ## Principe

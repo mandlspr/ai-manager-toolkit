@@ -1,26 +1,26 @@
 ---
 id: evl-profil-utilisateur
-titre: "Tool choice by user profile"
-type: principe
-bloc: evaluation
-ordre: 3
-statut: valide
-transverses: []
+title: "Tool choice by user profile"
+type: principle
+section: evaluation
+order: 3
+status: valid
+crosscutting: []
 lang: en
-traductions: []
+translations: []
 sources:
   - titre: "Notebook W4"
     emplacement: "Projet Claude / AI Manager Toolkit"
     date_document: 2026-08-08
     nature: notebook
     url: null
-verification:
+verified:
   date: 2026-08-25
-  par: "revue croisée ChatGPT + relecture manuelle"
-  perimetre_limite: null
-liens: []
+  by: "revue croisée ChatGPT + relecture manuelle"
+  scope_limit: null
+links: []
 portfolio: oui
-resume: "A tool excellent for one segment can be wrong for another. Evaluate fit by profile, not globally."
+summary: "A tool excellent for one segment can be wrong for another. Evaluate fit by profile, not globally."
 ---
 
 ## Principe

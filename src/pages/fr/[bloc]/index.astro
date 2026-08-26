@@ -3,7 +3,7 @@ import BlocPage from "../../../components/pages/BlocPage.astro";
 import type { BlocId } from "../../../lib/entries";
 
 export function getStaticPaths() {
-  return (["gouvernance", "prompts", "build", "evaluation"] as const).map(
+  return (["governance", "prompts", "build", "evaluation"] as const).map(
     (bloc) => ({ params: { bloc } }),
   );
 }

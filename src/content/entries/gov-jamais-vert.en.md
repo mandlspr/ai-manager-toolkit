@@ -1,13 +1,13 @@
 ---
 id: gov-jamais-vert
-titre: "No case is green by default"
-type: principe
-bloc: gouvernance
-ordre: 5
-statut: valide
-transverses: []
+title: "No case is green by default"
+type: principle
+section: governance
+order: 5
+status: valid
+crosscutting: []
 lang: en
-traductions: []
+translations: []
 sources:
   - titre: "Playbook AI Governance"
     emplacement: "Projet Claude / AI Manager Toolkit"
@@ -19,13 +19,13 @@ sources:
     date_document: 2026-08-14
     nature: projet
     url: null
-verification:
+verified:
   date: 2026-08-25
-  par: "revue croisée ChatGPT + relecture manuelle"
-  perimetre_limite: null
-liens: [cas-stackfit]
+  by: "revue croisée ChatGPT + relecture manuelle"
+  scope_limit: null
+links: [cas-stackfit]
 portfolio: oui
-resume: "Every use is subject to explicit governance. No default color; the burden of proof sits with approval."
+summary: "Every use is subject to explicit governance. No default color; the burden of proof sits with approval."
 ---
 
 ## Principe

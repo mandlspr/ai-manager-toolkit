@@ -1,26 +1,26 @@
 ---
 id: gov-hebergement-public
-titre: "Minimum compliance before public hosting"
-type: principe
-bloc: gouvernance
-ordre: 11
-statut: valide
-transverses: []
+title: "Minimum compliance before public hosting"
+type: principle
+section: governance
+order: 11
+status: valid
+crosscutting: []
 lang: en
-traductions: []
+translations: []
 sources:
   - titre: "Notebook W4"
     emplacement: "Projet Claude / AI Manager Toolkit"
     date_document: 2026-08-08
     nature: notebook
     url: null
-verification:
+verified:
   date: 2026-08-25
-  par: "revue croisée ChatGPT + relecture manuelle"
-  perimetre_limite: null
-liens: []
+  by: "revue croisée ChatGPT + relecture manuelle"
+  scope_limit: null
+links: []
 portfolio: non
-resume: "Verify legal, security, and data compliance before any public deployment — a minimum bar."
+summary: "Verify legal, security, and data compliance before any public deployment — a minimum bar."
 ---
 
 ## Principe

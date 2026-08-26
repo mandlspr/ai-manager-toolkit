@@ -6,7 +6,7 @@ import { entryFrontmatterSchema } from "./content/schema.mjs";
 //
 // EN is the canonical content language: its version keeps the bare id
 // (`gov-double-test`), FR/DE are suffixed (`gov-double-test.fr`). Cross-links
-// (`liens`, `prouve`) always point to the bare id = canonical EN version.
+// (`links`, `proves`) always point to the bare id = canonical EN version.
 const entries = defineCollection({
   loader: glob({
     pattern: "**/*.md",

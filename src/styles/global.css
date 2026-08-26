@@ -439,15 +439,15 @@ main {
   border: 1px solid var(--bordure);
   color: var(--gris-meta);
 }
-.tag.statut-valide {
+.tag.statut-valid {
   background: #e7f0ea;
   color: var(--valide);
 }
-.tag.statut-a-resourcer {
+.tag.statut-to-resource {
   background: #f5eedd;
   color: var(--ambre);
 }
-.tag.statut-brouillon {
+.tag.statut-draft {
   background: transparent;
   border: 1px dashed var(--bordure);
   color: var(--gris-meta);

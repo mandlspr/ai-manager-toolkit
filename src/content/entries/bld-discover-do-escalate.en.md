@@ -1,26 +1,26 @@
 ---
 id: bld-discover-do-escalate
-titre: "Discover → Do → Escalate"
-type: principe
-bloc: build
-ordre: 5
-statut: valide
-transverses: [hitl]
+title: "Discover → Do → Escalate"
+type: principle
+section: build
+order: 5
+status: valid
+crosscutting: [hitl]
 lang: en
-traductions: []
+translations: []
 sources:
   - titre: "Playbook AI Governance"
     emplacement: "Projet Claude / AI Manager Toolkit"
     date_document: 2026-08-14
     nature: playbook
     url: null
-verification:
+verified:
   date: 2026-08-25
-  par: "revue croisée ChatGPT + relecture manuelle"
-  perimetre_limite: null
-liens: []
+  by: "revue croisée ChatGPT + relecture manuelle"
+  scope_limit: null
+links: []
 portfolio: oui
-resume: "Agent orchestration pattern: discover the problem, resolve it with limited tools, escalate to a human when needed."
+summary: "Agent orchestration pattern: discover the problem, resolve it with limited tools, escalate to a human when needed."
 ---
 
 ## Principe

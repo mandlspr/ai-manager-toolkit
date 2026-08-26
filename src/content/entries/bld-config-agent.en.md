@@ -1,26 +1,26 @@
 ---
 id: bld-config-agent
-titre: "Agent config — four constant ingredients"
-type: principe
-bloc: build
-ordre: 2
-statut: valide
-transverses: []
+title: "Agent config — four constant ingredients"
+type: principle
+section: build
+order: 2
+status: valid
+crosscutting: []
 lang: en
-traductions: []
+translations: []
 sources:
   - titre: "Notebook W5"
     emplacement: "Projet Claude / AI Manager Toolkit"
     date_document: 2026-08-25
     nature: notebook
     url: null
-verification:
+verified:
   date: 2026-08-25
-  par: "revue croisée ChatGPT + relecture manuelle"
-  perimetre_limite: null
-liens: []
+  by: "revue croisée ChatGPT + relecture manuelle"
+  scope_limit: null
+links: []
 portfolio: oui
-resume: "Model, temperature, token limit, and tools — four configuration variables that govern agent behavior."
+summary: "Model, temperature, token limit, and tools — four configuration variables that govern agent behavior."
 ---
 
 ## Principe

@@ -1,26 +1,26 @@
 ---
 id: gov-boucle-cx
-titre: "The CX-led AI governance loop"
-type: principe
-bloc: gouvernance
-ordre: 6
-statut: valide
-transverses: [tracabilite]
+title: "The CX-led AI governance loop"
+type: principle
+section: governance
+order: 6
+status: valid
+crosscutting: [tracabilite]
 lang: en
-traductions: []
+translations: []
 sources:
   - titre: "Playbook AI Governance"
     emplacement: "Projet Claude / AI Manager Toolkit"
     date_document: 2026-08-14
     nature: playbook
     url: null
-verification:
+verified:
   date: 2026-08-25
-  par: "revue croisée ChatGPT + relecture manuelle"
-  perimetre_limite: null
-liens: [cas-handshake]
+  by: "revue croisée ChatGPT + relecture manuelle"
+  scope_limit: null
+links: [cas-handshake]
 portfolio: oui
-resume: "AI governance draws on customer feedback to validate or revise approval verdicts."
+summary: "AI governance draws on customer feedback to validate or revise approval verdicts."
 ---
 
 ## Principe

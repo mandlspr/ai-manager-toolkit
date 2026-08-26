@@ -19,8 +19,8 @@ const lx = (p: string) => cheminLocalise(lang, p);
 
 const nav = [
   ...BLOC_ORDER.map((b) => ({
-    href: lx(b === "cas" ? "/cas/" : `/${b}/`),
-    match: b === "cas" ? "/cas/" : `/${b}/`,
+    href: lx(b === "cases" ? "/cases/" : `/${b}/`),
+    match: b === "cases" ? "/cases/" : `/${b}/`,
     label: tt.navBloc[b],
   })),
   { href: lx("/a-propos/"), match: "/a-propos/", label: tt.nav.about },

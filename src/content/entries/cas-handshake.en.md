@@ -1,14 +1,14 @@
 ---
 id: cas-handshake
-titre: "Handshake — end-to-end governed AI workflow"
-type: cas
-bloc: cas
-ordre: 2
-statut: valide
-transverses: []
+title: "Handshake — end-to-end governed AI workflow"
+type: case
+section: cases
+order: 2
+status: valid
+crosscutting: []
 lang: en
-traductions: []
-prouve: [gov-boucle-cx, gov-equite-segment, gov-responsible-ai]
+translations: []
+proves: [gov-boucle-cx, gov-equite-segment, gov-responsible-ai]
 sources:
   - titre: "README Handshake"
     emplacement: "Projet Claude / AI Manager Toolkit"
@@ -20,13 +20,13 @@ sources:
     date_document: 2026-08-14
     nature: playbook
     url: null
-verification:
+verified:
   date: 2026-08-25
-  par: "revue croisée ChatGPT + relecture manuelle"
-  perimetre_limite: "prototype sur 12 comptes synthétiques"
-liens: [gov-boucle-cx, gov-equite-segment, gov-responsible-ai]
+  by: "revue croisée ChatGPT + relecture manuelle"
+  scope_limit: "prototype sur 12 comptes synthétiques"
+links: [gov-boucle-cx, gov-equite-segment, gov-responsible-ai]
 portfolio: oui
-resume: "A complete end-to-end workflow: needs discovery, agent configuration, segment-level measurement, feedback loop."
+summary: "A complete end-to-end workflow: needs discovery, agent configuration, segment-level measurement, feedback loop."
 ---
 
 ## Contexte

@@ -1,26 +1,26 @@
 ---
 id: gov-double-test
-titre: "Double-test before deciding"
-type: principe
-bloc: gouvernance
-ordre: 1
-statut: valide
-transverses: [tracabilite]
+title: "Double-test before deciding"
+type: principle
+section: governance
+order: 1
+status: valid
+crosscutting: [tracabilite]
 lang: en
-traductions: []
+translations: []
 sources:
   - titre: "StackFit V1 — Handshake Project Log"
     emplacement: "Projet Claude / AI Manager Toolkit"
     date_document: 2026-08-14
     nature: projet
     url: null
-verification:
+verified:
   date: 2026-08-25
-  par: "revue croisée ChatGPT + relecture manuelle"
-  perimetre_limite: null
-liens: [cas-stackfit]
+  by: "revue croisée ChatGPT + relecture manuelle"
+  scope_limit: null
+links: [cas-stackfit]
 portfolio: oui
-resume: "Evaluating twice with distinct criteria increases the robustness of judgment and reduces systematic bias."
+summary: "Evaluating twice with distinct criteria increases the robustness of judgment and reduces systematic bias."
 ---
 
 ## Principe

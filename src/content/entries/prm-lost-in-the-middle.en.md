@@ -1,26 +1,26 @@
 ---
 id: prm-lost-in-the-middle
-titre: "Lost in the Middle"
-type: principe
-bloc: prompts
-ordre: 2
-statut: valide
-transverses: []
+title: "Lost in the Middle"
+type: principle
+section: prompts
+order: 2
+status: valid
+crosscutting: []
 lang: en
-traductions: []
+translations: []
 sources:
   - titre: "Notebook W2"
     emplacement: "Projet Claude / AI Manager Toolkit"
     date_document: 2026-08-19
     nature: notebook
     url: null
-verification:
+verified:
   date: 2026-08-25
-  par: "revue croisée ChatGPT + relecture manuelle"
-  perimetre_limite: null
-liens: []
+  by: "revue croisée ChatGPT + relecture manuelle"
+  scope_limit: null
+links: []
 portfolio: oui
-resume: "Models weight information at the start and end of context more heavily. Place critical data at the extremes."
+summary: "Models weight information at the start and end of context more heavily. Place critical data at the extremes."
 ---
 
 ## Principe

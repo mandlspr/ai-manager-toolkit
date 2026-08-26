@@ -1,13 +1,13 @@
 ---
 id: evl-benchmarks
-titre: "A benchmark is partial evidence, not a score"
-type: principe
-bloc: evaluation
-ordre: 1
-statut: valide
-transverses: [tracabilite]
+title: "A benchmark is partial evidence, not a score"
+type: principle
+section: evaluation
+order: 1
+status: valid
+crosscutting: [tracabilite]
 lang: en
-traductions: []
+translations: []
 sources:
   - titre: "Playbook AI Governance"
     emplacement: "Projet Claude / AI Manager Toolkit"
@@ -19,13 +19,13 @@ sources:
     date_document: 2026-08-19
     nature: notebook
     url: null
-verification:
+verified:
   date: 2026-08-25
-  par: "revue croisée ChatGPT + relecture manuelle"
-  perimetre_limite: null
-liens: [cas-stackfit]
+  by: "revue croisée ChatGPT + relecture manuelle"
+  scope_limit: null
+links: [cas-stackfit]
 portfolio: oui
-resume: "A benchmark answers a precise question on a precise case. Sources disagree? That's a discovery, not a flaw."
+summary: "A benchmark answers a precise question on a precise case. Sources disagree? That's a discovery, not a flaw."
 ---
 
 ## Principe

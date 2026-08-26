@@ -1,26 +1,26 @@
 ---
 id: gov-cycle-de-vie
-titre: "Governance across the product lifecycle"
-type: principe
-bloc: gouvernance
-ordre: 10
-statut: valide
-transverses: [hitl]
+title: "Governance across the product lifecycle"
+type: principle
+section: governance
+order: 10
+status: valid
+crosscutting: [hitl]
 lang: en
-traductions: []
+translations: []
 sources:
   - titre: "Playbook AI Governance"
     emplacement: "Projet Claude / AI Manager Toolkit"
     date_document: 2026-08-14
     nature: playbook
     url: null
-verification:
+verified:
   date: 2026-08-25
-  par: "revue croisée ChatGPT + relecture manuelle"
-  perimetre_limite: null
-liens: []
+  by: "revue croisée ChatGPT + relecture manuelle"
+  scope_limit: null
+links: []
 portfolio: oui
-resume: "AI governance must be revisited at key stages: design, launch, growth, and continuously after production."
+summary: "AI governance must be revisited at key stages: design, launch, growth, and continuously after production."
 ---
 
 ## Principe

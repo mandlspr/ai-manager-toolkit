@@ -20,7 +20,7 @@ const { bloc } = Astro.props;
   aria-hidden="true"
 >
   {
-    bloc === "gouvernance" && (
+    bloc === "governance" && (
       <>
         <path d="M12 3l7 2.5v5.5c0 4.4-3 7.2-7 8.5-4-1.3-7-4.1-7-8.5V5.5z" />
         <path d="M9 12l2 2 4-4" />
@@ -49,8 +49,8 @@ const { bloc } = Astro.props;
     bloc === "evaluation" && <path d="M4 20h16M8 20v-6M12 20V8M16 20v-9" />
   }
   {
-    (bloc === "cas" ||
-      !["gouvernance", "prompts", "build", "evaluation"].includes(bloc)) && (
+    (bloc === "cases" ||
+      !["governance", "prompts", "build", "evaluation"].includes(bloc)) && (
       <path d="M7 4h10v16l-5-3.2L7 20z" />
     )
   }

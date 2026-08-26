@@ -1,26 +1,26 @@
 ---
 id: gov-datasheet-dataset
-titre: "Datasheet for dataset"
-type: principe
-bloc: gouvernance
-ordre: 9
-statut: valide
-transverses: [tracabilite]
+title: "Datasheet for dataset"
+type: principle
+section: governance
+order: 9
+status: valid
+crosscutting: [tracabilite]
 lang: en
-traductions: []
+translations: []
 sources:
   - titre: "Playbook AI Governance"
     emplacement: "Projet Claude / AI Manager Toolkit"
     date_document: 2026-08-14
     nature: playbook
     url: null
-verification:
+verified:
   date: 2026-08-25
-  par: "revue croisée ChatGPT + relecture manuelle"
-  perimetre_limite: null
-liens: []
+  by: "revue croisée ChatGPT + relecture manuelle"
+  scope_limit: null
+links: []
 portfolio: oui
-resume: "Document training data, its provenance, and its known limits — a practice of transparency and accountability."
+summary: "Document training data, its provenance, and its known limits — a practice of transparency and accountability."
 ---
 
 ## Principe

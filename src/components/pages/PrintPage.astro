@@ -35,7 +35,7 @@ const rendus = await Promise.all(
 const groupes = BLOC_ORDER.map((bloc) => ({
   bloc,
   label: blocLabel(lang, bloc),
-  items: rendus.filter((r) => r.entry.data.bloc === bloc),
+  items: rendus.filter((r) => r.entry.data.section === bloc),
 })).filter((g) => g.items.length > 0);
 
 const st = (k: string) => tt.optStatut[k as keyof typeof tt.optStatut];
@@ -63,9 +63,9 @@ const ax = (k: string) => tt.optAxe[k as keyof typeof tt.optAxe];
           {groupe.items.map(({ entry, Content }) => {
             const d = entry.data;
             const prouves =
-              d.type === "cas" ? principesProuves(entry, all) : [];
+              d.type === "case" ? principesProuves(entry, all) : [];
             const prouvePar =
-              d.type === "principe" ? casQuiProuvent(entry, all) : [];
+              d.type === "principle" ? casQuiProuvent(entry, all) : [];
             const dejaMontre = new Set(
               [...prouves, ...prouvePar].map((x) => x.data.id),
             );
@@ -79,23 +79,23 @@ const ax = (k: string) => tt.optAxe[k as keyof typeof tt.optAxe];
               <article class="impression-fiche" id={d.id}>
                 <header class="impression-fiche-tete">
                   <span class="cote">{cote(entry)}</span>
-                  <h3>{d.titre}</h3>
+                  <h3>{d.title}</h3>
                 </header>
-                <p class="fiche-resume-lead">{d.resume}</p>
+                <p class="fiche-resume-lead">{d.summary}</p>
 
                 <div class="bandeau">
                   <dl>
                     <div>
                       <dt>{tt.bandeau.statut}</dt>
                       <dd>
-                        <span class={`tag statut statut-${d.statut}`}>
-                          {st(d.statut)}
+                        <span class={`tag statut statut-${d.status}`}>
+                          {st(d.status)}
                         </span>
-                        {aReVoir(d.verification.date) && (
+                        {aReVoir(d.verified.date) && (
                           <span class="tag revoir">{tt.reviewBadge}</span>
                         )}
                         <span class="tag type">{ty(d.type)}</span>
-                        {d.transverses.map((t) => (
+                        {d.crosscutting.map((t) => (
                           <span class="tag axe">{ax(t)}</span>
                         ))}
                       </dd>
@@ -104,7 +104,7 @@ const ax = (k: string) => tt.optAxe[k as keyof typeof tt.optAxe];
                     <div>
                       <dt>{tt.bandeau.verifie}</dt>
                       <dd>
-                        {fmtDate(d.verification.date, lang)} — {d.verification.par}
+                        {fmtDate(d.verified.date, lang)} — {d.verified.by}
                       </dd>
                     </div>
 
@@ -128,9 +128,9 @@ const ax = (k: string) => tt.optAxe[k as keyof typeof tt.optAxe];
                             </li>
                           ))}
                         </ul>
-                        {d.verification.perimetre_limite && (
+                        {d.verified.scope_limit && (
                           <p class="perimetre">
-                            {tt.limitedScope} : {d.verification.perimetre_limite}
+                            {tt.limitedScope} : {d.verified.scope_limit}
                           </p>
                         )}
                       </dd>
@@ -146,7 +146,7 @@ const ax = (k: string) => tt.optAxe[k as keyof typeof tt.optAxe];
                               {prouves.map((x, i) => (
                                 <>
                                   {i > 0 && " · "}
-                                  {cote(x)} — {x.data.titre}
+                                  {cote(x)} — {x.data.title}
                                 </>
                               ))}
                             </p>
@@ -157,7 +157,7 @@ const ax = (k: string) => tt.optAxe[k as keyof typeof tt.optAxe];
                               {prouvePar.map((x, i) => (
                                 <>
                                   {i > 0 && " · "}
-                                  {cote(x)} — {x.data.titre}
+                                  {cote(x)} — {x.data.title}
                                 </>
                               ))}
                             </p>
@@ -168,7 +168,7 @@ const ax = (k: string) => tt.optAxe[k as keyof typeof tt.optAxe];
                               {lies.map((x, i) => (
                                 <>
                                   {i > 0 && " · "}
-                                  {cote(x)} — {x.data.titre}
+                                  {cote(x)} — {x.data.title}
                                 </>
                               ))}
                             </p>

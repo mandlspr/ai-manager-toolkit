@@ -1,26 +1,26 @@
 ---
 id: bld-orchestration
-titre: "Orchestration dos and don'ts"
-type: principe
-bloc: build
-ordre: 3
-statut: valide
-transverses: [cout]
+title: "Orchestration dos and don'ts"
+type: principle
+section: build
+order: 3
+status: valid
+crosscutting: [cout]
 lang: en
-traductions: []
+translations: []
 sources:
   - titre: "Notebook W4"
     emplacement: "Projet Claude / AI Manager Toolkit"
     date_document: 2026-08-08
     nature: notebook
     url: null
-verification:
+verified:
   date: 2026-08-25
-  par: "revue croisée ChatGPT + relecture manuelle"
-  perimetre_limite: null
-liens: []
+  by: "revue croisée ChatGPT + relecture manuelle"
+  scope_limit: null
+links: []
 portfolio: oui
-resume: "Orchestrating agents in parallel reduces latency; sequential orchestration reduces cost. Choose based on the trade-off accepted."
+summary: "Orchestrating agents in parallel reduces latency; sequential orchestration reduces cost. Choose based on the trade-off accepted."
 ---
 
 ## Principe

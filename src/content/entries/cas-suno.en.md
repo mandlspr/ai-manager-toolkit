@@ -1,27 +1,27 @@
 ---
 id: cas-suno
-titre: "Excluding a consumer-grade creative tool from professional use"
-type: cas
-bloc: cas
-ordre: 3
-statut: valide
-transverses: []
+title: "Excluding a consumer-grade creative tool from professional use"
+type: case
+section: cases
+order: 3
+status: valid
+crosscutting: []
 lang: en
-traductions: []
-prouve: [gov-ip-brand-fit]
+translations: []
+proves: [gov-ip-brand-fit]
 sources:
   - titre: "Notebook W3"
     emplacement: "Projet Claude / AI Manager Toolkit"
     date_document: 2026-08-08
     nature: notebook
     url: null
-verification:
+verified:
   date: 2026-08-25
-  par: "revue croisée ChatGPT + relecture manuelle"
-  perimetre_limite: null
-liens: [gov-ip-brand-fit]
+  by: "revue croisée ChatGPT + relecture manuelle"
+  scope_limit: null
+links: [gov-ip-brand-fit]
 portfolio: pas-encore
-resume: "A consumer creative platform excluded from business use over IP risk — a solid call, pending review."
+summary: "A consumer creative platform excluded from business use over IP risk — a solid call, pending review."
 ---
 
 ## Contexte

@@ -8,55 +8,55 @@ import {
 
 export type Entry = CollectionEntry<"entries">;
 
-// Language-neutral bloc markers (brief §2, §6): the shelf-code prefix.
+// Language-neutral section markers (brief §2, §6): the shelf-code prefix.
 // The icon is rendered by src/components/BlocIcon.astro (monochrome line-art).
 // Translated labels and descriptions live in i18n/ui.ts.
 export const BLOCS = {
-  gouvernance: { prefixe: "GOV" },
+  governance: { prefixe: "GOV" },
   prompts: { prefixe: "PRM" },
   build: { prefixe: "BLD" },
   evaluation: { prefixe: "EVL" },
-  cas: { prefixe: "CAS" },
+  cases: { prefixe: "CAS" },
 } as const;
 
 export type BlocId = keyof typeof BLOCS;
 
 export const BLOC_ORDER = [
-  "gouvernance",
+  "governance",
   "prompts",
   "build",
   "evaluation",
-  "cas",
+  "cases",
 ] as const satisfies readonly BlocId[];
 
-// The content schema is declared in JS (schema.mjs), so Astro types `bloc` as
-// `string`. These accessors narrow the typing without `any`.
-export function blocMeta(bloc: string) {
-  return BLOCS[bloc as BlocId];
+// The content schema is declared in JS (schema.mjs), so Astro types `section`
+// as `string`. These accessors narrow the typing without `any`.
+export function blocMeta(section: string) {
+  return BLOCS[section as BlocId];
 }
-export function blocRank(bloc: string): number {
-  return (BLOC_ORDER as readonly string[]).indexOf(bloc);
+export function blocRank(section: string): number {
+  return (BLOC_ORDER as readonly string[]).indexOf(section);
 }
-export function blocLabel(lang: Langue, bloc: string): string {
-  return T[lang].bloc[bloc as BlocId].label;
+export function blocLabel(lang: Langue, section: string): string {
+  return T[lang].bloc[section as BlocId].label;
 }
-export function blocDescription(lang: Langue, bloc: string): string {
-  return T[lang].bloc[bloc as BlocId].description;
+export function blocDescription(lang: Langue, section: string): string {
+  return T[lang].bloc[section as BlocId].description;
 }
 
 /**
- * Visible cards. Display rule from brief §3: `statut: brouillon` is visible in
- * dev but excluded from the production build.
+ * Visible cards. Display rule from brief §3: `status: draft` is visible in dev
+ * but excluded from the production build.
  */
 export async function getPublishedEntries(): Promise<Entry[]> {
   const all = await getCollection("entries");
   const visibles = all.filter((e) =>
-    import.meta.env.PROD ? e.data.statut !== "brouillon" : true,
+    import.meta.env.PROD ? e.data.status !== "draft" : true,
   );
   return visibles.sort(
     (a, b) =>
-      blocRank(a.data.bloc) - blocRank(b.data.bloc) ||
-      a.data.ordre - b.data.ordre,
+      blocRank(a.data.section) - blocRank(b.data.section) ||
+      a.data.order - b.data.order,
   );
 }
 
@@ -103,9 +103,9 @@ export async function completionParLangue(): Promise<
   return out;
 }
 
-/** Shelf code: bloc prefix + ordre on two digits (e.g. GOV·02). */
+/** Shelf code: section prefix + order on two digits (e.g. GOV·02). */
 export function cote(e: Entry): string {
-  return `${blocMeta(e.data.bloc).prefixe}·${String(e.data.ordre).padStart(2, "0")}`;
+  return `${blocMeta(e.data.section).prefixe}·${String(e.data.order).padStart(2, "0")}`;
 }
 
 /**
@@ -130,22 +130,22 @@ export function fmtDate(d: Date, lang: Langue = LANGUE_CANONIQUE): string {
 }
 
 // --- bidirectional cross-links ---------------------------------------------
-// The inverse link (principe -> cases that prove it) is COMPUTED, never entered
-// in the frontmatter (brief §5).
+// The inverse link (principle -> cases that prove it) is COMPUTED, never
+// entered in the frontmatter (brief §5).
 
 export function casQuiProuvent(principe: Entry, all: Entry[]): Entry[] {
   return all.filter(
     (e) =>
-      e.data.type === "cas" && (e.data.prouve ?? []).includes(principe.data.id),
+      e.data.type === "case" && (e.data.proves ?? []).includes(principe.data.id),
   );
 }
 
 export function principesProuves(cas: Entry, all: Entry[]): Entry[] {
-  const ids = new Set(cas.data.prouve ?? []);
+  const ids = new Set(cas.data.proves ?? []);
   return all.filter((e) => ids.has(e.data.id));
 }
 
 export function fichesLiees(entry: Entry, all: Entry[]): Entry[] {
-  const ids = new Set(entry.data.liens ?? []);
+  const ids = new Set(entry.data.links ?? []);
   return all.filter((e) => ids.has(e.data.id) && e.data.id !== entry.data.id);
 }

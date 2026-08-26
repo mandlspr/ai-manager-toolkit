@@ -1,26 +1,26 @@
 ---
 id: bld-gate-zero
-titre: "Gate 0 and the three causes of automation failure"
-type: principe
-bloc: build
-ordre: 1
-statut: valide
-transverses: [cout]
+title: "Gate 0 and the three causes of automation failure"
+type: principle
+section: build
+order: 1
+status: valid
+crosscutting: [cout]
 lang: en
-traductions: []
+translations: []
 sources:
   - titre: "Notebook W5"
     emplacement: "Projet Claude / AI Manager Toolkit"
     date_document: 2026-08-25
     nature: notebook
     url: null
-verification:
+verified:
   date: 2026-08-25
-  par: "revue croisée ChatGPT + relecture manuelle"
-  perimetre_limite: null
-liens: []
+  by: "revue croisée ChatGPT + relecture manuelle"
+  scope_limit: null
+links: []
 portfolio: oui
-resume: "Before building an agent, check three conditions: the problem is solvable, the data is available, the cost is justified."
+summary: "Before building an agent, check three conditions: the problem is solvable, the data is available, the cost is justified."
 ---
 
 ## Principe

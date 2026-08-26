@@ -1,26 +1,26 @@
 ---
 id: bld-debug-export
-titre: "Debugging via structured export"
-type: principe
-bloc: build
-ordre: 4
-statut: valide
-transverses: [hitl]
+title: "Debugging via structured export"
+type: principle
+section: build
+order: 4
+status: valid
+crosscutting: [hitl]
 lang: en
-traductions: []
+translations: []
 sources:
   - titre: "Notebook W5"
     emplacement: "Projet Claude / AI Manager Toolkit"
     date_document: 2026-08-25
     nature: notebook
     url: null
-verification:
+verified:
   date: 2026-08-25
-  par: "revue croisée ChatGPT + relecture manuelle"
-  perimetre_limite: null
-liens: []
+  by: "revue croisée ChatGPT + relecture manuelle"
+  scope_limit: null
+links: []
 portfolio: oui
-resume: "Export traces, tool calls, and model decisions as JSON — a reliable way to diagnose failures."
+summary: "Export traces, tool calls, and model decisions as JSON — a reliable way to diagnose failures."
 ---
 
 ## Principe
