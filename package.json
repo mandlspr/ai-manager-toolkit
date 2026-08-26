@@ -1,0 +1,29 @@
+{
+  "name": "ai-manager-toolkit",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=18.20.8 || >=20.3.0 || >=22.0.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "sync": "astro sync",
+    "check:content": "node scripts/check-content.mjs",
+    "check:content:self-test": "node scripts/check-content.mjs --self-test",
+    "check:types": "astro check",
+    "build": "npm run check:content && astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^5.13.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "gray-matter": "^4.0.3",
+    "typescript": "^5.7.0",
+    "zod": "^3.24.0"
+  }
+}
