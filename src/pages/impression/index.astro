@@ -1,0 +1,298 @@
+---
+import { render } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import {
+  getPublishedEntries,
+  cote,
+  blocMeta,
+  aReVoir,
+  fmtDate,
+  casQuiProuvent,
+  principesProuves,
+  fichesLiees,
+  BLOC_ORDER,
+} from "../../lib/entries";
+
+// Une seule page listant toutes les fiches publiées (statut ≠ brouillon).
+// Pas de pagination. Base du futur export e-book PDF : un seul contenu, deux
+// rendus (écran + @media print). Aucun champ ni contenu hors frontmatter.
+const all = await getPublishedEntries();
+
+const rendus = await Promise.all(
+  all.map(async (entry) => {
+    const { Content } = await render(entry);
+    return { entry, Content };
+  }),
+);
+
+const groupes = BLOC_ORDER.map((bloc) => ({
+  bloc,
+  meta: blocMeta(bloc),
+  items: rendus.filter((r) => r.entry.data.bloc === bloc),
+})).filter((g) => g.items.length > 0);
+---
+
+<Base
+  titre="Version imprimable"
+  description="Toutes les fiches publiées sur une seule page, optimisée pour l'impression et l'export PDF."
+>
+  <div class="impression">
+    <p class="fil impression-ecran"><a href="/">Accueil</a> / Version imprimable</p>
+    <h1>Version imprimable</h1>
+    <p class="impression-ecran impression-note">
+      {all.length} fiches publiées, une seule page, sans pagination. Utilisez l'impression
+      du navigateur (Cmd/Ctrl + P) pour générer un PDF. Les brouillons sont exclus ;
+      les sources sont en clair.
+    </p>
+
+    {
+      groupes.map((groupe) => (
+        <section class="impression-bloc">
+          <h2>{groupe.meta.label}</h2>
+          {groupe.items.map(({ entry, Content }) => {
+            const d = entry.data;
+            const prouves =
+              d.type === "cas" ? principesProuves(entry, all) : [];
+            const prouvePar =
+              d.type === "principe" ? casQuiProuvent(entry, all) : [];
+            const dejaMontre = new Set(
+              [...prouves, ...prouvePar].map((x) => x.data.id),
+            );
+            const lies = fichesLiees(entry, all).filter(
+              (x) => !dejaMontre.has(x.data.id),
+            );
+            const aDesLiens =
+              prouves.length + prouvePar.length + lies.length > 0;
+
+            return (
+              <article class="impression-fiche" id={d.id}>
+                <header class="impression-fiche-tete">
+                  <span class="cote">{cote(entry)}</span>
+                  <h3>{d.titre}</h3>
+                </header>
+                <p class="fiche-resume-lead">{d.resume}</p>
+
+                <div class="bandeau">
+                  <dl>
+                    <div>
+                      <dt>Statut</dt>
+                      <dd>
+                        <span class={`tag statut statut-${d.statut}`}>
+                          {d.statut}
+                        </span>
+                        {aReVoir(d.verification.date) && (
+                          <span class="tag revoir">à revoir</span>
+                        )}
+                        <span class="tag type">{d.type}</span>
+                        {d.transverses.map((t) => (
+                          <span class="tag axe">{t}</span>
+                        ))}
+                      </dd>
+                    </div>
+
+                    <div>
+                      <dt>Vérifié le</dt>
+                      <dd>
+                        {fmtDate(d.verification.date)} — {d.verification.par}
+                      </dd>
+                    </div>
+
+                    <div>
+                      <dt>Source{d.sources.length > 1 ? "s" : ""}</dt>
+                      <dd>
+                        <ul>
+                          {d.sources.map((s) => (
+                            <li>
+                              <span class="source-titre">{s.titre}</span>
+                              <span class="source-detail">
+                                {" "}
+                                — {s.emplacement} · {s.nature} ·{" "}
+                                {fmtDate(s.date_document)}
+                              </span>
+                              {s.url && <span class="source-url">{s.url}</span>}
+                            </li>
+                          ))}
+                        </ul>
+                        {d.verification.perimetre_limite && (
+                          <p class="perimetre">
+                            Périmètre limité : {d.verification.perimetre_limite}
+                          </p>
+                        )}
+                      </dd>
+                    </div>
+
+                    {aDesLiens && (
+                      <div>
+                        <dt>Liens croisés</dt>
+                        <dd>
+                          {prouves.length > 0 && (
+                            <p>
+                              Principes prouvés :{" "}
+                              {prouves.map((x, i) => (
+                                <>
+                                  {i > 0 && " · "}
+                                  {cote(x)} — {x.data.titre}
+                                </>
+                              ))}
+                            </p>
+                          )}
+                          {prouvePar.length > 0 && (
+                            <p>
+                              Cas qui le prouvent :{" "}
+                              {prouvePar.map((x, i) => (
+                                <>
+                                  {i > 0 && " · "}
+                                  {cote(x)} — {x.data.titre}
+                                </>
+                              ))}
+                            </p>
+                          )}
+                          {lies.length > 0 && (
+                            <p>
+                              Voir aussi :{" "}
+                              {lies.map((x, i) => (
+                                <>
+                                  {i > 0 && " · "}
+                                  {cote(x)} — {x.data.titre}
+                                </>
+                              ))}
+                            </p>
+                          )}
+                        </dd>
+                      </div>
+                    )}
+                  </dl>
+                </div>
+
+                <div class="fiche-corps">
+                  <Content />
+                </div>
+              </article>
+            );
+          })}
+        </section>
+      ))
+    }
+  </div>
+</Base>
+
+<style is:global>
+  /* Rendu écran — mêmes tokens et mêmes classes que le reste du site,
+     pas un style à part. */
+  .impression {
+    max-width: 44rem;
+  }
+  .impression > h1 {
+    font-size: 1.7rem;
+    margin: 0 0 0.6rem;
+  }
+  .impression-note {
+    font-family: var(--corps);
+    font-style: italic;
+    color: var(--gris-meta);
+    margin: 0 0 1.5rem;
+    max-width: 42rem;
+  }
+  .impression-bloc > h2 {
+    font-family: var(--titre);
+    font-weight: 800;
+    font-size: 1.3rem;
+    margin: 2.75rem 0 0.5rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 2px solid var(--encre);
+  }
+  .impression-fiche {
+    padding: 1.15rem 0 1.3rem;
+    border-bottom: 1px solid var(--bordure);
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  /* Corps compact, cadré au contexte imprimable uniquement — la fiche de
+     consultation (étape 3) garde son interligne large. */
+  .impression .fiche-corps {
+    font-size: 1rem;
+  }
+  .impression .fiche-corps h2 {
+    margin: 0.9rem 0 0.3rem;
+    font-size: 1.02rem;
+  }
+  .impression .fiche-corps h2:first-child {
+    margin-top: 0.25rem;
+  }
+  .impression .fiche-corps p {
+    margin: 0.4rem 0;
+  }
+  .impression-fiche-tete {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.45rem 0.7rem;
+    margin-bottom: 0.35rem;
+  }
+  .impression-fiche-tete h3 {
+    font-family: var(--titre);
+    font-weight: 700;
+    font-size: 1.18rem;
+    margin: 0;
+  }
+  .impression .bandeau {
+    margin: 1rem 0 1.1rem;
+  }
+  .impression .source-titre {
+    font-weight: 600;
+  }
+  .impression .source-url {
+    display: block;
+    color: var(--gris-meta);
+    word-break: break-all;
+  }
+
+  /* Rendu impression — masque nav / recherche / filtres (aucun ici hormis
+     l'ossature), garde bandeau + cote + liens croisés en texte. */
+  @media print {
+    .site-header,
+    .site-footer,
+    .skip,
+    .impression-ecran {
+      display: none !important;
+    }
+    main {
+      padding: 0 !important;
+      max-width: none !important;
+    }
+    body {
+      background: #fff;
+    }
+    .impression,
+    .impression .bandeau,
+    .impression .fiche-corps {
+      max-width: none;
+    }
+    .impression > h1 {
+      margin-bottom: 1rem;
+    }
+    .impression-bloc > h2 {
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+    .impression-fiche {
+      break-inside: avoid;
+      page-break-inside: avoid;
+      border-bottom: 1px solid #999;
+    }
+    /* même traitement de cote qu'à l'écran */
+    .cote {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .tag {
+      border: 1px solid #999;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+</style>
