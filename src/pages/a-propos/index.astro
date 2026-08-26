@@ -1,0 +1,72 @@
+---
+import Base from "../../layouts/Base.astro";
+---
+
+<Base
+  titre="À propos — méthode"
+  description="Test de durabilité, types de fiches, statuts, règle de publication."
+>
+  <article class="prose">
+    <p class="fil"><a href="/">Accueil</a> / Méthode</p>
+    <h1>Méthode</h1>
+    <p>
+      Ce site est un manuel opérationnel doublé d'une preuve portfolio. Il
+      n'héberge pas de connaissances collaboratives : chaque fiche est une
+      affirmation ou une preuve, sourcée et datée.
+    </p>
+
+    <h2>Deux types de fiches</h2>
+    <ul>
+      <li>
+        <strong>Principe</strong> — une affirmation durable, sourcée, applicable.
+      </li>
+      <li>
+        <strong>Cas</strong> — une preuve datée avec contexte, action et
+        résultat. Un cas illustre un ou plusieurs principes ; il n'en tient
+        jamais lieu.
+      </li>
+    </ul>
+
+    <h2>Le test de durabilité</h2>
+    <p>
+      Une fiche <em>principe</em> ne passe que si, en retirant les noms d'outils
+      qu'elle cite, elle tient encore dans deux ans.
+    </p>
+
+    <h2>Les statuts</h2>
+    <ul>
+      <li><strong>valide</strong> — sourcé, vérifié, publiable.</li>
+      <li>
+        <strong>a-resourcer</strong> — le fond tient mais la source doit être consolidée.
+      </li>
+      <li>
+        <strong>brouillon</strong> — visible en développement, exclu du build de production.
+      </li>
+    </ul>
+
+    <h2>Le badge « à revoir »</h2>
+    <p>
+      Calculé automatiquement : toute fiche dont la date de vérification dépasse
+      six mois porte le badge, sans intervention manuelle.
+    </p>
+
+    <h2>Liens croisés</h2>
+    <p>
+      Les liens sont bidirectionnels. Une fiche <em>principe</em> affiche la liste
+      des cas qui la citent comme preuve ; ce lien inverse est calculé, jamais saisi
+      à la main.
+    </p>
+
+    <h2>Cotes</h2>
+    <p>
+      Chaque fiche porte une cote de rangement : le préfixe de son bloc suivi de
+      son ordre sur deux chiffres — par exemple <span class="cote">GOV·02</span>.
+    </p>
+
+    <h2>Filtres partageables</h2>
+    <p>
+      La recherche et les filtres (bloc, type, statut, axe transversal) vivent
+      dans l'URL. Une vue filtrée se partage en copiant le lien.
+    </p>
+  </article>
+</Base>

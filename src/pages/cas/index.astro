@@ -1,0 +1,27 @@
+---
+import Base from "../../layouts/Base.astro";
+import Catalogue from "../../components/Catalogue.astro";
+import { getPublishedEntries, BLOCS } from "../../lib/entries";
+
+const all = await getPublishedEntries();
+const cas = all.filter((e) => e.data.bloc === "cas");
+const meta = BLOCS.cas;
+---
+
+<Base
+  titre={meta.label}
+  description="Les cas pratiques, présentés comme preuves datées."
+>
+  <article class="bloc-page">
+    <p class="fil"><a href="/">Accueil</a> / {meta.label}</p>
+    <h1>
+      <span class="bloc-marqueur" aria-hidden="true">{meta.marqueur}</span>
+      {meta.label}
+    </h1>
+    <p class="bloc-desc">
+      Une preuve datée : contexte, action, résultat. Chaque cas illustre un ou
+      plusieurs principes et ne peut jamais en tenir lieu.
+    </p>
+    <Catalogue entries={cas} all={all} seedBloc="cas" />
+  </article>
+</Base>

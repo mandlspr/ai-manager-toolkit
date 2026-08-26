@@ -1,0 +1,171 @@
+---
+import { render } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import {
+  getPublishedEntries,
+  cote,
+  blocMeta,
+  aReVoir,
+  fmtDate,
+  casQuiProuvent,
+  principesProuves,
+  fichesLiees,
+} from "../../lib/entries";
+
+export async function getStaticPaths() {
+  const all = await getPublishedEntries();
+  return all.map((entry) => ({
+    params: { bloc: entry.data.bloc, id: entry.data.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const d = entry.data;
+const all = await getPublishedEntries();
+const { Content } = await render(entry);
+
+const meta = blocMeta(d.bloc);
+const prouves = d.type === "cas" ? principesProuves(entry, all) : [];
+const prouvePar = d.type === "principe" ? casQuiProuvent(entry, all) : [];
+// « Voir aussi » = liens manuels qui ne sont pas déjà montrés par le lien croisé calculé.
+const dejaMontre = new Set(
+  [...prouves, ...prouvePar].map((x) => x.data.id),
+);
+const lies = fichesLiees(entry, all).filter((x) => !dejaMontre.has(x.data.id));
+const aDesLiens = prouves.length + prouvePar.length + lies.length > 0;
+---
+
+<Base titre={`${cote(entry)} · ${d.titre}`} description={d.resume}>
+  <article class="fiche">
+    <p class="fil">
+      <a href="/">Accueil</a> / <a href={`/${d.bloc}/`}>{meta.label}</a>
+    </p>
+
+    <header class="fiche-tete">
+      <p class="cote cote-xl">{cote(entry)}</p>
+      <h1>{d.titre}</h1>
+      <p class="fiche-resume-lead">{d.resume}</p>
+    </header>
+
+    <aside class="bandeau" aria-label="Métadonnées de la fiche">
+      <dl>
+        <div>
+          <dt>Statut</dt>
+          <dd>
+            <span class={`tag statut statut-${d.statut}`}>{d.statut}</span>
+            {
+              aReVoir(d.verification.date) && (
+                <span class="tag revoir">à revoir</span>
+              )
+            }
+          </dd>
+        </div>
+
+        <div>
+          <dt>Type</dt>
+          <dd><span class="tag type">{d.type}</span></dd>
+        </div>
+
+        {
+          d.transverses.length > 0 && (
+            <div>
+              <dt>Axes</dt>
+              <dd>
+                {d.transverses.map((t) => (
+                  <span class="tag axe">{t}</span>
+                ))}
+              </dd>
+            </div>
+          )
+        }
+
+        <div>
+          <dt>Vérifié le</dt>
+          <dd>{fmtDate(d.verification.date)} — {d.verification.par}</dd>
+        </div>
+
+        <div class="bandeau-sources">
+          <dt>Source{d.sources.length > 1 ? "s" : ""}</dt>
+          <dd>
+            <ul>
+              {
+                d.sources.map((s) => (
+                  <li>
+                    {s.url ? <a href={s.url}>{s.titre}</a> : s.titre}
+                    <span class="source-detail">
+                      {" "}
+                      — {s.emplacement} · {s.nature} · {fmtDate(s.date_document)}
+                    </span>
+                  </li>
+                ))
+              }
+            </ul>
+            {
+              d.verification.perimetre_limite && (
+                <p class="perimetre">
+                  Périmètre limité : {d.verification.perimetre_limite}
+                </p>
+              )
+            }
+          </dd>
+        </div>
+
+        {
+          aDesLiens && (
+            <div>
+              <dt>Liens croisés</dt>
+              <dd>
+                {prouves.length > 0 && (
+                  <p>
+                    Principes prouvés :{" "}
+                    {prouves.map((x, i) => (
+                      <>
+                        {i > 0 && ", "}
+                        <a href={`/${x.data.bloc}/${x.data.id}/`}>
+                          {cote(x)} — {x.data.titre}
+                        </a>
+                      </>
+                    ))}
+                  </p>
+                )}
+                {prouvePar.length > 0 && (
+                  <p>
+                    Cas qui le prouvent :{" "}
+                    {prouvePar.map((x, i) => (
+                      <>
+                        {i > 0 && ", "}
+                        <a href={`/${x.data.bloc}/${x.data.id}/`}>
+                          {cote(x)} — {x.data.titre}
+                        </a>
+                      </>
+                    ))}
+                  </p>
+                )}
+                {lies.length > 0 && (
+                  <p>
+                    Voir aussi :{" "}
+                    {lies.map((x, i) => (
+                      <>
+                        {i > 0 && ", "}
+                        <a href={`/${x.data.bloc}/${x.data.id}/`}>
+                          {cote(x)} — {x.data.titre}
+                        </a>
+                      </>
+                    ))}
+                  </p>
+                )}
+              </dd>
+            </div>
+          )
+        }
+      </dl>
+    </aside>
+
+    <div class="fiche-corps">
+      <Content />
+    </div>
+
+    <p class="fiche-retour"><a href={`/${d.bloc}/`}>← {meta.label}</a></p>
+  </article>
+</Base>

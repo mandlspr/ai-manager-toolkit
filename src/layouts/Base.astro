@@ -1,0 +1,88 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  titre: string;
+  description?: string;
+}
+
+const { titre, description } = Astro.props;
+
+const nav = [
+  { href: "/gouvernance/", label: "Gouvernance" },
+  { href: "/prompts/", label: "Prompts" },
+  { href: "/build/", label: "Build" },
+  { href: "/evaluation/", label: "Évaluation" },
+  { href: "/cas/", label: "Cas" },
+  { href: "/a-propos/", label: "À propos" },
+];
+
+const path = Astro.url.pathname;
+const actif = (href: string) =>
+  href === "/" ? path === "/" : path.startsWith(href);
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{titre} — AI Manager Toolkit</title>
+    {description && <meta name="description" content={description} />}
+  </head>
+  <body>
+    <a class="skip" href="#contenu">Aller au contenu</a>
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a class="wordmark" href="/">AI Manager Toolkit</a>
+        <nav class="site-nav" aria-label="Sections">
+          {
+            nav.map((item) => (
+              <a
+                href={item.href}
+                aria-current={actif(item.href) ? "page" : undefined}
+              >
+                {item.label}
+              </a>
+            ))
+          }
+        </nav>
+      </div>
+    </header>
+
+    <main id="contenu">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <p>
+          Manuel opérationnel — le contenu est séparé du code, une fiche = un
+          fichier Markdown. <a href="/a-propos/">Méthode</a>.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Raccourci « / » : focus la recherche. « Échap » : efface (brief §5).
+      document.addEventListener("keydown", (e) => {
+        const input = document.querySelector<HTMLInputElement>(
+          "[data-search-input]",
+        );
+        if (!input) return;
+        const el = document.activeElement;
+        const saisie =
+          el instanceof HTMLElement &&
+          ["INPUT", "TEXTAREA", "SELECT"].includes(el.tagName);
+        if (e.key === "/" && !saisie) {
+          e.preventDefault();
+          input.focus();
+        } else if (e.key === "Escape" && el === input) {
+          input.value = "";
+          input.dispatchEvent(new Event("input", { bubbles: true }));
+          input.blur();
+        }
+      });
+    </script>
+  </body>
+</html>

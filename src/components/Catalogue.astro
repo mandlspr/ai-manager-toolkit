@@ -1,0 +1,128 @@
+---
+import {
+  cote,
+  BLOCS,
+  aReVoir,
+  casQuiProuvent,
+  principesProuves,
+  type Entry,
+} from "../lib/entries";
+
+interface Props {
+  entries: Entry[];
+  all: Entry[];
+  seedBloc?: string;
+}
+
+const { entries, all, seedBloc } = Astro.props;
+---
+
+<section class="catalogue" data-catalogue data-seed-bloc={seedBloc ?? ""}>
+  <form class="filtres" role="search" data-filtres>
+    <div class="champ-recherche">
+      <label for="q">Recherche</label>
+      <input
+        type="search"
+        id="q"
+        name="q"
+        placeholder="Titre, résumé, corps…  ( / pour activer )"
+        autocomplete="off"
+        data-search-input
+      />
+    </div>
+    <div class="facettes">
+      <label>
+        Bloc
+        <select name="bloc">
+          <option value="">Tous</option>
+          {
+            Object.entries(BLOCS).map(([k, v]) => (
+              <option value={k}>{v.label}</option>
+            ))
+          }
+        </select>
+      </label>
+      <label>
+        Type
+        <select name="type">
+          <option value="">Tous</option>
+          <option value="principe">Principe</option>
+          <option value="cas">Cas</option>
+        </select>
+      </label>
+      <label>
+        Statut
+        <select name="statut">
+          <option value="">Tous</option>
+          <option value="valide">valide</option>
+          <option value="a-resourcer">a-resourcer</option>
+          <option value="brouillon">brouillon</option>
+        </select>
+      </label>
+      <fieldset class="axes">
+        <legend>Axes transversaux</legend>
+        <label><input type="checkbox" name="transverse" value="cout" /> coût</label
+        >
+        <label
+          ><input type="checkbox" name="transverse" value="hitl" /> HITL</label
+        >
+        <label
+          ><input type="checkbox" name="transverse" value="tracabilite" /> traçabilité</label
+        >
+      </fieldset>
+      <button type="button" data-reset>Réinitialiser</button>
+    </div>
+  </form>
+
+  <p class="resultat-compte" data-compte>
+    {entries.length} fiche{entries.length > 1 ? "s" : ""}
+  </p>
+
+  <ul class="liste-fiches" data-liste>
+    {
+      entries.map((e) => {
+        const inv =
+          e.data.type === "principe"
+            ? casQuiProuvent(e, all)
+            : principesProuves(e, all);
+        return (
+          <li>
+            <a class="fiche-lien" href={`/${e.data.bloc}/${e.data.id}/`}>
+              <span class="cote">{cote(e)}</span>
+              <span class="fiche-titre">{e.data.titre}</span>
+            </a>
+            <p class="fiche-resume">{e.data.resume}</p>
+            <p class="fiche-meta">
+              <span class={`tag statut statut-${e.data.statut}`}>
+                {e.data.statut}
+              </span>
+              <span class="tag type">{e.data.type}</span>
+              {e.data.transverses.map((t) => (
+                <span class="tag axe">{t}</span>
+              ))}
+              {aReVoir(e.data.verification.date) && (
+                <span class="tag revoir">à revoir</span>
+              )}
+            </p>
+            {inv.length > 0 && (
+              <p class="fiche-liens">
+                {e.data.type === "principe" ? "Prouvé par : " : "Prouve : "}
+                {inv.map((x, i) => (
+                  <>
+                    {i > 0 && ", "}
+                    <a href={`/${x.data.bloc}/${x.data.id}/`}>{cote(x)}</a>
+                  </>
+                ))}
+              </p>
+            )}
+          </li>
+        );
+      })
+    }
+  </ul>
+</section>
+
+<script>
+  import { initCatalogue } from "../scripts/catalogue";
+  initCatalogue();
+</script>
