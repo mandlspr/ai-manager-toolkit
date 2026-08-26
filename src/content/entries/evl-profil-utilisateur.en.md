@@ -1,6 +1,6 @@
 ---
 id: evl-profil-utilisateur
-titre: "Choix d'outil par profil utilisateur"
+titre: "Tool choice by user profile"
 type: principe
 bloc: evaluation
 ordre: 3
@@ -20,7 +20,7 @@ verification:
   perimetre_limite: null
 liens: []
 portfolio: oui
-resume: "Un outil excellent pour un segment peut être inapproprié pour un autre. Évaluer l'adéquation par profil, pas en global."
+resume: "A tool excellent for one segment can be wrong for another. Evaluate fit by profile, not globally."
 ---
 
 ## Principe

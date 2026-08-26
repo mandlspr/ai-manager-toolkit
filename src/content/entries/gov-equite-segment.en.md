@@ -1,6 +1,6 @@
 ---
 id: gov-equite-segment
-titre: "Équité par segment — la moyenne masque le local"
+titre: "Fairness by segment — the average hides the local"
 type: principe
 bloc: gouvernance
 ordre: 7
@@ -20,7 +20,7 @@ verification:
   perimetre_limite: null
 liens: [cas-handshake]
 portfolio: oui
-resume: "Évaluer l'équité par segment ou profil utilisateur, jamais en moyenne. Les disparités locales demandent des mesures locales."
+resume: "Evaluate fairness by segment or user profile, never on average. Local disparities need local measures."
 ---
 
 ## Principe

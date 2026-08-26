@@ -1,6 +1,6 @@
 ---
 id: gov-double-test
-titre: "Double-test avant décision"
+titre: "Double-test before deciding"
 type: principe
 bloc: gouvernance
 ordre: 1
@@ -20,7 +20,7 @@ verification:
   perimetre_limite: null
 liens: [cas-stackfit]
 portfolio: oui
-resume: "Évaluer deux fois avec des critères distincts augmente la robustesse du jugement et réduit les biais systématiques."
+resume: "Evaluating twice with distinct criteria increases the robustness of judgment and reduces systematic bias."
 ---
 
 ## Principe

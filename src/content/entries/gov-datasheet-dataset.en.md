@@ -1,6 +1,6 @@
 ---
 id: gov-datasheet-dataset
-titre: "Datasheet for Dataset"
+titre: "Datasheet for dataset"
 type: principe
 bloc: gouvernance
 ordre: 9
@@ -20,7 +20,7 @@ verification:
   perimetre_limite: null
 liens: []
 portfolio: oui
-resume: "Documenter les données d'entraînement, leurs provenance et leurs limites connues — une pratique de transparence et de responsabilité."
+resume: "Document training data, its provenance, and its known limits — a practice of transparency and accountability."
 ---
 
 ## Principe

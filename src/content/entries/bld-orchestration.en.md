@@ -1,6 +1,6 @@
 ---
 id: bld-orchestration
-titre: "Dos & don'ts d'orchestration"
+titre: "Orchestration dos and don'ts"
 type: principe
 bloc: build
 ordre: 3
@@ -20,7 +20,7 @@ verification:
   perimetre_limite: null
 liens: []
 portfolio: oui
-resume: "Orchestrer des agents parallèlement réduit la latence, l'orchestration séquentielle réduit le coût. Choisir selon le compromis accepté."
+resume: "Orchestrating agents in parallel reduces latency; sequential orchestration reduces cost. Choose based on the trade-off accepted."
 ---
 
 ## Principe

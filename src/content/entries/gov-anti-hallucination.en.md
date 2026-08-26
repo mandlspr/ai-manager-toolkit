@@ -1,6 +1,6 @@
 ---
 id: gov-anti-hallucination
-titre: "Trois leviers anti-hallucination, hiérarchisés"
+titre: "Three anti-hallucination levers, ranked"
 type: principe
 bloc: gouvernance
 ordre: 3
@@ -20,7 +20,7 @@ verification:
   perimetre_limite: null
 liens: []
 portfolio: oui
-resume: "Format contraint, interdiction explicite, contexte réel. Le troisième est le plus impactant."
+resume: "Constrained format, explicit prohibition on inventing, real context. The third is the most impactful."
 ---
 
 ## Principe

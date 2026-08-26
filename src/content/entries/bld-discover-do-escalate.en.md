@@ -20,7 +20,7 @@ verification:
   perimetre_limite: null
 liens: []
 portfolio: oui
-resume: "Une orchestration d'agent : découvrir le problème, le résoudre avec des outils limités, escalader si nécessaire vers un humain."
+resume: "Agent orchestration pattern: discover the problem, resolve it with limited tools, escalate to a human when needed."
 ---
 
 ## Principe

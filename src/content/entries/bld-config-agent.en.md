@@ -1,6 +1,6 @@
 ---
 id: bld-config-agent
-titre: "Config agent — quatre ingrédients constants"
+titre: "Agent config — four constant ingredients"
 type: principe
 bloc: build
 ordre: 2
@@ -20,7 +20,7 @@ verification:
   perimetre_limite: null
 liens: []
 portfolio: oui
-resume: "Modèle, température, limite de tokens, et outils — quatre variables de configuration qui gouvernent le comportement de l'agent."
+resume: "Model, temperature, token limit, and tools — four configuration variables that govern agent behavior."
 ---
 
 ## Principe

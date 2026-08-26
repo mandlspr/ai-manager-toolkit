@@ -1,6 +1,6 @@
 ---
 id: gov-jamais-vert
-titre: "Aucun cas n'est vert par défaut"
+titre: "No case is green by default"
 type: principe
 bloc: gouvernance
 ordre: 5
@@ -25,7 +25,7 @@ verification:
   perimetre_limite: null
 liens: [cas-stackfit]
 portfolio: oui
-resume: "Tout usage est soumis à une gouvernance explicite. Aucune couleur par défaut ; la charge de la preuve pèse sur l'approbation."
+resume: "Every use is subject to explicit governance. No default color; the burden of proof sits with approval."
 ---
 
 ## Principe

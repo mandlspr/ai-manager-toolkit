@@ -1,6 +1,6 @@
 ---
 id: gov-boucle-cx
-titre: "Boucle CX-led AI Governance"
+titre: "The CX-led AI governance loop"
 type: principe
 bloc: gouvernance
 ordre: 6
@@ -20,7 +20,7 @@ verification:
   perimetre_limite: null
 liens: [cas-handshake]
 portfolio: oui
-resume: "La gouvernance IA s'appuie sur les retours clients pour valider ou réviser les verdicts d'approbation."
+resume: "AI governance draws on customer feedback to validate or revise approval verdicts."
 ---
 
 ## Principe

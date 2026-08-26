@@ -1,6 +1,6 @@
 ---
 id: evl-make-or-buy
-titre: "Make or Buy — contenu créatif"
+titre: "Make or buy — creative content"
 type: principe
 bloc: evaluation
 ordre: 4
@@ -20,7 +20,7 @@ verification:
   perimetre_limite: null
 liens: []
 portfolio: oui
-resume: "Pour le contenu créatif : générer soi-même (coûteux en latence, libre en IP) ou acheter du contenu existant (rapide, droits limités)."
+resume: "For creative content: generate it yourself (costly in time, free of IP constraints) or buy existing content (fast, limited rights)."
 ---
 
 ## Principe

@@ -1,6 +1,6 @@
 ---
 id: gov-responsible-ai
-titre: "Framework Responsible AI — six couches"
+titre: "Responsible AI framework — six layers"
 type: principe
 bloc: gouvernance
 ordre: 8
@@ -20,7 +20,7 @@ verification:
   perimetre_limite: null
 liens: [cas-handshake, bld-garde-fous-agents]
 portfolio: oui
-resume: "Un modèle d'IA gouverné et sûr s'appuie sur six couches : données, modèle, déploiement, interaction, monitoring et révision."
+resume: "A governed, safe AI model rests on six layers: data, model, deployment, interaction, monitoring, and review."
 ---
 
 ## Principe

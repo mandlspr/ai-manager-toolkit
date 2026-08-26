@@ -1,6 +1,6 @@
 ---
 id: cas-suno
-titre: "Exclusion d'un outil créatif grand public d'un usage pro"
+titre: "Excluding a consumer-grade creative tool from professional use"
 type: cas
 bloc: cas
 ordre: 3
@@ -21,7 +21,7 @@ verification:
   perimetre_limite: null
 liens: [gov-ip-brand-fit]
 portfolio: pas-encore
-resume: "Une plateforme créative grand public exclue d'un usage métier en raison du risque IP — un arbitrage solide en attente de relecture."
+resume: "A consumer creative platform excluded from business use over IP risk — a solid call, pending review."
 ---
 
 ## Contexte

@@ -1,6 +1,6 @@
 ---
 id: gov-ip-brand-fit
-titre: "Risque IP et fit de marque avant tout outil grand public"
+titre: "IP risk and brand fit before any consumer-grade tool"
 type: principe
 bloc: gouvernance
 ordre: 4
@@ -20,7 +20,7 @@ verification:
   perimetre_limite: null
 liens: [cas-suno]
 portfolio: oui
-resume: "La propriété intellectuelle et l'alignement de marque sont des critères d'exclusion avant l'adoption d'outils publics."
+resume: "Intellectual property and brand alignment are exclusion criteria before adopting public tools."
 ---
 
 ## Principe

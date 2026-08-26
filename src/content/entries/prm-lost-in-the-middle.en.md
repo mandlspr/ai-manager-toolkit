@@ -20,7 +20,7 @@ verification:
   perimetre_limite: null
 liens: []
 portfolio: oui
-resume: "Les modèles accordent plus de poids à l'information en début et en fin de contexte. Placer les données critiques aux extrémités."
+resume: "Models weight information at the start and end of context more heavily. Place critical data at the extremes."
 ---
 
 ## Principe

@@ -20,7 +20,7 @@ verification:
   perimetre_limite: null
 liens: []
 portfolio: oui
-resume: "Un prompt robuste sépare le rôle (Character), le contexte (Context), et la tâche (Command)."
+resume: "A robust prompt separates the role (Character), the context (Context), and the task (Command)."
 ---
 
 ## Principe

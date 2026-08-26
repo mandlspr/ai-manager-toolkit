@@ -20,7 +20,7 @@ verification:
   perimetre_limite: null
 liens: []
 portfolio: oui
-resume: "Les modèles IA excellent sur certaines tâches et pataugent sur d'autres, sans progression linéaire. La performance est multi-dimensionnelle."
+resume: "AI models excel at some tasks and stumble on others, with no linear progression. Performance is multi-dimensional."
 ---
 
 ## Principe

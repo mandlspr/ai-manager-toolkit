@@ -1,6 +1,6 @@
 ---
 id: evl-benchmarks
-titre: "Un benchmark est une preuve partielle, pas un score"
+titre: "A benchmark is partial evidence, not a score"
 type: principe
 bloc: evaluation
 ordre: 1
@@ -25,7 +25,7 @@ verification:
   perimetre_limite: null
 liens: [cas-stackfit]
 portfolio: oui
-resume: "Un benchmark répond à une question précise sur un cas précis. Plusieurs sources en désaccord ? C'est une découverte, pas une faille."
+resume: "A benchmark answers a precise question on a precise case. Sources disagree? That's a discovery, not a flaw."
 ---
 
 ## Principe

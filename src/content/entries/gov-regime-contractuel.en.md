@@ -1,6 +1,6 @@
 ---
 id: gov-regime-contractuel
-titre: "Vérifier le régime contractuel, pas le prix de l'abonnement"
+titre: "Check the contractual regime, not the subscription price"
 type: principe
 bloc: gouvernance
 ordre: 2
@@ -20,7 +20,7 @@ verification:
   perimetre_limite: "politiques fournisseurs volatiles — revérifier à chaque publication"
 liens: []
 portfolio: oui
-resume: "Le Shadow AI et les Conditions d'utilisation déterminantes — pas les éditions gratuites ou les abonnements métier."
+resume: "Shadow AI and the terms of service are what determine risk — not whether the plan is free or a business tier."
 ---
 
 ## Principe

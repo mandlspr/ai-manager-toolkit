@@ -1,6 +1,6 @@
 ---
 id: gov-cycle-de-vie
-titre: "Gouvernance sur le cycle de vie produit"
+titre: "Governance across the product lifecycle"
 type: principe
 bloc: gouvernance
 ordre: 10
@@ -20,7 +20,7 @@ verification:
   perimetre_limite: null
 liens: []
 portfolio: oui
-resume: "La gouvernance IA doit être révisée aux étapes clés : conception, lancement, croissance, et de façon continue après la production."
+resume: "AI governance must be revisited at key stages: design, launch, growth, and continuously after production."
 ---
 
 ## Principe

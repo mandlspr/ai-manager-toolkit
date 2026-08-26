@@ -1,6 +1,6 @@
 ---
 id: prm-debug-agent
-titre: "Trois questions avant de conclure « l'agent est mauvais »"
+titre: "Three questions before concluding \"the agent is bad\""
 type: principe
 bloc: prompts
 ordre: 3
@@ -20,7 +20,7 @@ verification:
   perimetre_limite: null
 liens: []
 portfolio: oui
-resume: "Avant d'accuser l'agent : vérifier l'observabilité, la pertinence de la base de connaissances, et la qualité du signal de feedback."
+resume: "Before blaming the agent: check observability, the relevance of the knowledge base, and the quality of the feedback signal."
 ---
 
 ## Principe

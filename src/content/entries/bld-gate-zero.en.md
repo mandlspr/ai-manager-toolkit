@@ -1,6 +1,6 @@
 ---
 id: bld-gate-zero
-titre: "Gate 0 et les trois causes d'échec d'automatisation"
+titre: "Gate 0 and the three causes of automation failure"
 type: principe
 bloc: build
 ordre: 1
@@ -20,7 +20,7 @@ verification:
   perimetre_limite: null
 liens: []
 portfolio: oui
-resume: "Avant de construire un agent, vérifier trois conditions : le problème est résolvable, les données sont disponibles, le coût est justifié."
+resume: "Before building an agent, check three conditions: the problem is solvable, the data is available, the cost is justified."
 ---
 
 ## Principe

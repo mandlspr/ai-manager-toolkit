@@ -1,6 +1,6 @@
 ---
 id: cas-handshake
-titre: "Handshake — workflow IA gouverné de bout en bout"
+titre: "Handshake — end-to-end governed AI workflow"
 type: cas
 bloc: cas
 ordre: 2
@@ -26,7 +26,7 @@ verification:
   perimetre_limite: "prototype sur 12 comptes synthétiques"
 liens: [gov-boucle-cx, gov-equite-segment, gov-responsible-ai]
 portfolio: oui
-resume: "Un workflow complet de bout en bout : découverte des besoins, configuration des agents, mesure par segment, boucle de feedback."
+resume: "A complete end-to-end workflow: needs discovery, agent configuration, segment-level measurement, feedback loop."
 ---
 
 ## Contexte

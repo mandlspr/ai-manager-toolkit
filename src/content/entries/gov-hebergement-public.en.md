@@ -1,6 +1,6 @@
 ---
 id: gov-hebergement-public
-titre: "Conformité minimale avant hébergement public"
+titre: "Minimum compliance before public hosting"
 type: principe
 bloc: gouvernance
 ordre: 11
@@ -20,7 +20,7 @@ verification:
   perimetre_limite: null
 liens: []
 portfolio: non
-resume: "Vérifier la conformité légale, de sécurité et de données avant tout déploiement public — une porte minimale."
+resume: "Verify legal, security, and data compliance before any public deployment — a minimum bar."
 ---
 
 ## Principe

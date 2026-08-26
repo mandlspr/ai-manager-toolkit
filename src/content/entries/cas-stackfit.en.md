@@ -1,6 +1,6 @@
 ---
 id: cas-stackfit
-titre: "StackFit — double-test et effet de calibration"
+titre: "StackFit — double-test and the calibration effect"
 type: cas
 bloc: cas
 ordre: 1
@@ -21,7 +21,7 @@ verification:
   perimetre_limite: null
 liens: [gov-double-test, gov-jamais-vert, evl-benchmarks]
 portfolio: oui
-resume: "Un même projet évalué deux fois avec des cadres différents produit des verdicts distincts. La gouvernance s'applique à elle-même."
+resume: "The same project evaluated twice with different frameworks produces different verdicts. Governance applies to itself."
 ---
 
 ## Contexte

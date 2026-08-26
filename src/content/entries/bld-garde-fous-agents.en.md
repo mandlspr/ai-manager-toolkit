@@ -1,6 +1,6 @@
 ---
 id: bld-garde-fous-agents
-titre: "Huit garde-fous pour agents"
+titre: "Eight guardrails for agents"
 type: principe
 bloc: build
 ordre: 6
@@ -20,7 +20,7 @@ verification:
   perimetre_limite: null
 liens: [gov-responsible-ai]
 portfolio: oui
-resume: "Limites de tokens, listes blanches d'outils, archivage réversible, monitoring — les garde-fous essentiels d'un agent en production."
+resume: "Token limits, tool allowlists, reversible archiving, monitoring — the essential guardrails for a production agent."
 ---
 
 ## Principe

@@ -1,6 +1,6 @@
 ---
 id: bld-debug-export
-titre: "Debug par export structuré"
+titre: "Debugging via structured export"
 type: principe
 bloc: build
 ordre: 4
@@ -20,7 +20,7 @@ verification:
   perimetre_limite: null
 liens: []
 portfolio: oui
-resume: "Exporter les traces, les appels d'outils et les décisions du modèle en JSON — un moyen fiable de diagnostiquer les défaillances."
+resume: "Export traces, tool calls, and model decisions as JSON — a reliable way to diagnose failures."
 ---
 
 ## Principe
