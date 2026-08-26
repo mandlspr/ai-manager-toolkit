@@ -52,8 +52,10 @@ export async function initCatalogue(): Promise<void> {
 
   const seedBloc = root.dataset.seedBloc ?? "";
   const lang = root.dataset.lang ?? "en";
+  // base du site (GitHub Pages) + préfixe de locale
+  const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   const prefixe = lang && lang !== "en" ? `/${lang}` : "";
-  const url = (u: string): string => prefixe + u;
+  const url = (u: string): string => base + prefixe + u;
 
   // chaînes localisées passées par le composant Astro
   const tEmpty = root.dataset.tEmpty ?? "No card matches these filters.";
@@ -80,7 +82,7 @@ export async function initCatalogue(): Promise<void> {
 
   let rows: Row[] = [];
   try {
-    const res = await fetch("/search.json");
+    const res = await fetch(`${base}/search.json`);
     rows = (await res.json()) as Row[];
   } catch {
     return; // on garde la liste rendue au build

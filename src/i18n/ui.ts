@@ -15,8 +15,21 @@ export function estPubliee(l: Langue): boolean {
   return LANGUES_PUBLIEES.includes(l);
 }
 
+/**
+ * Préfixe un chemin absolu (`/gouvernance/…`) par la `base` du site
+ * (`import.meta.env.BASE_URL`, = `/` en local sans base, `/ai-manager-toolkit/`
+ * en prod GitHub Pages). Tous les liens internes doivent passer par ici.
+ */
+export function withBase(chemin: string): string {
+  const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+  return `${base}${chemin}`;
+}
+
+/** Chemin interne localisé ET préfixé par la base. */
 export function cheminLocalise(lang: Langue, chemin: string): string {
-  return lang === LANGUE_CANONIQUE ? chemin : `/${lang}${chemin}`;
+  return withBase(
+    lang === LANGUE_CANONIQUE ? chemin : `/${lang}${chemin}`,
+  );
 }
 
 export const NOM_LANGUE: Record<Langue, string> = {
