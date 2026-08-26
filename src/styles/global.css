@@ -202,7 +202,11 @@ main {
   background: var(--accent-clair);
 }
 .bloc-marqueur {
-  font-size: 1.05rem;
+  display: inline-flex;
+  color: var(--accent);
+}
+.bloc-icone {
+  display: block;
 }
 .bloc-carte-titre {
   font-family: var(--titre);
@@ -231,9 +235,6 @@ main {
 .fiche-tete h1 {
   font-size: 1.7rem;
   margin: 0 0 0.4rem;
-}
-.bloc-marqueur {
-  margin-right: 0.35rem;
 }
 .bloc-desc {
   font-family: var(--corps);

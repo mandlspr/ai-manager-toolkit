@@ -8,14 +8,15 @@ import {
 
 export type Entry = CollectionEntry<"entries">;
 
-// Repères de bloc language-neutral (brief §2, §6) : le préfixe de cote et le
-// marqueur emoji. Les libellés et descriptions traduits vivent dans i18n/ui.ts.
+// Repères de bloc language-neutral (brief §2, §6) : le préfixe de cote.
+// L'icône est rendue par src/components/BlocIcon.astro (line-art monochrome).
+// Les libellés et descriptions traduits vivent dans i18n/ui.ts.
 export const BLOCS = {
-  gouvernance: { prefixe: "GOV", marqueur: "⚖️" },
-  prompts: { prefixe: "PRM", marqueur: "✳️" },
-  build: { prefixe: "BLD", marqueur: "🔩" },
-  evaluation: { prefixe: "EVL", marqueur: "📐" },
-  cas: { prefixe: "CAS", marqueur: "📎" },
+  gouvernance: { prefixe: "GOV" },
+  prompts: { prefixe: "PRM" },
+  build: { prefixe: "BLD" },
+  evaluation: { prefixe: "EVL" },
+  cas: { prefixe: "CAS" },
 } as const;
 
 export type BlocId = keyof typeof BLOCS;

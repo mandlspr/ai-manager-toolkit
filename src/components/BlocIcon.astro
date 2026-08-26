@@ -1,0 +1,58 @@
+---
+// Icônes de bloc — line-art à trait unique, monochromes, teintées via
+// `currentColor` (= --accent, le violet de la cote). Aucune couleur en dur,
+// aucun emoji multicolore.
+interface Props {
+  bloc: string;
+}
+const { bloc } = Astro.props;
+---
+
+<svg
+  class="bloc-icone"
+  viewBox="0 0 24 24"
+  width="20"
+  height="20"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.75"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  aria-hidden="true"
+>
+  {
+    bloc === "gouvernance" && (
+      <>
+        <path d="M12 3l7 2.5v5.5c0 4.4-3 7.2-7 8.5-4-1.3-7-4.1-7-8.5V5.5z" />
+        <path d="M9 12l2 2 4-4" />
+      </>
+    )
+  }
+  {
+    bloc === "prompts" && (
+      <>
+        <path d="M8.5 7.5 4 12l4.5 4.5" />
+        <path d="M15.5 7.5 20 12l-4.5 4.5" />
+      </>
+    )
+  }
+  {
+    bloc === "build" && (
+      <>
+        <circle cx="6" cy="7" r="2.1" />
+        <circle cx="18" cy="7" r="2.1" />
+        <circle cx="12" cy="18" r="2.1" />
+        <path d="M8.2 7h7.6M7.7 8.7 10.6 16M16.3 8.7 13.4 16" />
+      </>
+    )
+  }
+  {
+    bloc === "evaluation" && <path d="M4 20h16M8 20v-6M12 20V8M16 20v-9" />
+  }
+  {
+    (bloc === "cas" ||
+      !["gouvernance", "prompts", "build", "evaluation"].includes(bloc)) && (
+      <path d="M7 4h10v16l-5-3.2L7 20z" />
+    )
+  }
+</svg>

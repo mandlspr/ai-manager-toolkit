@@ -1,8 +1,8 @@
 ---
 import Base from "../../layouts/Base.astro";
+import BlocIcon from "../BlocIcon.astro";
 import {
   getCanonicalEntries,
-  BLOCS,
   BLOC_ORDER,
   blocLabel,
   blocDescription,
@@ -37,7 +37,7 @@ const compte = (bloc: string) =>
           <li class="bloc-carte">
             <a href={lx(b === "cas" ? "/cas/" : `/${b}/`)}>
               <span class="bloc-marqueur" aria-hidden="true">
-                {BLOCS[b].marqueur}
+                <BlocIcon bloc={b} />
               </span>
               <span class="bloc-carte-titre">{blocLabel(lang, b)}</span>
               <span class="bloc-carte-compte">{tt.cards(compte(b))}</span>
