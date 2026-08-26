@@ -325,12 +325,16 @@ main {
   border-color: var(--accent);
 }
 .pastille-reset {
-  margin-top: 0.25rem;
-  color: var(--encre);
+  justify-self: end;
+  margin-top: 0.1rem;
+  background: transparent;
+  border-color: var(--bordure);
+  color: var(--gris-meta);
 }
 .pastille-reset:hover {
   background: var(--fond);
-  color: var(--encre);
+  border-color: var(--gris-meta);
+  color: var(--gris-meta);
 }
 
 /* --- liste de fiches ---------------------------------------------- */

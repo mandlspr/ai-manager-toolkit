@@ -19,10 +19,7 @@ const entries = all.filter((e) => e.data.bloc === bloc);
 <Base titre={meta.label} description={meta.description}>
   <article class="bloc-page">
     <p class="fil"><a href="/">Accueil</a> / {meta.label}</p>
-    <h1>
-      <span class="bloc-marqueur" aria-hidden="true">{meta.marqueur}</span>
-      {meta.label}
-    </h1>
+    <h1>{meta.label}</h1>
     <p class="bloc-desc">{meta.description}</p>
     <Catalogue entries={entries} all={all} seedBloc={bloc} />
   </article>
