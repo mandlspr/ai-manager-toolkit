@@ -1,7 +1,6 @@
 ---
-import Base from "../../layouts/Base.astro";
-import Catalogue from "../../components/Catalogue.astro";
-import { getPublishedEntries, BLOCS, type BlocId } from "../../lib/entries";
+import BlocPage from "../../components/pages/BlocPage.astro";
+import type { BlocId } from "../../lib/entries";
 
 // `/cas/` a sa propre page dédiée (présentée comme preuves) — exclu ici.
 export function getStaticPaths() {
@@ -9,18 +8,6 @@ export function getStaticPaths() {
     (bloc) => ({ params: { bloc } }),
   );
 }
-
-const bloc = Astro.params.bloc as BlocId;
-const meta = BLOCS[bloc];
-const all = await getPublishedEntries();
-const entries = all.filter((e) => e.data.bloc === bloc);
 ---
 
-<Base titre={meta.label} description={meta.description}>
-  <article class="bloc-page">
-    <p class="fil"><a href="/">Accueil</a> / {meta.label}</p>
-    <h1>{meta.label}</h1>
-    <p class="bloc-desc">{meta.description}</p>
-    <Catalogue entries={entries} all={all} seedBloc={bloc} />
-  </article>
-</Base>
+<BlocPage lang="en" bloc={Astro.params.bloc as BlocId} />

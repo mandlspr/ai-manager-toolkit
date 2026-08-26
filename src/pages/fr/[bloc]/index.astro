@@ -1,0 +1,12 @@
+---
+import BlocPage from "../../../components/pages/BlocPage.astro";
+import type { BlocId } from "../../../lib/entries";
+
+export function getStaticPaths() {
+  return (["gouvernance", "prompts", "build", "evaluation"] as const).map(
+    (bloc) => ({ params: { bloc } }),
+  );
+}
+---
+
+<BlocPage lang="fr" bloc={Astro.params.bloc as BlocId} />

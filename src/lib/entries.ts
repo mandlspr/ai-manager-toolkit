@@ -1,40 +1,21 @@
 import { getCollection, type CollectionEntry } from "astro:content";
+import {
+  LANGUES,
+  LANGUE_CANONIQUE,
+  T,
+  type Langue,
+} from "../i18n/ui";
 
 export type Entry = CollectionEntry<"entries">;
 
-// Métadonnées des cinq blocs — brief §2. Le marqueur emoji n'est utilisé QUE
-// comme repère de bloc (brief §6), jamais comme icône d'interface.
+// Repères de bloc language-neutral (brief §2, §6) : le préfixe de cote et le
+// marqueur emoji. Les libellés et descriptions traduits vivent dans i18n/ui.ts.
 export const BLOCS = {
-  gouvernance: {
-    prefixe: "GOV",
-    label: "Gouvernance & risque",
-    marqueur: "⚖️",
-    description: "Cadre légal, contrôles, données, sécurité.",
-  },
-  prompts: {
-    prefixe: "PRM",
-    label: "Prompts & conception",
-    marqueur: "✳️",
-    description: "Structures de prompt, méthodes de conception.",
-  },
-  build: {
-    prefixe: "BLD",
-    label: "Build, agents & orchestration",
-    marqueur: "🔩",
-    description: "Frameworks de construction, agents, workflows.",
-  },
-  evaluation: {
-    prefixe: "EVL",
-    label: "Évaluation, choix d'outils & coût",
-    marqueur: "📐",
-    description: "Comparaison, sélection, benchmarks, budget.",
-  },
-  cas: {
-    prefixe: "CAS",
-    label: "Cas pratiques & preuves",
-    marqueur: "📎",
-    description: "Projets réels, arbitrages datés.",
-  },
+  gouvernance: { prefixe: "GOV", marqueur: "⚖️" },
+  prompts: { prefixe: "PRM", marqueur: "✳️" },
+  build: { prefixe: "BLD", marqueur: "🔩" },
+  evaluation: { prefixe: "EVL", marqueur: "📐" },
+  cas: { prefixe: "CAS", marqueur: "📎" },
 } as const;
 
 export type BlocId = keyof typeof BLOCS;
@@ -47,13 +28,19 @@ export const BLOC_ORDER = [
   "cas",
 ] as const satisfies readonly BlocId[];
 
-// Le schéma de contenu est déclaré en JS (schema.mjs) : Astro type donc `bloc`
-// comme `string`. Ces deux accès recentrent le typage sans `any`.
+// Le schéma de contenu est déclaré en JS (schema.mjs) : Astro type `bloc` comme
+// `string`. Ces accès recentrent le typage sans `any`.
 export function blocMeta(bloc: string) {
   return BLOCS[bloc as BlocId];
 }
 export function blocRank(bloc: string): number {
   return (BLOC_ORDER as readonly string[]).indexOf(bloc);
+}
+export function blocLabel(lang: Langue, bloc: string): string {
+  return T[lang].bloc[bloc as BlocId].label;
+}
+export function blocDescription(lang: Langue, bloc: string): string {
+  return T[lang].bloc[bloc as BlocId].description;
 }
 
 /**
@@ -72,6 +59,49 @@ export async function getPublishedEntries(): Promise<Entry[]> {
   );
 }
 
+/** Fiches canoniques (EN) publiées — la référence pour toutes les langues. */
+export async function getCanonicalEntries(): Promise<Entry[]> {
+  const all = await getPublishedEntries();
+  return all.filter((e) => e.data.lang === LANGUE_CANONIQUE);
+}
+
+/**
+ * Résout la fiche à servir pour `canonicalId` dans `lang`. Si aucune version
+ * traduite n'existe, renvoie la version canonique (EN) avec `translated: false`
+ * — le bandeau de bascule visible s'appuie là-dessus. Jamais de 404.
+ */
+export function resolveEntry(
+  canonicalId: string,
+  lang: Langue,
+  published: Entry[],
+): { entry: Entry; translated: boolean } {
+  const traduite = published.find(
+    (e) => e.data.id === canonicalId && e.data.lang === lang,
+  );
+  if (traduite) return { entry: traduite, translated: true };
+  const canonique = published.find(
+    (e) => e.data.id === canonicalId && e.data.lang === LANGUE_CANONIQUE,
+  );
+  // canonique existe toujours (getStaticPaths est bâti dessus)
+  return { entry: canonique as Entry, translated: false };
+}
+
+/**
+ * Taux de complétion par langue, calculé depuis les fiches réellement présentes.
+ * Dénominateur = nombre de fiches canoniques (EN).
+ */
+export async function completionParLangue(): Promise<
+  Record<Langue, { fait: number; total: number }>
+> {
+  const all = await getPublishedEntries();
+  const total = all.filter((e) => e.data.lang === LANGUE_CANONIQUE).length;
+  const out = {} as Record<Langue, { fait: number; total: number }>;
+  for (const l of LANGUES) {
+    out[l] = { fait: all.filter((e) => e.data.lang === l).length, total };
+  }
+  return out;
+}
+
 /** Cote de rangement : préfixe du bloc + ordre sur deux chiffres (ex. GOV·02). */
 export function cote(e: Entry): string {
   return `${blocMeta(e.data.bloc).prefixe}·${String(e.data.ordre).padStart(2, "0")}`;
@@ -87,8 +117,15 @@ export function aReVoir(date: Date, now: Date = new Date()): boolean {
   return date.getTime() < seuil.getTime();
 }
 
-export function fmtDate(d: Date): string {
-  return new Intl.DateTimeFormat("fr-FR", { dateStyle: "long" }).format(d);
+const LOCALE_TAG: Record<Langue, string> = {
+  en: "en-GB",
+  fr: "fr-FR",
+  de: "de-DE",
+};
+export function fmtDate(d: Date, lang: Langue = LANGUE_CANONIQUE): string {
+  return new Intl.DateTimeFormat(LOCALE_TAG[lang], { dateStyle: "long" }).format(
+    d,
+  );
 }
 
 // --- liens croisés bidirectionnels ------------------------------------------

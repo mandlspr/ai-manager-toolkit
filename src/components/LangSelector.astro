@@ -1,0 +1,59 @@
+---
+import {
+  LANGUES,
+  NOM_LANGUE,
+  T,
+  estPubliee,
+  cheminLocalise,
+  type Langue,
+} from "../i18n/ui";
+
+// Sélecteur de langue + taux de complétion par langue (calculé, jamais codé en
+// dur). Les langues hors LANGUES_PUBLIEES sont montrées mais grisées : leurs
+// routes existent et restent accessibles en direct.
+interface Props {
+  lang: Langue;
+  chemin: string; // chemin locale-neutre de la page courante
+  completion: Record<Langue, { fait: number; total: number }>;
+}
+const { lang, chemin, completion } = Astro.props;
+---
+
+<nav class="lang-selector" aria-label={T[lang].langLabel}>
+  <span class="lang-label">{T[lang].langLabel}</span>
+  {
+    LANGUES.map((l, i) => {
+      const c = completion[l];
+      const compteur = `${c.fait}/${c.total}`;
+      const courant = l === lang;
+      const publiee = estPubliee(l);
+      const contenu = (
+        <>
+          {NOM_LANGUE[l]} <span class="lang-count">· {compteur}</span>
+        </>
+      );
+      return (
+        <>
+          {i > 0 && <span class="lang-sep" aria-hidden="true">/</span>}
+          {courant ? (
+            <span class="lang-item" aria-current="true">
+              {contenu}
+            </span>
+          ) : publiee ? (
+            <a class="lang-item" href={cheminLocalise(l, chemin)}>
+              {contenu}
+            </a>
+          ) : (
+            <span
+              class="lang-item"
+              aria-disabled="true"
+              title={`${NOM_LANGUE[l]} — ${compteur}`}
+            >
+              {contenu}
+            </span>
+          )}
+        </>
+      );
+    })
+  }
+</nav>

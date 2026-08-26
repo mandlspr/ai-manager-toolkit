@@ -1,0 +1,55 @@
+---
+import Base from "../../layouts/Base.astro";
+import {
+  getCanonicalEntries,
+  BLOCS,
+  BLOC_ORDER,
+  blocLabel,
+  blocDescription,
+} from "../../lib/entries";
+import { T, cheminLocalise, type Langue } from "../../i18n/ui";
+
+interface Props {
+  lang: Langue;
+}
+const { lang } = Astro.props;
+const tt = T[lang];
+const lx = (p: string) => cheminLocalise(lang, p);
+
+const all = await getCanonicalEntries();
+const compte = (bloc: string) =>
+  all.filter((e) => e.data.bloc === bloc).length;
+---
+
+<Base
+  lang={lang}
+  chemin="/"
+  titre={tt.breadcrumbHome}
+  description={tt.home.intro}
+>
+  <div class="accueil">
+    <h1>AI Manager Toolkit</h1>
+    <p class="intro">{tt.home.intro}</p>
+
+    <ul class="blocs-grille">
+      {
+        BLOC_ORDER.map((b) => (
+          <li class="bloc-carte">
+            <a href={lx(b === "cas" ? "/cas/" : `/${b}/`)}>
+              <span class="bloc-marqueur" aria-hidden="true">
+                {BLOCS[b].marqueur}
+              </span>
+              <span class="bloc-carte-titre">{blocLabel(lang, b)}</span>
+              <span class="bloc-carte-compte">{tt.cards(compte(b))}</span>
+              <span class="bloc-carte-desc">{blocDescription(lang, b)}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <p class="accueil-lien">
+      <a href={lx("/a-propos/")}>{tt.home.methodLink}</a>
+    </p>
+  </div>
+</Base>

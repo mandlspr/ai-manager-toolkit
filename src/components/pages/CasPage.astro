@@ -1,0 +1,31 @@
+---
+import Base from "../../layouts/Base.astro";
+import Catalogue from "../Catalogue.astro";
+import { getCanonicalEntries, blocLabel } from "../../lib/entries";
+import { T, cheminLocalise, type Langue } from "../../i18n/ui";
+
+interface Props {
+  lang: Langue;
+}
+const { lang } = Astro.props;
+const tt = T[lang];
+const lx = (p: string) => cheminLocalise(lang, p);
+
+const all = await getCanonicalEntries();
+const cas = all.filter((e) => e.data.bloc === "cas");
+const label = blocLabel(lang, "cas");
+---
+
+<Base
+  lang={lang}
+  chemin="/cas/"
+  titre={label}
+  description={tt.casIntro}
+>
+  <article class="bloc-page">
+    <p class="fil"><a href={lx("/")}>{tt.breadcrumbHome}</a> / {label}</p>
+    <h1>{label}</h1>
+    <p class="bloc-desc">{tt.casIntro}</p>
+    <Catalogue lang={lang} entries={cas} all={all} seedBloc="cas" />
+  </article>
+</Base>

@@ -4,17 +4,18 @@ import { entryFrontmatterSchema } from "./content/schema.mjs";
 
 // Une fiche = src/content/entries/{id}.{lang}.md  (brief, section 3).
 //
-// L'`id` d'entrée de collection Astro = `{id}.{lang}` pour la version FR
-// canonique on garde l'id nu, les autres langues sont suffixées. Les liens
-// croisés du brief (`liens`, `prouve`) pointent l'id nu = version FR canonique.
+// EN est la langue canonique du contenu : sa version garde l'id nu
+// (`gov-double-test`), FR/DE sont suffixées (`gov-double-test.fr`). Les liens
+// croisés (`liens`, `prouve`) pointent toujours l'id nu = version EN canonique.
 const entries = defineCollection({
   loader: glob({
     pattern: "**/*.md",
     base: "./src/content/entries",
     generateId: ({ data }) => {
       const id = String(data.id ?? "").trim();
-      const lang = String(data.lang ?? "fr").trim();
-      return lang === "fr" ? id : `${id}.${lang}`;
+      const lang = String(data.lang ?? "en").trim();
+      // EN est la langue canonique : id nu. FR/DE sont suffixés (id.fr, id.de).
+      return lang === "en" ? id : `${id}.${lang}`;
     },
   }),
   schema: entryFrontmatterSchema,

@@ -577,6 +577,72 @@ main {
   vertical-align: baseline;
 }
 
+/* --- sélecteur de langue ------------------------------------------- */
+
+.lang-selector {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.15rem 0.55rem;
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  color: var(--gris-meta);
+}
+.lang-selector .lang-label {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gris-meta);
+}
+.lang-selector .lang-item {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.3rem;
+}
+.lang-selector a.lang-item {
+  color: var(--gris-meta);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
+}
+.lang-selector a.lang-item:hover {
+  color: var(--encre);
+}
+.lang-selector .lang-item[aria-current="true"] {
+  color: var(--encre);
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 2px;
+}
+.lang-selector .lang-item[aria-disabled="true"] {
+  color: #9b97a8;
+  cursor: not-allowed;
+}
+.lang-selector .lang-count {
+  font-size: 0.66rem;
+  color: #9b97a8;
+}
+.lang-selector .lang-item[aria-current="true"] .lang-count,
+.lang-selector a.lang-item .lang-count {
+  color: var(--gris-meta);
+}
+.lang-selector .lang-sep {
+  color: var(--bordure);
+}
+
+/* --- bandeau de bascule visible (fiche non traduite) --------------- */
+
+.bascule {
+  background: #f5eedd;
+  color: var(--ambre);
+  border: 1px solid var(--ambre);
+  border-radius: 6px;
+  padding: 0.6rem 0.85rem;
+  margin: 0 0 1.5rem;
+  font-family: var(--titre);
+  font-weight: 600;
+  font-size: 0.88rem;
+}
+
 @media (max-width: 34rem) {
   .bandeau dl > div {
     grid-template-columns: 1fr;
@@ -584,5 +650,11 @@ main {
   }
   .facette-label {
     min-width: 100%;
+  }
+}
+
+@media print {
+  .lang-selector {
+    display: none !important;
   }
 }

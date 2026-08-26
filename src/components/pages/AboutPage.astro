@@ -1,0 +1,234 @@
+---
+import Base from "../../layouts/Base.astro";
+import { T, cheminLocalise, type Langue } from "../../i18n/ui";
+
+interface Props {
+  lang: Langue;
+}
+const { lang } = Astro.props;
+const tt = T[lang];
+const lx = (p: string) => cheminLocalise(lang, p);
+---
+
+<Base
+  lang={lang}
+  chemin="/a-propos/"
+  titre={tt.nav.about}
+  description={tt.home.intro}
+>
+  <article class="prose">
+    <p class="fil"><a href={lx("/")}>{tt.breadcrumbHome}</a> / {tt.nav.about}</p>
+
+    {
+      lang === "en" && (
+        <>
+          <h1>Method</h1>
+          <p>
+            This site is an operational manual doubling as portfolio evidence. It
+            hosts no collaborative knowledge: every card is a claim or a proof,
+            sourced and dated.
+          </p>
+
+          <h2>Two card types</h2>
+          <ul>
+            <li>
+              <strong>Principle</strong> — a durable, sourced, applicable claim.
+            </li>
+            <li>
+              <strong>Case</strong> — dated evidence with context, action and
+              result. A case illustrates one or more principles; it never stands
+              in for one.
+            </li>
+          </ul>
+
+          <h2>The durability test</h2>
+          <p>
+            A <em>principle</em> card passes only if, once the tool names it
+            cites are removed, it still holds two years from now.
+          </p>
+
+          <h2>Statuses</h2>
+          <ul>
+            <li><strong>valid</strong> — sourced, verified, publishable.</li>
+            <li>
+              <strong>to re-source</strong> — the substance holds but the source
+              must be consolidated.
+            </li>
+            <li>
+              <strong>draft</strong> — visible in development, excluded from the
+              production build.
+            </li>
+          </ul>
+
+          <h2>The “review” badge</h2>
+          <p>
+            Computed automatically: any card whose verification date is more than
+            six months old carries the badge, with no manual step.
+          </p>
+
+          <h2>Cross-links</h2>
+          <p>
+            Links are bidirectional. A <em>principle</em> card shows the list of
+            cases that cite it as proof; that inverse link is computed, never
+            entered by hand.
+          </p>
+
+          <h2>Codes</h2>
+          <p>
+            Every card carries a shelf code: its section prefix followed by its
+            order on two digits — for example <span class="cote">GOV·02</span>.
+          </p>
+
+          <h2>Shareable filters</h2>
+          <p>
+            Search and filters (section, type, status, cross-cutting axis) live
+            in the URL. A filtered view is shared by copying the link.
+          </p>
+        </>
+      )
+    }
+
+    {
+      lang === "fr" && (
+        <>
+          <h1>Méthode</h1>
+          <p>
+            Ce site est un manuel opérationnel doublé d'une preuve portfolio. Il
+            n'héberge pas de connaissances collaboratives : chaque fiche est une
+            affirmation ou une preuve, sourcée et datée.
+          </p>
+
+          <h2>Deux types de fiches</h2>
+          <ul>
+            <li>
+              <strong>Principe</strong> — une affirmation durable, sourcée,
+              applicable.
+            </li>
+            <li>
+              <strong>Cas</strong> — une preuve datée avec contexte, action et
+              résultat. Un cas illustre un ou plusieurs principes ; il n'en tient
+              jamais lieu.
+            </li>
+          </ul>
+
+          <h2>Le test de durabilité</h2>
+          <p>
+            Une fiche <em>principe</em> ne passe que si, en retirant les noms
+            d'outils qu'elle cite, elle tient encore dans deux ans.
+          </p>
+
+          <h2>Les statuts</h2>
+          <ul>
+            <li><strong>valide</strong> — sourcé, vérifié, publiable.</li>
+            <li>
+              <strong>a-resourcer</strong> — le fond tient mais la source doit
+              être consolidée.
+            </li>
+            <li>
+              <strong>brouillon</strong> — visible en développement, exclu du
+              build de production.
+            </li>
+          </ul>
+
+          <h2>Le badge « à revoir »</h2>
+          <p>
+            Calculé automatiquement : toute fiche dont la date de vérification
+            dépasse six mois porte le badge, sans intervention manuelle.
+          </p>
+
+          <h2>Liens croisés</h2>
+          <p>
+            Les liens sont bidirectionnels. Une fiche <em>principe</em> affiche la
+            liste des cas qui la citent comme preuve ; ce lien inverse est
+            calculé, jamais saisi à la main.
+          </p>
+
+          <h2>Cotes</h2>
+          <p>
+            Chaque fiche porte une cote de rangement : le préfixe de son bloc
+            suivi de son ordre sur deux chiffres — par exemple{" "}
+            <span class="cote">GOV·02</span>.
+          </p>
+
+          <h2>Filtres partageables</h2>
+          <p>
+            La recherche et les filtres (bloc, type, statut, axe transversal)
+            vivent dans l'URL. Une vue filtrée se partage en copiant le lien.
+          </p>
+        </>
+      )
+    }
+
+    {
+      lang === "de" && (
+        <>
+          <h1>Methode</h1>
+          <p>
+            Diese Website ist ein Betriebshandbuch und zugleich ein
+            Portfolio-Nachweis. Sie enthält kein kollaboratives Wissen: Jede
+            Karte ist eine Aussage oder ein Nachweis, belegt und datiert.
+          </p>
+
+          <h2>Zwei Kartentypen</h2>
+          <ul>
+            <li>
+              <strong>Prinzip</strong> — eine beständige, belegte, anwendbare
+              Aussage.
+            </li>
+            <li>
+              <strong>Fall</strong> — ein datierter Nachweis mit Kontext,
+              Handlung und Ergebnis. Ein Fall veranschaulicht ein oder mehrere
+              Prinzipien; er ersetzt sie nie.
+            </li>
+          </ul>
+
+          <h2>Der Beständigkeitstest</h2>
+          <p>
+            Eine <em>Prinzip</em>-Karte besteht nur, wenn sie — nach Entfernen
+            der genannten Tool-Namen — in zwei Jahren noch gilt.
+          </p>
+
+          <h2>Die Status</h2>
+          <ul>
+            <li><strong>gültig</strong> — belegt, geprüft, veröffentlichbar.</li>
+            <li>
+              <strong>nachzubelegen</strong> — der Inhalt trägt, aber die Quelle
+              muss konsolidiert werden.
+            </li>
+            <li>
+              <strong>Entwurf</strong> — in der Entwicklung sichtbar, vom
+              Produktions-Build ausgeschlossen.
+            </li>
+          </ul>
+
+          <h2>Das Abzeichen „prüfen“</h2>
+          <p>
+            Automatisch berechnet: Jede Karte, deren Prüfdatum mehr als sechs
+            Monate zurückliegt, trägt das Abzeichen — ohne manuellen Schritt.
+          </p>
+
+          <h2>Querverweise</h2>
+          <p>
+            Verweise sind bidirektional. Eine <em>Prinzip</em>-Karte zeigt die
+            Liste der Fälle, die sie als Nachweis anführen; dieser Rückverweis
+            wird berechnet, nie von Hand eingetragen.
+          </p>
+
+          <h2>Codes</h2>
+          <p>
+            Jede Karte trägt einen Ablagecode: das Bereichskürzel gefolgt von
+            ihrer zweistelligen Reihenfolge — zum Beispiel{" "}
+            <span class="cote">GOV·02</span>.
+          </p>
+
+          <h2>Teilbare Filter</h2>
+          <p>
+            Suche und Filter (Bereich, Typ, Status, Querschnittsachse) leben in
+            der URL. Eine gefilterte Ansicht teilt man, indem man den Link
+            kopiert.
+          </p>
+        </>
+      )
+    }
+  </article>
+</Base>

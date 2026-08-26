@@ -51,6 +51,32 @@ export async function initCatalogue(): Promise<void> {
   if (!form || !liste || !compte) return;
 
   const seedBloc = root.dataset.seedBloc ?? "";
+  const lang = root.dataset.lang ?? "en";
+  const prefixe = lang && lang !== "en" ? `/${lang}` : "";
+  const url = (u: string): string => prefixe + u;
+
+  // chaînes localisées passées par le composant Astro
+  const tEmpty = root.dataset.tEmpty ?? "No card matches these filters.";
+  const tProvenBy = root.dataset.tProvenby ?? "Proven by:";
+  const tProves = root.dataset.tProves ?? "Proves:";
+  const tCardOne = root.dataset.tCardOne ?? "card";
+  const tCardMany = root.dataset.tCardMany ?? "cards";
+  const compteTexte = (n: number): string =>
+    `${n} ${n === 1 ? tCardOne : tCardMany}`;
+
+  interface OptLabels {
+    type: Record<string, string>;
+    statut: Record<string, string>;
+    axe: Record<string, string>;
+    review: string;
+  }
+  let opt: OptLabels = { type: {}, statut: {}, axe: {}, review: "review" };
+  try {
+    opt = { ...opt, ...(JSON.parse(root.dataset.tOpt ?? "{}") as OptLabels) };
+  } catch {
+    /* garde les valeurs brutes */
+  }
+  const lbl = (map: Record<string, string>, k: string): string => map[k] ?? k;
 
   let rows: Row[] = [];
   try {
@@ -125,12 +151,12 @@ export async function initCatalogue(): Promise<void> {
   const inverse = (r: Row): { label: string; items: Row[] } => {
     if (r.type === "principe") {
       return {
-        label: "Prouvé par&nbsp;: ",
+        label: `${tProvenBy} `,
         items: rows.filter((x) => x.type === "cas" && x.prouve.includes(r.id)),
       };
     }
     return {
-      label: "Prouve&nbsp;: ",
+      label: `${tProves} `,
       items: r.prouve
         .map((id) => byId.get(id))
         .filter((x): x is Row => Boolean(x)),
@@ -140,17 +166,17 @@ export async function initCatalogue(): Promise<void> {
   const itemHtml = (r: Row): string => {
     const inv = inverse(r);
     const invHtml = inv.items.length
-      ? `<p class="fiche-liens">${inv.label}${inv.items
-          .map((x) => `<a href="${x.url}">${esc(x.cote)}</a>`)
+      ? `<p class="fiche-liens">${esc(inv.label)}${inv.items
+          .map((x) => `<a href="${url(x.url)}">${esc(x.cote)}</a>`)
           .join(", ")}</p>`
       : "";
     const axesHtml = r.transverses
-      .map((t) => `<span class="tag axe">${esc(t)}</span>`)
+      .map((t) => `<span class="tag axe">${esc(lbl(opt.axe, t))}</span>`)
       .join("");
     return `<li>
-      <a class="fiche-lien" href="${r.url}"><span class="cote">${esc(r.cote)}</span><span class="fiche-titre">${esc(r.titre)}</span></a>
+      <a class="fiche-lien" href="${url(r.url)}"><span class="cote">${esc(r.cote)}</span><span class="fiche-titre">${esc(r.titre)}</span></a>
       <p class="fiche-resume">${esc(r.resume)}</p>
-      <p class="fiche-meta"><span class="tag statut statut-${esc(r.statut)}">${esc(r.statut)}</span><span class="tag type">${esc(r.type)}</span>${axesHtml}</p>
+      <p class="fiche-meta"><span class="tag statut statut-${esc(r.statut)}">${esc(lbl(opt.statut, r.statut))}</span><span class="tag type">${esc(lbl(opt.type, r.type))}</span>${axesHtml}</p>
       ${invHtml}
     </li>`;
   };
@@ -177,8 +203,8 @@ export async function initCatalogue(): Promise<void> {
       );
     liste.innerHTML =
       out.map(itemHtml).join("") ||
-      '<li class="liste-vide">Aucune fiche ne correspond à ces critères.</li>';
-    compte.textContent = `${out.length} fiche${out.length > 1 ? "s" : ""}`;
+      `<li class="liste-vide">${esc(tEmpty)}</li>`;
+    compte.textContent = compteTexte(out.length);
     syncUrl(f);
   };
 

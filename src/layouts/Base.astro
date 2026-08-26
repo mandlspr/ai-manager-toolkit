@@ -1,29 +1,37 @@
 ---
 import "../styles/global.css";
+import LangSelector from "../components/LangSelector.astro";
+import { completionParLangue } from "../lib/entries";
+import { T, cheminLocalise, type Langue } from "../i18n/ui";
+import { BLOC_ORDER } from "../lib/entries";
 
 interface Props {
+  lang: Langue;
   titre: string;
+  chemin: string; // chemin locale-neutre de la page courante (ex. /gouvernance/)
   description?: string;
 }
 
-const { titre, description } = Astro.props;
+const { lang, titre, chemin, description } = Astro.props;
+const tt = T[lang];
+const completion = await completionParLangue();
+const lx = (p: string) => cheminLocalise(lang, p);
 
 const nav = [
-  { href: "/gouvernance/", label: "Gouvernance" },
-  { href: "/prompts/", label: "Prompts" },
-  { href: "/build/", label: "Build" },
-  { href: "/evaluation/", label: "Évaluation" },
-  { href: "/cas/", label: "Cas" },
-  { href: "/a-propos/", label: "À propos" },
+  ...BLOC_ORDER.map((b) => ({
+    href: lx(b === "cas" ? "/cas/" : `/${b}/`),
+    match: b === "cas" ? "/cas/" : `/${b}/`,
+    label: tt.navBloc[b],
+  })),
+  { href: lx("/a-propos/"), match: "/a-propos/", label: tt.nav.about },
 ];
 
-const path = Astro.url.pathname;
-const actif = (href: string) =>
-  href === "/" ? path === "/" : path.startsWith(href);
+const actif = (match: string) =>
+  match === "/" ? chemin === "/" : chemin.startsWith(match);
 ---
 
 <!doctype html>
-<html lang="fr">
+<html lang={tt.htmlLang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -37,22 +45,23 @@ const actif = (href: string) =>
     />
   </head>
   <body>
-    <a class="skip" href="#contenu">Aller au contenu</a>
+    <a class="skip" href="#contenu">{tt.skip}</a>
     <header class="site-header">
       <div class="site-header-inner">
-        <a class="wordmark" href="/">AI Manager Toolkit</a>
+        <a class="wordmark" href={lx("/")}>AI Manager Toolkit</a>
         <nav class="site-nav" aria-label="Sections">
           {
             nav.map((item) => (
               <a
                 href={item.href}
-                aria-current={actif(item.href) ? "page" : undefined}
+                aria-current={actif(item.match) ? "page" : undefined}
               >
                 {item.label}
               </a>
             ))
           }
         </nav>
+        <LangSelector lang={lang} chemin={chemin} completion={completion} />
       </div>
     </header>
 
@@ -63,9 +72,8 @@ const actif = (href: string) =>
     <footer class="site-footer">
       <div class="site-footer-inner">
         <p>
-          Manuel opérationnel — le contenu est séparé du code, une fiche = un
-          fichier Markdown. <a href="/a-propos/">Méthode</a> ·
-          <a href="/impression/">Version imprimable</a>.
+          {tt.footer} <a href={lx("/a-propos/")}>{tt.nav.about}</a> ·
+          <a href={lx("/impression/")}>{tt.nav.print}</a>.
         </p>
       </div>
     </footer>

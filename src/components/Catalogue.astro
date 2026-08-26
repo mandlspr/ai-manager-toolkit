@@ -1,89 +1,108 @@
 ---
 import {
   cote,
-  BLOCS,
+  BLOC_ORDER,
   aReVoir,
+  blocLabel,
   casQuiProuvent,
   principesProuves,
   type Entry,
 } from "../lib/entries";
+import { T, cheminLocalise, type Langue } from "../i18n/ui";
 
 interface Props {
+  lang: Langue;
   entries: Entry[];
   all: Entry[];
   seedBloc?: string;
 }
 
-const { entries, all, seedBloc } = Astro.props;
+const { lang, entries, all, seedBloc } = Astro.props;
+const tt = T[lang];
+const lx = (p: string) => cheminLocalise(lang, p);
 ---
 
-<section class="catalogue" data-catalogue data-seed-bloc={seedBloc ?? ""}>
+<section
+  class="catalogue"
+  data-catalogue
+  data-lang={lang}
+  data-seed-bloc={seedBloc ?? ""}
+  data-t-empty={tt.empty}
+  data-t-provenby={tt.listProvenBy}
+  data-t-proves={tt.listProves}
+  data-t-card-one={tt.cards(1).replace(/^\d+\s*/, "")}
+  data-t-card-many={tt.cards(2).replace(/^\d+\s*/, "")}
+  data-t-opt={JSON.stringify({
+    type: tt.optType,
+    statut: tt.optStatut,
+    axe: tt.optAxe,
+    review: tt.reviewBadge,
+  })}
+>
   <form class="filtres" role="search" data-filtres>
     <div class="champ-recherche">
-      <label for="q">Recherche</label>
+      <label for="q">{tt.search.label}</label>
       <input
         type="search"
         id="q"
         name="q"
-        placeholder="Titre, résumé, corps…  ( / pour activer )"
+        placeholder={tt.search.placeholder}
         autocomplete="off"
         data-search-input
       />
     </div>
     <div class="facettes">
-      <div class="facette" data-facette="bloc" data-mode="single" aria-label="Bloc">
-        <span class="facette-label">Bloc</span>
+      <div class="facette" data-facette="bloc" data-mode="single" aria-label={tt.facet.bloc}>
+        <span class="facette-label">{tt.facet.bloc}</span>
         <div class="pastilles">
           {
-            Object.entries(BLOCS).map(([k, v]) => (
+            BLOC_ORDER.map((k) => (
               <button
                 type="button"
                 class="pastille"
                 data-value={k}
                 aria-pressed="false"
               >
-                {v.label}
+                {blocLabel(lang, k)}
               </button>
             ))
           }
         </div>
       </div>
 
-      <div class="facette" data-facette="type" data-mode="single" aria-label="Type">
-        <span class="facette-label">Type</span>
+      <div class="facette" data-facette="type" data-mode="single" aria-label={tt.facet.type}>
+        <span class="facette-label">{tt.facet.type}</span>
         <div class="pastilles">
-          <button type="button" class="pastille" data-value="principe" aria-pressed="false">Principe</button>
-          <button type="button" class="pastille" data-value="cas" aria-pressed="false">Cas</button>
+          <button type="button" class="pastille" data-value="principe" aria-pressed="false">{tt.optType.principe}</button>
+          <button type="button" class="pastille" data-value="cas" aria-pressed="false">{tt.optType.cas}</button>
         </div>
       </div>
 
-      <div class="facette" data-facette="statut" data-mode="single" aria-label="Statut">
-        <span class="facette-label">Statut</span>
+      <div class="facette" data-facette="statut" data-mode="single" aria-label={tt.facet.statut}>
+        <span class="facette-label">{tt.facet.statut}</span>
         <div class="pastilles">
-          <button type="button" class="pastille" data-value="valide" aria-pressed="false">valide</button>
-          <button type="button" class="pastille" data-value="a-resourcer" aria-pressed="false">a-resourcer</button>
-          <button type="button" class="pastille" data-value="brouillon" aria-pressed="false">brouillon</button>
+          <button type="button" class="pastille" data-value="valide" aria-pressed="false">{tt.optStatut.valide}</button>
+          <button type="button" class="pastille" data-value="a-resourcer" aria-pressed="false">{tt.optStatut["a-resourcer"]}</button>
+          <button type="button" class="pastille" data-value="brouillon" aria-pressed="false">{tt.optStatut.brouillon}</button>
         </div>
       </div>
 
-      <div class="facette" data-facette="transverse" data-mode="multi" aria-label="Axes transversaux">
-        <span class="facette-label">Axes transversaux</span>
+      <div class="facette" data-facette="transverse" data-mode="multi" aria-label={tt.facet.axes}>
+        <span class="facette-label">{tt.facet.axes}</span>
         <div class="pastilles">
-          <button type="button" class="pastille" data-value="cout" aria-pressed="false">coût</button>
-          <button type="button" class="pastille" data-value="hitl" aria-pressed="false">HITL</button>
-          <button type="button" class="pastille" data-value="tracabilite" aria-pressed="false">traçabilité</button>
+          <button type="button" class="pastille" data-value="cout" aria-pressed="false">{tt.optAxe.cout}</button>
+          <button type="button" class="pastille" data-value="hitl" aria-pressed="false">{tt.optAxe.hitl}</button>
+          <button type="button" class="pastille" data-value="tracabilite" aria-pressed="false">{tt.optAxe.tracabilite}</button>
         </div>
       </div>
 
       <button type="button" class="pastille pastille-reset" data-reset>
-        Réinitialiser
+        {tt.reset}
       </button>
     </div>
   </form>
 
-  <p class="resultat-compte" data-compte>
-    {entries.length} fiche{entries.length > 1 ? "s" : ""}
-  </p>
+  <p class="resultat-compte" data-compte>{tt.cards(entries.length)}</p>
 
   <ul class="liste-fiches" data-liste>
     {
@@ -94,30 +113,36 @@ const { entries, all, seedBloc } = Astro.props;
             : principesProuves(e, all);
         return (
           <li>
-            <a class="fiche-lien" href={`/${e.data.bloc}/${e.data.id}/`}>
+            <a class="fiche-lien" href={lx(`/${e.data.bloc}/${e.data.id}/`)}>
               <span class="cote">{cote(e)}</span>
               <span class="fiche-titre">{e.data.titre}</span>
             </a>
             <p class="fiche-resume">{e.data.resume}</p>
             <p class="fiche-meta">
               <span class={`tag statut statut-${e.data.statut}`}>
-                {e.data.statut}
+                {tt.optStatut[e.data.statut as keyof typeof tt.optStatut]}
               </span>
-              <span class="tag type">{e.data.type}</span>
+              <span class="tag type">
+                {tt.optType[e.data.type as keyof typeof tt.optType]}
+              </span>
               {e.data.transverses.map((t) => (
-                <span class="tag axe">{t}</span>
+                <span class="tag axe">
+                  {tt.optAxe[t as keyof typeof tt.optAxe]}
+                </span>
               ))}
               {aReVoir(e.data.verification.date) && (
-                <span class="tag revoir">à revoir</span>
+                <span class="tag revoir">{tt.reviewBadge}</span>
               )}
             </p>
             {inv.length > 0 && (
               <p class="fiche-liens">
-                {e.data.type === "principe" ? "Prouvé par : " : "Prouve : "}
+                {e.data.type === "principe"
+                  ? `${tt.listProvenBy} `
+                  : `${tt.listProves} `}
                 {inv.map((x, i) => (
                   <>
                     {i > 0 && ", "}
-                    <a href={`/${x.data.bloc}/${x.data.id}/`}>{cote(x)}</a>
+                    <a href={lx(`/${x.data.bloc}/${x.data.id}/`)}>{cote(x)}</a>
                   </>
                 ))}
               </p>

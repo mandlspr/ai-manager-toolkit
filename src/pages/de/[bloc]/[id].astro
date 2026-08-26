@@ -1,6 +1,6 @@
 ---
-import FichePage from "../../components/pages/FichePage.astro";
-import { getCanonicalEntries } from "../../lib/entries";
+import FichePage from "../../../components/pages/FichePage.astro";
+import { getCanonicalEntries } from "../../../lib/entries";
 
 export async function getStaticPaths() {
   const canon = await getCanonicalEntries();
@@ -13,4 +13,4 @@ export async function getStaticPaths() {
 const { canonicalId } = Astro.props;
 ---
 
-<FichePage lang="en" canonicalId={canonicalId} />
+<FichePage lang="de" canonicalId={canonicalId} />

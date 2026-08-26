@@ -1,0 +1,13 @@
+---
+import { T, type Langue } from "../i18n/ui";
+
+// Bandeau de bascule VISIBLE (jamais silencieux) : affiché quand la fiche
+// n'existe pas dans la langue active et que la version canonique (EN) est
+// servie à la place. Même registre visuel que le badge `a-resourcer`.
+interface Props {
+  lang: Langue;
+}
+const { lang } = Astro.props;
+---
+
+<aside class="bascule" role="note">{T[lang].bascule}</aside>

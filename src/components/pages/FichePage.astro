@@ -1,0 +1,190 @@
+---
+import { render } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import BasculeBanner from "../BasculeBanner.astro";
+import {
+  getPublishedEntries,
+  resolveEntry,
+  cote,
+  blocLabel,
+  aReVoir,
+  fmtDate,
+  casQuiProuvent,
+  principesProuves,
+  fichesLiees,
+} from "../../lib/entries";
+import { T, cheminLocalise, type Langue } from "../../i18n/ui";
+
+interface Props {
+  lang: Langue;
+  canonicalId: string;
+}
+const { lang, canonicalId } = Astro.props;
+const tt = T[lang];
+const lx = (p: string) => cheminLocalise(lang, p);
+
+const all = await getPublishedEntries();
+const { entry, translated } = resolveEntry(canonicalId, lang, all);
+const d = entry.data;
+const { Content } = await render(entry);
+
+const label = blocLabel(lang, d.bloc);
+const chemin = `/${d.bloc}/${canonicalId}/`;
+
+const prouves = d.type === "cas" ? principesProuves(entry, all) : [];
+const prouvePar = d.type === "principe" ? casQuiProuvent(entry, all) : [];
+const dejaMontre = new Set([...prouves, ...prouvePar].map((x) => x.data.id));
+const lies = fichesLiees(entry, all).filter((x) => !dejaMontre.has(x.data.id));
+const aDesLiens = prouves.length + prouvePar.length + lies.length > 0;
+
+const st = (k: string) => tt.optStatut[k as keyof typeof tt.optStatut];
+const ty = (k: string) => tt.optType[k as keyof typeof tt.optType];
+const ax = (k: string) => tt.optAxe[k as keyof typeof tt.optAxe];
+---
+
+<Base
+  lang={lang}
+  chemin={chemin}
+  titre={`${cote(entry)} · ${d.titre}`}
+  description={d.resume}
+>
+  <article class="fiche">
+    {!translated && <BasculeBanner lang={lang} />}
+
+    <p class="fil">
+      <a href={lx("/")}>{tt.breadcrumbHome}</a> /
+      <a href={lx(`/${d.bloc}/`)}>{label}</a>
+    </p>
+
+    <header class="fiche-tete">
+      <p class="cote cote-xl">{cote(entry)}</p>
+      <h1>{d.titre}</h1>
+      <p class="fiche-resume-lead">{d.resume}</p>
+    </header>
+
+    <aside class="bandeau" aria-label={tt.bandeau.liens}>
+      <dl>
+        <div>
+          <dt>{tt.bandeau.statut}</dt>
+          <dd>
+            <span class={`tag statut statut-${d.statut}`}>{st(d.statut)}</span>
+            {
+              aReVoir(d.verification.date) && (
+                <span class="tag revoir">{tt.reviewBadge}</span>
+              )
+            }
+          </dd>
+        </div>
+
+        <div>
+          <dt>{tt.bandeau.type}</dt>
+          <dd><span class="tag type">{ty(d.type)}</span></dd>
+        </div>
+
+        {
+          d.transverses.length > 0 && (
+            <div>
+              <dt>{tt.bandeau.axes}</dt>
+              <dd>
+                {d.transverses.map((t) => (
+                  <span class="tag axe">{ax(t)}</span>
+                ))}
+              </dd>
+            </div>
+          )
+        }
+
+        <div>
+          <dt>{tt.bandeau.verifie}</dt>
+          <dd>
+            {fmtDate(d.verification.date, lang)} — {d.verification.par}
+          </dd>
+        </div>
+
+        <div class="bandeau-sources">
+          <dt>{d.sources.length > 1 ? tt.bandeau.sources : tt.bandeau.source}</dt>
+          <dd>
+            <ul>
+              {
+                d.sources.map((s) => (
+                  <li>
+                    {s.url ? <a href={s.url}>{s.titre}</a> : s.titre}
+                    <span class="source-detail">
+                      {" "}
+                      — {s.emplacement} · {s.nature} ·{" "}
+                      {fmtDate(s.date_document, lang)}
+                    </span>
+                  </li>
+                ))
+              }
+            </ul>
+            {
+              d.verification.perimetre_limite && (
+                <p class="perimetre">
+                  {tt.limitedScope} : {d.verification.perimetre_limite}
+                </p>
+              )
+            }
+          </dd>
+        </div>
+
+        {
+          aDesLiens && (
+            <div>
+              <dt>{tt.bandeau.liens}</dt>
+              <dd>
+                {prouves.length > 0 && (
+                  <p>
+                    {tt.provenPrinciples}{" "}
+                    {prouves.map((x, i) => (
+                      <>
+                        {i > 0 && ", "}
+                        <a href={lx(`/${x.data.bloc}/${x.data.id}/`)}>
+                          {cote(x)} — {x.data.titre}
+                        </a>
+                      </>
+                    ))}
+                  </p>
+                )}
+                {prouvePar.length > 0 && (
+                  <p>
+                    {tt.provingCases}{" "}
+                    {prouvePar.map((x, i) => (
+                      <>
+                        {i > 0 && ", "}
+                        <a href={lx(`/${x.data.bloc}/${x.data.id}/`)}>
+                          {cote(x)} — {x.data.titre}
+                        </a>
+                      </>
+                    ))}
+                  </p>
+                )}
+                {lies.length > 0 && (
+                  <p>
+                    {tt.seeAlso}{" "}
+                    {lies.map((x, i) => (
+                      <>
+                        {i > 0 && ", "}
+                        <a href={lx(`/${x.data.bloc}/${x.data.id}/`)}>
+                          {cote(x)} — {x.data.titre}
+                        </a>
+                      </>
+                    ))}
+                  </p>
+                )}
+              </dd>
+            </div>
+          )
+        }
+      </dl>
+    </aside>
+
+    <div class="fiche-corps">
+      <Content />
+    </div>
+
+    <p class="fiche-retour">
+      <a href={lx(`/${d.bloc}/`)}>{tt.backPrefix} {label}</a>
+    </p>
+  </article>
+</Base>
