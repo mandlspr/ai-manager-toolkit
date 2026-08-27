@@ -23,18 +23,21 @@ portfolio: oui
 summary: "Evaluating twice with distinct criteria increases the robustness of judgment and reduces systematic bias."
 ---
 
-## Principe
+## Principle
 
-<!-- à rédiger -->
+Run a governance assessment twice, through two evaluators that do not share the same calibration, before treating the verdict as decided. A single evaluator produces a verdict that reflects its own thresholds as much as it reflects the case under review.
 
-## Pourquoi ça compte
+## Why it matters
 
-<!-- à rédiger -->
+StackFit assessed Handshake once and returned Fairness / Bias as "no specific blocker identified" — green — on a workflow explicitly built around fairness, segmentation and proxy risk. The verdict was internally consistent; the calibration was wrong. Nothing inside the first pass could have surfaced that.
 
-## Comment l'appliquer
+## How to apply it
 
-<!-- à rédiger -->
+- Give the second evaluator the same case, unmodified — a changed input tests nothing.
+- Use a second evaluator with a different calibration, not a second run of the first.
+- Record each verdict with its date and its evaluator; a verdict without provenance cannot be re-examined later.
+- Treat a divergence as the finding, and fix the rule that produced it rather than the individual output.
 
-## Point de vigilance
+## Point of caution
 
-<!-- à rédiger -->
+The project files disagree on this test's own record: the Project Log reports a Fit verdict with three corrections pending, while the final Handshake README reports "Fit with conditions" after four calibration fixes. The disagreement is left standing here rather than resolved.

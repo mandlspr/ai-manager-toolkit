@@ -28,18 +28,21 @@ portfolio: oui
 summary: "A benchmark answers a precise question on a precise case. Sources disagree? That's a discovery, not a flaw."
 ---
 
-## Principe
+## Principle
 
-<!-- à rédiger -->
+A benchmark is partial evidence of one capability on one kind of task, not a universal score of intelligence. Attach each requirement to the evidence that actually speaks to it — an autonomy requirement to long-horizon measurements, a tool-use requirement to tool-use evaluations — rather than producing a single ranking. When credible sources disagree, show the disagreement instead of averaging it away.
 
-## Pourquoi ça compte
+## Why it matters
 
-<!-- à rédiger -->
+A ranking compresses a trade-off into a number and then hides it. A model can be strong on academic reasoning and less robust on long agentic execution; a recommendation may still stand, but it has to expose the trade-off and the provenance of the evidence. Provider-published benchmarks are weakly differentiating, and each provider selects the tests that favour it.
 
-## Comment l'appliquer
+## How to apply it
 
-<!-- à rédiger -->
+- Map each requirement to specific evidence before comparing anything.
+- Follow the source hierarchy: official documentation and evaluations, then reproducible independent benchmarks, then internal field measurement, then anecdote.
+- Date every result — models, versions, reasoning modes and tooling move too fast for a score to stay true.
+- Test on your own task under real conditions, the only evaluation that answers your question.
 
-## Point de vigilance
+## Point of caution
 
-<!-- à rédiger -->
+Community pairwise ranking tracks real usage more closely, but it is a snapshot: today's order between providers can be different tomorrow.

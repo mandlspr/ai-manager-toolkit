@@ -23,18 +23,19 @@ portfolio: oui
 summary: "AI models excel at some tasks and stumble on others, with no linear progression. Performance is multi-dimensional."
 ---
 
-## Principe
+## Principle
 
-<!-- à rédiger -->
+Model performance is jagged, not a smooth curve. The same model can solve olympiad-level mathematics and fail to read an analogue clock. "The model is good" means nothing without saying good at what: capability is multi-dimensional, and the boundary between what works and what does not is irregular.
 
-## Pourquoi ça compte
+## Why it matters
 
-<!-- à rédiger -->
+The jaggedness breaks the transfer of trust. A model that performs impressively on a demanding task earns credibility that then gets extended to an adjacent task where it happens to fail — and nobody re-tests, because the first result was so strong. The failures land in unremarkable places, which is exactly where nobody is watching.
 
-## Comment l'appliquer
+## How to apply it
 
-<!-- à rédiger -->
+- Evaluate on the specific task you intend to run, not on a neighbouring one.
+- Re-test when the task changes, even slightly; adjacency is not evidence.
+- State capability claims with their task attached: reliable on this classification, unverified elsewhere.
+- Expect surprises at the low end of difficulty as often as at the high end.
 
-## Point de vigilance
-
-<!-- à rédiger -->
+## Point of caution

@@ -23,18 +23,21 @@ portfolio: oui
 summary: "A governed, safe AI model rests on six layers: data, model, deployment, interaction, monitoring, and review."
 ---
 
-## Principe
+## Principle
 
-<!-- à rédiger -->
+A responsible AI system is assessed through six layers, each carrying one question. Governance: should the AI be allowed to do this? Data: should these data be used for this purpose? Orchestration: what can the AI access, decide, execute or escalate? CX: what happens to the customer when it does? Monitoring: how do we know when reality diverges from intent? Accountability: who owns the outcome and who can intervene?
 
-## Pourquoi ça compte
+## Why it matters
 
-<!-- à rédiger -->
+The layers fail independently. A system can be permitted, run on appropriate data, and still have no answer to who intervenes when it goes wrong. The two layers most often skipped — CX and Accountability — are the ones that decide what a failure actually costs.
 
-## Comment l'appliquer
+## How to apply it
 
-<!-- à rédiger -->
+- Answer all six questions explicitly before deployment; an unanswered layer is a gap, not a formality.
+- Name an owner for Accountability — a role, not a team.
+- Treat Monitoring as a detector of divergence between intent and reality, not as uptime.
+- Re-run the six questions when the intended use changes, not only at launch.
 
-## Point de vigilance
+## Point of caution
 
-<!-- à rédiger -->
+The framework is also summarised as Governance + Orchestration + Customer Outcomes, a compression that drops Data, Monitoring and Accountability from view. Use the six layers, not the shorthand.

@@ -23,18 +23,20 @@ portfolio: oui
 summary: "Constrained format, explicit prohibition on inventing, real context. The third is the most impactful."
 ---
 
-## Principe
+## Principle
 
-<!-- à rédiger -->
+Three levers reduce hallucination, and they are not equal. A constrained output format narrows what the model can produce. An explicit prohibition on inventing removes the ambiguity about what to do when the answer is missing. Supplying enough real context is the third and the most impactful — the first two constrain the shape of an answer, this one changes what the model has to answer from.
 
-## Pourquoi ça compte
+## Why it matters
 
-<!-- à rédiger -->
+In a customer-facing bot, a hallucinated price, guarantee or discount can legally bind the company. Anti-hallucination guardrails are therefore contract-risk management, not only output quality. The first two levers can also make a wrong answer look well-formed and confident, which is harder to catch than a visibly broken one.
 
-## Comment l'appliquer
+## How to apply it
 
-<!-- à rédiger -->
+- Impose a structured output format and closed categories before tuning prompt wording.
+- State explicitly what the model must do when it does not know, rather than assuming it will abstain.
+- Invest first in grounding: retrieval over a real knowledge base, real account data, real documents.
 
-## Point de vigilance
+## Point of caution
 
-<!-- à rédiger -->
+None of the three levers removes the risk entirely, which is why human review sits alongside them rather than after them.

@@ -23,18 +23,21 @@ portfolio: oui
 summary: "Export traces, tool calls, and model decisions as JSON — a reliable way to diagnose failures."
 ---
 
-## Principe
+## Principle
 
-<!-- à rédiger -->
+To debug a workflow, hand the reviewing model the workflow's source — the exported JSON — rather than screenshots. Formal, structured languages carry almost no ambiguity, so a model can read the nodes, their identifiers and their connections and criticise the structure surgically. A screenshot shows a picture of the flow; the export is the flow.
 
-## Pourquoi ça compte
+## Why it matters
 
-<!-- à rédiger -->
+The export surfaces errors that are invisible on the canvas: an agent node used with no tools and no memory where a plain LLM chain would do, a misconfigured recipient field, a prompt buried inside a node that nobody re-reads. Those are structural mistakes, and a visual review has no way to reach them.
 
-## Comment l'appliquer
+## How to apply it
 
-<!-- à rédiger -->
+- Export the workflow to JSON and ask for a constructive critique, explicitly including the prompt inside the agent node.
+- Ask for the corrected JSON back, then re-import it.
+- Validate and adjust variables and placeholders after import, and test the flow — the reviewing model does not know the actual columns of your external sources.
+- Strip personal data before sharing an export: credentials themselves are not included, but credential names are.
 
-## Point de vigilance
+## Point of caution
 
-<!-- à rédiger -->
+A model can review a flow and flag security weaknesses; it cannot replace live testing.

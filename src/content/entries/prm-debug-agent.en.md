@@ -23,18 +23,20 @@ portfolio: oui
 summary: "Before blaming the agent: check observability, the relevance of the knowledge base, and the quality of the feedback signal."
 ---
 
-## Principe
+## Principle
 
-<!-- à rédiger -->
+When an agent underperforms, three questions come before any conclusion about the agent itself. Are you using the right model, or is it too weak for the task? Are the embeddings correct — is the data properly vectorised? Is a tool or a data access (MCP) missing? Only after all three is "the agent is bad" a finding rather than a reflex.
 
-## Pourquoi ça compte
+## Why it matters
 
-<!-- à rédiger -->
+Each question maps to a different component of the chain: the model, the retrieval layer, the tool and access layer. They fail differently and are fixed differently. Skipping them turns a diagnosable configuration problem into a verdict on the technology, and the same failure returns on the next build.
 
-## Comment l'appliquer
+## How to apply it
 
-<!-- à rédiger -->
+- Ask the three in order; the cheapest fix is as often the last as the first.
+- Test each component in isolation before blaming the chain — credentials verified outside the orchestrator, retrieval checked against a known query.
+- Remember that in a multi-node pipeline the visible failure is rarely the cause.
 
-## Point de vigilance
+## Point of caution
 
-<!-- à rédiger -->
+The same discipline applies to an agent that appears to work: an answer that looks logical but lands off-target usually comes from a missing access, not a weak model.

@@ -23,18 +23,21 @@ portfolio: oui
 summary: "Shadow AI and the terms of service are what determine risk — not whether the plan is free or a business tier."
 ---
 
-## Principe
+## Principle
 
-<!-- à rédiger -->
+What determines risk is the contractual regime of the account being used, not what the plan costs. A paid consumer plan and a free one can sit under the same terms, while a business or commercial contract is a different regime entirely. The real exposure is Shadow AI: a personal account used for company work, with no legal basis covering it.
 
-## Pourquoi ça compte
+## Why it matters
 
-<!-- à rédiger -->
+Since the Anthropic terms update effective 28/09/2025, consumer accounts (Free, Pro, Max) default into model training unless the user opts out, while Business and Commercial/API accounts are excluded by default. Someone paying for a personal plan can reasonably believe they are covered and be wrong. Paid does not mean protected.
 
-## Comment l'appliquer
+## How to apply it
 
-<!-- à rédiger -->
+- Check which account regime is in use before approving the tool, not after.
+- Treat a personal account handling company data as an incident, not a preference.
+- Verify the data-processing agreement (Art. 28 GDPR) for any third party processing data on the company's behalf.
+- Re-check provider terms at each publication rather than trusting a note written months earlier.
 
-## Point de vigilance
+## Point of caution
 
-<!-- à rédiger -->
+Provider policies move quickly. The date above is the one recorded in the Playbook and should be re-verified before being cited as current.

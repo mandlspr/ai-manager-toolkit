@@ -23,18 +23,21 @@ portfolio: oui
 summary: "Intellectual property and brand alignment are exclusion criteria before adopting public tools."
 ---
 
-## Principe
+## Principle
 
-<!-- à rédiger -->
+Before adopting a consumer creative tool for professional output, rights and brand fit act as exclusion criteria, not as preferences to weigh against quality. The question is not which model produces the better result, but which one is appropriate, traceable, controllable and acceptable in terms of rights and security.
 
-## Pourquoi ça compte
+## Why it matters
 
-<!-- à rédiger -->
+A free tier typically grants no commercial rights and watermarks its output, which makes it unpublishable professionally. Rights attach at generation: content produced under an active paid plan keeps its commercial rights afterwards, but that has to be provable. Brand fit fails differently — a tool with a strong stylistic default drifts toward it despite explicit instructions to the contrary.
 
-## Comment l'appliquer
+## How to apply it
 
-<!-- à rédiger -->
+- Check licence and commercial rights before generating, not before publishing.
+- Keep evidence of the plan in force at the time of generation.
+- Treat a persistent stylistic default as a structural property of the tool, not a prompting problem.
+- Weigh dataset provenance, licence, cost, privacy and level of control together; none of them decides alone.
 
-## Point de vigilance
+## Point of caution
 
-<!-- à rédiger -->
+The source records these criteria tool by tool, for image, video and audio. It does not consolidate them into a single exclusion grid.

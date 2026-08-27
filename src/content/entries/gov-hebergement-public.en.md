@@ -23,18 +23,19 @@ portfolio: non
 summary: "Verify legal, security, and data compliance before any public deployment — a minimum bar."
 ---
 
-## Principe
+## Principle
 
-<!-- à rédiger -->
+Public hosting carries a legal minimum that is separate from the data-processing contract. Before anything is exposed publicly, a legal notice (Impressum) and a privacy policy (Datenschutzerklärung) must be in place. This is distinct from the data-processing agreement under Art. 28 GDPR, which covers a third party processing data on your behalf — having one does not satisfy the other.
 
-## Pourquoi ça compte
+## Why it matters
 
-<!-- à rédiger -->
+The two obligations are routinely collapsed into a single "compliance" step and then satisfied only on the processor side. A prototype moved from a local machine to a public URL becomes a published service, and server location itself carries weight in Germany and Europe for data protection, data leakage and digital sovereignty. The gap usually appears at the moment a demo becomes a link that can be sent to someone.
 
-## Comment l'appliquer
+## How to apply it
 
-<!-- à rédiger -->
+- Treat "make it public" as a gate separate from "make it work".
+- Put the legal notice and the privacy policy in place before the first public URL, not after the first visitor.
+- Check where the host actually runs, not only who the host is.
+- Keep the data-processing agreement question separate and answer it on its own terms.
 
-## Point de vigilance
-
-<!-- à rédiger -->
+## Point of caution

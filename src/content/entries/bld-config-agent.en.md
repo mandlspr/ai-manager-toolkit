@@ -23,18 +23,21 @@ portfolio: oui
 summary: "Model, temperature, token limit, and tools — four configuration variables that govern agent behavior."
 ---
 
-## Principe
+## Principle
 
-<!-- à rédiger -->
+Agent configuration rests on four constant ingredients: the system prompt, the rules, the skills, and the tools. In the source diagram these occupy the top block, above the provider platform and the data layer — the model tier belongs to the platform, not to the agent's configuration.
 
-## Pourquoi ça compte
+## Why it matters
 
-<!-- à rédiger -->
+The distinction decides where a change belongs. Swapping the model is a platform decision; changing what the agent may do is a configuration decision. Treating them as one layer is how an agent ends up rebuilt every time a provider ships a new model. The system prompt holds the fixed part — role, standing rules, constraints, output format — while the user prompt carries what varies at each run.
 
-## Comment l'appliquer
+## How to apply it
 
-<!-- à rédiger -->
+- Keep the four ingredients in separate, named places rather than in a single prompt blob.
+- Put anything invariant in the system prompt; anything that changes per execution belongs in the user prompt.
+- Version the rules and the tool list independently of the model.
+- When behaviour shifts unexpectedly, check which of the four moved before blaming the model.
 
-## Point de vigilance
+## Point of caution
 
-<!-- à rédiger -->
+Temperature and token limits appear in the same sources, but as cost guardrails rather than as ingredients of agent configuration.
