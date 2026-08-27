@@ -9,10 +9,10 @@ crosscutting: []
 lang: en
 translations: []
 sources:
-  - titre: "Notebook W2"
+  - titre: "Toolkit_Matiere_Premiere.md"
     emplacement: "Projet Claude / AI Manager Toolkit"
     date_document: 2026-08-19
-    nature: notebook
+    nature: projet
     url: null
 verified:
   date: 2026-08-25

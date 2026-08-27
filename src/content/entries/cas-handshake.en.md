@@ -10,9 +10,9 @@ lang: en
 translations: []
 proves: [gov-boucle-cx, gov-equite-segment, gov-responsible-ai]
 sources:
-  - titre: "README Handshake"
+  - titre: "README Handshake — 19 August, final"
     emplacement: "Projet Claude / AI Manager Toolkit"
-    date_document: 2026-08-14
+    date_document: 2026-08-19
     nature: projet
     url: null
   - titre: "Playbook AI Governance"
@@ -23,7 +23,7 @@ sources:
 verified:
   date: 2026-08-25
   by: "revue croisée ChatGPT + relecture manuelle"
-  scope_limit: "prototype sur 12 comptes synthétiques"
+  scope_limit: "Synthetic test accounts (count reported between 9 and 12 depending on the source); deployed as a public demo, not in production."
 links: [gov-boucle-cx, gov-equite-segment, gov-responsible-ai]
 portfolio: oui
 summary: "A complete end-to-end workflow: needs discovery, agent configuration, segment-level measurement, feedback loop."

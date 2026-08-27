@@ -1,6 +1,6 @@
 ---
 id: bld-config-agent
-title: "Agent config — four constant ingredients"
+title: "Agent config — system prompt, rules, skills, tools"
 type: principle
 section: build
 order: 2
@@ -20,7 +20,7 @@ verified:
   scope_limit: null
 links: []
 portfolio: oui
-summary: "Model, temperature, token limit, and tools — four configuration variables that govern agent behavior."
+summary: "Agent configuration rests on four constant ingredients — system prompt, rules, skills, tools — kept separate from the provider's model tier."
 ---
 
 ## Principle

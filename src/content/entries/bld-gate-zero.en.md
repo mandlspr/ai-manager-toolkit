@@ -20,7 +20,7 @@ verified:
   scope_limit: null
 links: []
 portfolio: oui
-summary: "Before building an agent, check three conditions: the problem is solvable, the data is available, the cost is justified."
+summary: "Define the objective and vet the data before choosing a tool; the three automation risks are over-automation, vague objectives, and missing documentation."
 ---
 
 ## Principle

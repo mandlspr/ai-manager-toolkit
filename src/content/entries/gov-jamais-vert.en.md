@@ -14,7 +14,7 @@ sources:
     date_document: 2026-08-14
     nature: playbook
     url: null
-  - titre: "StackFit Project Log"
+  - titre: "StackFit V1 — Handshake Project Log"
     emplacement: "Projet Claude / AI Manager Toolkit"
     date_document: 2026-08-14
     nature: projet

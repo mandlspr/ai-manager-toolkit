@@ -20,7 +20,7 @@ verified:
   scope_limit: null
 links: [cas-handshake, bld-garde-fous-agents]
 portfolio: oui
-summary: "A governed, safe AI model rests on six layers: data, model, deployment, interaction, monitoring, and review."
+summary: "A responsible AI system is assessed through six layers: Governance, Data, Orchestration, CX, Monitoring, and Accountability."
 ---
 
 ## Principle

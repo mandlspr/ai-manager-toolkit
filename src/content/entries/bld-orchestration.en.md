@@ -20,7 +20,7 @@ verified:
   scope_limit: null
 links: []
 portfolio: oui
-summary: "Orchestrating agents in parallel reduces latency; sequential orchestration reduces cost. Choose based on the trade-off accepted."
+summary: "The orchestrator, not the model, carries the logic: what context to load, in what order, with which tools, what to validate, and when to stop."
 ---
 
 ## Principle

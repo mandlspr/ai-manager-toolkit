@@ -20,7 +20,7 @@ verified:
   scope_limit: null
 links: []
 portfolio: oui
-summary: "Before blaming the agent: check observability, the relevance of the knowledge base, and the quality of the feedback signal."
+summary: "Before concluding the agent is bad, ask three questions: is the model too weak, are the embeddings/vectorisation correct, is a tool or MCP access missing?"
 ---
 
 ## Principle
