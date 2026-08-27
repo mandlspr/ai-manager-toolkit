@@ -9,10 +9,10 @@ crosscutting: []
 lang: en
 translations: []
 sources:
-  - titre: "Toolkit_Matiere_Premiere.md"
-    emplacement: "Projet Claude / AI Manager Toolkit"
-    date_document: 2026-08-19
-    nature: projet
+  - titre: "W2 - Prompt Engineering (fiche de révision examen)"
+    emplacement: "Notion — STARTPLATZ / (archive) Fiches de révision"
+    date_document: 2026-07-10
+    nature: notebook
     url: null
 verified:
   date: 2026-08-25

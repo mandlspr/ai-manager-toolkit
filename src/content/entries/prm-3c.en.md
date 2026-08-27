@@ -9,9 +9,9 @@ crosscutting: []
 lang: en
 translations: []
 sources:
-  - titre: "Notebook W2"
-    emplacement: "Projet Claude / AI Manager Toolkit"
-    date_document: 2026-08-19
+  - titre: "W2 - Prompt Engineering (fiche de révision examen)"
+    emplacement: "Notion — STARTPLATZ / (archive) Fiches de révision"
+    date_document: 2026-07-10
     nature: notebook
     url: null
 verified:
