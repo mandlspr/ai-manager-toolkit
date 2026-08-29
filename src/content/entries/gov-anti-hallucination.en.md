@@ -14,6 +14,11 @@ sources:
     date_document: 2026-08-14
     nature: playbook
     url: null
+  - titre: "audit/prompt_enrichment.json"
+    emplacement: "Projet Claude / AI Manager Toolkit"
+    date_document: 2026-08-29
+    nature: notebook
+    url: null
 verified:
   date: 2026-08-25
   by: "revue croisée ChatGPT + relecture manuelle"
@@ -40,3 +45,15 @@ In a customer-facing bot, a hallucinated price, guarantee or discount can legall
 ## Point of caution
 
 None of the three levers removes the risk entirely, which is why human review sits alongside them rather than after them.
+
+## Reusable prompt
+
+Guardrail block — forces the model to open and read a referenced source before making any claim about it (W2, `W2T1_Claude_Best Prompting Practices.pdf`).
+
+```
+<investigate_before_answering>
+Never speculate about code you have not opened. If the user references a specific file, you MUST read the file before answering. Make sure to investigate and read relevant files BEFORE answering questions about the codebase. Never make any claims about code before investigating unless you are certain of the correct answer grounded and give
+</investigate_before_answering>
+```
+
+Reproduced as-is, including the sentence left unfinished at the end of the block. Note: generalises beyond code — "never assert on a source you haven't opened." Limit: raises input-token cost and latency.

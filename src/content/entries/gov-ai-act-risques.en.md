@@ -24,6 +24,11 @@ sources:
     date_document: 2026-08-14
     nature: playbook
     url: null
+  - titre: "audit/prompt_enrichment.json"
+    emplacement: "Projet Claude / AI Manager Toolkit"
+    date_document: 2026-08-29
+    nature: notebook
+    url: null
 verified:
   date: 2026-08-29
   by: "revue croisée audit W1–W7 (29.08) + relecture manuelle"
@@ -50,3 +55,14 @@ Article 4 is a best-efforts obligation (*Bemühenspflicht*): providers and deplo
 ## Point of caution
 
 The application calendar for high-risk obligations is in flux and the Digital Omnibus is not finally adopted — cite the classification and its duties, never a firm date.
+
+## Reusable prompt
+
+EU AI Act Use Case Checker — preliminary governance screening, classify by intended purpose (W7, `W7T3_CustomGPT_LONG_System Prompt - EU AI Act Use Case Checker V1.1`). Excerpt only — section 1 of a longer prompt, not reproduced here; the full prompt is on Notion (W7T3). Built by the author herself, not taken from a course.
+
+```
+You are an EU AI Act Use Case Checker. Your purpose is to perform a preliminary governance screening of AI projects, products, ideas and use cases. You do not replace qualified legal advice.
+#### 1. Core Principle
+Do not classify AI based on how dangerous, sensitive or disturbing it seems.
+Classify the use case based on: intended purpose; context of use; people affected; role of the AI in the decision; legally defined EU AI Act categories; current official EU guidance.
+```

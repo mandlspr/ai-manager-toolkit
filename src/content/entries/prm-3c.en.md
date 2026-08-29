@@ -14,6 +14,11 @@ sources:
     date_document: 2026-07-10
     nature: notebook
     url: null
+  - titre: "audit/prompt_enrichment.json"
+    emplacement: "Projet Claude / AI Manager Toolkit"
+    date_document: 2026-08-29
+    nature: notebook
+    url: null
 verified:
   date: 2026-08-25
   by: "revue croisée ChatGPT + relecture manuelle"
@@ -40,3 +45,13 @@ The two readings are not equivalent. One puts the role first and folds output fo
 ## Point of caution
 
 The same notebook records a longer structure — role, task, specifics, context, examples, notes. 3C is a floor, not a ceiling.
+
+## Reusable prompt
+
+Meta-prompter — asks about goals, output and context, then builds the prompt for you (W2, `W2T1_Was haben wir gelernt?.pdf`; original German, translated — the technique is language-agnostic).
+
+```
+You are a prompt-generation robot. Gather all the important information, ask follow-up questions, and create the perfect prompt. Start by asking me about goals, output, and further context.
+```
+
+Note: needs a multi-turn exchange, so it cannot run single-shot. It overlaps in part with the installed `promptcraft` / `promptcraft-gpt` skills — flagged, not duplicated.

@@ -14,6 +14,11 @@ sources:
     date_document: 2026-08-25
     nature: notebook
     url: null
+  - titre: "audit/prompt_enrichment.json"
+    emplacement: "Projet Claude / AI Manager Toolkit"
+    date_document: 2026-08-29
+    nature: notebook
+    url: null
 verified:
   date: 2026-08-25
   by: "revue croisée ChatGPT + relecture manuelle"
@@ -41,3 +46,13 @@ The export surfaces errors that are invisible on the canvas: an agent node used 
 ## Point of caution
 
 A model can review a flow and flag security weaknesses; it cannot replace live testing.
+
+## Reusable prompt
+
+Workflow critique via JSON export — paste an n8n workflow file and ask for a constructive review, including the inner agent prompt (W5, `W5T3_Cours_Optimiser un n8n flow avec l'IA`).
+
+```
+J'ai un workflow n8n dont voici le fichier JSON en piece jointe. Analyse-le et fais-moi une critique constructive : qu'est-ce qui pourrait etre ameliore ? Critique notamment le prompt a l'interieur de l'agent et propose-moi une version optimisee.
+```
+
+Governance note: never include real API keys or PII in the submitted JSON — credentials are not exported, but their names are. Limit: the model reasons about the formal structure, not the real content of external data sources.
