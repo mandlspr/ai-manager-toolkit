@@ -1,6 +1,6 @@
 ---
 id: bld-config-agent
-title: "Agent config — system prompt, rules, skills, tools"
+title: "Agent configuration — the corpus doesn't agree with itself"
 type: principle
 section: build
 order: 2
@@ -20,7 +20,7 @@ verified:
   scope_limit: null
 links: []
 portfolio: oui
-summary: "Agent configuration rests on four constant ingredients — system prompt, rules, skills, tools — kept separate from the provider's model tier."
+summary: "Four sources split an agent's constant parts incompatibly and W5 forbids reconciling them; what holds is the boundary — configuration is what the agent may do, kept separate from the provider's model tier."
 ---
 
 ## Principle

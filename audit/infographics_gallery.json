@@ -1,0 +1,191 @@
+{
+  "metadata": {
+    "file": "infographics_gallery.json",
+    "project": "AI Manager Toolkit",
+    "generated": "2026-08-29",
+    "rule": "Uniquement des visuels evergreen, chacun rattache a une fiche existante ou proposee. Aucune image produite ici - ce sont des specifications.",
+    "durability_filter": "Retenu seulement si le visuel reste vrai apres suppression de tous les noms d'outils et de modeles. Les matrices d'outils datees ont ete ecartees a ce titre.",
+    "candidates_reviewed": 17,
+    "candidates_retained": 8,
+    "routing_reminder": "Selon Toolkit_Matiere_Premiere: diagrammes de mecanisme -> Claude Artifact (SVG exportable); charts de donnees -> Claude Artifact + skill dataviz; infographies de synthese sourcee -> NotebookLM Studio; second avis avant publication -> ChatGPT."
+  },
+
+  "already_generated_do_not_recreate": [
+    {"asset": "2026 AI Trust Gap Strategy (infographie)", "week": "W6", "location": "W6 Studio", "maps_to": "PROPOSED:enb-trust-gap"},
+    {"asset": "LinkedIn Carousel - Closing the AI Trust Gap (5 slides)", "week": "W6", "location": "W6 Studio", "maps_to": "PROPOSED:enb-trust-gap"},
+    {"asset": "AI Hallucination Blueprint", "week": "W2", "location": "W2 Studio", "maps_to": "gov-anti-hallucination"},
+    {"asset": "AI Security: Three Attack Types", "week": "W2", "location": "W2 Studio", "maps_to": "PROPOSED:gov-prompt-attaques"},
+    {"asset": "Which prompting for which purpose / Best Prompting Methods", "week": "W2", "location": "W2 Studio", "maps_to": "prm-3c"},
+    {"asset": "Which LLMs for what? / TTI-TTV-TTA-TTM / Claude vs Mistral", "week": "W3", "location": "W3 Studio", "maps_to": "evl-profil-utilisateur - MAIS contenu perissable, a re-verifier avant reutilisation"}
+  ],
+
+  "gallery": [
+    {
+      "id": "ifg-01",
+      "priority": 1,
+      "target_card": "PROPOSED:evl-prompt-rag-finetune",
+      "concept": "Prompt Engineering -> RAG -> Fine-Tuning : la matrice a deux axes",
+      "what_it_must_explain": "Que le choix d'optimisation depend de deux questions independantes, pas d'une echelle de puissance. Et surtout: le fine-tuning n'ajoute AUCUN fait.",
+      "visual_type": "matrice 2x2 avec un chemin flechee",
+      "key_components": [
+        "Axe Y - ce que le modele doit SAVOIR (optimisation du contexte)",
+        "Axe X - comment le modele doit AGIR (optimisation du modele)",
+        "Quadrant bas-gauche: Prompt Engineering (baseline, premiers tests)",
+        "Quadrant haut-gauche: RAG (memoire courte, faits)",
+        "Quadrant bas-droite: Fine-Tuning (memoire longue, style et format)",
+        "Quadrant haut-droite: les deux (systeme expert domaine)"
+      ],
+      "relationships": "Le chemin par defaut va toujours du quadrant bas-gauche vers l'exterieur. Une fleche barree doit relier explicitement 'Fine-Tuning' a 'ajouter des faits'.",
+      "source_weeks": ["W2", "W5", "W7"],
+      "evidence_strength": "triple convergence - le visuel le plus solidement source du corpus",
+      "durability": "PASSE"
+    },
+    {
+      "id": "ifg-02",
+      "priority": 1,
+      "target_card": "PROPOSED:gov-raci-decision",
+      "concept": "Qui doit etre a la table, et a quel moment",
+      "what_it_must_explain": "Que la gouvernance IA est interdisciplinaire, qu'un seul role porte le A (Accountable) par decision, et que le Betriebsrat arrive 'frueh' et non 'bei Bedarf'.",
+      "visual_type": "matrice RACI x etapes du cycle de gouvernance",
+      "key_components": [
+        "Roles: Fachbereich (proprietaire du cas d'usage), KI-Manager, IT/Securite, Datenschutz/DPO, Legal, Einkauf, Betriebsrat, Geschaeftsfuehrung",
+        "Etapes: Erfassen, Einordnen, Pruefen, Entscheiden, Befaehigen, Ueberwachen",
+        "Trois colonnes de timing: Frueh / Bei Bedarf / Freigabe",
+        "Un marqueur visuel unique sur le A de chaque ligne"
+      ],
+      "relationships": "Un seul A par ligne. Le Betriebsrat est en colonne Frueh, pas Bei Bedarf - c'est le point que le visuel doit rendre impossible a rater.",
+      "source_weeks": ["W7"],
+      "additional_source": "Playbook AI Governance - 'Wer muss an den Tisch?'",
+      "durability": "PASSE"
+    },
+    {
+      "id": "ifg-03",
+      "priority": 1,
+      "target_card": "PROPOSED:bld-spectre-autonomie (ou bld-discover-do-escalate)",
+      "concept": "Le spectre d'autonomie et le seuil legal",
+      "what_it_must_explain": "Que le niveau de controle requis est une fonction de l'autonomie, et qu'un seuil legal se franchit quand le systeme passe de recommander a decider seul.",
+      "visual_type": "spectre horizontal avec deux courbes superposees",
+      "key_components": [
+        "Axe: Recommender -> Reviewer -> Decision Maker",
+        "Courbe montante: intensite de controle requise (logging, garde-fous, route de repli humaine)",
+        "Marqueur de seuil: passage a la decision entierement automatisee -> Art. 22 RGPD",
+        "Deux ancrages: AI Copilot (faible autonomie, l'humain relit) / Agent autonome (l'IA agit directement)"
+      ],
+      "relationships": "Correlation positive directe entre autonomie et intensite d'audit. Le seuil legal n'est pas au bout du spectre, il est au milieu.",
+      "source_weeks": ["W5", "W7"],
+      "durability": "PASSE"
+    },
+    {
+      "id": "ifg-04",
+      "priority": 1,
+      "target_card": "bld-config-agent",
+      "concept": "Anatomie d'un agent - et les trois decoupages qui circulent",
+      "what_it_must_explain": "Ou passe la frontiere entre ce qui releve de la configuration de l'agent et ce qui releve de la plateforme. Et, honnetement, que le corpus n'est pas d'accord avec lui-meme.",
+      "visual_type": "schema en couches + encart comparatif",
+      "key_components": [
+        "Couche haute - Configuration de l'agent: System Prompt, regles, skills, tools",
+        "Couche centrale - Plateforme fournisseur: chat/interface, automatisation, connaissance et connecteurs, niveau des modeles",
+        "Couche basse - Niveau des donnees: systemes propres, fichiers, sources",
+        "Encart: trois decoupages sources cote a cote (4 ingredients du schema W5 / System Prompt+Toolbox+Agenda / LLM+Outils+Orchestration)"
+      ],
+      "relationships": "Le point que le visuel doit rendre evident: le niveau des modeles appartient a la plateforme, pas a la configuration. Changer de modele n'est pas reconfigurer l'agent.",
+      "source_weeks": ["W4", "W5", "W7"],
+      "conflict_to_preserve": "Ne pas normaliser les trois decoupages - W5 demande explicitement de les garder distincts.",
+      "durability": "PASSE"
+    },
+    {
+      "id": "ifg-05",
+      "priority": 2,
+      "target_card": "gov-regime-contractuel",
+      "concept": "Compte grand public vs compte business - l'arbre de decision donnee",
+      "what_it_must_explain": "Que l'opt-out d'entrainement n'est pas un substitut a l'AVV, et que trois choses doivent etre verifiees, pas une: ou sont les serveurs, quelle entite contracte, l'opt-out est-il explicite.",
+      "visual_type": "arbre de decision",
+      "key_components": [
+        "Point d'entree: nature de la donnee (personnelle / secret d'affaires / publique)",
+        "Branche 1: type de compte (grand public vs business/commercial)",
+        "Branche 2: AVV Art. 28 RGPD signe ?",
+        "Branche 3: localisation des serveurs et entite contractante",
+        "Sortie rouge: Shadow AI - compte personnel utilisé pour du travail d'entreprise"
+      ],
+      "relationships": "L'AVV et l'opt-out sont deux verrous independants; l'un ne remplace pas l'autre.",
+      "source_weeks": ["W1", "W3"],
+      "note": "Fusionne deux candidats redondants (W1 'AI & Datenschutz' et W3 'DSGVO Compliant Enterprise AI Architecture'). Ne pas produire les deux.",
+      "durability": "PASSE si aucun nom de fournisseur n'apparait dans l'arbre lui-meme"
+    },
+    {
+      "id": "ifg-06",
+      "priority": 2,
+      "target_card": "bld-garde-fous-agents",
+      "concept": "Le backend comme gardien: ce qui ne doit jamais atteindre le modele",
+      "what_it_must_explain": "Que le filtrage se fait cote serveur, avant l'appel, et que huit garde-fous plus l'archivage reversible forment un ensemble, pas un menu.",
+      "visual_type": "diagramme de flux avec points de blocage",
+      "key_components": [
+        "Entree: demande client brute",
+        "Filtre 1: anonymisation PII",
+        "Filtre 2: regles metier (financier / medical ne sortent jamais)",
+        "Coffre de credentials cote serveur uniquement",
+        "Appel modele avec temperature basse et max tokens",
+        "Validation de sortie avant toute action",
+        "Blocage si confiance faible -> revue humaine",
+        "Encart lateral: les huit garde-fous + l'archivage reversible marque comme regle distincte"
+      ],
+      "relationships": "Chaque garde-fou ferme un mode de defaillance que les autres laissent ouvert.",
+      "source_weeks": ["W4", "W5", "W7"],
+      "durability": "PASSE"
+    },
+    {
+      "id": "ifg-07",
+      "priority": 2,
+      "target_card": "PROPOSED:enb-trust-gap",
+      "concept": "L'ecart confiance/capacite et le creux de qualite de service",
+      "what_it_must_explain": "Que le creux de qualite juste apres deploiement est une phase previsible, pas un echec du projet, et que l'Enablement est la fonction qui la raccourcit.",
+      "visual_type": "courbe temporelle avec deux barres de reference",
+      "key_components": [
+        "Barre Confiance (niveau attendu apres la demo)",
+        "Barre Capacite (niveau reellement livrable)",
+        "L'ecart entre les deux",
+        "Courbe de qualite de service: creux post-deploiement puis remontee",
+        "Fleche 'Enablement' qui tire les attentes vers le bas et les competences vers le haut",
+        "Plateau de gains realises"
+      ],
+      "relationships": "Plus l'ecart initial est large, plus le creux est profond et long.",
+      "source_weeks": ["W3", "W6"],
+      "asset_status": "Deja genere en W6 Studio - a reutiliser plutot qu'a refaire, en retirant ou en encadrant les chiffres dates.",
+      "conflict_to_preserve": "Le chiffre 14-26% (CX, Stanford HAI) est en conflit signale avec des mesures de +200% sur la generation de code. Si un chiffre apparait, les deux doivent apparaitre.",
+      "durability": "PASSE pour le mecanisme, ECHOUE pour les chiffres"
+    },
+    {
+      "id": "ifg-08",
+      "priority": 3,
+      "target_card": "PROPOSED:gov-ai-act-risques",
+      "concept": "Pyramide de risque EU AI Act comme instrument de triage",
+      "what_it_must_explain": "Que la classification part de la finalite prevue et du role de l'IA dans la decision, pas de l'impression de dangerosite - et que l'obligation de competence (Art. 4) traverse tous les niveaux.",
+      "visual_type": "pyramide a 4 niveaux avec une bande transversale",
+      "key_components": [
+        "Niveau interdit (Art. 5)",
+        "Niveau haut risque (Art. 6 + Annexe III)",
+        "Niveau risque limite / transparence (Art. 50)",
+        "Niveau risque minimal - avec la mention 'jamais vert par defaut'",
+        "Bande transversale Art. 4: obligation de competence, tous niveaux",
+        "Quatre questions d'entree: finalite prevue / contexte d'usage / personnes affectees / role de l'IA dans la decision"
+      ],
+      "relationships": "La bande Art. 4 doit visuellement traverser les quatre niveaux - c'est ce qui distingue ce visuel des pyramides standard qu'on trouve partout.",
+      "source_weeks": ["W6", "W7"],
+      "priority_rationale": "Priorite 3 malgre l'importance de la fiche: la pyramide de base existe partout. Ce qui merite d'etre produit, c'est la version avec la bande Art. 4 et les quatre questions d'entree - pas la pyramide seule.",
+      "caution": "Ne faire figurer aucune date d'application (conflit non resolu dans W7).",
+      "durability": "PASSE"
+    }
+  ],
+
+  "rejected": [
+    {"concept": "Transformer-Pipeline: from prompt to output", "week": "W1", "reason": "Internes de modele. Hors criteres du Toolkit."},
+    {"concept": "The Big 3 KI-Giganten Philosophy Matrix", "week": "W1", "reason": "Entierement construit sur des noms de fournisseurs; perissable. Echoue au test de durabilite."},
+    {"concept": "3C Method vs Prompt-Framework (comparatif)", "week": "W2", "reason": "Comparer deux frameworks de prompt n'apporte rien que le texte de prm-3c ne dise deja. Un asset W2 Studio existe deja."},
+    {"concept": "Video Tool Selection Matrix", "week": "W3", "reason": "Matrice d'outils datee, perimetre media hors Toolkit."},
+    {"concept": "Dunning-Kruger Learning Curve in AI Management", "week": "W3", "reason": "Recoupe ifg-07 (Trust Gap) qui porte le meme mecanisme avec un ancrage business plus fort. Ne pas produire les deux."},
+    {"concept": "The Agentic Coding Quadrant", "week": "W4", "reason": "Les axes sont durables (technicite x autonomie) mais les 7 outils places dessus perimeront en 12 mois. A ne produire que si les cases restent vides de noms - et dans ce cas elle apporte peu."},
+    {"concept": "MCP Client-Server Interaction", "week": "W5", "reason": "Sequence technique en 8 etapes; utile a un integrateur, pas a la decision d'un AI Manager."},
+    {"concept": "n8n Batching Architecture", "week": "W5", "reason": "Specifique a un produit."},
+    {"concept": "NVIDIA Omniverse fast simulation loop", "week": "W6", "reason": "Hors perimetre CX/gouvernance."}
+  ]
+}

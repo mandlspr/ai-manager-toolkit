@@ -1,0 +1,112 @@
+{
+  "metadata": {
+    "file": "prompt_enrichment.json",
+    "project": "AI Manager Toolkit",
+    "generated": "2026-08-29",
+    "rule": "Pas de bibliotheque de prompts. Un prompt n'est retenu que s'il porte une decision ou un garde-fou reutilisable entre entreprises, et qu'aucune fiche existante ne le couvre deja.",
+    "existing_prompt_ecosystem": "Le Toolkit ne contient aujourd'hui aucune fiche type prompt-asset. Les 3 fiches de la section prompts (prm-3c, prm-lost-in-the-middle, prm-debug-agent) portent des principes, pas des prompts executables. Les prompts operationnels existants vivent ailleurs: skills Claude (promptcraft, promptcraft-gpt), Notion (template glossaire hebdo W1T4, corpus de revision sourcee W6), et le Custom GPT EU AI Act.",
+    "candidates_reviewed": 36,
+    "candidates_retained": 5
+  },
+
+  "retained": [
+    {
+      "rank": 1,
+      "name": "EU AI Act Use Case Checker (system prompt)",
+      "target_card": "PROPOSED:gov-ai-act-risques",
+      "source_week": "W7",
+      "source_reference": "W7T3_CustomGPT_LONG_System Prompt - EU AI Act Use Case Checker V1.1",
+      "authorship": "Construit par Manon. Deja signale comme 'candidat direct pilier Prompts par action' dans Toolkit_Matiere_Premiere.",
+      "verbatim_excerpt": "You are an EU AI Act Use Case Checker. Your purpose is to perform a preliminary governance screening of AI projects, products, ideas and use cases. You do not replace qualified legal advice.\n#### 1. Core Principle\nDo not classify AI based on how dangerous, sensitive or disturbing it seems.\nClassify the use case based on: intended purpose; context of use; people affected; role of the AI in the decision; legally defined EU AI Act categories; current official EU guidance.",
+      "excerpt_note": "Extrait verbatim de la section 1. Le prompt complet (arbre de decision Art. 5 -> Art. 6 -> Art. 50 -> risque minimal, format de verdict, checks de gouvernance) est dans le fichier source W7T3, non reproduit ici.",
+      "why_it_adds_value": [
+        "C'est le seul prompt du corpus qui produit une DECISION de gouvernance, pas du contenu.",
+        "Il impose la separation entre classification AI Act, autres verifications legales (RGPD, consommateur, accessibilite, Betriebsrat) et risque business interne - exactement la separation que le Playbook applique deja.",
+        "Il porte son propre garde-fou de sortie: 'Preliminary governance screening - not legal advice.'",
+        "Il incarne la regle 'ne jamais deviner': au maximum deux questions de clarification plutot qu'une classification inventee."
+      ],
+      "recommended_action": "Rattacher a la fiche gov-ai-act-risques proposee, en asset execute. Verifier les dates d'application citees dedans avant toute publication (voir claims_requiring_verification).",
+      "reusability": "haute - transferable a n'importe quelle entreprise operant dans l'UE"
+    },
+    {
+      "rank": 2,
+      "name": "Verwirrungstaktik / prompt anti-stereotype",
+      "target_card": "PROPOSED:prm-equite-prompt",
+      "source_week": "W7",
+      "source_reference": "W7T1_Cours_Faires-KI-Prompting.pdf",
+      "verbatim_prompt": "Erstelle ein Empfehlungsschreiben fuer einen unserer Mitarbeiter. Sie arbeitet bei uns in der IT und ist eine sehr geschaetzte Kollegin.",
+      "technique": "Dissonance grammaticale deliberee (masculin 'einen unserer Mitarbeiter' / feminin 'Sie... Kollegin') pour forcer une activation conceptuelle equilibree et empecher le modele de basculer vers un portrait stereotype.",
+      "why_it_adds_value": [
+        "Contre-intuitif et minuscule a appliquer: une tournure, pas un framework.",
+        "Couvre le seul angle d'equite absent du Toolkit - l'entree, la ou gov-equite-segment couvre la sortie.",
+        "Se combine avec la regle sources du meme document: anonymiser completement (pas de nom, pas de marqueur de genre)."
+      ],
+      "limitation_from_source": "La sortie demande une relecture humaine pour l'accord grammatical avant envoi.",
+      "recommended_action": "Rattacher a prm-equite-prompt en exemple d'application.",
+      "reusability": "haute pour les langues genrees (DE, FR); a tester en EN"
+    },
+    {
+      "rank": 3,
+      "name": "Meta-Prompter",
+      "target_card": "prm-3c",
+      "source_week": "W2",
+      "source_reference": "W2T1_Was haben wir gelernt?.pdf [Meta-Prompter]",
+      "verbatim_prompt": "Du bist ein Prompt-Generierungs-Roboter. Sammle alle wichtigen Infos, stelle Rueckfragen und erstelle den perfekten Prompt. Beginne damit, mich nach Zielen, Output und weiterem Kontext zu fragen.",
+      "why_it_adds_value": [
+        "Retourne la charge: c'est le modele qui va chercher Character, Context et Command au lieu de l'utilisateur.",
+        "Ratio effort/rendement le plus eleve du corpus - trois lignes.",
+        "Complement naturel de prm-3c: la fiche dit quoi mettre, ce prompt aide a le trouver."
+      ],
+      "limitation_from_source": "Necessite un echange multi-tours; inutilisable en single-shot.",
+      "overlap_check": "Recoupe partiellement les skills promptcraft / promptcraft-gpt deja installees. A verifier avant ajout: si promptcraft couvre deja ce comportement, ne pas dupliquer.",
+      "recommended_action": "Ajouter comme companion asset de prm-3c, apres verification du recoupement avec promptcraft.",
+      "reusability": "haute"
+    },
+    {
+      "rank": 4,
+      "name": "Critique de workflow par export JSON",
+      "target_card": "bld-debug-export",
+      "source_week": "W5 (identique en W4)",
+      "source_reference": "W5T3_Cours_Optimiser un n8n flow avec l'IA (JSON export)",
+      "verbatim_prompt": "J'ai un workflow n8n dont voici le fichier JSON en piece jointe. Analyse-le et fais-moi une critique constructive : qu'est-ce qui pourrait etre ameliore ? Critique notamment le prompt a l'interieur de l'agent et propose-moi une version optimisee.",
+      "why_it_adds_value": [
+        "La fiche bld-debug-export decrit la methode mais ne fournit pas la formulation. Ce prompt la rend executable telle quelle.",
+        "La clause 'critique notamment le prompt a l'interieur de l'agent' est ce qui declenche la detection des erreurs invisibles au canvas."
+      ],
+      "governance_note_from_source": "Ne pas inclure de cles d'API reelles ni de PII dans le JSON soumis. Les credentials ne sont pas exportes, mais leurs NOMS le sont.",
+      "limitation_from_source": "Le modele raisonne sur la structure formelle; il ne connait pas le contenu reel des sources de donnees externes.",
+      "recommended_action": "Ajouter comme asset attache a bld-debug-export.",
+      "reusability": "moyenne-haute - la methode est generique, la formulation est liee a n8n"
+    },
+    {
+      "rank": 5,
+      "name": "Garde-fou <investigate_before_answering>",
+      "target_card": "gov-anti-hallucination",
+      "source_week": "W2",
+      "source_reference": "W2T1_Claude_Best Prompting Practices.pdf",
+      "verbatim_prompt": "<investigate_before_answering>\nNever speculate about code you have not opened. If the user references a specific file, you MUST read the file before answering. Make sure to investigate and read relevant files BEFORE answering questions about the codebase. Never make any claims about code before investigating unless you are certain of the correct answer grounded and give\n</investigate_before_answering>",
+      "verbatim_note": "Reproduit tel quel, y compris la fin de phrase tronquee presente dans la source.",
+      "why_it_adds_value": [
+        "Operationnalise le levier 3 de gov-anti-hallucination (contexte reel suffisant) dans un contexte agentique, ou c'est le levier le plus souvent contourne.",
+        "Formule une interdiction, pas une preference - ce qui est exactement ce que la fiche recommande."
+      ],
+      "limitation_from_source": "Augmente le cout en tokens d'entree et la latence, a cause des lectures de fichiers.",
+      "recommended_action": "Ajouter en exemple dans gov-anti-hallucination ou bld-garde-fous-agents. Generaliser au-dela du code: 'ne jamais affirmer sur une source non ouverte'.",
+      "reusability": "haute une fois generalise"
+    }
+  ],
+
+  "rejected": [
+    {"name": "Framework 8 variables (Du bist {Rolle}. Erstelle ein {Format}...)", "weeks": ["W1", "W2"], "reason": "Redondant avec prm-3c, dont le Point of caution mentionne deja la structure longue a six blocs. Ajouter une troisieme variante n'ameliore rien."},
+    {"name": "MedGuide Custom GPT", "weeks": ["W1"], "reason": "Prompt de domaine (medical), non transferable. Sa clause anti-leak est interessante mais couverte par la fiche gov-prompt-attaques proposee."},
+    {"name": "Prompt page portfolio HTML/CSS/JS", "weeks": ["W4"], "reason": "Tache ponctuelle. Seule sa note de gouvernance (Impressum/Datenschutz avant publication) a de la valeur - elle est deja rattachee a gov-hebergement-public."},
+    {"name": "Prompt prospection B2B ({{company}}, {{product}})", "weeks": ["W4"], "reason": "Prompt metier vente, hors perimetre CX/gouvernance du Toolkit."},
+    {"name": "Prompts video et image KherzMusic (thermal scan, foule en club, verre de vin, Seemann SKAOS, snow leopard Firefly)", "weeks": ["W3"], "reason": "Craft de production media, non reutilisable entre entreprises."},
+    {"name": "Prompts audio ElevenLabs (mentor, CSM, keynote)", "weeks": ["W3"], "reason": "Meme raison."},
+    {"name": "<default_to_action>", "weeks": ["W2"], "reason": "Augmente le risque de modifications non voulues; la source elle-meme le signale. Contraire a la ligne HITL du Toolkit."},
+    {"name": "<avoid_excessive_markdown_and_bullet_points>", "weeks": ["W2"], "reason": "Preference de style. Utile personnellement, sans valeur de decision pour le Toolkit."},
+    {"name": "Verbalized Sampling (n versions + probabilites)", "weeks": ["W2"], "reason": "Technique de generation sourcee (arxiv:2510.01171) mais niche. A garder en reserve si une annexe techniques avancees apparait."},
+    {"name": "Prompt chat web -> webhook n8n", "weeks": ["W5"], "reason": "Prompt de construction ponctuel. Sa seule contrainte durable (CORS) est technique."},
+    {"name": "durchsuche das Web nach... / mach daraus ein Artefakt / Erstelle eine 10-Folien-Quartalsuebersicht / Warum zeigt Zelle B4 #REF / Schreibe einen Skill fuer diesen Workflow / Explain this code base to me", "weeks": ["W1", "W6"], "reason": "Declencheurs de fonctionnalites produit, pas des frameworks. Perissables avec les produits."}
+  ]
+}

@@ -1,0 +1,2403 @@
+{
+  "metadata": {
+    "file": "knowledge_map.json",
+    "project": "AI Manager Toolkit",
+    "generated": "2026-08-29",
+    "relation_types": [
+      "TESTS_CONCEPT",
+      "HAS_QUIZ",
+      "HAS_PROMPT",
+      "MENTIONS_TOOL",
+      "EVIDENCED_BY",
+      "GOVERNANCE_THEME",
+      "HAS_INFOGRAPHIC",
+      "LINKS",
+      "PROVES",
+      "SUGGESTED_LINK"
+    ],
+    "scope": "27 fiches existantes + 8 fiches proposees. Les relations LINKS et PROVES sont celles deja declarees dans le frontmatter et n'ont pas ete modifiees."
+  },
+  "counts": {
+    "cards_existing": 27,
+    "cards_proposed": 8,
+    "edges": 284,
+    "quiz_linked": 73
+  },
+  "structural_findings": {
+    "cards_without_quiz_coverage": [
+      "gov-double-test",
+      "gov-jamais-vert",
+      "gov-boucle-cx",
+      "gov-equite-segment",
+      "gov-hebergement-public",
+      "bld-orchestration",
+      "bld-debug-export",
+      "bld-garde-fous-agents",
+      "evl-jagged-frontier",
+      "evl-make-or-buy",
+      "cas-stackfit",
+      "cas-handshake",
+      "cas-suno"
+    ],
+    "cards_without_external_evidence": [
+      "gov-regime-contractuel",
+      "gov-responsible-ai",
+      "gov-datasheet-dataset",
+      "gov-cycle-de-vie",
+      "gov-hebergement-public",
+      "prm-3c",
+      "prm-lost-in-the-middle",
+      "prm-debug-agent",
+      "bld-gate-zero",
+      "bld-config-agent",
+      "bld-orchestration",
+      "bld-debug-export",
+      "evl-benchmarks",
+      "evl-profil-utilisateur",
+      "cas-stackfit",
+      "cas-handshake"
+    ],
+    "cards_without_planned_visual": [
+      "gov-double-test",
+      "gov-anti-hallucination",
+      "gov-ip-brand-fit",
+      "gov-jamais-vert",
+      "gov-boucle-cx",
+      "gov-equite-segment",
+      "gov-responsible-ai",
+      "gov-datasheet-dataset",
+      "gov-cycle-de-vie",
+      "gov-hebergement-public",
+      "prm-3c",
+      "prm-lost-in-the-middle",
+      "prm-debug-agent",
+      "bld-gate-zero",
+      "bld-orchestration",
+      "bld-debug-export",
+      "evl-benchmarks",
+      "evl-jagged-frontier",
+      "evl-profil-utilisateur",
+      "evl-make-or-buy",
+      "cas-stackfit",
+      "cas-handshake",
+      "cas-suno",
+      "PROPOSED:gov-prompt-attaques",
+      "PROPOSED:prm-single-shot",
+      "PROPOSED:prm-equite-prompt"
+    ],
+    "sections_by_card_count_existing": {
+      "governance": 11,
+      "prompts": 3,
+      "build": 6,
+      "evaluation": 4,
+      "cases": 3
+    },
+    "sections_by_card_count_after_proposals": {
+      "governance": 14,
+      "prompts": 5,
+      "build": 7,
+      "evaluation": 5,
+      "cases": 3,
+      "enablement": 1
+    },
+    "reading": [
+      "La section prompts passe de 3 a 5 fiches: c'est la correction la plus justifiee par le materiau (W2 est la semaine la plus dense du cursus).",
+      "La section governance passe de 11 a 14 mais change de nature: elle acquiert enfin un instrument de classification legale et une carte des responsabilites.",
+      "Une section enablement apparaitrait avec une seule fiche - a n'ouvrir que si elle assume l'axe positionnement."
+    ]
+  },
+  "nodes": [
+    {
+      "card": "gov-double-test",
+      "section": "governance",
+      "status": "existing",
+      "concepts": [
+        "Gouvernance reflexive",
+        "Double evaluation a calibration distincte"
+      ],
+      "quiz": [],
+      "quiz_count": 0,
+      "prompts": [],
+      "tools_models": [],
+      "case_studies": [
+        "cas-stackfit"
+      ],
+      "governance_themes": [
+        "Provenance et datation des verdicts"
+      ],
+      "infographics": [],
+      "note": "Aucune couverture quiz: concept ne du projet, absent du cursus."
+    },
+    {
+      "card": "gov-regime-contractuel",
+      "section": "governance",
+      "status": "existing",
+      "concepts": [
+        "Shadow AI",
+        "AVV Art. 28 RGPD",
+        "Regime contractuel du compte"
+      ],
+      "quiz": [
+        "Q-W3-034",
+        "Q-W3-029"
+      ],
+      "quiz_count": 2,
+      "prompts": [],
+      "tools_models": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Mistral Le Chat"
+      ],
+      "case_studies": [],
+      "governance_themes": [
+        "Base legale du traitement",
+        "Souverainete des donnees"
+      ],
+      "infographics": [
+        "ifg-05"
+      ],
+      "note": "Renforcer avec la regle W3: serveurs + entite contractante + opt-out explicite."
+    },
+    {
+      "card": "gov-anti-hallucination",
+      "section": "governance",
+      "status": "existing",
+      "concepts": [
+        "Format contraint",
+        "Interdiction d'inventer",
+        "Contexte reel suffisant",
+        "Grounding"
+      ],
+      "quiz": [
+        "Q-W2-019"
+      ],
+      "quiz_count": 1,
+      "prompts": [
+        "<investigate_before_answering>"
+      ],
+      "tools_models": [],
+      "case_studies": [
+        "ChatGPT Legal Case Malpractice (W2)"
+      ],
+      "governance_themes": [
+        "Risque contractuel des promesses d'un bot"
+      ],
+      "infographics": [],
+      "note": ""
+    },
+    {
+      "card": "gov-ip-brand-fit",
+      "section": "governance",
+      "status": "existing",
+      "concepts": [
+        "Risque PI",
+        "Brand fit",
+        "Droits commerciaux au moment de la generation"
+      ],
+      "quiz": [
+        "Q-W3-009",
+        "Q-W3-010",
+        "Q-W3-019",
+        "Q-W3-049"
+      ],
+      "quiz_count": 4,
+      "prompts": [],
+      "tools_models": [],
+      "case_studies": [
+        "GEMA vs OpenAI (LG Muenchen I, 11.11.2025)"
+      ],
+      "governance_themes": [
+        "Droit d'auteur",
+        "Divulgation de l'origine IA"
+      ],
+      "infographics": [],
+      "note": "Ajouter GEMA: deplace la fiche du contractuel vers le judiciaire."
+    },
+    {
+      "card": "gov-jamais-vert",
+      "section": "governance",
+      "status": "existing",
+      "concepts": [
+        "Plancher de gouvernance",
+        "Charge de la preuve cote autorisation"
+      ],
+      "quiz": [],
+      "quiz_count": 0,
+      "prompts": [],
+      "tools_models": [],
+      "case_studies": [
+        "StackFit (fairness par defaut verte)"
+      ],
+      "governance_themes": [
+        "Grille de risque",
+        "Auto-validation documentee"
+      ],
+      "infographics": [],
+      "note": "Aucune couverture quiz: regle issue d'une correction de cours + du projet."
+    },
+    {
+      "card": "gov-boucle-cx",
+      "section": "governance",
+      "status": "existing",
+      "concepts": [
+        "Boucle signal client -> mise a jour de gouvernance",
+        "CX comme couche d'observabilite"
+      ],
+      "quiz": [],
+      "quiz_count": 0,
+      "prompts": [],
+      "tools_models": [],
+      "case_studies": [
+        "cas-handshake"
+      ],
+      "governance_themes": [
+        "Voix du client comme signal de gouvernance"
+      ],
+      "infographics": [],
+      "note": "Aucune couverture quiz."
+    },
+    {
+      "card": "gov-equite-segment",
+      "section": "governance",
+      "status": "existing",
+      "concepts": [
+        "Equite par segment",
+        "Calcul dynamique de minorite",
+        "equity_watch"
+      ],
+      "quiz": [],
+      "quiz_count": 0,
+      "prompts": [],
+      "tools_models": [
+        "Fairlearn (W7)"
+      ],
+      "case_studies": [
+        "cas-handshake",
+        "SmartParts (test d'equite mensuel)"
+      ],
+      "governance_themes": [
+        "Equite / non-discrimination"
+      ],
+      "infographics": [],
+      "note": "Aucune couverture quiz. Complement d'entree manquant: prm-equite-prompt."
+    },
+    {
+      "card": "gov-responsible-ai",
+      "section": "governance",
+      "status": "existing",
+      "concepts": [
+        "Six couches Responsible AI",
+        "Sept principes EU HLEG (cadre distinct)"
+      ],
+      "quiz": [
+        "Q-W1-030",
+        "Q-W6-023",
+        "Q-W7-011",
+        "Q-W7-012",
+        "Q-W7-013"
+      ],
+      "quiz_count": 5,
+      "prompts": [],
+      "tools_models": [],
+      "case_studies": [],
+      "governance_themes": [
+        "Gouvernance, donnees, orchestration, CX, monitoring, redevabilite"
+      ],
+      "infographics": [],
+      "note": "CONFLIT: summary du frontmatter ne correspond pas aux six couches du Playbook. Et W7 parle de sept principes EU - cadre different, a ne pas fusionner."
+    },
+    {
+      "card": "gov-datasheet-dataset",
+      "section": "governance",
+      "status": "existing",
+      "concepts": [
+        "DATA-PURPOSE-RISK-OWNER-CONTROLS-MONITORING",
+        "Documentation as a control",
+        "Data x Use Case"
+      ],
+      "quiz": [
+        "Q-W1-045",
+        "Q-W4-019"
+      ],
+      "quiz_count": 2,
+      "prompts": [],
+      "tools_models": [],
+      "case_studies": [],
+      "governance_themes": [
+        "Provenance, consentement, populations representees"
+      ],
+      "infographics": [],
+      "note": ""
+    },
+    {
+      "card": "gov-cycle-de-vie",
+      "section": "governance",
+      "status": "existing",
+      "concepts": [
+        "Six etapes du cycle produit",
+        "Deploiement par paliers"
+      ],
+      "quiz": [
+        "Q-W1-028",
+        "Q-W4-018"
+      ],
+      "quiz_count": 2,
+      "prompts": [],
+      "tools_models": [],
+      "case_studies": [],
+      "governance_themes": [
+        "Revue de gouvernance a chaque etape"
+      ],
+      "infographics": [],
+      "note": "Renforcer avec le deploiement par paliers (W1+W4+W6)."
+    },
+    {
+      "card": "gov-hebergement-public",
+      "section": "governance",
+      "status": "existing",
+      "concepts": [
+        "Impressum",
+        "Datenschutzerklaerung",
+        "Distinction avec l'AVV"
+      ],
+      "quiz": [],
+      "quiz_count": 0,
+      "prompts": [],
+      "tools_models": [],
+      "case_studies": [],
+      "governance_themes": [
+        "Obligations de publication"
+      ],
+      "infographics": [],
+      "note": "Source W4 confirmee - la reserve du 27.08 peut etre levee."
+    },
+    {
+      "card": "prm-3c",
+      "section": "prompts",
+      "status": "existing",
+      "concepts": [
+        "Character / Context / Command"
+      ],
+      "quiz": [
+        "Q-W1-035",
+        "Q-W2-002",
+        "Q-W2-009",
+        "Q-W2-033",
+        "Q-W2-010"
+      ],
+      "quiz_count": 5,
+      "prompts": [
+        "Meta-Prompter"
+      ],
+      "tools_models": [],
+      "case_studies": [],
+      "governance_themes": [],
+      "infographics": [],
+      "note": "RESOLU: le cours definit bien Character/Context/Command. Le paragraphe de desaccord peut etre reduit."
+    },
+    {
+      "card": "prm-lost-in-the-middle",
+      "section": "prompts",
+      "status": "existing",
+      "concepts": [
+        "Primaute et recence",
+        "Exception RAG"
+      ],
+      "quiz": [
+        "Q-W2-034"
+      ],
+      "quiz_count": 1,
+      "prompts": [],
+      "tools_models": [],
+      "case_studies": [],
+      "governance_themes": [],
+      "infographics": [],
+      "note": ""
+    },
+    {
+      "card": "prm-debug-agent",
+      "section": "prompts",
+      "status": "existing",
+      "concepts": [
+        "Modele / embeddings / acces manquant"
+      ],
+      "quiz": [
+        "Q-W5-020"
+      ],
+      "quiz_count": 1,
+      "prompts": [],
+      "tools_models": [],
+      "case_studies": [],
+      "governance_themes": [],
+      "infographics": [],
+      "note": ""
+    },
+    {
+      "card": "bld-gate-zero",
+      "section": "build",
+      "status": "existing",
+      "concepts": [
+        "Objectif avant outil",
+        "Qualite des donnees comme precondition",
+        "Trois risques d'automatisation"
+      ],
+      "quiz": [
+        "Q-W1-023",
+        "Q-W5-002",
+        "Q-W5-017",
+        "Q-W5-016",
+        "Q-W5-008",
+        "Q-W5-027",
+        "Q-W5-028",
+        "Q-W5-018",
+        "Q-W6-020"
+      ],
+      "quiz_count": 9,
+      "prompts": [],
+      "tools_models": [],
+      "case_studies": [],
+      "governance_themes": [
+        "Documentation comme controle"
+      ],
+      "infographics": [],
+      "note": "CONFLIT INTERNE W5 sur les trois causes: sur-automatisation/objectifs flous/documentation vs objectifs flous/transparence/complexite."
+    },
+    {
+      "card": "bld-config-agent",
+      "section": "build",
+      "status": "existing",
+      "concepts": [
+        "Configuration vs plateforme",
+        "System prompt vs user prompt"
+      ],
+      "quiz": [
+        "Q-W2-011",
+        "Q-W2-016",
+        "Q-W5-011",
+        "Q-W5-012",
+        "Q-W5-031",
+        "Q-W5-022",
+        "Q-W5-023",
+        "Q-W5-024"
+      ],
+      "quiz_count": 8,
+      "prompts": [],
+      "tools_models": [],
+      "case_studies": [],
+      "governance_themes": [],
+      "infographics": [
+        "ifg-04"
+      ],
+      "note": "CONFLIT NON RESOLU: trois decoupages incompatibles (4 / 3 / 3 composants). Le titre presuppose 'quatre'."
+    },
+    {
+      "card": "bld-orchestration",
+      "section": "build",
+      "status": "existing",
+      "concepts": [
+        "L'orchestrateur porte la logique",
+        "Retriever plutot que chargement complet",
+        "Condition d'arret"
+      ],
+      "quiz": [],
+      "quiz_count": 0,
+      "prompts": [],
+      "tools_models": [
+        "n8n",
+        "Make"
+      ],
+      "case_studies": [],
+      "governance_themes": [],
+      "infographics": [],
+      "note": "Aucune couverture quiz. Le summary promet un arbitrage parallele/sequentiel introuvable dans W1-W7."
+    },
+    {
+      "card": "bld-debug-export",
+      "section": "build",
+      "status": "existing",
+      "concepts": [
+        "Source formelle plutot que capture d'ecran",
+        "HITL apres import"
+      ],
+      "quiz": [],
+      "quiz_count": 0,
+      "prompts": [
+        "Critique de workflow par export JSON"
+      ],
+      "tools_models": [
+        "n8n"
+      ],
+      "case_studies": [],
+      "governance_themes": [
+        "Retrait des PII avant partage d'un export"
+      ],
+      "infographics": [],
+      "note": "Aucune couverture quiz. Le prompt verbatim existe et manque a la fiche."
+    },
+    {
+      "card": "bld-discover-do-escalate",
+      "section": "build",
+      "status": "existing",
+      "concepts": [
+        "Trois paliers d'autonomie",
+        "Grounding par knowledge base",
+        "Enrichissement avant decision"
+      ],
+      "quiz": [
+        "Q-W5-030"
+      ],
+      "quiz_count": 1,
+      "prompts": [],
+      "tools_models": [],
+      "case_studies": [
+        "SmartParts GmbH",
+        "IKEA"
+      ],
+      "governance_themes": [
+        "Escalade qualifiee"
+      ],
+      "infographics": [
+        "ifg-03"
+      ],
+      "note": "Renforcer avec le filtre backend avant appel externe."
+    },
+    {
+      "card": "bld-garde-fous-agents",
+      "section": "build",
+      "status": "existing",
+      "concepts": [
+        "Huit garde-fous",
+        "Archivage reversible (regle distincte)",
+        "Surface d'attaque du registre d'outils",
+        "Controle d'acces a la couche donnee"
+      ],
+      "quiz": [],
+      "quiz_count": 0,
+      "prompts": [
+        "<investigate_before_answering>"
+      ],
+      "tools_models": [
+        "MCP",
+        "Supabase RLS"
+      ],
+      "case_studies": [
+        "GTG-1002",
+        "Goatseus Maximus"
+      ],
+      "governance_themes": [
+        "Permissions minimales",
+        "Logging",
+        "Conditions d'arret"
+      ],
+      "infographics": [
+        "ifg-06"
+      ],
+      "note": "Aucune couverture quiz malgre 8 regles - les questions W4 sur les agents portent sur la definition, pas les garde-fous."
+    },
+    {
+      "card": "evl-benchmarks",
+      "section": "evaluation",
+      "status": "existing",
+      "concepts": [
+        "Preuve partielle",
+        "Regle de conflit",
+        "Hierarchie des sources"
+      ],
+      "quiz": [
+        "Q-W1-033",
+        "Q-W2-021",
+        "Q-W6-003",
+        "Q-W4-020"
+      ],
+      "quiz_count": 4,
+      "prompts": [],
+      "tools_models": [],
+      "case_studies": [],
+      "governance_themes": [
+        "Datation des preuves"
+      ],
+      "infographics": [],
+      "note": ""
+    },
+    {
+      "card": "evl-jagged-frontier",
+      "section": "evaluation",
+      "status": "existing",
+      "concepts": [
+        "Performance non lineaire",
+        "ClockBench < 51%"
+      ],
+      "quiz": [],
+      "quiz_count": 0,
+      "prompts": [],
+      "tools_models": [],
+      "case_studies": [
+        "AI Index 2026"
+      ],
+      "governance_themes": [],
+      "infographics": [],
+      "note": "RESOLU: le concept est bien dans le materiel W2, avec ancrage chiffre."
+    },
+    {
+      "card": "evl-profil-utilisateur",
+      "section": "evaluation",
+      "status": "existing",
+      "concepts": [
+        "Adequation par profil",
+        "Ajouter un outil seulement sur une limite concrete"
+      ],
+      "quiz": [
+        "Q-W2-026",
+        "Q-W3-023"
+      ],
+      "quiz_count": 2,
+      "prompts": [],
+      "tools_models": [
+        "Lovable",
+        "Bolt",
+        "Cursor",
+        "Windsurf",
+        "Replit",
+        "Tempo"
+      ],
+      "case_studies": [],
+      "governance_themes": [],
+      "infographics": [],
+      "note": "RESOLU: les 4 profils sont bien W4-sources."
+    },
+    {
+      "card": "evl-make-or-buy",
+      "section": "evaluation",
+      "status": "existing",
+      "concepts": [
+        "Duree de vie de l'actif",
+        "Droits acquis au moment de la generation"
+      ],
+      "quiz": [],
+      "quiz_count": 0,
+      "prompts": [],
+      "tools_models": [
+        "Kling",
+        "Runway"
+      ],
+      "case_studies": [
+        "Volvo",
+        "Coca-Cola"
+      ],
+      "governance_themes": [
+        "Licences et watermarks"
+      ],
+      "infographics": [],
+      "note": ""
+    },
+    {
+      "card": "cas-stackfit",
+      "section": "cases",
+      "status": "existing",
+      "concepts": [
+        "Gouvernance reflexive"
+      ],
+      "quiz": [],
+      "quiz_count": 0,
+      "prompts": [],
+      "tools_models": [
+        "gpt-5-nano",
+        "Supabase",
+        "n8n",
+        "Notion",
+        "Hoppscotch"
+      ],
+      "case_studies": [],
+      "governance_themes": [
+        "Fairness jamais verte par defaut"
+      ],
+      "infographics": [],
+      "note": "Verdict en desaccord entre sources - non tranchable depuis W1-W7."
+    },
+    {
+      "card": "cas-handshake",
+      "section": "cases",
+      "status": "existing",
+      "concepts": [
+        "Six dimensions HLEG",
+        "Calcul dynamique de minorite",
+        "Vue unique"
+      ],
+      "quiz": [],
+      "quiz_count": 0,
+      "prompts": [],
+      "tools_models": [
+        "gpt-5-nano",
+        "Supabase",
+        "n8n",
+        "Notion"
+      ],
+      "case_studies": [],
+      "governance_themes": [
+        "HITL",
+        "Separation des livrables client/interne"
+      ],
+      "infographics": [],
+      "note": "Deux points a trancher: nombre de comptes, et le septieme principe HLEG."
+    },
+    {
+      "card": "cas-suno",
+      "section": "cases",
+      "status": "existing",
+      "concepts": [
+        "Licence vs propriete",
+        "Guardrails au niveau du prompt"
+      ],
+      "quiz": [],
+      "quiz_count": 0,
+      "prompts": [],
+      "tools_models": [
+        "Suno"
+      ],
+      "case_studies": [
+        "GEMA vs OpenAI"
+      ],
+      "governance_themes": [
+        "Droit d'auteur des oeuvres 100% IA"
+      ],
+      "infographics": [],
+      "note": "Titre et summary non soutenus par W3 - confirme."
+    },
+    {
+      "card": "PROPOSED:gov-ai-act-risques",
+      "section": "governance",
+      "status": "proposed",
+      "concepts": [
+        "Pyramide de risque",
+        "Art. 4 competence IA",
+        "Art. 5 pratiques interdites",
+        "Art. 50 transparence",
+        "Journaux >= 6 mois"
+      ],
+      "quiz": [
+        "Q-W6-006",
+        "Q-W7-001",
+        "Q-W7-002",
+        "Q-W7-003",
+        "Q-W7-004",
+        "Q-W7-005",
+        "Q-W7-006",
+        "Q-W7-007",
+        "Q-W7-008",
+        "Q-W7-009",
+        "Q-W7-010"
+      ],
+      "quiz_count": 11,
+      "prompts": [
+        "EU AI Act Use Case Checker V1.1"
+      ],
+      "tools_models": [],
+      "case_studies": [
+        "SmartParts GmbH",
+        "Unilever (en contre-exemple)"
+      ],
+      "governance_themes": [
+        "Classification par finalite prevue"
+      ],
+      "infographics": [
+        "ifg-08"
+      ],
+      "note": "Plus fort signal de l'audit: 11 questions de quiz, zero fiche."
+    },
+    {
+      "card": "PROPOSED:gov-raci-decision",
+      "section": "governance",
+      "status": "proposed",
+      "concepts": [
+        "Cycle Erfassen-Einordnen-Pruefen-Entscheiden-Befaehigen-Ueberwachen",
+        "RACI",
+        "Betriebsrat par.87 BetrVG"
+      ],
+      "quiz": [],
+      "quiz_count": 0,
+      "prompts": [],
+      "tools_models": [],
+      "case_studies": [],
+      "governance_themes": [
+        "Un seul Accountable par decision"
+      ],
+      "infographics": [
+        "ifg-02"
+      ],
+      "note": ""
+    },
+    {
+      "card": "PROPOSED:gov-prompt-attaques",
+      "section": "governance",
+      "status": "proposed",
+      "concepts": [
+        "Injection",
+        "Leaking",
+        "Jailbreaking",
+        "Risk management continu"
+      ],
+      "quiz": [
+        "Q-W2-014",
+        "Q-W2-018"
+      ],
+      "quiz_count": 2,
+      "prompts": [],
+      "tools_models": [],
+      "case_studies": [
+        "GTG-1002"
+      ],
+      "governance_themes": [
+        "Aucune contre-mesure a 100%"
+      ],
+      "infographics": [],
+      "note": "Asset visuel deja genere en W2 Studio."
+    },
+    {
+      "card": "PROPOSED:prm-single-shot",
+      "section": "prompts",
+      "status": "proposed",
+      "concepts": [
+        "Single-shot vs conversational",
+        "Pas de rattrapage en workflow automatise"
+      ],
+      "quiz": [
+        "Q-W2-031",
+        "Q-W2-032",
+        "Q-W2-038"
+      ],
+      "quiz_count": 3,
+      "prompts": [],
+      "tools_models": [],
+      "case_studies": [],
+      "governance_themes": [],
+      "infographics": [],
+      "note": "Pont manquant entre la section prompts et la section build."
+    },
+    {
+      "card": "PROPOSED:prm-equite-prompt",
+      "section": "prompts",
+      "status": "proposed",
+      "concepts": [
+        "KI-FAIRNESS 10 dimensions",
+        "Biais de traduction linguistique"
+      ],
+      "quiz": [
+        "Q-W3-035"
+      ],
+      "quiz_count": 1,
+      "prompts": [
+        "Verwirrungstaktik"
+      ],
+      "tools_models": [],
+      "case_studies": [],
+      "governance_themes": [
+        "Equite en entree, pas seulement en sortie"
+      ],
+      "infographics": [],
+      "note": ""
+    },
+    {
+      "card": "PROPOSED:evl-prompt-rag-finetune",
+      "section": "evaluation",
+      "status": "proposed",
+      "concepts": [
+        "Sequencement Prompt->RAG->Fine-tuning",
+        "Le fine-tuning n'ajoute pas de faits"
+      ],
+      "quiz": [
+        "Q-W2-041",
+        "Q-W2-044",
+        "Q-W2-043",
+        "Q-W2-047",
+        "Q-W2-040"
+      ],
+      "quiz_count": 5,
+      "prompts": [],
+      "tools_models": [],
+      "case_studies": [],
+      "governance_themes": [],
+      "infographics": [
+        "ifg-01"
+      ],
+      "note": "Seul framework corrobore par trois semaines independantes."
+    },
+    {
+      "card": "PROPOSED:enb-trust-gap",
+      "section": "enablement (nouvelle section)",
+      "status": "proposed",
+      "concepts": [
+        "Ecart confiance/capacite",
+        "Creux de qualite transitoire",
+        "Enablement comme fonction de rappel au reel"
+      ],
+      "quiz": [
+        "Q-W1-037",
+        "Q-W2-030",
+        "Q-W6-024"
+      ],
+      "quiz_count": 3,
+      "prompts": [],
+      "tools_models": [],
+      "case_studies": [
+        "Stanford HAI AI Index 2026",
+        "Docker State of Agentic AI"
+      ],
+      "governance_themes": [
+        "Gouverner avant d'escalader"
+      ],
+      "infographics": [
+        "ifg-07"
+      ],
+      "note": "Observation d'architecture: trois semaines alimentent ce theme sans section d'accueil."
+    },
+    {
+      "card": "PROPOSED:bld-spectre-autonomie",
+      "section": "build",
+      "status": "proposed",
+      "concepts": [
+        "Recommender -> Reviewer -> Decision Maker",
+        "Seuil Art. 22 RGPD"
+      ],
+      "quiz": [
+        "Q-W5-026"
+      ],
+      "quiz_count": 1,
+      "prompts": [],
+      "tools_models": [],
+      "case_studies": [
+        "GTG-1002",
+        "Goatseus Maximus"
+      ],
+      "governance_themes": [
+        "Controles proportionnels a l'autonomie"
+      ],
+      "infographics": [
+        "ifg-03"
+      ],
+      "note": "Repliable dans bld-discover-do-escalate."
+    }
+  ],
+  "edges": [
+    {
+      "from": "gov-double-test",
+      "rel": "TESTS_CONCEPT",
+      "to": "Gouvernance reflexive"
+    },
+    {
+      "from": "gov-double-test",
+      "rel": "TESTS_CONCEPT",
+      "to": "Double evaluation a calibration distincte"
+    },
+    {
+      "from": "gov-double-test",
+      "rel": "EVIDENCED_BY",
+      "to": "cas-stackfit"
+    },
+    {
+      "from": "gov-double-test",
+      "rel": "GOVERNANCE_THEME",
+      "to": "Provenance et datation des verdicts"
+    },
+    {
+      "from": "gov-regime-contractuel",
+      "rel": "TESTS_CONCEPT",
+      "to": "Shadow AI"
+    },
+    {
+      "from": "gov-regime-contractuel",
+      "rel": "TESTS_CONCEPT",
+      "to": "AVV Art. 28 RGPD"
+    },
+    {
+      "from": "gov-regime-contractuel",
+      "rel": "TESTS_CONCEPT",
+      "to": "Regime contractuel du compte"
+    },
+    {
+      "from": "gov-regime-contractuel",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W3-034"
+    },
+    {
+      "from": "gov-regime-contractuel",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W3-029"
+    },
+    {
+      "from": "gov-regime-contractuel",
+      "rel": "MENTIONS_TOOL",
+      "to": "ChatGPT"
+    },
+    {
+      "from": "gov-regime-contractuel",
+      "rel": "MENTIONS_TOOL",
+      "to": "Claude"
+    },
+    {
+      "from": "gov-regime-contractuel",
+      "rel": "MENTIONS_TOOL",
+      "to": "Gemini"
+    },
+    {
+      "from": "gov-regime-contractuel",
+      "rel": "MENTIONS_TOOL",
+      "to": "Mistral Le Chat"
+    },
+    {
+      "from": "gov-regime-contractuel",
+      "rel": "GOVERNANCE_THEME",
+      "to": "Base legale du traitement"
+    },
+    {
+      "from": "gov-regime-contractuel",
+      "rel": "GOVERNANCE_THEME",
+      "to": "Souverainete des donnees"
+    },
+    {
+      "from": "gov-regime-contractuel",
+      "rel": "HAS_INFOGRAPHIC",
+      "to": "ifg-05"
+    },
+    {
+      "from": "gov-anti-hallucination",
+      "rel": "TESTS_CONCEPT",
+      "to": "Format contraint"
+    },
+    {
+      "from": "gov-anti-hallucination",
+      "rel": "TESTS_CONCEPT",
+      "to": "Interdiction d'inventer"
+    },
+    {
+      "from": "gov-anti-hallucination",
+      "rel": "TESTS_CONCEPT",
+      "to": "Contexte reel suffisant"
+    },
+    {
+      "from": "gov-anti-hallucination",
+      "rel": "TESTS_CONCEPT",
+      "to": "Grounding"
+    },
+    {
+      "from": "gov-anti-hallucination",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W2-019"
+    },
+    {
+      "from": "gov-anti-hallucination",
+      "rel": "HAS_PROMPT",
+      "to": "<investigate_before_answering>"
+    },
+    {
+      "from": "gov-anti-hallucination",
+      "rel": "EVIDENCED_BY",
+      "to": "ChatGPT Legal Case Malpractice (W2)"
+    },
+    {
+      "from": "gov-anti-hallucination",
+      "rel": "GOVERNANCE_THEME",
+      "to": "Risque contractuel des promesses d'un bot"
+    },
+    {
+      "from": "gov-ip-brand-fit",
+      "rel": "TESTS_CONCEPT",
+      "to": "Risque PI"
+    },
+    {
+      "from": "gov-ip-brand-fit",
+      "rel": "TESTS_CONCEPT",
+      "to": "Brand fit"
+    },
+    {
+      "from": "gov-ip-brand-fit",
+      "rel": "TESTS_CONCEPT",
+      "to": "Droits commerciaux au moment de la generation"
+    },
+    {
+      "from": "gov-ip-brand-fit",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W3-009"
+    },
+    {
+      "from": "gov-ip-brand-fit",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W3-010"
+    },
+    {
+      "from": "gov-ip-brand-fit",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W3-019"
+    },
+    {
+      "from": "gov-ip-brand-fit",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W3-049"
+    },
+    {
+      "from": "gov-ip-brand-fit",
+      "rel": "EVIDENCED_BY",
+      "to": "GEMA vs OpenAI (LG Muenchen I, 11.11.2025)"
+    },
+    {
+      "from": "gov-ip-brand-fit",
+      "rel": "GOVERNANCE_THEME",
+      "to": "Droit d'auteur"
+    },
+    {
+      "from": "gov-ip-brand-fit",
+      "rel": "GOVERNANCE_THEME",
+      "to": "Divulgation de l'origine IA"
+    },
+    {
+      "from": "gov-jamais-vert",
+      "rel": "TESTS_CONCEPT",
+      "to": "Plancher de gouvernance"
+    },
+    {
+      "from": "gov-jamais-vert",
+      "rel": "TESTS_CONCEPT",
+      "to": "Charge de la preuve cote autorisation"
+    },
+    {
+      "from": "gov-jamais-vert",
+      "rel": "EVIDENCED_BY",
+      "to": "StackFit (fairness par defaut verte)"
+    },
+    {
+      "from": "gov-jamais-vert",
+      "rel": "GOVERNANCE_THEME",
+      "to": "Grille de risque"
+    },
+    {
+      "from": "gov-jamais-vert",
+      "rel": "GOVERNANCE_THEME",
+      "to": "Auto-validation documentee"
+    },
+    {
+      "from": "gov-boucle-cx",
+      "rel": "TESTS_CONCEPT",
+      "to": "Boucle signal client -> mise a jour de gouvernance"
+    },
+    {
+      "from": "gov-boucle-cx",
+      "rel": "TESTS_CONCEPT",
+      "to": "CX comme couche d'observabilite"
+    },
+    {
+      "from": "gov-boucle-cx",
+      "rel": "EVIDENCED_BY",
+      "to": "cas-handshake"
+    },
+    {
+      "from": "gov-boucle-cx",
+      "rel": "GOVERNANCE_THEME",
+      "to": "Voix du client comme signal de gouvernance"
+    },
+    {
+      "from": "gov-equite-segment",
+      "rel": "TESTS_CONCEPT",
+      "to": "Equite par segment"
+    },
+    {
+      "from": "gov-equite-segment",
+      "rel": "TESTS_CONCEPT",
+      "to": "Calcul dynamique de minorite"
+    },
+    {
+      "from": "gov-equite-segment",
+      "rel": "TESTS_CONCEPT",
+      "to": "equity_watch"
+    },
+    {
+      "from": "gov-equite-segment",
+      "rel": "MENTIONS_TOOL",
+      "to": "Fairlearn (W7)"
+    },
+    {
+      "from": "gov-equite-segment",
+      "rel": "EVIDENCED_BY",
+      "to": "cas-handshake"
+    },
+    {
+      "from": "gov-equite-segment",
+      "rel": "EVIDENCED_BY",
+      "to": "SmartParts (test d'equite mensuel)"
+    },
+    {
+      "from": "gov-equite-segment",
+      "rel": "GOVERNANCE_THEME",
+      "to": "Equite / non-discrimination"
+    },
+    {
+      "from": "gov-responsible-ai",
+      "rel": "TESTS_CONCEPT",
+      "to": "Six couches Responsible AI"
+    },
+    {
+      "from": "gov-responsible-ai",
+      "rel": "TESTS_CONCEPT",
+      "to": "Sept principes EU HLEG (cadre distinct)"
+    },
+    {
+      "from": "gov-responsible-ai",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W1-030"
+    },
+    {
+      "from": "gov-responsible-ai",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W6-023"
+    },
+    {
+      "from": "gov-responsible-ai",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W7-011"
+    },
+    {
+      "from": "gov-responsible-ai",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W7-012"
+    },
+    {
+      "from": "gov-responsible-ai",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W7-013"
+    },
+    {
+      "from": "gov-responsible-ai",
+      "rel": "GOVERNANCE_THEME",
+      "to": "Gouvernance, donnees, orchestration, CX, monitoring, redevabilite"
+    },
+    {
+      "from": "gov-datasheet-dataset",
+      "rel": "TESTS_CONCEPT",
+      "to": "DATA-PURPOSE-RISK-OWNER-CONTROLS-MONITORING"
+    },
+    {
+      "from": "gov-datasheet-dataset",
+      "rel": "TESTS_CONCEPT",
+      "to": "Documentation as a control"
+    },
+    {
+      "from": "gov-datasheet-dataset",
+      "rel": "TESTS_CONCEPT",
+      "to": "Data x Use Case"
+    },
+    {
+      "from": "gov-datasheet-dataset",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W1-045"
+    },
+    {
+      "from": "gov-datasheet-dataset",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W4-019"
+    },
+    {
+      "from": "gov-datasheet-dataset",
+      "rel": "GOVERNANCE_THEME",
+      "to": "Provenance, consentement, populations representees"
+    },
+    {
+      "from": "gov-cycle-de-vie",
+      "rel": "TESTS_CONCEPT",
+      "to": "Six etapes du cycle produit"
+    },
+    {
+      "from": "gov-cycle-de-vie",
+      "rel": "TESTS_CONCEPT",
+      "to": "Deploiement par paliers"
+    },
+    {
+      "from": "gov-cycle-de-vie",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W1-028"
+    },
+    {
+      "from": "gov-cycle-de-vie",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W4-018"
+    },
+    {
+      "from": "gov-cycle-de-vie",
+      "rel": "GOVERNANCE_THEME",
+      "to": "Revue de gouvernance a chaque etape"
+    },
+    {
+      "from": "gov-hebergement-public",
+      "rel": "TESTS_CONCEPT",
+      "to": "Impressum"
+    },
+    {
+      "from": "gov-hebergement-public",
+      "rel": "TESTS_CONCEPT",
+      "to": "Datenschutzerklaerung"
+    },
+    {
+      "from": "gov-hebergement-public",
+      "rel": "TESTS_CONCEPT",
+      "to": "Distinction avec l'AVV"
+    },
+    {
+      "from": "gov-hebergement-public",
+      "rel": "GOVERNANCE_THEME",
+      "to": "Obligations de publication"
+    },
+    {
+      "from": "prm-3c",
+      "rel": "TESTS_CONCEPT",
+      "to": "Character / Context / Command"
+    },
+    {
+      "from": "prm-3c",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W1-035"
+    },
+    {
+      "from": "prm-3c",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W2-002"
+    },
+    {
+      "from": "prm-3c",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W2-009"
+    },
+    {
+      "from": "prm-3c",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W2-033"
+    },
+    {
+      "from": "prm-3c",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W2-010"
+    },
+    {
+      "from": "prm-3c",
+      "rel": "HAS_PROMPT",
+      "to": "Meta-Prompter"
+    },
+    {
+      "from": "prm-lost-in-the-middle",
+      "rel": "TESTS_CONCEPT",
+      "to": "Primaute et recence"
+    },
+    {
+      "from": "prm-lost-in-the-middle",
+      "rel": "TESTS_CONCEPT",
+      "to": "Exception RAG"
+    },
+    {
+      "from": "prm-lost-in-the-middle",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W2-034"
+    },
+    {
+      "from": "prm-debug-agent",
+      "rel": "TESTS_CONCEPT",
+      "to": "Modele / embeddings / acces manquant"
+    },
+    {
+      "from": "prm-debug-agent",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W5-020"
+    },
+    {
+      "from": "bld-gate-zero",
+      "rel": "TESTS_CONCEPT",
+      "to": "Objectif avant outil"
+    },
+    {
+      "from": "bld-gate-zero",
+      "rel": "TESTS_CONCEPT",
+      "to": "Qualite des donnees comme precondition"
+    },
+    {
+      "from": "bld-gate-zero",
+      "rel": "TESTS_CONCEPT",
+      "to": "Trois risques d'automatisation"
+    },
+    {
+      "from": "bld-gate-zero",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W1-023"
+    },
+    {
+      "from": "bld-gate-zero",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W5-002"
+    },
+    {
+      "from": "bld-gate-zero",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W5-017"
+    },
+    {
+      "from": "bld-gate-zero",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W5-016"
+    },
+    {
+      "from": "bld-gate-zero",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W5-008"
+    },
+    {
+      "from": "bld-gate-zero",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W5-027"
+    },
+    {
+      "from": "bld-gate-zero",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W5-028"
+    },
+    {
+      "from": "bld-gate-zero",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W5-018"
+    },
+    {
+      "from": "bld-gate-zero",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W6-020"
+    },
+    {
+      "from": "bld-gate-zero",
+      "rel": "GOVERNANCE_THEME",
+      "to": "Documentation comme controle"
+    },
+    {
+      "from": "bld-config-agent",
+      "rel": "TESTS_CONCEPT",
+      "to": "Configuration vs plateforme"
+    },
+    {
+      "from": "bld-config-agent",
+      "rel": "TESTS_CONCEPT",
+      "to": "System prompt vs user prompt"
+    },
+    {
+      "from": "bld-config-agent",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W2-011"
+    },
+    {
+      "from": "bld-config-agent",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W2-016"
+    },
+    {
+      "from": "bld-config-agent",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W5-011"
+    },
+    {
+      "from": "bld-config-agent",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W5-012"
+    },
+    {
+      "from": "bld-config-agent",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W5-031"
+    },
+    {
+      "from": "bld-config-agent",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W5-022"
+    },
+    {
+      "from": "bld-config-agent",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W5-023"
+    },
+    {
+      "from": "bld-config-agent",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W5-024"
+    },
+    {
+      "from": "bld-config-agent",
+      "rel": "HAS_INFOGRAPHIC",
+      "to": "ifg-04"
+    },
+    {
+      "from": "bld-orchestration",
+      "rel": "TESTS_CONCEPT",
+      "to": "L'orchestrateur porte la logique"
+    },
+    {
+      "from": "bld-orchestration",
+      "rel": "TESTS_CONCEPT",
+      "to": "Retriever plutot que chargement complet"
+    },
+    {
+      "from": "bld-orchestration",
+      "rel": "TESTS_CONCEPT",
+      "to": "Condition d'arret"
+    },
+    {
+      "from": "bld-orchestration",
+      "rel": "MENTIONS_TOOL",
+      "to": "n8n"
+    },
+    {
+      "from": "bld-orchestration",
+      "rel": "MENTIONS_TOOL",
+      "to": "Make"
+    },
+    {
+      "from": "bld-debug-export",
+      "rel": "TESTS_CONCEPT",
+      "to": "Source formelle plutot que capture d'ecran"
+    },
+    {
+      "from": "bld-debug-export",
+      "rel": "TESTS_CONCEPT",
+      "to": "HITL apres import"
+    },
+    {
+      "from": "bld-debug-export",
+      "rel": "HAS_PROMPT",
+      "to": "Critique de workflow par export JSON"
+    },
+    {
+      "from": "bld-debug-export",
+      "rel": "MENTIONS_TOOL",
+      "to": "n8n"
+    },
+    {
+      "from": "bld-debug-export",
+      "rel": "GOVERNANCE_THEME",
+      "to": "Retrait des PII avant partage d'un export"
+    },
+    {
+      "from": "bld-discover-do-escalate",
+      "rel": "TESTS_CONCEPT",
+      "to": "Trois paliers d'autonomie"
+    },
+    {
+      "from": "bld-discover-do-escalate",
+      "rel": "TESTS_CONCEPT",
+      "to": "Grounding par knowledge base"
+    },
+    {
+      "from": "bld-discover-do-escalate",
+      "rel": "TESTS_CONCEPT",
+      "to": "Enrichissement avant decision"
+    },
+    {
+      "from": "bld-discover-do-escalate",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W5-030"
+    },
+    {
+      "from": "bld-discover-do-escalate",
+      "rel": "EVIDENCED_BY",
+      "to": "SmartParts GmbH"
+    },
+    {
+      "from": "bld-discover-do-escalate",
+      "rel": "EVIDENCED_BY",
+      "to": "IKEA"
+    },
+    {
+      "from": "bld-discover-do-escalate",
+      "rel": "GOVERNANCE_THEME",
+      "to": "Escalade qualifiee"
+    },
+    {
+      "from": "bld-discover-do-escalate",
+      "rel": "HAS_INFOGRAPHIC",
+      "to": "ifg-03"
+    },
+    {
+      "from": "bld-garde-fous-agents",
+      "rel": "TESTS_CONCEPT",
+      "to": "Huit garde-fous"
+    },
+    {
+      "from": "bld-garde-fous-agents",
+      "rel": "TESTS_CONCEPT",
+      "to": "Archivage reversible (regle distincte)"
+    },
+    {
+      "from": "bld-garde-fous-agents",
+      "rel": "TESTS_CONCEPT",
+      "to": "Surface d'attaque du registre d'outils"
+    },
+    {
+      "from": "bld-garde-fous-agents",
+      "rel": "TESTS_CONCEPT",
+      "to": "Controle d'acces a la couche donnee"
+    },
+    {
+      "from": "bld-garde-fous-agents",
+      "rel": "HAS_PROMPT",
+      "to": "<investigate_before_answering>"
+    },
+    {
+      "from": "bld-garde-fous-agents",
+      "rel": "MENTIONS_TOOL",
+      "to": "MCP"
+    },
+    {
+      "from": "bld-garde-fous-agents",
+      "rel": "MENTIONS_TOOL",
+      "to": "Supabase RLS"
+    },
+    {
+      "from": "bld-garde-fous-agents",
+      "rel": "EVIDENCED_BY",
+      "to": "GTG-1002"
+    },
+    {
+      "from": "bld-garde-fous-agents",
+      "rel": "EVIDENCED_BY",
+      "to": "Goatseus Maximus"
+    },
+    {
+      "from": "bld-garde-fous-agents",
+      "rel": "GOVERNANCE_THEME",
+      "to": "Permissions minimales"
+    },
+    {
+      "from": "bld-garde-fous-agents",
+      "rel": "GOVERNANCE_THEME",
+      "to": "Logging"
+    },
+    {
+      "from": "bld-garde-fous-agents",
+      "rel": "GOVERNANCE_THEME",
+      "to": "Conditions d'arret"
+    },
+    {
+      "from": "bld-garde-fous-agents",
+      "rel": "HAS_INFOGRAPHIC",
+      "to": "ifg-06"
+    },
+    {
+      "from": "evl-benchmarks",
+      "rel": "TESTS_CONCEPT",
+      "to": "Preuve partielle"
+    },
+    {
+      "from": "evl-benchmarks",
+      "rel": "TESTS_CONCEPT",
+      "to": "Regle de conflit"
+    },
+    {
+      "from": "evl-benchmarks",
+      "rel": "TESTS_CONCEPT",
+      "to": "Hierarchie des sources"
+    },
+    {
+      "from": "evl-benchmarks",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W1-033"
+    },
+    {
+      "from": "evl-benchmarks",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W2-021"
+    },
+    {
+      "from": "evl-benchmarks",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W6-003"
+    },
+    {
+      "from": "evl-benchmarks",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W4-020"
+    },
+    {
+      "from": "evl-benchmarks",
+      "rel": "GOVERNANCE_THEME",
+      "to": "Datation des preuves"
+    },
+    {
+      "from": "evl-jagged-frontier",
+      "rel": "TESTS_CONCEPT",
+      "to": "Performance non lineaire"
+    },
+    {
+      "from": "evl-jagged-frontier",
+      "rel": "TESTS_CONCEPT",
+      "to": "ClockBench < 51%"
+    },
+    {
+      "from": "evl-jagged-frontier",
+      "rel": "EVIDENCED_BY",
+      "to": "AI Index 2026"
+    },
+    {
+      "from": "evl-profil-utilisateur",
+      "rel": "TESTS_CONCEPT",
+      "to": "Adequation par profil"
+    },
+    {
+      "from": "evl-profil-utilisateur",
+      "rel": "TESTS_CONCEPT",
+      "to": "Ajouter un outil seulement sur une limite concrete"
+    },
+    {
+      "from": "evl-profil-utilisateur",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W2-026"
+    },
+    {
+      "from": "evl-profil-utilisateur",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W3-023"
+    },
+    {
+      "from": "evl-profil-utilisateur",
+      "rel": "MENTIONS_TOOL",
+      "to": "Lovable"
+    },
+    {
+      "from": "evl-profil-utilisateur",
+      "rel": "MENTIONS_TOOL",
+      "to": "Bolt"
+    },
+    {
+      "from": "evl-profil-utilisateur",
+      "rel": "MENTIONS_TOOL",
+      "to": "Cursor"
+    },
+    {
+      "from": "evl-profil-utilisateur",
+      "rel": "MENTIONS_TOOL",
+      "to": "Windsurf"
+    },
+    {
+      "from": "evl-profil-utilisateur",
+      "rel": "MENTIONS_TOOL",
+      "to": "Replit"
+    },
+    {
+      "from": "evl-profil-utilisateur",
+      "rel": "MENTIONS_TOOL",
+      "to": "Tempo"
+    },
+    {
+      "from": "evl-make-or-buy",
+      "rel": "TESTS_CONCEPT",
+      "to": "Duree de vie de l'actif"
+    },
+    {
+      "from": "evl-make-or-buy",
+      "rel": "TESTS_CONCEPT",
+      "to": "Droits acquis au moment de la generation"
+    },
+    {
+      "from": "evl-make-or-buy",
+      "rel": "MENTIONS_TOOL",
+      "to": "Kling"
+    },
+    {
+      "from": "evl-make-or-buy",
+      "rel": "MENTIONS_TOOL",
+      "to": "Runway"
+    },
+    {
+      "from": "evl-make-or-buy",
+      "rel": "EVIDENCED_BY",
+      "to": "Volvo"
+    },
+    {
+      "from": "evl-make-or-buy",
+      "rel": "EVIDENCED_BY",
+      "to": "Coca-Cola"
+    },
+    {
+      "from": "evl-make-or-buy",
+      "rel": "GOVERNANCE_THEME",
+      "to": "Licences et watermarks"
+    },
+    {
+      "from": "cas-stackfit",
+      "rel": "TESTS_CONCEPT",
+      "to": "Gouvernance reflexive"
+    },
+    {
+      "from": "cas-stackfit",
+      "rel": "MENTIONS_TOOL",
+      "to": "gpt-5-nano"
+    },
+    {
+      "from": "cas-stackfit",
+      "rel": "MENTIONS_TOOL",
+      "to": "Supabase"
+    },
+    {
+      "from": "cas-stackfit",
+      "rel": "MENTIONS_TOOL",
+      "to": "n8n"
+    },
+    {
+      "from": "cas-stackfit",
+      "rel": "MENTIONS_TOOL",
+      "to": "Notion"
+    },
+    {
+      "from": "cas-stackfit",
+      "rel": "MENTIONS_TOOL",
+      "to": "Hoppscotch"
+    },
+    {
+      "from": "cas-stackfit",
+      "rel": "GOVERNANCE_THEME",
+      "to": "Fairness jamais verte par defaut"
+    },
+    {
+      "from": "cas-handshake",
+      "rel": "TESTS_CONCEPT",
+      "to": "Six dimensions HLEG"
+    },
+    {
+      "from": "cas-handshake",
+      "rel": "TESTS_CONCEPT",
+      "to": "Calcul dynamique de minorite"
+    },
+    {
+      "from": "cas-handshake",
+      "rel": "TESTS_CONCEPT",
+      "to": "Vue unique"
+    },
+    {
+      "from": "cas-handshake",
+      "rel": "MENTIONS_TOOL",
+      "to": "gpt-5-nano"
+    },
+    {
+      "from": "cas-handshake",
+      "rel": "MENTIONS_TOOL",
+      "to": "Supabase"
+    },
+    {
+      "from": "cas-handshake",
+      "rel": "MENTIONS_TOOL",
+      "to": "n8n"
+    },
+    {
+      "from": "cas-handshake",
+      "rel": "MENTIONS_TOOL",
+      "to": "Notion"
+    },
+    {
+      "from": "cas-handshake",
+      "rel": "GOVERNANCE_THEME",
+      "to": "HITL"
+    },
+    {
+      "from": "cas-handshake",
+      "rel": "GOVERNANCE_THEME",
+      "to": "Separation des livrables client/interne"
+    },
+    {
+      "from": "cas-suno",
+      "rel": "TESTS_CONCEPT",
+      "to": "Licence vs propriete"
+    },
+    {
+      "from": "cas-suno",
+      "rel": "TESTS_CONCEPT",
+      "to": "Guardrails au niveau du prompt"
+    },
+    {
+      "from": "cas-suno",
+      "rel": "MENTIONS_TOOL",
+      "to": "Suno"
+    },
+    {
+      "from": "cas-suno",
+      "rel": "EVIDENCED_BY",
+      "to": "GEMA vs OpenAI"
+    },
+    {
+      "from": "cas-suno",
+      "rel": "GOVERNANCE_THEME",
+      "to": "Droit d'auteur des oeuvres 100% IA"
+    },
+    {
+      "from": "PROPOSED:gov-ai-act-risques",
+      "rel": "TESTS_CONCEPT",
+      "to": "Pyramide de risque"
+    },
+    {
+      "from": "PROPOSED:gov-ai-act-risques",
+      "rel": "TESTS_CONCEPT",
+      "to": "Art. 4 competence IA"
+    },
+    {
+      "from": "PROPOSED:gov-ai-act-risques",
+      "rel": "TESTS_CONCEPT",
+      "to": "Art. 5 pratiques interdites"
+    },
+    {
+      "from": "PROPOSED:gov-ai-act-risques",
+      "rel": "TESTS_CONCEPT",
+      "to": "Art. 50 transparence"
+    },
+    {
+      "from": "PROPOSED:gov-ai-act-risques",
+      "rel": "TESTS_CONCEPT",
+      "to": "Journaux >= 6 mois"
+    },
+    {
+      "from": "PROPOSED:gov-ai-act-risques",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W6-006"
+    },
+    {
+      "from": "PROPOSED:gov-ai-act-risques",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W7-001"
+    },
+    {
+      "from": "PROPOSED:gov-ai-act-risques",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W7-002"
+    },
+    {
+      "from": "PROPOSED:gov-ai-act-risques",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W7-003"
+    },
+    {
+      "from": "PROPOSED:gov-ai-act-risques",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W7-004"
+    },
+    {
+      "from": "PROPOSED:gov-ai-act-risques",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W7-005"
+    },
+    {
+      "from": "PROPOSED:gov-ai-act-risques",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W7-006"
+    },
+    {
+      "from": "PROPOSED:gov-ai-act-risques",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W7-007"
+    },
+    {
+      "from": "PROPOSED:gov-ai-act-risques",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W7-008"
+    },
+    {
+      "from": "PROPOSED:gov-ai-act-risques",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W7-009"
+    },
+    {
+      "from": "PROPOSED:gov-ai-act-risques",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W7-010"
+    },
+    {
+      "from": "PROPOSED:gov-ai-act-risques",
+      "rel": "HAS_PROMPT",
+      "to": "EU AI Act Use Case Checker V1.1"
+    },
+    {
+      "from": "PROPOSED:gov-ai-act-risques",
+      "rel": "EVIDENCED_BY",
+      "to": "SmartParts GmbH"
+    },
+    {
+      "from": "PROPOSED:gov-ai-act-risques",
+      "rel": "EVIDENCED_BY",
+      "to": "Unilever (en contre-exemple)"
+    },
+    {
+      "from": "PROPOSED:gov-ai-act-risques",
+      "rel": "GOVERNANCE_THEME",
+      "to": "Classification par finalite prevue"
+    },
+    {
+      "from": "PROPOSED:gov-ai-act-risques",
+      "rel": "HAS_INFOGRAPHIC",
+      "to": "ifg-08"
+    },
+    {
+      "from": "PROPOSED:gov-raci-decision",
+      "rel": "TESTS_CONCEPT",
+      "to": "Cycle Erfassen-Einordnen-Pruefen-Entscheiden-Befaehigen-Ueberwachen"
+    },
+    {
+      "from": "PROPOSED:gov-raci-decision",
+      "rel": "TESTS_CONCEPT",
+      "to": "RACI"
+    },
+    {
+      "from": "PROPOSED:gov-raci-decision",
+      "rel": "TESTS_CONCEPT",
+      "to": "Betriebsrat par.87 BetrVG"
+    },
+    {
+      "from": "PROPOSED:gov-raci-decision",
+      "rel": "GOVERNANCE_THEME",
+      "to": "Un seul Accountable par decision"
+    },
+    {
+      "from": "PROPOSED:gov-raci-decision",
+      "rel": "HAS_INFOGRAPHIC",
+      "to": "ifg-02"
+    },
+    {
+      "from": "PROPOSED:gov-prompt-attaques",
+      "rel": "TESTS_CONCEPT",
+      "to": "Injection"
+    },
+    {
+      "from": "PROPOSED:gov-prompt-attaques",
+      "rel": "TESTS_CONCEPT",
+      "to": "Leaking"
+    },
+    {
+      "from": "PROPOSED:gov-prompt-attaques",
+      "rel": "TESTS_CONCEPT",
+      "to": "Jailbreaking"
+    },
+    {
+      "from": "PROPOSED:gov-prompt-attaques",
+      "rel": "TESTS_CONCEPT",
+      "to": "Risk management continu"
+    },
+    {
+      "from": "PROPOSED:gov-prompt-attaques",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W2-014"
+    },
+    {
+      "from": "PROPOSED:gov-prompt-attaques",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W2-018"
+    },
+    {
+      "from": "PROPOSED:gov-prompt-attaques",
+      "rel": "EVIDENCED_BY",
+      "to": "GTG-1002"
+    },
+    {
+      "from": "PROPOSED:gov-prompt-attaques",
+      "rel": "GOVERNANCE_THEME",
+      "to": "Aucune contre-mesure a 100%"
+    },
+    {
+      "from": "PROPOSED:prm-single-shot",
+      "rel": "TESTS_CONCEPT",
+      "to": "Single-shot vs conversational"
+    },
+    {
+      "from": "PROPOSED:prm-single-shot",
+      "rel": "TESTS_CONCEPT",
+      "to": "Pas de rattrapage en workflow automatise"
+    },
+    {
+      "from": "PROPOSED:prm-single-shot",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W2-031"
+    },
+    {
+      "from": "PROPOSED:prm-single-shot",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W2-032"
+    },
+    {
+      "from": "PROPOSED:prm-single-shot",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W2-038"
+    },
+    {
+      "from": "PROPOSED:prm-equite-prompt",
+      "rel": "TESTS_CONCEPT",
+      "to": "KI-FAIRNESS 10 dimensions"
+    },
+    {
+      "from": "PROPOSED:prm-equite-prompt",
+      "rel": "TESTS_CONCEPT",
+      "to": "Biais de traduction linguistique"
+    },
+    {
+      "from": "PROPOSED:prm-equite-prompt",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W3-035"
+    },
+    {
+      "from": "PROPOSED:prm-equite-prompt",
+      "rel": "HAS_PROMPT",
+      "to": "Verwirrungstaktik"
+    },
+    {
+      "from": "PROPOSED:prm-equite-prompt",
+      "rel": "GOVERNANCE_THEME",
+      "to": "Equite en entree, pas seulement en sortie"
+    },
+    {
+      "from": "PROPOSED:evl-prompt-rag-finetune",
+      "rel": "TESTS_CONCEPT",
+      "to": "Sequencement Prompt->RAG->Fine-tuning"
+    },
+    {
+      "from": "PROPOSED:evl-prompt-rag-finetune",
+      "rel": "TESTS_CONCEPT",
+      "to": "Le fine-tuning n'ajoute pas de faits"
+    },
+    {
+      "from": "PROPOSED:evl-prompt-rag-finetune",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W2-041"
+    },
+    {
+      "from": "PROPOSED:evl-prompt-rag-finetune",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W2-044"
+    },
+    {
+      "from": "PROPOSED:evl-prompt-rag-finetune",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W2-043"
+    },
+    {
+      "from": "PROPOSED:evl-prompt-rag-finetune",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W2-047"
+    },
+    {
+      "from": "PROPOSED:evl-prompt-rag-finetune",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W2-040"
+    },
+    {
+      "from": "PROPOSED:evl-prompt-rag-finetune",
+      "rel": "HAS_INFOGRAPHIC",
+      "to": "ifg-01"
+    },
+    {
+      "from": "PROPOSED:enb-trust-gap",
+      "rel": "TESTS_CONCEPT",
+      "to": "Ecart confiance/capacite"
+    },
+    {
+      "from": "PROPOSED:enb-trust-gap",
+      "rel": "TESTS_CONCEPT",
+      "to": "Creux de qualite transitoire"
+    },
+    {
+      "from": "PROPOSED:enb-trust-gap",
+      "rel": "TESTS_CONCEPT",
+      "to": "Enablement comme fonction de rappel au reel"
+    },
+    {
+      "from": "PROPOSED:enb-trust-gap",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W1-037"
+    },
+    {
+      "from": "PROPOSED:enb-trust-gap",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W2-030"
+    },
+    {
+      "from": "PROPOSED:enb-trust-gap",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W6-024"
+    },
+    {
+      "from": "PROPOSED:enb-trust-gap",
+      "rel": "EVIDENCED_BY",
+      "to": "Stanford HAI AI Index 2026"
+    },
+    {
+      "from": "PROPOSED:enb-trust-gap",
+      "rel": "EVIDENCED_BY",
+      "to": "Docker State of Agentic AI"
+    },
+    {
+      "from": "PROPOSED:enb-trust-gap",
+      "rel": "GOVERNANCE_THEME",
+      "to": "Gouverner avant d'escalader"
+    },
+    {
+      "from": "PROPOSED:enb-trust-gap",
+      "rel": "HAS_INFOGRAPHIC",
+      "to": "ifg-07"
+    },
+    {
+      "from": "PROPOSED:bld-spectre-autonomie",
+      "rel": "TESTS_CONCEPT",
+      "to": "Recommender -> Reviewer -> Decision Maker"
+    },
+    {
+      "from": "PROPOSED:bld-spectre-autonomie",
+      "rel": "TESTS_CONCEPT",
+      "to": "Seuil Art. 22 RGPD"
+    },
+    {
+      "from": "PROPOSED:bld-spectre-autonomie",
+      "rel": "HAS_QUIZ",
+      "to": "Q-W5-026"
+    },
+    {
+      "from": "PROPOSED:bld-spectre-autonomie",
+      "rel": "EVIDENCED_BY",
+      "to": "GTG-1002"
+    },
+    {
+      "from": "PROPOSED:bld-spectre-autonomie",
+      "rel": "EVIDENCED_BY",
+      "to": "Goatseus Maximus"
+    },
+    {
+      "from": "PROPOSED:bld-spectre-autonomie",
+      "rel": "GOVERNANCE_THEME",
+      "to": "Controles proportionnels a l'autonomie"
+    },
+    {
+      "from": "PROPOSED:bld-spectre-autonomie",
+      "rel": "HAS_INFOGRAPHIC",
+      "to": "ifg-03"
+    },
+    {
+      "from": "gov-double-test",
+      "rel": "LINKS",
+      "to": "cas-stackfit"
+    },
+    {
+      "from": "gov-jamais-vert",
+      "rel": "LINKS",
+      "to": "cas-stackfit"
+    },
+    {
+      "from": "evl-benchmarks",
+      "rel": "LINKS",
+      "to": "cas-stackfit"
+    },
+    {
+      "from": "gov-boucle-cx",
+      "rel": "LINKS",
+      "to": "cas-handshake"
+    },
+    {
+      "from": "gov-equite-segment",
+      "rel": "LINKS",
+      "to": "cas-handshake"
+    },
+    {
+      "from": "gov-responsible-ai",
+      "rel": "LINKS",
+      "to": "cas-handshake"
+    },
+    {
+      "from": "gov-responsible-ai",
+      "rel": "LINKS",
+      "to": "bld-garde-fous-agents"
+    },
+    {
+      "from": "gov-ip-brand-fit",
+      "rel": "LINKS",
+      "to": "cas-suno"
+    },
+    {
+      "from": "bld-garde-fous-agents",
+      "rel": "LINKS",
+      "to": "gov-responsible-ai"
+    },
+    {
+      "from": "cas-stackfit",
+      "rel": "PROVES",
+      "to": "gov-double-test"
+    },
+    {
+      "from": "cas-stackfit",
+      "rel": "PROVES",
+      "to": "gov-jamais-vert"
+    },
+    {
+      "from": "cas-stackfit",
+      "rel": "PROVES",
+      "to": "evl-benchmarks"
+    },
+    {
+      "from": "cas-handshake",
+      "rel": "PROVES",
+      "to": "gov-boucle-cx"
+    },
+    {
+      "from": "cas-handshake",
+      "rel": "PROVES",
+      "to": "gov-equite-segment"
+    },
+    {
+      "from": "cas-handshake",
+      "rel": "PROVES",
+      "to": "gov-responsible-ai"
+    },
+    {
+      "from": "cas-suno",
+      "rel": "PROVES",
+      "to": "gov-ip-brand-fit"
+    },
+    {
+      "from": "PROPOSED:gov-ai-act-risques",
+      "rel": "SUGGESTED_LINK",
+      "to": "gov-jamais-vert"
+    },
+    {
+      "from": "PROPOSED:gov-ai-act-risques",
+      "rel": "SUGGESTED_LINK",
+      "to": "gov-responsible-ai"
+    },
+    {
+      "from": "PROPOSED:gov-raci-decision",
+      "rel": "SUGGESTED_LINK",
+      "to": "gov-cycle-de-vie"
+    },
+    {
+      "from": "PROPOSED:prm-single-shot",
+      "rel": "SUGGESTED_LINK",
+      "to": "prm-3c"
+    },
+    {
+      "from": "PROPOSED:prm-single-shot",
+      "rel": "SUGGESTED_LINK",
+      "to": "bld-gate-zero"
+    },
+    {
+      "from": "PROPOSED:evl-prompt-rag-finetune",
+      "rel": "SUGGESTED_LINK",
+      "to": "gov-anti-hallucination"
+    },
+    {
+      "from": "PROPOSED:gov-prompt-attaques",
+      "rel": "SUGGESTED_LINK",
+      "to": "bld-garde-fous-agents"
+    },
+    {
+      "from": "PROPOSED:prm-equite-prompt",
+      "rel": "SUGGESTED_LINK",
+      "to": "gov-equite-segment"
+    },
+    {
+      "from": "PROPOSED:bld-spectre-autonomie",
+      "rel": "SUGGESTED_LINK",
+      "to": "bld-discover-do-escalate"
+    },
+    {
+      "from": "PROPOSED:enb-trust-gap",
+      "rel": "SUGGESTED_LINK",
+      "to": "gov-cycle-de-vie"
+    }
+  ]
+}

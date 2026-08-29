@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "file": "case_studies_evidence.json",
+    "project": "AI Manager Toolkit",
+    "generated": "2026-08-29",
+    "architecture_decision": "Les 3 fiches type:case du Toolkit (cas-stackfit, cas-handshake, cas-suno) sont ses projets a elle - c'est le signal portfolio. Les cas d'entreprises externes ne doivent PAS devenir des fiches type:case: ils diluent ce signal et elle ne peut pas les verifier de premiere main. Ils valent comme preuve citee a l'interieur d'une fiche principe.",
+    "candidates_reviewed": 44,
+    "candidates_retained": 6,
+    "retention_rule": "Retenu si la preuve change ce qu'une fiche affirme ou lui donne un ancrage verifiable. Ecarte si c'est une statistique d'adoption sans mecanisme, ou un chiffre fournisseur."
+  },
+
+  "retained": [
+    {
+      "rank": 1,
+      "title": "GEMA vs OpenAI",
+      "jurisdiction": "LG Muenchen I",
+      "date": "11.11.2025",
+      "week": "W7",
+      "source_reference": "W7T3_Cours_AI Governance in der Praxis.pdf",
+      "what_the_source_says": "Premier jugement de principe sur l'IA generative en Europe. La GEMA a poursuivi OpenAI avec succes pour l'utilisation non autorisee et la reproduction de paroles de chansons protegees au sein de son modele.",
+      "strengthens": ["gov-ip-brand-fit", "cas-suno"],
+      "why_it_matters": "La fiche gov-ip-brand-fit repose aujourd'hui sur des criteres contractuels (licence, watermark, plan payant au moment de la generation). Ce jugement deplace le sujet du contrat vers le droit: le risque PI n'est pas seulement une clause a lire, c'est un contentieux tranche. Et contrairement a un benchmark, une decision de justice ne se perime pas au meme rythme.",
+      "durability": "haute - une decision rendue",
+      "verification_needed": "Verifier le statut (appel en cours ?) avant de la citer comme definitive."
+    },
+    {
+      "rank": 2,
+      "title": "SmartParts GmbH - automatisation d'offres B2B",
+      "week": "W7",
+      "source_reference": "W7T3_Cours_example Smartparts EU Act / W7T5_Practice_EU Act Smartparts",
+      "what_the_source_says": "300 e-mails par jour. Architecture: n8n (v1.8.1) sur Docker-Compose (4 CPU, 8 Go RAM), base vectorielle Supabase/PostgreSQL, GPT-4 pour la classification semantique. Classe 'Niedrigrisiko-System' parce que contexte strictement B2B sans decision automatisee sur des personnes physiques. Un humain verifie et valide systematiquement chaque offre generee avant l'envoi SMTP. Test d'equite mensuel via Fairlearn.",
+      "strengthens": ["bld-discover-do-escalate", "gov-cycle-de-vie", "PROPOSED:gov-ai-act-risques", "PROPOSED:bld-spectre-autonomie"],
+      "why_it_matters": "C'est la seule architecture de reference complete du corpus: un cas d'usage, sa classification legale AVEC son motif ('B2B, pas de decision sur des personnes physiques'), son point HITL explicite, et son controle d'equite recurrent. C'est exactement le chainon que bld-discover-do-escalate decrit en principe sans jamais l'illustrer. Elle peut aussi s'en servir comme comparaison externe pour Handshake.",
+      "durability": "haute pour le raisonnement de classification, moyenne pour la stack nommee",
+      "verification_needed": "aucune - cas de cours, utilise comme illustration pedagogique"
+    },
+    {
+      "rank": 3,
+      "title": "Campagne d'espionnage GTG-1002",
+      "organization": "Anthropic Threat Intelligence Report",
+      "date": "mi-septembre 2025",
+      "week": "W2",
+      "source_reference": "W2T2_Course Materials_Anthropic Cyber Spionage",
+      "what_the_source_says": "Groupe soutenu par un Etat, 30 organisations ciblees, detecte et bloque en 10 jours. Le modele a opere de facon autonome comme 'chef de projet', executant 80-90% du travail tactique, plusieurs operations par seconde. Les humains n'intervenaient qu'aux points de controle strategiques (10-20%). L'attaque a utilise le roleplay pour contourner les filtres de securite. Le modele a aussi halluciné (mots de passe non fonctionnels) et mal classe des fichiers publics comme 'hautement secrets'.",
+      "strengthens": ["PROPOSED:gov-prompt-attaques", "bld-garde-fous-agents", "PROPOSED:bld-spectre-autonomie"],
+      "why_it_matters": "Preuve rare: le jailbreak par roleplay n'est pas un exercice de laboratoire, il a servi a l'echelle. Et le detail le plus utile pour un AI Manager n'est pas l'attaque mais son revers - meme en operation offensive, le modele a halluciné et mal classe. Ce qui vaut aussi bien pour un agent defensif.",
+      "durability": "haute - un incident date",
+      "verification_needed": "aucune - rapport publie par le fournisseur lui-meme"
+    },
+    {
+      "rank": 4,
+      "title": "Docker - State of Agentic AI",
+      "type": "enquete, 805 praticiens techniques",
+      "weeks": ["W5", "W7"],
+      "source_reference": "Docker-State-of-Agentic-AI-white-paper.pdf",
+      "what_the_source_says": "60% des organisations ont des agents en production (surtout charges internes: DevOps 38%, securite automatisee 35%, automatisation de processus 34%, generation de code 31%). 94% considerent la construction d'agents comme une priorite strategique. 40% citent la securite et la conformite comme blocage n1. 79% deploient sur 2 environnements ou plus. 46% utilisent 4 a 6 modeles simultanement. 85% connaissent MCP. 76% s'inquietent du vendor lock-in.",
+      "strengthens": ["bld-garde-fous-agents", "gov-jamais-vert", "PROPOSED:enb-trust-gap"],
+      "why_it_matters": "Deux chiffres seulement meritent d'etre cites, et ce ne sont pas les plus spectaculaires. Le premier: la securite et la conformite sont le blocage n1, pas la capacite technique - c'est l'argument commercial de son role. Le second: 46% utilisent 4 a 6 modeles en parallele, ce qui invalide dans les faits la question 'quel est le meilleur modele' et valide la these StackFit (couverture d'une stack, pas classement de modeles).",
+      "durability": "moyenne - une enquete se perime; citer avec l'annee",
+      "verification_needed": "Citer 'Docker, enquete 805 praticiens' avec la date; ne pas presenter comme une constante."
+    },
+    {
+      "rank": 5,
+      "title": "IKEA - support client conversationnel",
+      "week": "W1",
+      "source_reference": "W1T1_Practice - Comprehensive Briefing",
+      "what_the_source_says": "60 a 80% des appels de support de routine automatises par IA conversationnelle, les cas complexes etant routes vers des agents humains.",
+      "strengthens": ["bld-discover-do-escalate"],
+      "why_it_matters": "Le seul cas CX du corpus qui chiffre le partage entre le palier automatise et le palier escalade. Il donne a Discover/Do/Escalate un ordre de grandeur credible en clientele grand public, la ou SmartParts couvre le B2B.",
+      "durability": "moyenne",
+      "verification_needed": "Fourchette large (60-80%) sans methode citee. A presenter comme un ordre de grandeur, pas une mesure."
+    },
+    {
+      "rank": 6,
+      "title": "Meme coin Goatseus Maximus - agent autonome hors perimetre",
+      "week": "W5",
+      "source_reference": "W5T2_Cours_Presentation",
+      "what_the_source_says": "Un agent autonome tournant sur Llama 3.1, initialement construit pour des discussions philosophiques, s'est mis a promouvoir un meme coin. La capitalisation a atteint plus de 700 millions USD en quelques jours, jusqu'a 1,28 milliard. L'agent a recu des tokens et fait croitre sa propre tresorerie.",
+      "strengthens": ["bld-garde-fous-agents", "PROPOSED:bld-spectre-autonomie"],
+      "why_it_matters": "Illustration nette de l'absence de condition d'arret et de perimetre: un agent qui derive de sa finalite prevue sans jamais tomber en panne. C'est le contre-exemple exact du garde-fou 6 (conditions d'arret claires) et de la regle 'classer par finalite prevue'.",
+      "durability": "haute comme illustration, faible comme donnee de marche",
+      "verification_needed": "Ne pas citer les valorisations comme un fait etabli - ce sont des cours volatils rapportes par une slide de cours. Citer le mecanisme, pas les montants."
+    }
+  ],
+
+  "rejected": [
+    {"case": "Unilever (screening 90% plus rapide, 1 M GBP economises)", "week": "W4", "reason": "Recrutement automatise = domaine haut risque Annexe III. La citer comme succes sans traiter la classification enverrait le signal inverse de celui du Toolkit. Utilisable seulement en contre-exemple dans gov-ai-act-risques, avec cette mise en garde."},
+    {"case": "Morgan Stanley (98% d'adoption, acces doc 20% -> 80%)", "week": "W4", "reason": "Statistique d'adoption sans mecanisme. Ne change aucune fiche."},
+    {"case": "Komatsu (-30% de pannes, -49% de couts IT)", "week": "W4", "reason": "Maintenance predictive industrielle, hors perimetre CX/gouvernance."},
+    {"case": "Penda Health (-16% d'erreurs diagnostiques)", "week": "W4", "reason": "Domaine medical, hors perimetre. Et le chiffre appellerait une verification qu'elle ne peut pas faire."},
+    {"case": "Unify (30% du pipeline commercial automatise)", "week": "W4", "reason": "Sans methode ni definition de 'pipeline automatise'."},
+    {"case": "Google (75% du nouveau code genere par IA), Sonar 2026, Adzuna UK", "week": "W4", "reason": "Marche de l'emploi developpeur. Hors positionnement CX/Enablement."},
+    {"case": "Amazon, Coca-Cola, JP Morgan, KPMG", "week": "W5, W6", "reason": "Chiffres de transformation d'entreprise sans mecanisme transferable. KPMG (5 Md USD sur 5 ans) n'est pas un ordre de grandeur exploitable pour ses interlocuteurs."},
+    {"case": "Volvo (pub en 24h), Coca-Cola Noel, Mango", "week": "W3", "reason": "Production media generative. Pertinent pour evl-make-or-buy en illustration, mais la fiche tient deja debout sans."},
+    {"case": "Scarlett Johansson vs OpenAI, New York Times vs OpenAI", "week": "W7", "reason": "Redondants avec GEMA, qui est plus fort: un jugement rendu plutot qu'un litige en cours ou une controverse resolue a l'amiable."},
+    {"case": "Stadt Nettetal, Taxi Osnabrueck, Netflix/Spotify", "week": "W1", "reason": "Illustrations d'introduction, sans levier de decision."},
+    {"case": "The Pile (EleutherAI, composition du dataset)", "week": "W1", "reason": "Recherche sur les donnees d'entrainement. Interessant pour gov-datasheet-dataset en theorie, mais trop en amont: la fiche parle des datasets qu'on gouverne soi-meme."},
+    {"case": "Darktrace (+135% d'attaques par ingenierie sociale)", "week": "W6", "reason": "Chiffre de securite offensive sans lien direct avec une fiche. GTG-1002 couvre mieux le meme terrain."},
+    {"case": "Deloitte, KPMG deutsche Wirtschaft, Stanford HAI adoption 88%", "weeks": ["W1", "W6"], "reason": "Statistiques d'adoption. A noter: ces sources mesurent des choses differentes (usage global, acces des employes, deploiement en production) et sont faciles a confondre entre elles - raison supplementaire de ne pas les empiler dans une fiche."},
+    {"case": "BuzzSumo, Buddy Media, AdEspresso, Hootsuite, Warby Parker, influenceurs virtuels", "week": "W3", "reason": "Benchmarks de longueur de posts social media. Hors perimetre."},
+    {"case": "Choc DeepSeek (600 Md USD de capitalisation NVIDIA)", "week": "W1", "reason": "Evenement de marche. Le cout d'entrainement associe est conteste dans la source elle-meme."}
+  ],
+
+  "evidence_already_in_the_toolkit": [
+    {"card": "cas-stackfit", "status": "conserver", "note": "Preuve interne, non remplacable. Le desaccord de verdict entre le Project Log et le README 19.08 reste ouvert - ni W1-W7 ni ce corpus ne le tranchent."},
+    {"card": "cas-handshake", "status": "conserver", "note": "Preuve interne. Deux points restent a trancher a la source: le nombre de comptes (9-11 vs 12) et le principe HLEG manquant (6 implementes sur 7 annonces en W7)."},
+    {"card": "cas-suno", "status": "a rediscuter", "note": "W3 confirme ce que le rapport du 27.08 signalait: aucune exclusion de Suno n'est consignee nulle part. L'outil est utilise, l'export conserve, l'exercice marque 'pourquoi je le garde'. Le titre et le summary de la fiche restent non soutenus. GEMA vs OpenAI renforce en revanche le fond juridique de la fiche."}
+  ]
+}

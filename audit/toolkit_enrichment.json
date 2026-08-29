@@ -1,0 +1,513 @@
+{
+  "metadata": {
+    "file": "toolkit_enrichment.json",
+    "project": "AI Manager Toolkit",
+    "generated": "2026-08-29",
+    "baseline": "27 fiches existantes dans ~/code/GitHub/ai-manager-toolkit/src/content/entries/*.en.md (HEAD, arbre propre)",
+    "reservoir": "Extractions NotebookLM W1 a W7 (7 fichiers), + docs du projet Claude (StackFit Project Log, README Handshake 19.08, Toolkit_Matiere_Premiere)",
+    "principle": "Valeur incrementale, pas volume. Le Toolkit reste la baseline; rien n'a ete modifie.",
+    "classification_scheme": [
+      "ALREADY_COVERED",
+      "STRENGTHEN_EXISTING",
+      "MISSING_HIGH_VALUE",
+      "DUPLICATE_LOW_VALUE",
+      "QUESTIONABLE_OUTDATED_CONFLICTING"
+    ]
+  },
+
+  "audit": [
+    {
+      "item": "EU AI Act - pyramide de risque a 4 classes + Art. 5 (8 pratiques interdites) + Art. 6/Annexe III (haut risque) + Art. 50 (transparence) + journaux >= 6 mois",
+      "weeks": ["W6", "W7"],
+      "classification": "MISSING_HIGH_VALUE",
+      "target": "PROPOSED:gov-ai-act-risques",
+      "rationale": "11 fiches de gouvernance, aucune sur l'instrument de classification le plus transferable du corpus. La totalite du quiz W7 (13 questions) porte dessus. Le Playbook contient deja la table des articles: c'est un trou de Toolkit, pas un trou de source.",
+      "evidence_quality": "haute - texte reglementaire, teste 13 fois",
+      "priority": 1
+    },
+    {
+      "item": "Art. 4 AI Act - obligation de competence IA (KI-Kompetenzpflicht), en vigueur depuis le 02.02.2025, obligation de moyens ('Bemuehenspflicht'), sans certificat requis, independante du niveau de risque",
+      "weeks": ["W7"],
+      "classification": "MISSING_HIGH_VALUE",
+      "target": "PROPOSED:gov-ai-act-risques",
+      "rationale": "Seule obligation transversale qui s'applique meme en risque minimal. Elle transforme la formation des equipes en obligation legale - c'est l'argument commercial direct du role AI Enablement. Absente du Toolkit.",
+      "evidence_quality": "haute",
+      "priority": 1
+    },
+    {
+      "item": "Cycle de gouvernance en 6 etapes (Erfassen, Einordnen, Pruefen, Entscheiden, Befaehigen, Ueberwachen) + matrice RACI + regle 'un seul A par tache'",
+      "weeks": ["W7"],
+      "classification": "MISSING_HIGH_VALUE",
+      "target": "PROPOSED:gov-raci-decision",
+      "rationale": "gov-cycle-de-vie couvre le cycle PRODUIT (Discovery a Retirement), gov-boucle-cx la boucle de SIGNAL client. Aucune fiche ne dit QUI decide. Le Playbook ajoute 'Wer muss an den Tisch?' (Frueh / Bei Bedarf / Freigabe) et le point d'echec Betriebsrat (par.87 BetrVG).",
+      "evidence_quality": "haute - deux sources independantes (W7 + Playbook)",
+      "priority": 1
+    },
+    {
+      "item": "Single-Shot vs Conversational prompting - un single-shot doit etre juste du premier coup, sans rattrapage humain, sinon tout le workflow automatise plante",
+      "weeks": ["W2"],
+      "classification": "MISSING_HIGH_VALUE",
+      "target": "PROPOSED:prm-single-shot",
+      "rationale": "C'est la distinction qui decide si un prompt est automatisable. Teste 3 fois en W2, signalee comme 'distinction critique' dans Toolkit_Matiere_Premiere, et absente des 3 fiches prompts. C'est aussi le pont manquant entre la section prompts et la section build.",
+      "evidence_quality": "haute",
+      "priority": 1
+    },
+    {
+      "item": "Sequencement Prompt Engineering -> RAG -> Fine-Tuning. RAG = memoire courte (ajoute des faits, reduit les hallucinations); Fine-Tuning = memoire longue (ajoute style/format, n'ajoute AUCUN fait)",
+      "weeks": ["W2", "W5", "W7"],
+      "classification": "MISSING_HIGH_VALUE",
+      "target": "PROPOSED:evl-prompt-rag-finetune",
+      "rationale": "Le seul framework du corpus corrobore par TROIS semaines independantes. Cadre de decision business-lisible (quoi optimiser, dans quel ordre, a quel cout). Le Toolkit n'en dit rien.",
+      "evidence_quality": "tres haute - triple convergence",
+      "priority": 1
+    },
+    {
+      "item": "Trois types d'attaque distincts: Prompt Injection (detourner l'usage), Prompt Leaking (extraire les instructions systeme), Jailbreaking (contourner la moderation par roleplay). Aucune contre-mesure technique ne donne 100% de securite - c'est du risk management continu, pas un bugfix.",
+      "weeks": ["W2"],
+      "classification": "MISSING_HIGH_VALUE",
+      "target": "PROPOSED:gov-prompt-attaques",
+      "rationale": "bld-garde-fous-agents couvre les garde-fous d'action de l'agent, pas les attaques au niveau du prompt. Preuve disponible: campagne GTG-1002 (Anthropic), ou le roleplay a servi a contourner les filtres de securite.",
+      "evidence_quality": "haute - concepts + un cas documente",
+      "priority": 2
+    },
+    {
+      "item": "Framework KI-FAIRNESS (10 dimensions) + biais de traduction linguistique: la logique interne des modeles est anglophone, traduire un terme genre re-injecte des stereotypes",
+      "weeks": ["W7"],
+      "classification": "MISSING_HIGH_VALUE",
+      "target": "PROPOSED:prm-equite-prompt",
+      "rationale": "gov-equite-segment mesure l'equite dans les SORTIES. Rien ne couvre la conception de prompts qui n'injectent pas de biais en ENTREE. Le point sur la langue est non-evident et durable.",
+      "evidence_quality": "moyenne-haute - source unique mais detaillee, avec un prompt operationnel",
+      "priority": 2
+    },
+    {
+      "item": "Ecart confiance/capacite (AI Trust Gap): la confiance depasse structurellement la capacite reelle, d'ou une baisse de qualite de service transitoire a l'adoption. Gains CX de 14-26% (Stanford HAI AI Index 2026) non automatiques.",
+      "weeks": ["W3", "W6"],
+      "classification": "MISSING_HIGH_VALUE",
+      "target": "PROPOSED:enb-trust-gap",
+      "rationale": "Angle de positionnement le plus differenciant du corpus, deja identifie comme tel dans Toolkit_Matiere_Premiere. Le Toolkit n'a aucune section Enablement/adoption - c'est une observation d'architecture autant qu'un manque de contenu.",
+      "evidence_quality": "moyenne - le mecanisme est durable, les chiffres sont dates et en conflit (voir claims_requiring_verification)",
+      "priority": 2
+    },
+    {
+      "item": "Spectre d'autonomie: Recommender -> Reviewer -> Decision Maker. Les controles requis croissent avec l'autonomie; passer de 'recommander' a 'decider seul' declenche l'Art. 22 RGPD.",
+      "weeks": ["W5", "W7"],
+      "classification": "MISSING_HIGH_VALUE",
+      "target": "PROPOSED:bld-spectre-autonomie",
+      "rationale": "W5 teste 'agent autonome vs assistif' et 'workflow vs agent'; W7 relie l'autonomie au seuil legal. bld-discover-do-escalate touche le sujet par les paliers mais ne nomme jamais l'autonomie comme la variable de controle. Repliable dans cette fiche si l'architecture doit rester a 27+6.",
+      "evidence_quality": "haute",
+      "priority": 3
+    },
+
+    {
+      "item": "Regime contractuel des comptes: politique par fournisseur (ChatGPT entrainement actif par defaut Free/Plus desactivable; Claude entrainement par defaut Free/Pro depuis sept. 2025; Gemini Workspace protege; Mistral exclu par defaut sur payant) + AVV Art. 28 RGPD",
+      "weeks": ["W1", "W3"],
+      "classification": "STRENGTHEN_EXISTING",
+      "target": "gov-regime-contractuel",
+      "rationale": "La fiche cite la bascule Anthropic du 28.09.2025. W1 et W3 la corroborent et ajoutent deux choses que la fiche n'a pas: la comparaison multi-fournisseurs, et la formulation la plus dure du corpus - 'avoir un AVV ne suffit pas: verifier ou sont les serveurs, quelle entite contracte, et que l'opt-out d'entrainement est explicite' (W3).",
+      "evidence_quality": "haute mais volatile",
+      "priority": 1
+    },
+    {
+      "item": "Jagged Frontier quantifie: medaille d'or a l'olympiade de mathematiques mais moins de 51% de justesse sur ClockBench (lecture d'horloge analogique)",
+      "weeks": ["W2"],
+      "classification": "STRENGTHEN_EXISTING",
+      "target": "evl-jagged-frontier",
+      "rationale": "RESOUT une question laissee ouverte le 27.08: la fiche avait ete redigee depuis Toolkit_Matiere_Premiere parce que le concept restait introuvable dans la page Notion W2. L'extraction W2 le contient, avec un ancrage chiffre et une source nommee (AI Index 2026). Le champ sources: 'Notebook W2' est donc correct.",
+      "evidence_quality": "haute",
+      "priority": 1
+    },
+    {
+      "item": "3C = Character, Context, Command (role/identite, contexte metier, action + format attendu). Omettre le contexte ou le role produit une sortie generique et stereotypee.",
+      "weeks": ["W2"],
+      "classification": "STRENGTHEN_EXISTING",
+      "target": "prm-3c",
+      "rationale": "RESOUT le desaccord signale le 27.08. Le materiel de cours (W2T1 slides + 'Was haben wir gelernt' + quiz Q-2112) definit 3C comme Character/Context/Command. La variante 'Contexte + Commande + Contrainte' du glossaire Notion FR est une note de traduction, pas la definition du cours. Le paragraphe de desaccord dans le corps peut etre reduit a une note.",
+      "evidence_quality": "haute - definition + quiz + slides",
+      "priority": 1
+    },
+    {
+      "item": "Les quatre profils de choix d'outil (non-technique: Lovable/Bolt; technique qui aime coder: Windsurf/Cursor; technique sans coder: Replit/Tempo/Bolt; non-technique oriente produit: Tempo)",
+      "weeks": ["W4"],
+      "classification": "STRENGTHEN_EXISTING",
+      "target": "evl-profil-utilisateur",
+      "rationale": "RESOUT une question du 27.08. Les 4 profils sont bien dans le materiel W4 (W4T1_Support_Cours_Presentation), meme s'ils sont absents de la page Notion W4. Le champ sources est correct. La fiche actuelle repose sur l'echelle a 2 niveaux; les 4 profils sont plus fins.",
+      "evidence_quality": "haute",
+      "priority": 1
+    },
+    {
+      "item": "Impressum + Datenschutz avant tout hebergement public (note de gouvernance attachee au prompt de page portfolio W4T1)",
+      "weeks": ["W4"],
+      "classification": "STRENGTHEN_EXISTING",
+      "target": "gov-hebergement-public",
+      "rationale": "RESOUT une question du 27.08. Le point est bien dans le materiel W4, formule ainsi: ne pas publier via un hebergement statique tant que mentions legales et politique de confidentialite ne sont pas integrees. Le champ sources est correct.",
+      "evidence_quality": "moyenne - une note de gouvernance, pas un developpement",
+      "priority": 2
+    },
+    {
+      "item": "Vecteurs de securite MCP: injection indirecte de prompt, tool poisoning, rug pulls (46%), controle d'acces et gestion des credentials (40%), isolation runtime (36%)",
+      "weeks": ["W5", "W7"],
+      "classification": "STRENGTHEN_EXISTING",
+      "target": "bld-garde-fous-agents",
+      "rationale": "Les huit garde-fous encadrent ce que l'agent PEUT faire. Ils ne disent rien du fait qu'un standard qui unifie l'acces aux outils unifie aussi la surface d'attaque: un registre d'outils est une chaine d'approvisionnement. Formuler le principe sans dependre du nom MCP (test de durabilite).",
+      "evidence_quality": "haute - Docker white paper, 805 praticiens",
+      "priority": 2
+    },
+    {
+      "item": "Row Level Security / isolation par locataire: la regle d'acces s'applique au niveau de la donnee, meme si le code applicatif a un bug",
+      "weeks": ["W4"],
+      "classification": "STRENGTHEN_EXISTING",
+      "target": "bld-garde-fous-agents",
+      "rationale": "Principe transferable et lisible par un non-ingenieur: 'appliquer le controle d'acces a la couche donnee, pas seulement dans l'application'. Complete le garde-fou 4 (controle d'acces strict) qui reste aujourd'hui declaratif.",
+      "evidence_quality": "moyenne-haute",
+      "priority": 3
+    },
+    {
+      "item": "Filtre de donnees cote backend avant tout appel a une API IA externe: anonymisation PII, regles metier bloquant financier/medical, credentials cote serveur uniquement",
+      "weeks": ["W4"],
+      "classification": "STRENGTHEN_EXISTING",
+      "target": "bld-discover-do-escalate",
+      "rationale": "Donne au pattern Discover/Do/Escalate son point de controle manquant: ce qui sort du perimetre avant meme d'atteindre le modele. Complementaire, non redondant.",
+      "evidence_quality": "haute",
+      "priority": 2
+    },
+    {
+      "item": "Make or Buy: duree de vie de l'actif comme regle de decision. Ephemere (48h de vie) -> Make. Actif de marque durable -> Buy ou hybride.",
+      "weeks": ["W3"],
+      "classification": "STRENGTHEN_EXISTING",
+      "target": "evl-make-or-buy",
+      "rationale": "Meme regle que la fiche, formulee plus nettement ('48h shelf life'). Renforcement mineur; la fiche est deja juste.",
+      "evidence_quality": "haute",
+      "priority": 3
+    },
+    {
+      "item": "Cout d'orchestration: n8n facture a l'execution de workflow, Make facture a l'etape - decisif dans une boucle",
+      "weeks": ["W5"],
+      "classification": "STRENGTHEN_EXISTING",
+      "target": "bld-orchestration",
+      "rationale": "La fiche bld-orchestration a un summary qui promet un arbitrage latence/cout parallele-vs-sequentiel introuvable dans les sources (voir claims_requiring_verification). Ce point-ci est le seul arbitrage de cout d'orchestration reellement source du corpus - et c'est un critere de decision, pas une liste de fonctionnalites.",
+      "evidence_quality": "moyenne - une source, et lie a des produits nommes (durabilite limitee)",
+      "priority": 2
+    },
+    {
+      "item": "Deploiement par paliers: assistant personnel -> agent metier connecte a actions supervisees -> orchestrateur multi-agents avec HITL sur les points de contact client. Jamais de 'super agent' direct.",
+      "weeks": ["W1", "W4", "W6"],
+      "classification": "STRENGTHEN_EXISTING",
+      "target": "gov-cycle-de-vie",
+      "rationale": "Trois semaines convergent (W1: commencer par un seul domaine; W4: 3 paliers; W6: optimiser des etapes en niche plutot que globalement). La fiche parle des etapes du cycle produit mais pas du rythme de deploiement.",
+      "evidence_quality": "haute - triple convergence",
+      "priority": 2
+    },
+
+    {
+      "item": "Definition du MCP (standard universel, 'USB-C de l'IA')",
+      "weeks": ["W1", "W3", "W4", "W5", "W7"],
+      "classification": "DUPLICATE_LOW_VALUE",
+      "target": null,
+      "rationale": "Cinq definitions quasi identiques sur sept semaines. Materiau de glossaire, pas de fiche. Seul l'angle securite (ci-dessus) apporte quelque chose.",
+      "priority": null
+    },
+    {
+      "item": "Definition du RAG (embeddings, base vectorielle, recherche par similarite)",
+      "weeks": ["W1", "W2", "W5", "W7"],
+      "classification": "DUPLICATE_LOW_VALUE",
+      "target": "PROPOSED:evl-prompt-rag-finetune",
+      "rationale": "La definition seule est du glossaire. Elle ne devient un actif de Toolkit qu'a l'interieur de la regle de sequencement.",
+      "priority": null
+    },
+    {
+      "item": "Fondamentaux ML: Transformer, self-attention, tokens, embeddings, hidden layers, supervised/unsupervised, RLHF, AlexNet, GPU",
+      "weeks": ["W1", "W2"],
+      "classification": "DUPLICATE_LOW_VALUE",
+      "target": null,
+      "rationale": "Hors criteres du Toolkit (business-oriented, comprehensible par un non-ingenieur). Exclusion deja actee dans Toolkit_Matiere_Premiere pour W1 Tag1/2/3/5.",
+      "priority": null
+    },
+    {
+      "item": "SKAOS (Subjekt, Komposition, Aktion, Ort, Stil), reglages Kinolook, formule Adobe Firefly, prompting temporel video, prompting emotionnel TTS",
+      "weeks": ["W3"],
+      "classification": "DUPLICATE_LOW_VALUE",
+      "target": null,
+      "rationale": "Craft de production media. SKAOS est structurellement 3C en costume image - l'ajouter dupliquerait prm-3c. Releverait d'une annexe creative separee si elle en veut une un jour.",
+      "priority": null
+    },
+    {
+      "item": "Comparatif de fonctionnalites Zapier / Make / n8n, frameworks LangChain / CrewAI / AutoGen / Swarm, catalogue d'outils video et image",
+      "weeks": ["W3", "W5"],
+      "classification": "DUPLICATE_LOW_VALUE",
+      "target": null,
+      "rationale": "Listes d'outils sans cadre de decision - explicitement sur la liste d'evitement du projet. Exception retenue: la mecanique de facturation n8n vs Make, qui est un critere.",
+      "priority": null
+    },
+    {
+      "item": "Horizon technologique: informatique quantique (Willow), robots humanoides, NVIDIA Omniverse, Liquid Neural Networks, Mixture-of-Experts, IA neurosymbolique, Gartner Hype Cycle",
+      "weeks": ["W6"],
+      "classification": "DUPLICATE_LOW_VALUE",
+      "target": null,
+      "rationale": "Culture generale. Le Hype Cycle en particulier est du conseil generique - la seule regle exploitable ('entrer sur la pente de l'illumination') ne justifie pas une fiche.",
+      "priority": null
+    },
+    {
+      "item": "Plomberie web: API, CRUD, JWT, REST, sessions vs tokens, auto-scaling, types de donnees",
+      "weeks": ["W4"],
+      "classification": "DUPLICATE_LOW_VALUE",
+      "target": null,
+      "rationale": "27 questions de quiz sur du developpement web. Aucun levier de decision pour un AI Manager.",
+      "priority": null
+    },
+    {
+      "item": "Verbalized Sampling (arxiv:2510.01171) contre le mode collapse",
+      "weeks": ["W2"],
+      "classification": "DUPLICATE_LOW_VALUE",
+      "target": null,
+      "rationale": "Technique interessante et sourcee, mais c'est un procede de generation, pas un principe de management. A garder en note si une annexe 'techniques avancees' apparait.",
+      "priority": null
+    },
+
+    {
+      "item": "Dates d'application EU AI Act pour le haut risque",
+      "weeks": ["W7"],
+      "classification": "QUESTIONABLE_OUTDATED_CONFLICTING",
+      "target": "PROPOSED:gov-ai-act-risques",
+      "rationale": "W7 se contredit lui-meme: slides de juillet 2026 (Digital-Omnibus 2026/1744) donnent Annexe III au 02.12.2027 et Annexe I au 02.08.2028; des sources plus anciennes du meme notebook donnent le 02.08.2027. Une autre slide precise que le Digital Omnibus n'est pas definitivement adopte. Toolkit_Matiere_Premiere avait deja signale le meme flottement.",
+      "action": "Ne citer aucune date ferme. Formuler en principe: la classification determine les obligations, le calendrier d'application est en mouvement.",
+      "priority": 1
+    },
+    {
+      "item": "Statut de Sora 2 (annule vs actif)",
+      "weeks": ["W3"],
+      "classification": "QUESTIONABLE_OUTDATED_CONFLICTING",
+      "target": null,
+      "rationale": "W3 signale lui-meme la contradiction entre son glossaire et ses supports de cours.",
+      "action": "Ne pas citer.",
+      "priority": null
+    },
+    {
+      "item": "RAG rentable a partir de 50 documents",
+      "weeks": ["W5"],
+      "classification": "QUESTIONABLE_OUTDATED_CONFLICTING",
+      "target": null,
+      "rationale": "W5 qualifie lui-meme ce seuil de 'metrique business arbitraire non soutenue par la logique d'ingenierie'.",
+      "action": "Ne pas citer comme fait etabli.",
+      "priority": null
+    },
+    {
+      "item": "Cout d'entrainement de DeepSeek R1 (~5,6 M USD)",
+      "weeks": ["W1"],
+      "classification": "QUESTIONABLE_OUTDATED_CONFLICTING",
+      "target": null,
+      "rationale": "W1 enregistre la contestation de Demis Hassabis: chiffre 'exagere et trompeur' car il ne couvre que le run final.",
+      "action": "Ne citer qu'avec la contestation attachee, ou pas du tout.",
+      "priority": null
+    },
+    {
+      "item": "Gains de productivite: 14-26% en CX (Stanford HAI) vs jusqu'a +200% d'output en generation de code",
+      "weeks": ["W6"],
+      "classification": "QUESTIONABLE_OUTDATED_CONFLICTING",
+      "target": "PROPOSED:enb-trust-gap",
+      "rationale": "W6 signale explicitement ce conflit entre mesure globale et mesure locale.",
+      "action": "Conserver le conflit dans le corps de la fiche plutot que de choisir un chiffre.",
+      "priority": 2
+    },
+    {
+      "item": "Noms et versions de modeles (Fable 5 / Mythos 5, Opus 4.8, Sonnet 4.6, GPT-5.4/5.5, Mistral Large 3), prix API, fenetres de contexte",
+      "weeks": ["W1", "W2", "W3", "W6"],
+      "classification": "QUESTIONABLE_OUTDATED_CONFLICTING",
+      "target": null,
+      "rationale": "W3 signale lui-meme que les specifications de Fable 5 ne sont documentees nulle part. Ces claims echouent au test de durabilite du projet: retirez le nom du produit et il ne reste rien.",
+      "action": "Exclure integralement du Toolkit.",
+      "priority": null
+    },
+    {
+      "item": "Claims fournisseurs non sources: Cursor '+55% de velocite de code', Groq '18x plus rapide', Dell '85% des emplois de 2030 pas encore inventes'",
+      "weeks": ["W1", "W4", "W6"],
+      "classification": "QUESTIONABLE_OUTDATED_CONFLICTING",
+      "target": null,
+      "rationale": "Chiffres marketing ou statistiques largement contestees, sans methode citee.",
+      "action": "Exclure.",
+      "priority": null
+    },
+    {
+      "item": "Composants constants d'un agent - trois definitions incompatibles dans le corpus",
+      "weeks": ["W4", "W5", "W7"],
+      "classification": "QUESTIONABLE_OUTDATED_CONFLICTING",
+      "target": "bld-config-agent",
+      "rationale": "(a) Notion W5, legende du schema: System-Prompt + regles + skills + tools (4). (b) W5 quiz Q-5411 et W7: System Prompt + Toolbox + Agenda (3). (c) W5 quiz Q-5311: LLM + outils/API externes + orchestration (3). (d) W4: 8 briques d'un agent de code (LLM, embeddings, retriever, tools, UI, orchestrateur, MCP, rules). W5 tranche explicitement: 'Keep both definitions distinct; do not merge or normalize.'",
+      "action": "Ne pas normaliser. Le titre actuel 'four constant ingredients' presuppose une reponse que les sources ne donnent pas.",
+      "priority": 1
+    },
+    {
+      "item": "Handshake classifie sur 6 dimensions HLEG; W7 parle de SEPT principes des lignes directrices EU",
+      "weeks": ["W7"],
+      "classification": "QUESTIONABLE_OUTDATED_CONFLICTING",
+      "target": "cas-handshake",
+      "rationale": "Le README Handshake liste 6 dimensions (Human-Oversight, Robustness, Privacy, Transparency, Fairness, Accountability). Le quiz W7 enonce sept principes. Les sources W1-W7 ne les enumerent nulle part toutes les sept au meme endroit, donc le principe omis n'est pas determinable depuis ce corpus.",
+      "action": "A verifier a la source EU. Ne rien completer de memoire.",
+      "priority": 1
+    }
+  ],
+
+  "proposed_cards": [
+    {
+      "id": "gov-ai-act-risques",
+      "section": "governance",
+      "type": "principle",
+      "suggested_order": 12,
+      "working_title": "Classify by intended purpose, not by how alarming it sounds",
+      "what_it_solves": "Donne un instrument de triage partage pour decider si un cas d'usage est interdit, a haut risque, soumis a transparence, ou libre - et rappelle que l'obligation de competence (Art. 4) s'applique meme au niveau le plus bas.",
+      "when_to_use": "A l'ouverture de tout nouveau cas d'usage, avant l'analyse technique.",
+      "format": "principle, 4 sections, 120-200 mots",
+      "sources": ["Notebook W7", "Notebook W6", "Playbook AI Governance"],
+      "suggested_links": ["gov-jamais-vert", "gov-responsible-ai"],
+      "quiz_backing": 11,
+      "prompt_backing": "EU AI Act Use Case Checker V1.1 (W7T3) - prompt qu'elle a construit elle-meme",
+      "durability_test": "PASSE - aucun nom d'outil, cadre legal stable",
+      "caution": "Ne pas citer de date d'application (voir audit).",
+      "priority": 1
+    },
+    {
+      "id": "gov-raci-decision",
+      "section": "governance",
+      "type": "principle",
+      "suggested_order": 13,
+      "working_title": "One accountable per decision, and the works council comes early",
+      "what_it_solves": "Repond a 'qui decide' - la question que ni gov-cycle-de-vie (cycle produit) ni gov-boucle-cx (boucle signal) ne traitent.",
+      "when_to_use": "Au demarrage d'un projet IA en entreprise, et a chaque changement d'usage prevu.",
+      "format": "principle + un visuel RACI",
+      "sources": ["Notebook W7", "Playbook AI Governance"],
+      "suggested_links": ["gov-cycle-de-vie", "gov-responsible-ai"],
+      "durability_test": "PASSE",
+      "differentiator": "Le point Betriebsrat (par.87 BetrVG) est la cause d'echec la plus citee en cours pour un chatbot interne, avant meme la protection des donnees. Tres peu de toolkits le portent.",
+      "priority": 1
+    },
+    {
+      "id": "prm-single-shot",
+      "section": "prompts",
+      "type": "principle",
+      "suggested_order": 4,
+      "working_title": "A single-shot prompt has no second chance",
+      "what_it_solves": "Dit quand un prompt peut entrer dans un workflow automatise et quand il doit rester conversationnel.",
+      "when_to_use": "Avant d'industrialiser un prompt qui marchait en chat.",
+      "format": "principle",
+      "sources": ["Notebook W2"],
+      "suggested_links": ["prm-3c", "bld-gate-zero"],
+      "quiz_backing": 3,
+      "durability_test": "PASSE",
+      "priority": 1
+    },
+    {
+      "id": "evl-prompt-rag-finetune",
+      "section": "evaluation",
+      "type": "principle",
+      "suggested_order": 5,
+      "working_title": "Prompt first, RAG second, fine-tuning last",
+      "what_it_solves": "Cadre de decision sur quoi optimiser et dans quel ordre, avec la distinction qui evite l'erreur la plus couteuse: le fine-tuning n'ajoute pas de faits.",
+      "when_to_use": "Quand quelqu'un propose de fine-tuner un modele pour lui apprendre le catalogue produit.",
+      "format": "principle + un visuel a deux axes (ce que le modele doit SAVOIR / comment il doit AGIR)",
+      "sources": ["Notebook W2", "Notebook W5", "Notebook W7"],
+      "suggested_links": ["gov-anti-hallucination", "prm-3c"],
+      "quiz_backing": 5,
+      "durability_test": "PASSE",
+      "evidence_note": "Seul framework du corpus corrobore par trois semaines independantes.",
+      "priority": 1
+    },
+    {
+      "id": "gov-prompt-attaques",
+      "section": "governance",
+      "type": "principle",
+      "suggested_order": 14,
+      "working_title": "Injection, leaking, jailbreak - three attacks, one discipline",
+      "what_it_solves": "Nomme les trois vecteurs et pose la regle: aucune contre-mesure ne donne 100%, c'est de la gestion de risque continue et non un correctif ponctuel.",
+      "when_to_use": "Des qu'un systeme accepte du texte utilisateur et dispose d'un acces.",
+      "format": "principle",
+      "sources": ["Notebook W2"],
+      "suggested_links": ["bld-garde-fous-agents", "gov-anti-hallucination"],
+      "quiz_backing": 2,
+      "evidence": "Campagne GTG-1002 (Anthropic Threat Intelligence)",
+      "durability_test": "PASSE",
+      "priority": 2
+    },
+    {
+      "id": "prm-equite-prompt",
+      "section": "prompts",
+      "type": "principle",
+      "suggested_order": 5,
+      "working_title": "Bias enters through the prompt, not only through the data",
+      "what_it_solves": "Couvre l'entree, la ou gov-equite-segment couvre la sortie. Inclut le biais de traduction: la logique interne des modeles est anglophone.",
+      "when_to_use": "Redaction de prompts touchant des personnes (recrutement, evaluation, recommandation, redaction RH).",
+      "format": "principle",
+      "sources": ["Notebook W7", "Notebook W3"],
+      "suggested_links": ["gov-equite-segment", "prm-3c"],
+      "prompt_backing": "Verwirrungstaktik / confusion prompting (W7T1)",
+      "durability_test": "PASSE",
+      "priority": 2
+    },
+    {
+      "id": "enb-trust-gap",
+      "section": "enablement (SECTION NOUVELLE)",
+      "type": "principle",
+      "suggested_order": 1,
+      "working_title": "Trust outruns capability, and the dip is not a failure",
+      "what_it_solves": "Explique pourquoi la qualite de service baisse juste apres un deploiement IA, et pose l'Enablement comme la fonction qui ramene les attentes au niveau des capacites reelles.",
+      "when_to_use": "Justifier le role, cadrer un deploiement, desamorcer une deception post-lancement.",
+      "format": "principle + l'infographie AI Trust Gap deja generee (W6 Studio)",
+      "sources": ["Notebook W6", "Notebook W3", "Notebook W1"],
+      "suggested_links": ["gov-cycle-de-vie", "gov-boucle-cx"],
+      "quiz_backing": 3,
+      "architecture_note": "Le Toolkit n'a pas de section adoption/enablement. Trois semaines (W1, W3, W6) alimentent ce theme sans avoir ou se poser. C'est le seul endroit ou le materiau suggere une architecture differente de celle en place.",
+      "durability_test": "PASSE pour le mecanisme, ECHOUE pour les chiffres (dates, en conflit)",
+      "priority": 2
+    },
+    {
+      "id": "bld-spectre-autonomie",
+      "section": "build",
+      "type": "principle",
+      "suggested_order": 7,
+      "working_title": "Autonomy is the dial that sets every control",
+      "what_it_solves": "Nomme l'autonomie comme la variable qui determine le niveau de controle, et situe le seuil legal (passer de recommander a decider seul declenche l'Art. 22 RGPD).",
+      "when_to_use": "Design d'un agent, ou revue d'une demande d'augmentation d'autonomie.",
+      "format": "principle + un visuel de spectre",
+      "sources": ["Notebook W5", "Notebook W7"],
+      "suggested_links": ["bld-discover-do-escalate", "bld-garde-fous-agents"],
+      "alternative": "Repliable en renfort de bld-discover-do-escalate si l'architecture doit rester compacte.",
+      "durability_test": "PASSE",
+      "priority": 3
+    }
+  ],
+
+  "cards_to_strengthen": [
+    {"card": "prm-3c", "action": "Remplacer le paragraphe de desaccord par la definition canonique du cours (Character/Context/Command) + une note d'une ligne sur la variante FR du glossaire.", "source": "W2", "priority": 1},
+    {"card": "evl-jagged-frontier", "action": "Ajouter l'ancrage chiffre (IMO or / ClockBench < 51%) et la source AI Index 2026.", "source": "W2", "priority": 1},
+    {"card": "gov-regime-contractuel", "action": "Ajouter la regle W3: un AVV ne suffit pas - verifier ou sont les serveurs, quelle entite contracte, et que l'opt-out est explicite.", "source": "W1, W3", "priority": 1},
+    {"card": "evl-profil-utilisateur", "action": "Remonter de l'echelle a 2 niveaux vers les 4 profils sources W4, en gardant les critere-noms plutot que les noms d'outils.", "source": "W4", "priority": 2},
+    {"card": "bld-garde-fous-agents", "action": "Ajouter le principe de surface d'attaque du registre d'outils, et le controle d'acces a la couche donnee.", "source": "W4, W5, W7", "priority": 2},
+    {"card": "bld-discover-do-escalate", "action": "Ajouter le filtre backend avant appel externe (anonymisation PII, blocage financier/medical, credentials cote serveur) + citer SmartParts comme architecture de reference.", "source": "W4, W7", "priority": 2},
+    {"card": "gov-ip-brand-fit", "action": "Ajouter GEMA vs OpenAI (LG Muenchen I, 11.11.2025) comme premier jugement de principe europeen sur l'IA generative.", "source": "W7", "priority": 1},
+    {"card": "gov-cycle-de-vie", "action": "Ajouter le deploiement par paliers (assistant -> agent metier supervise -> orchestrateur multi-agents).", "source": "W1, W4, W6", "priority": 2},
+    {"card": "bld-orchestration", "action": "Remplacer l'arbitrage parallele/sequentiel non source par l'arbitrage de facturation reellement source (execution vs etape).", "source": "W5", "priority": 2},
+    {"card": "evl-make-or-buy", "action": "Preciser la duree de vie comme critere ('48h de vie' vs actif durable).", "source": "W3", "priority": 3},
+    {"card": "gov-hebergement-public", "action": "Confirmer le champ sources: le point est bien W4. Retirer la reserve de verification du rapport du 27.08.", "source": "W4", "priority": 2}
+  ],
+
+  "content_to_exclude": [
+    {"content": "Fondamentaux ML et histoire de l'IA (W1)", "reason": "Hors criteres du Toolkit; deja ecarte dans Toolkit_Matiere_Premiere."},
+    {"content": "Plomberie web: API, CRUD, JWT, REST, scaling (W4)", "reason": "Aucun levier de decision pour un AI Manager."},
+    {"content": "Craft de production media: SKAOS, Kinolook, formule Firefly, prompting TTS emotionnel (W3)", "reason": "SKAOS duplique prm-3c en costume image. Relevererait d'une annexe creative separee."},
+    {"content": "Horizon technologique: quantique, robots humanoides, Omniverse, MoE, LNN, neurosymbolique (W6)", "reason": "Culture generale, faible valeur operationnelle."},
+    {"content": "Gartner Hype Cycle (W6)", "reason": "Conseil generique - sur la liste d'evitement du projet."},
+    {"content": "Catalogues d'outils (Zapier/Make/n8n, LangChain/CrewAI/AutoGen/Swarm, outils video)", "reason": "Listes d'outils sans cadre de decision. Exception: la mecanique de facturation n8n vs Make."},
+    {"content": "Tous les noms/versions/prix de modeles", "reason": "Echouent au test de durabilite du projet."},
+    {"content": "Etudes de cas d'entreprises externes en tant que fiches type: case", "reason": "Les 3 fiches cas sont ses projets a elle - c'est le signal du portfolio. Les cas externes valent comme preuve citee dans une fiche principe, pas comme fiche autonome."},
+    {"content": "Prompts specifiques a une tache: MedGuide, page portfolio, prospection B2B, prompts video KherzMusic", "reason": "Utiles une fois, non reutilisables entre entreprises."}
+  ],
+
+  "claims_requiring_verification": [
+    {"claim": "Dates d'application EU AI Act (Annexe III / Annexe I) et statut du Digital Omnibus", "where": "PROPOSED:gov-ai-act-risques", "why": "W7 se contredit lui-meme et signale que l'Omnibus n'est pas definitivement adopte.", "action": "Verifier a la source EUR-Lex avant publication."},
+    {"claim": "Le septieme principe des lignes directrices EU pour une IA digne de confiance", "where": "cas-handshake, gov-responsible-ai", "why": "W7 dit sept, Handshake en implemente six. Le corpus W1-W7 ne les enumere jamais toutes les sept.", "action": "Verifier a la source EU HLEG. Ne rien completer de memoire."},
+    {"claim": "Politique d'entrainement par fournisseur (ChatGPT, Claude, Gemini, Mistral)", "where": "gov-regime-contractuel", "why": "Champ verified.scope_limit deja marque 'politiques fournisseurs volatiles'.", "action": "Revérifier a chaque publication."},
+    {"claim": "Gains de productivite CX 14-26%", "where": "PROPOSED:enb-trust-gap", "why": "En conflit signale avec des mesures de +200% sur la generation de code.", "action": "Citer le conflit, pas un chiffre unique."},
+    {"claim": "Nombre de comptes de test Handshake (9-11 vs 12)", "where": "cas-handshake, gov-equite-segment", "why": "README 19.08 dit 9-11, Playbook dit 12, frontmatter dit 12. Non tranchable depuis W1-W7.", "action": "Trancher a la source Notion Governance Signals."},
+    {"claim": "Verdict StackFit sur Handshake (Fit / 3 correctifs vs Fit with conditions / 4 correctifs)", "where": "cas-stackfit, gov-double-test", "why": "Project Log et README 19.08 divergent. Non tranchable depuis W1-W7.", "action": "Trancher a la source, ou assumer le desaccord dans le corps."},
+    {"claim": "Composants constants d'un agent (3 variantes incompatibles)", "where": "bld-config-agent", "why": "W5 demande explicitement de ne pas normaliser.", "action": "Reformuler le titre de la fiche, qui presuppose 'quatre'."},
+    {"claim": "768 -> 1536 dimensions d'embedding: calcul double pour 3-5% de gain", "where": "non utilise", "why": "Present dans Toolkit_Matiere_Premiere, non corrobore dans l'extraction W5.", "action": "Ne pas citer sans verification."}
+  ]
+}

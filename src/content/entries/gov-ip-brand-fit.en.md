@@ -31,6 +31,8 @@ Before adopting a consumer creative tool for professional output, rights and bra
 
 A free tier typically grants no commercial rights and watermarks its output, which makes it unpublishable professionally. Rights attach at generation: content produced under an active paid plan keeps its commercial rights afterwards, but that has to be provable. Brand fit fails differently — a tool with a strong stylistic default drifts toward it despite explicit instructions to the contrary.
 
+The exposure is no longer only contractual. In GEMA v OpenAI (LG München I, 11 November 2025), the first ruling of principle in Europe on generative AI, a court found OpenAI liable for the unlicensed use and reproduction of protected song lyrics inside its model. A licence clause is something to read before signing; a judgment is something already decided against a provider.
+
 ## How to apply it
 
 - Check licence and commercial rights before generating, not before publishing.

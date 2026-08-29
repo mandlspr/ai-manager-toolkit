@@ -39,3 +39,5 @@ The jaggedness breaks the transfer of trust. A model that performs impressively 
 - Expect surprises at the low end of difficulty as often as at the high end.
 
 ## Point of caution
+
+The canonical illustration has a number attached: a model can take gold at the International Mathematical Olympiad and still score below 51 % on ClockBench, reading an analogue clock (AI Index 2026). The gap is not a rounding error — it is most of the task.

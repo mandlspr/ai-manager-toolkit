@@ -1,0 +1,2156 @@
+{
+  "metadata": {
+    "file": "quiz_global.json",
+    "project": "AI Manager Toolkit",
+    "generated": "2026-08-29",
+    "purpose": "Diagnostic de couverture. Chaque question est rattachee a une fiche existante, a une fiche proposee, ou marquee (unmapped).",
+    "provenance_scheme": {
+      "original": "Question reprise verbatim d'une extraction W1-W7. C'est le seul type present dans ce fichier.",
+      "source_derived": "Question reformulee a partir d'un contenu source non presente sous forme de question. AUCUNE dans ce fichier.",
+      "newly_derived": "Question ecrite pour combler un trou. AUCUNE dans ce fichier - regle 'ne pas fabriquer de volume' respectee."
+    },
+    "selection_rule": "Retenue si la question teste un concept rattachable a une section du Toolkit (governance, prompts, build, evaluation, cases) ou a un manque identifie. Exclue si elle porte sur des fondamentaux ML, de la plomberie web, de l'histoire de l'IA, ou de la mecanique d'outils creatifs."
+  },
+  "counts": {
+    "retained_total": 96,
+    "available_total": 243,
+    "retained_by_week": {
+      "W1": 9,
+      "W2": 29,
+      "W3": 9,
+      "W5": 22,
+      "W6": 11,
+      "W7": 13,
+      "W4": 3
+    },
+    "available_by_week": {
+      "W1": 47,
+      "W2": 47,
+      "W3": 50,
+      "W4": 30,
+      "W5": 32,
+      "W6": 24,
+      "W7": 13
+    }
+  },
+  "coverage_diagnostic": {
+    "cards_with_quiz_coverage": {
+      "bld-config-agent": 8,
+      "bld-discover-do-escalate": 1,
+      "bld-gate-zero": 9,
+      "evl-benchmarks": 4,
+      "evl-profil-utilisateur": 2,
+      "gov-anti-hallucination": 1,
+      "gov-cycle-de-vie": 2,
+      "gov-datasheet-dataset": 2,
+      "gov-ip-brand-fit": 4,
+      "gov-regime-contractuel": 2,
+      "gov-responsible-ai": 5,
+      "prm-3c": 5,
+      "prm-debug-agent": 1,
+      "prm-lost-in-the-middle": 1
+    },
+    "cards_with_zero_quiz_coverage": [
+      "bld-debug-export",
+      "bld-garde-fous-agents",
+      "bld-orchestration",
+      "cas-handshake",
+      "cas-stackfit",
+      "cas-suno",
+      "evl-jagged-frontier",
+      "evl-make-or-buy",
+      "gov-boucle-cx",
+      "gov-double-test",
+      "gov-equite-segment",
+      "gov-hebergement-public",
+      "gov-jamais-vert"
+    ],
+    "proposed_cards_backed_by_quiz": {
+      "PROPOSED:bld-spectre-autonomie": 1,
+      "PROPOSED:enb-trust-gap": 3,
+      "PROPOSED:evl-prompt-rag-finetune": 5,
+      "PROPOSED:gov-ai-act-risques": 11,
+      "PROPOSED:gov-prompt-attaques": 2,
+      "PROPOSED:prm-equite-prompt": 1,
+      "PROPOSED:prm-single-shot": 3
+    },
+    "unmapped_questions": 23,
+    "reading": [
+      "La section prompts est la plus testee du cursus (W2) et la moins construite du Toolkit (3 fiches).",
+      "La section governance compte 11 fiches mais aucune ne couvre l'EU AI Act, qui represente la totalite du quiz W7.",
+      "Les fiches cas (cas-stackfit, cas-handshake, cas-suno) n'ont aucune couverture quiz par construction: ce sont des projets personnels, absents du materiel de cours."
+    ]
+  },
+  "excluded_by_design": [
+    {
+      "bloc": "W1 - fondamentaux ML et histoire de l'IA",
+      "approx_count": 32,
+      "reason": "Transformers, tokens, hidden layers, supervised/unsupervised, AlexNet, RLHF, Industrie 4.0/5.0. Hors critere 'business-oriented, comprehensible par des non-ingenieurs'. Deja ecarte dans Toolkit_Matiere_Premiere."
+    },
+    {
+      "bloc": "W4 - plomberie web (API, CRUD, JWT, REST, sessions, scaling, types de donnees)",
+      "approx_count": 27,
+      "reason": "Connaissances de developpement web, sans levier de decision pour un AI Manager."
+    },
+    {
+      "bloc": "W3 - mecanique des outils creatifs (diffusion, Midjourney parameters, lip-sync, TTS, ComfyUI, node-based)",
+      "approx_count": 41,
+      "reason": "Craft de production media. Releverait d'une annexe creative distincte, pas du Toolkit CX/gouvernance."
+    },
+    {
+      "bloc": "W6 - horizon technologique (quantique, robots humanoides, Hugging Face, MoE, LNN, neurosymbolique)",
+      "approx_count": 13,
+      "reason": "Culture generale a faible valeur operationnelle. Exclusion deja actee dans Toolkit_Matiere_Premiere."
+    },
+    {
+      "bloc": "W2/W5 - questions redondantes entre elles",
+      "approx_count": 20,
+      "reason": "Meme concept teste 2 a 4 fois (precision des sorties, monitoring continu, definition d'API). Une seule occurrence retenue par concept."
+    }
+  ],
+  "questions": [
+    {
+      "id": "Q-W1-005",
+      "week": "W1",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W1T1_Q - Grundlagen und Einführung",
+      "concept_tested": "Kompetenzen eines KI-Managers",
+      "type": "Multiple Choice",
+      "question": "Q-1131: Welche Kompetenzen benötigt ein KI-Manager für die erfolgreiche Arbeit? (2 von 5 Antworten möglich)",
+      "options": [
+        "Die Fähigkeit zur kritischen Evaluation verschiedener KI-Technologien und ihrer Anwendungen",
+        "Die Kompetenz zur zielgruppengerechten Kommunikation komplexer KI-Themen",
+        "Die Programmierung neuronaler Netzwerke auf Expertenniveau",
+        "Die Wartung und Reparatur von KI-Hardware-Komponenten",
+        "Die detaillierte Kenntnis historischer Computersysteme"
+      ],
+      "correct_answer": [
+        "Die Fähigkeit zur kritischen Evaluation verschiedener KI-Technologien und ihrer Anwendungen",
+        "Die Kompetenz zur zielgruppengerechten Kommunikation komplexer KI-Themen"
+      ],
+      "explanation": "KI-Manager müssen sowohl technisches Verständnis als auch Kommunikationsfähigkeiten besitzen.",
+      "answer_status": "explicit",
+      "maps_to_card": "(unmapped)",
+      "toolkit_section": "positioning",
+      "diagnostic_note": "Aucune fiche ne couvre le profil de competence du role lui-meme."
+    },
+    {
+      "id": "Q-W1-004",
+      "week": "W1",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W1T1_Q - Grundlagen und Einführung",
+      "concept_tested": "Ethische Herausforderungen der KI-Entwicklung",
+      "type": "Multiple Choice",
+      "question": "Q-1121: Welche ethischen Herausforderungen sind im Kontext der KI-Entwicklung besonders relevant? (2 von 5 Antworten möglich)",
+      "options": [
+        "Der umfassende Schutz persönlicher Daten bei der Entwicklung und Anwendung von KI-Systemen",
+        "Die zunehmende Gefahr von Deepfakes und deren Einsatz zur gezielten Manipulation von Information",
+        "Die systematische Reduzierung der Produktionsgeschwindigkeit durch KI-gestützte Optimierungsprozesse",
+        "Die kontinuierliche Entwicklung neuer Programmiersprachen für maschinelles Lernen und Datenanalyse",
+        "Die steigenden Investitionskosten für KI-Hardware und deren Auswirkungen auf kleine Unternehmen"
+      ],
+      "correct_answer": [
+        "Der umfassende Schutz persönlicher Daten bei der Entwicklung und Anwendung von KI-Systemen",
+        "Die zunehmende Gefahr von Deepfakes und deren Einsatz zur gezielten Manipulation von Information"
+      ],
+      "explanation": "Die Unterrichtsmaterialien betonen besonders die Bedeutung des Datenschutzes und die Gefahren von Deepfakes als zentrale ethische Herausforderungen.",
+      "answer_status": "explicit",
+      "maps_to_card": "(unmapped)",
+      "toolkit_section": "governance",
+      "diagnostic_note": "Deepfakes: aucune fiche du Toolkit ne les couvre."
+    },
+    {
+      "id": "Q-W1-028",
+      "week": "W1",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W1T4Q - Praktische Einfühurung in Tools.pdf",
+      "concept_tested": "Einführungskonzept im Betrieb",
+      "type": "Single Choice",
+      "question": "Bei der Einführung von KI-Tools in einem Unternehmen empfiehlt sich welches Vorgehen?",
+      "options": [
+        "Die Einführung erfolgt zeitgleich in allen Unternehmensbereichen",
+        "Die Einführung beginnt mit einem ausgewählten Unternehmensbereich",
+        "Die Einführung wird von jeder Abteilung eigenständig koordiniert",
+        "Die Einführung richtet sich nach verfügbaren Personalressourcen"
+      ],
+      "correct_answer": "Die Einführung beginnt mit einem ausgewählten Unternehmensbereich",
+      "explanation": "Ein fokussierter Start ermöglicht die Sammlung von Erfahrungen und deren Übertragung.",
+      "answer_status": "explicit",
+      "maps_to_card": "gov-cycle-de-vie",
+      "toolkit_section": "governance",
+      "diagnostic_note": "Deploiement par paliers: converge avec le deploiement en 3 etapes de W4."
+    },
+    {
+      "id": "Q-W1-037",
+      "week": "W1",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W1T4Q - Praktische Einfühurung in Tools.pdf",
+      "concept_tested": "Team Adoption von KI-Systemen",
+      "type": "Single Choice",
+      "question": "Q-1412: Wie sollten KI-Systeme in Teams eingeführt werden?",
+      "options": [
+        "Durch zentrale Vorgabe der Nutzungszeiten",
+        "Durch Schulung von drei Teammitgliedern",
+        "Durch schrittweise Integration in Abläufe",
+        "Durch Festlegung täglicher Nutzungsquoten"
+      ],
+      "correct_answer": "Durch schrittweise Integration in Abläufe",
+      "explanation": "Die schrittweise Integration ermöglicht eine nachhaltige Adoption.",
+      "answer_status": "explicit",
+      "maps_to_card": "PROPOSED:enb-trust-gap",
+      "toolkit_section": "enablement",
+      "diagnostic_note": "Adoption progressive - materiau pour la fiche enablement proposee."
+    },
+    {
+      "id": "Q-W1-023",
+      "week": "W1",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W1T3_Q - Machine Learning, Deep Learning und neuronale Netze",
+      "concept_tested": "Kritischer Schritt im ML-Workflow",
+      "type": "Single Choice",
+      "question": "Q-1351: Welcher Schritt ist im Machine Learning Workflow besonders kritisch für die Modellqualität?",
+      "options": [
+        "Die technische Implementation des gewählten Algorithmus in der Entwicklungsumgebung direkt",
+        "Die systematische Aufbereitung und Reinigung der verfügbaren Trainingsdaten vor dem Lernen",
+        "Die finale Bereitstellung des trainierten Modells auf der Produktionsinfrastruktur im System",
+        "Die kontinuierliche Überwachung der Modellleistung während des Betriebs in der Anwendung"
+      ],
+      "correct_answer": "Die systematische Aufbereitung und Reinigung der verfügbaren Trainingsdaten vor dem Lernen",
+      "explanation": "Die Datenaufbereitung ist der kritischste Schritt im ML-Workflow, da die Qualität der Trainingsdaten direkt die Leistung des Modells bestimmt.",
+      "answer_status": "explicit",
+      "maps_to_card": "bld-gate-zero",
+      "toolkit_section": "build",
+      "diagnostic_note": "Preparation des donnees = etape la plus critique. Confirme Gate 0."
+    },
+    {
+      "id": "Q-W1-045",
+      "week": "W1",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W1T5Q - Grundlagenbegriffe und Tool.pdf",
+      "concept_tested": "Bedeutung der Datenqualität",
+      "type": "Single Choice",
+      "question": "Q-1543: Welche Rolle spielt Datenqualität im Kontext von KI-Anwendungen?",
+      "options": [
+        "Sie unterstützt die praktische Umsetzung definierter Projektanforderungen",
+        "Sie ermöglicht die formale Dokumentation durchgeführter Verarbeitungsschritte",
+        "Sie dient der technischen Validierung implementierter Systemkomponenten",
+        "Sie bildet die fundamentale Grundlage für zuverlässige Analysen und Vorhersagen"
+      ],
+      "correct_answer": "Sie bildet die fundamentale Grundlage für zuverlässige Analysen und Vorhersagen",
+      "explanation": "Die fundamentale Bedeutung der Datenqualität ist essentiell für zuverlässige KI-Anwendungen.",
+      "answer_status": "explicit",
+      "maps_to_card": "gov-datasheet-dataset",
+      "toolkit_section": "governance",
+      "diagnostic_note": "Qualite des donnees comme fondation. Confirme 'no AI governance without data governance'."
+    },
+    {
+      "id": "Q-W1-030",
+      "week": "W1",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W1T4Q - Praktische Einfühurung in Tools.pdf",
+      "concept_tested": "KI-gestützte Datenanalyse",
+      "type": "Multiple Choice",
+      "question": "Q-1431: Welche Schritte sind bei der KI-gestützten Analyse von Daten notwendig? (2 von 5 Antworten sind richtig)",
+      "options": [
+        "Erstellung eines Analyseplans mit definierten Zielen",
+        "Durchführung der Analyse in einem Arbeitsschritt",
+        "Überprüfung der Ergebnisse mit Domänenexperten",
+        "Einsatz von fünf verschiedenen KI-Werkzeugen",
+        "Verarbeitung aller verfügbaren Datenquellen"
+      ],
+      "correct_answer": [
+        "Erstellung eines Analyseplans mit definierten Zielen",
+        "Überprüfung der Ergebnisse mit Domänenexperten"
+      ],
+      "explanation": "Planung und Validierung sind zentrale Elemente einer fundierten Analyse.",
+      "answer_status": "explicit",
+      "maps_to_card": "gov-responsible-ai",
+      "toolkit_section": "governance",
+      "diagnostic_note": "Validation par experts du domaine = HITL."
+    },
+    {
+      "id": "Q-W1-035",
+      "week": "W1",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W1T4Q - Praktische Einfühurung in Tools.pdf",
+      "concept_tested": "Workflow für komplexe Aufgaben",
+      "type": "Single Choice",
+      "question": "Q-1433: Wie sollten komplexe KI-Aufgaben bearbeitet werden?",
+      "options": [
+        "Durch Bearbeitung innerhalb eines Zeitblocks",
+        "Durch Aufteilung in definierte Teilaufgaben",
+        "Durch Einsatz mehrerer KI-Systeme parallel",
+        "Durch Vorgabe technischer Lösungswege"
+      ],
+      "correct_answer": "Durch Aufteilung in definierte Teilaufgaben",
+      "explanation": "Die Aufteilung ermöglicht eine strukturierte und kontrollierte Bearbeitung.",
+      "answer_status": "explicit",
+      "maps_to_card": "prm-3c",
+      "toolkit_section": "prompts",
+      "diagnostic_note": "Decoupage en sous-taches = prompt chaining."
+    },
+    {
+      "id": "Q-W1-033",
+      "week": "W1",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W1T4Q - Praktische Einfühurung in Tools.pdf",
+      "concept_tested": "Qualitätssicherung bei KI-Ausgaben",
+      "type": "Single Choice",
+      "question": "Q-1452: Wie lässt sich die Qualität von KI-Ergebnissen sicherstellen?",
+      "options": [
+        "Durch Erhöhung der Rechenleistung pro Aufgabe",
+        "Durch Einsatz von drei Kontrollinstanzen",
+        "Durch Abgleich mit definierten Qualitätszielen",
+        "Durch Verdopplung der Bearbeitungszeit"
+      ],
+      "correct_answer": "Durch Abgleich mit definierten Qualitätszielen",
+      "explanation": "Die Orientierung an definierten Zielen ermöglicht eine objektive Bewertung.",
+      "answer_status": "explicit",
+      "maps_to_card": "evl-benchmarks",
+      "toolkit_section": "evaluation",
+      "diagnostic_note": "Evaluer contre des objectifs de qualite definis, pas dans l'absolu."
+    },
+    {
+      "id": "Q-W2-002",
+      "week": "W2",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W2T1Q_Score_Grundlagen PE.pdf [Q-2112]",
+      "concept_tested": "Prompt Structure / 3C Framework",
+      "type": "Multiple Choice",
+      "question": "Welche grundlegenden Elemente enthält ein gut strukturierter Prompt?",
+      "options": [
+        "Syntax, System, Skalierung der Parameter",
+        "Input, Output, Fehlerbehandlung der Daten",
+        "Rolle, Kontext, konkrete Handlungsanweisung",
+        "Format, Funktion, Fehlertoleranzen"
+      ],
+      "correct_answer": "Rolle, Kontext, konkrete Handlungsanweisung",
+      "explanation": "Ein effektiver Prompt definiert typischerweise die Rolle des KI-Systems, den relevanten Kontext und eine konkrete Handlungsanweisung. Diese drei Komponenten bilden das 3C-Framework (Character, Context, Command).",
+      "answer_status": "Explicit",
+      "maps_to_card": "prm-3c",
+      "toolkit_section": "prompts",
+      "diagnostic_note": "RESOUT le conflit: le cours definit 3C = Character, Context, Command."
+    },
+    {
+      "id": "Q-W2-009",
+      "week": "W2",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W2T1Q_Score_Grundlagen PE.pdf [Q-2113]",
+      "concept_tested": "Role Prompting / Character definition",
+      "type": "Multiple Choice",
+      "question": "Warum ist die Definition einer KI-Rolle im Prompt wichtig?",
+      "options": [
+        "Zur Verbesserung der Recheneffizienz",
+        "Zur Fokussierung der KI-Antworten",
+        "Zur Reduktion der Tokenanzahl",
+        "Zur Optimierung der Laufzeit"
+      ],
+      "correct_answer": "Zur Fokussierung der KI-Antworten",
+      "explanation": "Eine definierte Rolle hilft dem KI-System, Antworten im richtigen Kontext und mit passender Perspektive zu generieren. Dies ist ein zentrales Element des 3C-Frameworks.",
+      "answer_status": "Explicit",
+      "maps_to_card": "prm-3c",
+      "toolkit_section": "prompts",
+      "diagnostic_note": ""
+    },
+    {
+      "id": "Q-W2-033",
+      "week": "W2",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W2T4Q_Score_Mastery of Advanced Prompt Engineering Techniques [Q-2421]",
+      "concept_tested": "Role Prompting effectiveness",
+      "type": "Multiple Choice",
+      "question": "Welche der folgenden Beschreibungen stellt die effektivste Verwendung von Role Prompting dar?",
+      "options": [
+        "Als allgemeiner KI-Assistent unterstütze ich dich bei der detaillierten Analyse und Aufbereitung der vorliegenden Datensätze.",
+        "Als Data Science Experte für Zeitreihenanalysen in der Finanzbranche untersuche ich die präsentierten Daten nach Branchenstandards.",
+        "Als erfahrener Datenanalyst mit umfassender Expertise in statistischen Methoden führe ich die gewünschte Untersuchung durch.",
+        "Als zertifizierter Business Intelligence Spezialist mit Fokus auf Predictive Analytics erstelle ich die angeforderte Auswertung."
+      ],
+      "correct_answer": "Als Data Science Experte für Zeitreihenanalysen in der Finanzbranche untersuche ich die präsentierten Daten nach Branchenstandards.",
+      "explanation": "Die korrekte Antwort demonstriert die Schlüsselelemente effektiven Role Promptings: Sie definiert eine spezifische Expertise, einen konkreten Fachbereich und relevante Domäne.",
+      "answer_status": "Explicit",
+      "maps_to_card": "prm-3c",
+      "toolkit_section": "prompts",
+      "diagnostic_note": "Un role specifique (domaine + expertise) bat un role generique."
+    },
+    {
+      "id": "Q-W2-010",
+      "week": "W2",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W2T1Q_Score_Grundlagen PE.pdf [Q-2114]",
+      "concept_tested": "Prompt Success Elements",
+      "type": "Multiple Choice (Select 2)",
+      "question": "Was sind zentrale Elemente erfolgreicher Prompts?",
+      "options": [
+        "Technische Systemspezifikationen",
+        "Klare Handlungsanweisungen",
+        "Detaillierte Modellparameter",
+        "Spezifische Ausgabeformate"
+      ],
+      "correct_answer": [
+        "Klare Handlungsanweisungen",
+        "Spezifische Ausgabeformate"
+      ],
+      "explanation": "Klare Handlungsanweisungen und spezifische Ausgabeformate sind entscheidend für erfolgreiche Prompts, unabhängig von technischen Details. Diese Elemente geben dem KI-System eine eindeutige Richtung.",
+      "answer_status": "Explicit",
+      "maps_to_card": "prm-3c",
+      "toolkit_section": "prompts",
+      "diagnostic_note": ""
+    },
+    {
+      "id": "Q-W2-003",
+      "week": "W2",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W2T1Q_Score_Grundlagen PE.pdf [Q-2121]",
+      "concept_tested": "In-Context Learning / Zero-Shot vs Few-Shot",
+      "type": "Multiple Choice",
+      "question": "Was unterscheidet Zero-Shot von Few-Shot Prompting?",
+      "options": [
+        "Die Verarbeitungsgeschwindigkeit der Anfragen",
+        "Die Verwendung von Beispielen in der Anfrage",
+        "Die maximale Länge der Eingabetexte",
+        "Die Art der verwendeten KI-Modelle"
+      ],
+      "correct_answer": "Die Verwendung von Beispielen in der Anfrage",
+      "explanation": "Der Hauptunterschied liegt in der Verwendung von Beispielen: Zero-Shot arbeitet ohne Beispiele, während Few-Shot Beispiele zur Verdeutlichung der gewünschten Ausgabe nutzt.",
+      "answer_status": "Explicit",
+      "maps_to_card": "(unmapped)",
+      "toolkit_section": "prompts",
+      "diagnostic_note": "Zero/Few-shot: non couvert par le Toolkit."
+    },
+    {
+      "id": "Q-W2-035",
+      "week": "W2",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W2T4Q_Score_Mastery of Advanced Prompt Engineering Techniques [Q-2121]",
+      "concept_tested": "Few-Shot utility",
+      "type": "Multiple Choice (Select 2)",
+      "question": "Warum ist Few-Shot Prompting eine wichtige Technik in der KI-Entwicklung?",
+      "options": [
+        "Es reduziert die Tokenanzahl im Vergleich zu Zero-Shot Prompting",
+        "Es führt zu einer deutlichen Verbesserung der Modellgenauigkeit",
+        "Es ermöglicht dem Modell, aus konkreten Beispielen zu lernen",
+        "Es ersetzt vollständig die Notwendigkeit von Modelltraining",
+        "Es funktioniert nur bei neueren KI-Modellen"
+      ],
+      "correct_answer": [
+        "Es führt zu einer deutlichen Verbesserung der Modellgenauigkeit",
+        "Es ermöglicht dem Modell, aus konkreten Beispielen zu lernen"
+      ],
+      "explanation": "Few-Shot Prompting ist effektiv, weil es dem Modell erlaubt, aus konkreten Beispielen zu lernen und dabei die Genauigkeit signifikant verbessert. Die Technik verbessert die Modellleistung durch das Lernen aus Beispielen, ohne dass ein vollständiges Training erforderlich ist.",
+      "answer_status": "Explicit",
+      "maps_to_card": "(unmapped)",
+      "toolkit_section": "prompts",
+      "diagnostic_note": ""
+    },
+    {
+      "id": "Q-W2-004",
+      "week": "W2",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W2T1Q_Score_Grundlagen PE.pdf [Q-2131]",
+      "concept_tested": "Chain-of-Thought reasoning",
+      "type": "Multiple Choice",
+      "question": "Welchen Zweck erfüllt Chain-of-Thought Prompting?",
+      "options": [
+        "Beschleunigung der Verarbeitungsgeschwindigkeit",
+        "Minimierung des Speicherbedarfs bei Anfragen",
+        "Strukturierte Darlegung des Lösungswegs",
+        "Automatisierung von Routineaufgaben"
+      ],
+      "correct_answer": "Strukturierte Darlegung des Lösungswegs",
+      "explanation": "Chain-of-Thought Prompting ermöglicht es KI-Systemen, Lösungswege schrittweise und nachvollziehbar darzulegen. Diese Methode zur systematischen Problemzerlegung hilft dabei, komplexe Aufgabenstellungen transparenter zu bewältigen.",
+      "answer_status": "Explicit",
+      "maps_to_card": "(unmapped)",
+      "toolkit_section": "prompts",
+      "diagnostic_note": "CoT: non couvert."
+    },
+    {
+      "id": "Q-W2-007",
+      "week": "W2",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W2T1Q_Score_Grundlagen PE.pdf [Q-2133]",
+      "concept_tested": "Tree of Thoughts",
+      "type": "Multiple Choice",
+      "question": "Was charakterisiert Tree of Thoughts Prompting?",
+      "options": [
+        "Lineare Abarbeitung von Aufgabenlisten",
+        "Verzweigte Exploration von Lösungswegen",
+        "Sequentielle Datenverarbeitung",
+        "Parallele Promptverarbeitung"
+      ],
+      "correct_answer": "Verzweigte Exploration von Lösungswegen",
+      "explanation": "Tree of Thoughts ermöglicht die verzweigte Exploration verschiedener Lösungswege, ähnlich einer Baumstruktur. Diese Methode zur systematischen Problemzerlegung erlaubt es dem KI-System, verschiedene Gedankenpfade zu verfolgen.",
+      "answer_status": "Explicit",
+      "maps_to_card": "(unmapped)",
+      "toolkit_section": "prompts",
+      "diagnostic_note": "Faible valeur operationnelle - candidat exclusion."
+    },
+    {
+      "id": "Q-W2-008",
+      "week": "W2",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W2T1Q_Score_Grundlagen PE.pdf [Q-2141]",
+      "concept_tested": "Prompt Chaining",
+      "type": "Multiple Choice",
+      "question": "Welchen Vorteil bietet Prompt Chaining?",
+      "options": [
+        "Reduzierung der Netzwerkauslastung",
+        "Aufteilung komplexer Aufgaben",
+        "Optimierung der Modellgröße",
+        "Verbesserung der Tokenisierung"
+      ],
+      "correct_answer": "Aufteilung komplexer Aufgaben",
+      "explanation": "Prompt Chaining ermöglicht die sinnvolle Aufteilung komplexer Aufgaben in handhabbare Teilschritte. Diese Technik verbessert die Qualität der Ergebnisse, indem sie die Ergebnisse jedes Schritts als Eingabe für nachfolgende Schritte weiterverarbeitet.",
+      "answer_status": "Explicit",
+      "maps_to_card": "(unmapped)",
+      "toolkit_section": "prompts",
+      "diagnostic_note": "Decoupage des taches complexes - non couvert."
+    },
+    {
+      "id": "Q-W2-006",
+      "week": "W2",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W2T1Q_Score_Grundlagen PE.pdf [Q-2151]",
+      "concept_tested": "Reverse Prompt Engineering",
+      "type": "Multiple Choice",
+      "question": "Was ist das Ziel von Reverse Prompt Engineering?",
+      "options": [
+        "Die analyse der technischen Modellarchitektur",
+        "Die Rekonstruktion erfolgreicher Prompts",
+        "Die Optimierung der Systemressourcen",
+        "Die Evaluation der Modellgenauigkeit"
+      ],
+      "correct_answer": "Die Rekonstruktion erfolgreicher Prompts",
+      "explanation": "Reverse Prompt Engineering zielt darauf ab, aus gegebenen Outputs die ursprünglichen, erfolgreichen Prompts zu rekonstruieren. Diese Technik ermöglicht es, effektive Prompt-Strukturen aus vorhandenen Ergebnissen abzuleiten.",
+      "answer_status": "Explicit",
+      "maps_to_card": "(unmapped)",
+      "toolkit_section": "prompts",
+      "diagnostic_note": "Reconstruire le prompt a partir d'un output existant."
+    },
+    {
+      "id": "Q-W2-005",
+      "week": "W2",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W2T1Q_Score_Grundlagen PE.pdf [Q-2132]",
+      "concept_tested": "Prompt Reuse & Standardization",
+      "type": "Multiple Choice",
+      "question": "Wozu dienen Prompt Templates in der Praxis?",
+      "options": [
+        "Zur Messung der Systemperformance",
+        "Zur Standardisierung bewährter Promptstrukturen",
+        "Zur Optimierung der Serverauslastung",
+        "Zur Automatisierung des Modeltrainings"
+      ],
+      "correct_answer": "Zur Standardisierung bewährter Promptstrukturen",
+      "explanation": "Prompt Templates dienen der standardisierten Wiederverwendung erfolgreicher Promptstrukturen in verschiedenen Anwendungsfällen. Sie bieten eine strukturierte Vorlage, die angepasst werden kann, um konsistente Ergebnisse zu erzielen.",
+      "answer_status": "Explicit",
+      "maps_to_card": "(unmapped)",
+      "toolkit_section": "prompts",
+      "diagnostic_note": "Templates de prompts = standardisation."
+    },
+    {
+      "id": "Q-W2-011",
+      "week": "W2",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W2T2Q_Score_Fundamentals of Generative AI and Prompt Engineering [Q-2211]",
+      "concept_tested": "System Prompt Function",
+      "type": "Multiple Choice",
+      "question": "Welche Hauptfunktion erfüllt ein System-Prompt im KI-Chat?",
+      "options": [
+        "Es steuert die Länge der Chat-Ausgaben",
+        "Es prüft die Eingaben im Chat-Verlauf",
+        "Es legt die Rolle im Chat-System fest",
+        "Es speichert die Chat-Interaktionen"
+      ],
+      "correct_answer": "Es legt die Rolle im Chat-System fest",
+      "explanation": "Ein System-Prompt definiert die grundlegende Rolle und Verhaltensvorgaben für das KI-System im Chat.",
+      "answer_status": "Explicit",
+      "maps_to_card": "bld-config-agent",
+      "toolkit_section": "build",
+      "diagnostic_note": "Le system prompt fixe le role - premier des 4 ingredients."
+    },
+    {
+      "id": "Q-W2-014",
+      "week": "W2",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W2T2Q_Score_Fundamentals of Generative AI and Prompt Engineering [Q-2241]",
+      "concept_tested": "Prompt Injection definition",
+      "type": "Multiple Choice",
+      "question": "Welches Verhalten zeigt eine Prompt-Injection?",
+      "options": [
+        "Zu viele Token im Chat-Input",
+        "Umgehung der Chat-Regeln",
+        "Fehler in der Chat-Syntax",
+        "Spam im Chat-Verlauf"
+      ],
+      "correct_answer": "Umgehung der Chat-Regeln",
+      "explanation": "Eine Prompt-Injection versucht, die vorgegebenen Systemregeln und Beschränkungen zu umgehen.",
+      "answer_status": "Explicit",
+      "maps_to_card": "PROPOSED:gov-prompt-attaques",
+      "toolkit_section": "governance",
+      "diagnostic_note": "Aucune fiche ne couvre les attaques par prompt."
+    },
+    {
+      "id": "Q-W2-018",
+      "week": "W2",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W2T2Q_Score_Fundamentals of Generative AI and Prompt Engineering [Q-2242]",
+      "concept_tested": "AI Safety / Risks",
+      "type": "Multiple Choice (Select 2)",
+      "question": "Welche KI-Sicherheitsrisiken existieren?",
+      "options": [
+        "Prompt-Leaking im Chat",
+        "Chat-Server-Ausfälle",
+        "Regel-Umgehung im Chat",
+        "Chat-Daten-Verluste"
+      ],
+      "correct_answer": [
+        "Prompt-Leaking im Chat",
+        "Regel-Umgehung im Chat"
+      ],
+      "explanation": "Prompt-Leaking und die Umgehung von Sicherheitsregeln (Jailbreaking/Injection) are central risks in KI systems.",
+      "answer_status": "Explicit",
+      "maps_to_card": "PROPOSED:gov-prompt-attaques",
+      "toolkit_section": "governance",
+      "diagnostic_note": "Prompt leaking + contournement des regles."
+    },
+    {
+      "id": "Q-W2-019",
+      "week": "W2",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W2T2Q_Score_Fundamentals of Generative AI and Prompt Engineering [Q-2243]",
+      "concept_tested": "Output Validation / Grounding",
+      "type": "Multiple Choice",
+      "question": "Wie prüft man KI-Ausgaben?",
+      "options": [
+        "Parameter anpassen",
+        "Quellen validieren",
+        "System neustarten",
+        "Input erweitern"
+      ],
+      "correct_answer": "Quellen validieren",
+      "explanation": "Die Validierung durch verlässliche Quellen ist der beste Weg, KI-Ausgaben zu überprüfen.",
+      "answer_status": "Explicit",
+      "maps_to_card": "gov-anti-hallucination",
+      "toolkit_section": "governance",
+      "diagnostic_note": "Valider par les sources = levier 3 (contexte reel)."
+    },
+    {
+      "id": "Q-W2-016",
+      "week": "W2",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W2T2Q_Score_Fundamentals of Generative AI and Prompt Engineering [Q-2221]",
+      "concept_tested": "LLM Sampling / Temperature",
+      "type": "Multiple Choice",
+      "question": "Was steuert die Kreativität der KI?",
+      "options": [
+        "Der Input-Parameter",
+        "Der System-Parameter",
+        "Der Temperature-Wert",
+        "Der Context-Parameter"
+      ],
+      "correct_answer": "Der Temperature-Wert",
+      "explanation": "Der Temperature-Parameter beeinflusst das Verhältnis zwischen kreativen und faktenbasierten Antworten.",
+      "answer_status": "Explicit",
+      "maps_to_card": "bld-config-agent",
+      "toolkit_section": "build",
+      "diagnostic_note": "Temperature: garde-fou de cout/determinisme, PAS un ingredient de config d'agent."
+    },
+    {
+      "id": "Q-W2-031",
+      "week": "W2",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W2T4Q_Score_Mastery of Advanced Prompt Engineering Techniques [Q-2411]",
+      "concept_tested": "Prompting Modes",
+      "type": "Multiple Choice",
+      "question": "Welche grundlegende Unterscheidung gibt es bei der Anwendung von Prompting-Techniken?",
+      "options": [
+        "Statisches und dynamisches Prompting",
+        "Single-Shot und Conversational Prompting",
+        "Frontend und Backend Prompting",
+        "Dynamisches und asynchrones Prompting"
+      ],
+      "correct_answer": "Single-Shot und Conversational Prompting",
+      "explanation": "Die fundamentale Unterscheidung liegt zwischen Single-Shot Prompting (für Automatisierungen ohne Nachfragen) und Conversational Prompting (für iterative Mensch-KI-Interaktion). Diese Unterscheidung ist essentiell für die Entwicklung skalierbarer KI-Systeme.",
+      "answer_status": "Explicit",
+      "maps_to_card": "PROPOSED:prm-single-shot",
+      "toolkit_section": "prompts",
+      "diagnostic_note": "Single-Shot vs Conversational: distinction absente du Toolkit."
+    },
+    {
+      "id": "Q-W2-032",
+      "week": "W2",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W2T4Q_Score_Mastery of Advanced Prompt Engineering Techniques [Q-2412]",
+      "concept_tested": "Single-Shot Application Scenarios",
+      "type": "Multiple Choice",
+      "question": "Ein Unternehmen möchte ein automatisiertes System zur Klassifizierung von Kundenanfragen entwickeln. Welcher Prompting-Typ ist dafür am besten geeignet?",
+      "options": [
+        "Conversational Prompting, da es eine dynamische Anpassung an verschiedene Situationen ermöglicht",
+        "Single-Shot Prompting, da es für automatisierte Workflows ohne menschliche Interaktion optimiert ist",
+        "Mixed Prompting, da es eine flexible Kombination verschiedener Prompting-Strategien ermöglicht",
+        "Interactive Prompting, da es eine direkte Rückkopplungsschleife mit dem Benutzer implementiert"
+      ],
+      "correct_answer": "Single-Shot Prompting, da es für automatisierte Workflows ohne menschliche Interaktion optimiert ist",
+      "explanation": "Single-Shot Prompting ist die beste Wahl für automatisierte Systeme, da es ohne menschliche Interaktion auskommt und skalierbare, zuverlässige Ergebnisse liefert.",
+      "answer_status": "Explicit",
+      "maps_to_card": "PROPOSED:prm-single-shot",
+      "toolkit_section": "prompts",
+      "diagnostic_note": ""
+    },
+    {
+      "id": "Q-W2-038",
+      "week": "W2",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W2T4Q_Score_Mastery of Advanced Prompt Engineering Techniques [Q-2451]",
+      "concept_tested": "Single-shot constraints",
+      "type": "Multiple Choice",
+      "question": "Was ist bei der Entwicklung von Single-Shot Prompts für automatisierte Systeme zu beachten?",
+      "options": [
+        "Sie müssen möglichst viele Nachfragemöglichkeiten enthalten",
+        "Sie sollten Raum für manuelle Anpassungen lassen",
+        "Sie müssen auf Anhieb die richtige Antwort liefern",
+        "Sie sollten primär auf Benutzerinteraktion ausgelegt sein"
+      ],
+      "correct_answer": "Sie müssen auf Anhieb die richtige Antwort liefern",
+      "explanation": "Single-Shot Prompts müssen von Anfang an präzise und zuverlässig funktionieren, da keine Möglichkeit für Nachfragen oder manuelle Anpassungen besteht. Dies ist essentiell für automatisierte Systeme.",
+      "answer_status": "Explicit",
+      "maps_to_card": "PROPOSED:prm-single-shot",
+      "toolkit_section": "prompts",
+      "diagnostic_note": "Un single-shot doit etre juste du premier coup - pas de rattrapage en workflow."
+    },
+    {
+      "id": "Q-W2-034",
+      "week": "W2",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W2T4Q_Score_Mastery of Advanced Prompt Engineering Techniques [Q-2441]",
+      "concept_tested": "Lost in the Middle / Context placement",
+      "type": "Multiple Choice",
+      "question": "Der \"Lost in the Middle\"-Effekt beschreibt ein wichtiges Phänomen bei der Arbeit mit KI-Modellen. Welche Aussage dazu ist korrekt?",
+      "options": [
+        "Der Effekt verstärkt die Verarbeitung von Informationen in der Promptmitte signifikant",
+        "Eine Verlängerung des Kontextes führt zur vollständigen Eliminierung des Effekts",
+        "Der Effekt tritt ausschließlich bei der Verarbeitung numerischer Sequenzen auf",
+        "Kritische Informationen erreichen höhere Effektivität am Anfang oder Ende des Prompts"
+      ],
+      "correct_answer": "Kritische Informationen erreichen höhere Effektivität am Anfang oder Ende des Prompts",
+      "explanation": "Wichtige Informationen sollten am Anfang oder Ende eines Prompts platziert werden, da Informationen in der Mitte eines langen Kontexts oft vernachlässigt werden.",
+      "answer_status": "Explicit",
+      "maps_to_card": "prm-lost-in-the-middle",
+      "toolkit_section": "prompts",
+      "diagnostic_note": "Confirme la fiche existante."
+    },
+    {
+      "id": "Q-W2-036",
+      "week": "W2",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W2T4Q_Score_Mastery of Advanced Prompt Engineering Techniques [Q-2432]",
+      "concept_tested": "EmotionPrompt application boundaries",
+      "type": "Multiple Choice",
+      "question": "Die Integration emotionaler Elemente in Prompts (z.B. \"Diese Aufgabe ist sehr wichtig für mich\") kann die Leistung von KI-Modellen beeinflussen. Bei welcher Art von Aufgaben ist dieser Effekt am stärksten?",
+      "options": [
+        "Bei der Verarbeitung standardisierter Routineaufgaben mit geringer Komplexität",
+        "Bei der Durchführung mittelschwerer Analyse- und Klassifikationsaufgaben",
+        "Bei der Bearbeitung komplexer Aufgaben mit hohem Schwierigkeitsgrad",
+        "Bei der Ausführung mathematischer Berechnungen und logischer Operationen"
+      ],
+      "correct_answer": "Bei der Bearbeitung komplexer Aufgaben mit hohem Schwierigkeitsgrad",
+      "explanation": "Die Integration emotionaler Elemente in Prompts zeigt die stärkste Wirkung bei komplexen Aufgaben. Bei solchen Aufgaben führt die emotionale Komponente zu einer sorgfältigeren und gründlicheren Verarbeitung durch das Modell.",
+      "answer_status": "Explicit",
+      "maps_to_card": "(unmapped)",
+      "toolkit_section": "prompts",
+      "diagnostic_note": "Effet fort sur taches complexes seulement."
+    },
+    {
+      "id": "Q-W2-041",
+      "week": "W2",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W2T5Q_Score [Q-2531]",
+      "concept_tested": "Core RAG purpose",
+      "type": "Multiple Choice",
+      "question": "Was ist der Hauptzweck von Retrieval-Augmented Generation (RAG) in KI-Systemen?",
+      "options": [
+        "Beschleunigung des Trainingsprozesses durch effizientere Verarbeitung der Modelleingaben",
+        "Verknüpfung mit externen Wissensdatenbanken zur Reduzierung von KI-Halluzinationen",
+        "Erstellung synthetischer Trainingsdaten zur Erweiterung der Modellgrundlagen",
+        "Verbesserung der Modellarchitektur zur Steigerung der Verarbeitungsgeschwindigkeit"
+      ],
+      "correct_answer": "Verknüpfung mit externen Wissensdatenbanken zur Reduzierung von KI-Halluzinationen",
+      "explanation": "Basiert auf der Kernfunktion von RAG zur Vermeidung von Halluzinationen.",
+      "answer_status": "Explicit",
+      "maps_to_card": "PROPOSED:evl-prompt-rag-finetune",
+      "toolkit_section": "evaluation",
+      "diagnostic_note": "RAG reduit les hallucinations en connectant une base externe."
+    },
+    {
+      "id": "Q-W2-044",
+      "week": "W2",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W2T5Q_Score [Q-2541]",
+      "concept_tested": "Fine-Tuning Definition",
+      "type": "Multiple Choice",
+      "question": "Welche der folgenden Eigenschaften charakterisiert Fine-Tuning als KI-Optimierungsmethode am besten?",
+      "options": [
+        "Die Anpassung eines Modells durch zusätzliches Training mit spezifischen Daten",
+        "Die Optimierung der Modellgeschwindigkeit durch technische Verbesserungen der Hardware",
+        "Die Entwicklung neuer Prompts zur Verbesserung der Modellantworten im direkten Dialog",
+        "Die Integration externer Datenquellen in die Wissensbasis des Modells zur Laufzeit"
+      ],
+      "correct_answer": "Die Anpassung eines Modells durch zusätzliches Training mit spezifischen Daten",
+      "explanation": "Beschreibt die grundlegende Definition von Fine-Tuning.",
+      "answer_status": "Explicit",
+      "maps_to_card": "PROPOSED:evl-prompt-rag-finetune",
+      "toolkit_section": "evaluation",
+      "diagnostic_note": ""
+    },
+    {
+      "id": "Q-W2-043",
+      "week": "W2",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W2T5Q_Score [Q-2551]",
+      "concept_tested": "RAG + Fine-Tuning Synergy",
+      "type": "Multiple Choice",
+      "question": "In welchem Szenario ist die Kombination von RAG und Fine-Tuning am sinnvollsten?",
+      "options": [
+        "Bei der Entwicklung eines Textklassifikationssystems ohne externe Wissensbasis",
+        "Bei der Entwicklung eines Systems zur Verarbeitung standardisierter Formulare",
+        "Bei der Entwicklung eines Chatbots für grundlegende Support-Anfragen",
+        "Bei der Entwicklung eines Expertensystems mit domänenspezifischem Fachwissen"
+      ],
+      "correct_answer": "Bei der Entwicklung eines Expertensystems mit domänenspezifischem Fachwissen",
+      "explanation": "Basiert auf dem Verständnis der komplementären Stärken beider Ansätze (RAG für aktuelles Wissen, Fine-Tuning für Domänenverhalten/-vokabular).",
+      "answer_status": "Explicit",
+      "maps_to_card": "PROPOSED:evl-prompt-rag-finetune",
+      "toolkit_section": "evaluation",
+      "diagnostic_note": ""
+    },
+    {
+      "id": "Q-W2-047",
+      "week": "W2",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W2T5Q_Score [Q-2552]",
+      "concept_tested": "Optimization Strategy Pathway",
+      "type": "Multiple Choice",
+      "question": "Ein Unternehmen möchte seine KI-Anwendung optimieren. Welche Strategie ist am sinnvollsten?",
+      "options": [
+        "Implementation eines Fine-Tuning-Prozesses basierend auf vorhandenen Trainingsdaten",
+        "Aufbau eines RAG-Systems zur Erweiterung der bestehenden Wissensbasis",
+        "Systematische Evaluation der Optimierungsmethoden beginnend mit Prompt Engineering",
+        "Parallele Implementation aller verfügbaren Optimierungsmethoden zur Effizienzsteigerung"
+      ],
+      "correct_answer": "Systematische Evaluation der Optimierungsmethoden beginnend mit Prompt Engineering",
+      "explanation": "Systematische Evaluation beginnend mit der am wenigsten komplexen/teuren Methode (Prompt Engineering).",
+      "answer_status": "Explicit",
+      "maps_to_card": "PROPOSED:evl-prompt-rag-finetune",
+      "toolkit_section": "evaluation",
+      "diagnostic_note": "Commencer par le prompt engineering - regle de sequencement."
+    },
+    {
+      "id": "Q-W2-040",
+      "week": "W2",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W2T5Q_Score [Q-2511]",
+      "concept_tested": "Optimization Entry Strategy",
+      "type": "Multiple Choice",
+      "question": "Welches Vorgehen stellt den effizientesten ersten Schritt bei der Optimierung eines KI-Modells dar?",
+      "options": [
+        "Eine systematische Fehleranalyse durchführen, bevor Optimierungsmaßnahmen implementiert werden",
+        "Das Modell in Produktion nehmen, um Leistungsdaten aus der Praxis zu sammeln",
+        "Ein komplexes RAG-System implementieren, um die Wissensbasis direkt zu erweitern",
+        "Einen Fine-Tuning-Prozess mit einem optimierten Trainingsdatensatz für das Modell durchführen"
+      ],
+      "correct_answer": "Eine systematische Fehleranalyse durchführen, bevor Optimierungsmaßnahmen implementiert werden",
+      "explanation": "Basiert auf dem Prinzip 'Erst Fehleranalyse, dann Optimierung!'",
+      "answer_status": "Explicit",
+      "maps_to_card": "PROPOSED:evl-prompt-rag-finetune",
+      "toolkit_section": "evaluation",
+      "diagnostic_note": "Analyse d'erreur AVANT toute optimisation."
+    },
+    {
+      "id": "Q-W2-021",
+      "week": "W2",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W2T3Q_Score_Strategic Integration and Evaluation of AI Systems [Q-2311]",
+      "concept_tested": "LLM Evaluation Criteria",
+      "type": "Multiple Choice",
+      "question": "Welche Faktoren sind bei der Bewertung der Leistungsfähigkeit eines Large Language Models (LLM) am wichtigsten?",
+      "options": [
+        "Die technischen Spezifikationen wie Parameteranzahl und Modellgröße bestimmen die Leistung.",
+        "Die Benutzerfreundlichkeit und Geschwindigkeit der Textgenerierung sind entscheidend.",
+        "Die Fähigkeit zur kontextbewussten Verarbeitung und mehrschrittigen Problemlösung.",
+        "Die Unterstützung verschiedener Programmiersprachen und Dateiformate."
+      ],
+      "correct_answer": "Die Fähigkeit zur kontextbewussten Verarbeitung und mehrschrittigen Problemlösung.",
+      "explanation": "Die Kernfähigkeiten eines LLM liegen in der intelligenten Verarbeitung von Kontext und der Lösung komplexer Aufgaben.",
+      "answer_status": "Explicit",
+      "maps_to_card": "evl-benchmarks",
+      "toolkit_section": "evaluation",
+      "diagnostic_note": ""
+    },
+    {
+      "id": "Q-W2-026",
+      "week": "W2",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W2T3Q_Score_Strategic Integration and Evaluation of AI Systems [Q-2322]",
+      "concept_tested": "AI Model Selection Process",
+      "type": "Multiple Choice",
+      "question": "Wie sollte die Auswahl eines KI-Systems für Unternehmen erfolgen?",
+      "options": [
+        "Basierend auf Kosten und technischen Daten.",
+        "Durch systematische Analyse und Pilotprojekte.",
+        "Nach aktuellen Marktanteilen der Anbieter.",
+        "Durch direkte Implementation ohne Voranalyse."
+      ],
+      "correct_answer": "Durch systematische Analyse und Pilotprojekte.",
+      "explanation": "Eine fundierte Entscheidung erfordert praktische Tests und systematische Evaluation.",
+      "answer_status": "Explicit",
+      "maps_to_card": "evl-profil-utilisateur",
+      "toolkit_section": "evaluation",
+      "diagnostic_note": "Analyse systematique + projets pilotes."
+    },
+    {
+      "id": "Q-W2-030",
+      "week": "W2",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W2T3Q_Score_Strategic Integration and Evaluation of AI Systems [Q-2323]",
+      "concept_tested": "Enablement and Training",
+      "type": "Multiple Choice",
+      "question": "Was charakterisiert ein effektives KI-Schulungskonzept?",
+      "options": [
+        "Einmalige Grundlagenschulung.",
+        "Modulares Training mit praktischen Übungen.",
+        "Bereitstellung von Dokumentation.",
+        "Selbststudium der Mitarbeiter."
+      ],
+      "correct_answer": "Modulares Training mit praktischen Übungen.",
+      "explanation": "Effektive Schulung kombiniert Theorie und Praxis in angepassten Modulen.",
+      "answer_status": "Explicit",
+      "maps_to_card": "PROPOSED:enb-trust-gap",
+      "toolkit_section": "enablement",
+      "diagnostic_note": "Formation modulaire + exercices pratiques."
+    },
+    {
+      "id": "Q-W3-009",
+      "week": "W3",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "AI Video & AI Avatars – Quiz Summary (Q-3551)",
+      "concept_tested": "AI Avatar Ethics",
+      "type": "Single Select",
+      "question": "What is the primary ethical challenge of realistic AI-generated avatars?",
+      "options": [],
+      "correct_answer": "The potential to mislead viewers about the AI origin of the content (Täuschung / KI-Ursprung / Authentizität)",
+      "explanation": "Generating photorealistic human clones makes it easy to trick viewers into believing they are seeing real people.",
+      "answer_status": "Explicit",
+      "maps_to_card": "gov-ip-brand-fit",
+      "toolkit_section": "governance",
+      "diagnostic_note": "Tromper sur l'origine IA du contenu."
+    },
+    {
+      "id": "Q-W3-010",
+      "week": "W3",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "AI Video & AI Avatars – Quiz Summary (Q-3552)",
+      "concept_tested": "Commercial Video Authenticity",
+      "type": "Single Select",
+      "question": "What is the most effective way to ensure the authenticity of AI-generated commercial videos?",
+      "options": [],
+      "correct_answer": "Clearly disclose AI usage and combine it with authentic human elements (Offenlegung des KI-Ursprungs / authentische menschliche Elemente)",
+      "explanation": "Disclosures paired with human performances establish transparency and ground trust.",
+      "answer_status": "Explicit",
+      "maps_to_card": "gov-ip-brand-fit",
+      "toolkit_section": "governance",
+      "diagnostic_note": "Divulgation explicite de l'usage d'IA."
+    },
+    {
+      "id": "Q-W3-019",
+      "week": "W3",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "Architectural Foundations and Ethical Dimensions of AI Video Generation (Q-3352) & W3T3_glossaire",
+      "concept_tested": "AI Influencer Disclosure",
+      "type": "Single Select",
+      "question": "Which ethical challenge is at the center of the discussion surrounding AI influencers like Aitana Lopez or Lil Miquela?",
+      "options": [
+        "The insufficient technical quality of the generated content",
+        "The lack of transparency/recognizability as AI-generated personalities for the audience",
+        "Copyright infringement during image generation",
+        "The limited international availability of the content"
+      ],
+      "correct_answer": "The lack of transparency/recognizability as AI-generated personalities for the audience",
+      "explanation": "At the center of the ethical discussion surrounding AI influencers is the question of transparency and recognizability. If virtual personalities are not clearly labeled as AI-generated, it creates an authenticity issue that raises questions of trust.",
+      "answer_status": "Explicit",
+      "maps_to_card": "gov-ip-brand-fit",
+      "toolkit_section": "governance",
+      "diagnostic_note": ""
+    },
+    {
+      "id": "Q-W3-020",
+      "week": "W3",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "Architectural Foundations and Ethical Dimensions of AI Video Generation (Q-3353)",
+      "concept_tested": "Deepfake Risks",
+      "type": "Multiple Select (2)",
+      "question": "Which societal implications of deepfakes are most frequently discussed in safety-relevant debates? (Select 2 of 5)",
+      "options": [
+        "The potential for political manipulation through forged statements",
+        "The possibility of creating unauthorized biometric profiles",
+        "The displacement of human creative professions by AI technologies",
+        "The increased energy consumption caused by complex AI calculations",
+        "The impact on consumer behavior through personalized advertising"
+      ],
+      "correct_answer": [
+        "The potential for political manipulation through forged statements",
+        "The possibility of creating unauthorized biometric profiles"
+      ],
+      "explanation": "Deepfakes present acute risks for targeted misinformation in democratic processes and the extraction of personal biometric signatures.",
+      "answer_status": "Explicit",
+      "maps_to_card": "(unmapped)",
+      "toolkit_section": "governance",
+      "diagnostic_note": "Manipulation politique + profils biometriques non autorises."
+    },
+    {
+      "id": "Q-W3-035",
+      "week": "W3",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "The AI Manager Text-to-Image Assessment Summary (Q-3252) & W3T2_Support_Cours_TTI",
+      "concept_tested": "Ethical Risks and Stereotyping",
+      "type": "Single Select",
+      "question": "What is an ethical risk of using Text-to-Image AI for employee photos?",
+      "options": [],
+      "correct_answer": "AI models may unintentionally reinforce stereotypes.",
+      "explanation": "Biases in original training data frequently cause image models to over-represent specific demographic profiles for certain careers (e.g. nurses, executives).",
+      "answer_status": "Explicit",
+      "maps_to_card": "PROPOSED:prm-equite-prompt",
+      "toolkit_section": "prompts",
+      "diagnostic_note": "Les modeles renforcent les stereotypes - materiau pour la fiche fairness."
+    },
+    {
+      "id": "Q-W3-034",
+      "week": "W3",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "The AI Manager Text-to-Image Assessment Summary (Q-3251) & W3T2_Support_Cours_TTI",
+      "concept_tested": "Local vs Cloud Data Privacy",
+      "type": "Single Select",
+      "question": "Which statement about data security in Text-to-Image AI is correct?",
+      "options": [],
+      "correct_answer": "Only open-source models provide full control over data processing.",
+      "explanation": "Proprietary, online cloud models require data and images to be sent to external hosts, whereas open-source weights can run locally on private hardware.",
+      "answer_status": "Explicit",
+      "maps_to_card": "gov-regime-contractuel",
+      "toolkit_section": "governance",
+      "diagnostic_note": "Seul l'open-source local donne le controle total du traitement."
+    },
+    {
+      "id": "Q-W3-029",
+      "week": "W3",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "Enterprise AI Systems and Integration Proficiency Assessment (Q-3152)",
+      "concept_tested": "AI Compliance and Data Privacy",
+      "type": "Single Select",
+      "question": "Which aspect is most important when choosing an AI tool for enterprise applications from a compliance perspective?",
+      "options": [],
+      "correct_answer": "The data protection policies of the provider (Die Datenschutzrichtlinien des Anbieters)",
+      "explanation": "From a compliance perspective, the data protection and security policies of the provider are crucial, as they must ensure compliance with regulatory requirements and the protection of sensitive corporate data.",
+      "answer_status": "Explicit",
+      "maps_to_card": "gov-regime-contractuel",
+      "toolkit_section": "governance",
+      "diagnostic_note": "Politique de protection des donnees du fournisseur = critere n1."
+    },
+    {
+      "id": "Q-W3-023",
+      "week": "W3",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "Enterprise AI Systems and Integration Proficiency Assessment (Q-3151) & W3T4_Quiz_EN.md",
+      "concept_tested": "Enterprise AI Model Selection Criteria",
+      "type": "Multiple Select (2)",
+      "question": "Welche Kriterien sind bei der Auswahl von KI-Modellen für den Unternehmenseinsatz entscheidend? (2 von 5 Antworten sind richtig)",
+      "options": [
+        "Die Hardware-Anforderungen und damit verbundene Kosten",
+        "Die geografische Nähe zum Anbieter",
+        "Die Integrierbarkeit in bestehende Systeme",
+        "Die Anzahl der Mitarbeiter im KI-Team",
+        "Das Alter des Unternehmens"
+      ],
+      "correct_answer": [
+        "Die Hardware-Anforderungen und damit verbundene Kosten",
+        "Die Integrierbarkeit in bestehende Systeme"
+      ],
+      "explanation": "Bei der Auswahl von KI-Modellen für Unternehmen sind besonders die Hardware-Anforderungen und damit verbundene Kosten sowie die Integrierbarkeit in bestehende Systeme entscheidend, da diese direkte Auswirkungen auf die Implementierung und den laufenden Betrieb haben.",
+      "answer_status": "Explicit",
+      "maps_to_card": "evl-profil-utilisateur",
+      "toolkit_section": "evaluation",
+      "diagnostic_note": "Integrabilite dans l'existant + cout materiel."
+    },
+    {
+      "id": "Q-W3-049",
+      "week": "W3",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "The Architecture and Art of AI Voice Synthesis & W3T4_Quiz_EN.md (Q-3454)",
+      "concept_tested": "Voice Cloning Ethics",
+      "type": "Single Select",
+      "question": "What is required ethically for voice cloning?",
+      "options": [],
+      "correct_answer": "Transparent labeling and user consent.",
+      "explanation": "To protect individuals against biometric forgery, clones require the explicit consent of the target speaker and clear disclosure to audiences.",
+      "answer_status": "Explicit",
+      "maps_to_card": "gov-ip-brand-fit",
+      "toolkit_section": "governance",
+      "diagnostic_note": "Consentement + etiquetage transparent."
+    },
+    {
+      "id": "Q-W5-002",
+      "week": "W5",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "Q-5311",
+      "concept_tested": "Process management failure reasons",
+      "type": "single_choice",
+      "question": "Quelles sont les principales causes de l'échec des processus métier dans les entreprises ?",
+      "options": [
+        "Des objectifs peu clairs, un manque de transparence et des processus excessivement complexes."
+      ],
+      "correct_answer": "Des objectifs peu clairs, un manque de transparence et des processus excessivement complexes.",
+      "explanation": "None provided",
+      "answer_status": "explicit",
+      "maps_to_card": "bld-gate-zero",
+      "toolkit_section": "build",
+      "diagnostic_note": "CONFLIT INTERNE W5: ici objectifs flous / manque de transparence / complexite excessive."
+    },
+    {
+      "id": "Q-W5-017",
+      "week": "W5",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "Q-5411",
+      "concept_tested": "AI automation methodology",
+      "type": "multiple_choice",
+      "question": "Quelles étapes font partie d'une approche structurée pour réussir un projet d'automatisation avec des agents IA ? (2 réponses correctes)",
+      "options": [
+        "Définir clairement les objectifs.",
+        "Documenter les étapes."
+      ],
+      "correct_answer": [
+        "Définir clairement les objectifs.",
+        "Documenter les étapes."
+      ],
+      "explanation": "None provided",
+      "answer_status": "explicit",
+      "maps_to_card": "bld-gate-zero",
+      "toolkit_section": "build",
+      "diagnostic_note": "Objectifs clairs + documentation."
+    },
+    {
+      "id": "Q-W5-016",
+      "week": "W5",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "Q-5411",
+      "concept_tested": "Overautomation pitfall",
+      "type": "single_choice",
+      "question": "Quel piège de l'automatisation avec des agents IA conduit à une inefficacité en automatisant des processus inutiles ou mal définis ?",
+      "options": [
+        "La surautomatisation (Overautomation)."
+      ],
+      "correct_answer": "La surautomatisation (Overautomation).",
+      "explanation": "None provided",
+      "answer_status": "explicit",
+      "maps_to_card": "bld-gate-zero",
+      "toolkit_section": "build",
+      "diagnostic_note": "Sur-automatisation = premier des trois risques."
+    },
+    {
+      "id": "Q-W5-008",
+      "week": "W5",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "Q-5311",
+      "concept_tested": "AI automation challenges",
+      "type": "single_choice",
+      "question": "Quel défi faut-il prendre en compte lors de l'introduction de solutions d'automatisation basées sur l'IA ?",
+      "options": [
+        "Elles nécessitent un investissement initial important et du temps de mise en place."
+      ],
+      "correct_answer": "Elles nécessitent un investissement initial important et du temps de mise en place.",
+      "explanation": "None provided",
+      "answer_status": "explicit",
+      "maps_to_card": "bld-gate-zero",
+      "toolkit_section": "build",
+      "diagnostic_note": "Investissement initial et temps de mise en place."
+    },
+    {
+      "id": "Q-W5-011",
+      "week": "W5",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "Q-5411",
+      "concept_tested": "AI Agent definition",
+      "type": "single_choice",
+      "question": "Quelle est la définition d'un agent IA ?",
+      "options": [
+        "Un agent IA est un système autonome et intelligent capable d'identifier des objectifs, de les décomposer en tâches et d'exécuter de manière autonome les actions nécessaires pour atteindre ces objectifs."
+      ],
+      "correct_answer": "Un agent IA est un système autonome et intelligent capable d'identifier des objectifs, de les décomposer en tâches et d'exécuter de manière autonome les actions nécessaires pour atteindre ces objectifs.",
+      "explanation": "None provided",
+      "answer_status": "explicit",
+      "maps_to_card": "bld-config-agent",
+      "toolkit_section": "build",
+      "diagnostic_note": ""
+    },
+    {
+      "id": "Q-W5-012",
+      "week": "W5",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "Q-5411",
+      "concept_tested": "AI Agent structure components",
+      "type": "multiple_choice",
+      "question": "Quels sont les trois éléments essentiels qui constituent la structure de base d'un agent IA ?",
+      "options": [
+        "Prompt système (System Prompt)",
+        "Boîte à outils (Toolbox)",
+        "Agenda (objectifs)"
+      ],
+      "correct_answer": [
+        "Prompt système (System Prompt)",
+        "Boîte à outils (Toolbox)",
+        "Agenda (objectifs)"
+      ],
+      "explanation": "None provided",
+      "answer_status": "explicit",
+      "maps_to_card": "bld-config-agent",
+      "toolkit_section": "build",
+      "diagnostic_note": "CONFLIT: System Prompt + Toolbox + Agenda (3), vs 4 ingredients de la fiche."
+    },
+    {
+      "id": "Q-W5-031",
+      "week": "W5",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "Q-5311 (text)",
+      "concept_tested": "Modern Agent Architecture",
+      "type": "single_choice",
+      "question": "Quels sont les trois composants principaux d'un agent IA selon l'architecture moderne ?",
+      "options": [
+        "Le modèle (LLM)",
+        "Les outils / API externes",
+        "L'orchestration"
+      ],
+      "correct_answer": [
+        "Le modèle (LLM)",
+        "Les outils / API externes",
+        "L'orchestration"
+      ],
+      "explanation": "Modern dynamic architecture prioritizes the core brain (LLM), standard tools/endpoints, and the orchestration controller.",
+      "answer_status": "explicit",
+      "maps_to_card": "bld-config-agent",
+      "toolkit_section": "build",
+      "diagnostic_note": "CONFLIT: LLM + Outils/API + Orchestration (3). Troisieme variante."
+    },
+    {
+      "id": "Q-W5-022",
+      "week": "W5",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "1. Quelle est la principale caractéristique qui d…",
+      "concept_tested": "Fundamental Agent Pillars",
+      "type": "single_choice",
+      "question": "Laquelle des propositions décrit le mieux la définition fondamentale d'un agent IA ?",
+      "options": [
+        "Un agent IA est un système autonome qui poursuit des objectifs, perçoit son environnement et agit en conséquence."
+      ],
+      "correct_answer": "Un agent IA est un système autonome qui poursuit des objectifs, perçoit son environnement et agit en conséquence.",
+      "explanation": "Un agent IA est un système autonome capable de poursuivre un objectif défini, de percevoir son environnement ou son contexte, puis d'agir en conséquence. Cette définition repose sur trois piliers essentiels : une orientation vers un objectif, une capacité de perception, une capacité d'action.",
+      "answer_status": "explicit",
+      "maps_to_card": "bld-config-agent",
+      "toolkit_section": "build",
+      "diagnostic_note": "Objectif + perception + action."
+    },
+    {
+      "id": "Q-W5-023",
+      "week": "W5",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "1. Quelle est la principale caractéristique qui d…",
+      "concept_tested": "Toolbox component role",
+      "type": "single_choice",
+      "question": "Quel est le rôle de la « boîte à outils » (Toolbox) dans un agent IA ?",
+      "options": [
+        "Elle fournit les outils et les connexions API permettant à l'agent d'exécuter des actions."
+      ],
+      "correct_answer": "Elle fournit les outils et les connexions API permettant à l'agent d'exécuter des actions.",
+      "explanation": "La boîte à outils regroupe l'ensemble des outils, fonctions et API auxquels l'agent peut accéder afin de réaliser des actions concrètes. Ces outils lui permettent notamment d'interagir avec des systèmes externes, de traiter des données ou d'exécuter des tâches spécifiques.",
+      "answer_status": "explicit",
+      "maps_to_card": "bld-config-agent",
+      "toolkit_section": "build",
+      "diagnostic_note": ""
+    },
+    {
+      "id": "Q-W5-024",
+      "week": "W5",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "1. Quelle est la principale caractéristique qui d…",
+      "concept_tested": "Agenda component role",
+      "type": "single_choice",
+      "question": "Que représente « l'Agenda » comme composant essentiel d'un agent IA ?",
+      "options": [
+        "La planification structurée, la priorisation des tâches et le suivi des objectifs."
+      ],
+      "correct_answer": "La planification structurée, la priorisation des tâches et le suivi des objectifs.",
+      "explanation": "L'Agenda correspond à la capacité de l'agent à organiser son travail : planifier les tâches, les prioriser, les découper en étapes et suivre leur progression jusqu'à l'atteinte de l'objectif.",
+      "answer_status": "explicit",
+      "maps_to_card": "bld-config-agent",
+      "toolkit_section": "build",
+      "diagnostic_note": ""
+    },
+    {
+      "id": "Q-W5-014",
+      "week": "W5",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "Q-5411",
+      "concept_tested": "Workflow vs AI Agent logic",
+      "type": "single_choice",
+      "question": "Quelle est la principale différence entre les workflows and les agents ?",
+      "options": [
+        "Les workflows suivent des étapes fixes, tandis que les agents prennent des décisions de manière autonome."
+      ],
+      "correct_answer": "Les workflows suivent des étapes fixes, tandis que les agents prennent des décisions de manière autonome.",
+      "explanation": "None provided",
+      "answer_status": "explicit",
+      "maps_to_card": "(unmapped)",
+      "toolkit_section": "build",
+      "diagnostic_note": "Workflow = etapes fixes / agent = decision autonome. Distinction absente du Toolkit."
+    },
+    {
+      "id": "Q-W5-021",
+      "week": "W5",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "1. Quelle est la principale caractéristique qui d…",
+      "concept_tested": "AI Agent vs Workflow core",
+      "type": "single_choice",
+      "question": "Quelle est la principale caractéristique qui distingue un agent IA d'une simple automatisation de workflow ?",
+      "options": [
+        "Un agent IA peut prendre des décisions de manière autonome et exécuter des actions."
+      ],
+      "correct_answer": "Un agent IA peut prendre des décisions de manière autonome et exécuter des actions.",
+      "explanation": "La principale caractéristique d'un agent IA est sa capacité à prendre des décisions de manière autonome en fonction de sa compréhension de la tâche, puis à exécuter les actions appropriées. Contrairement à une automatisation classique, qui suit un processus strictement prédéfini, un agent IA peut adapter son comportement selon le contexte et choisir différentes stratégies pour atteindre son objectif.",
+      "answer_status": "explicit",
+      "maps_to_card": "(unmapped)",
+      "toolkit_section": "build",
+      "diagnostic_note": ""
+    },
+    {
+      "id": "Q-W5-026",
+      "week": "W5",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "1. Quelle est la principale caractéristique qui d…",
+      "concept_tested": "Autonomy spectrum",
+      "type": "single_choice",
+      "question": "Quelle est la principale différence entre un agent autonome et un agent assistif ?",
+      "options": [
+        "L'agent autonome prend des décisions et agit seul, tandis que l'agent assistif fonctionne principalement sous la supervision d'un humain."
+      ],
+      "correct_answer": "L'agent autonome prend des décisions et agit seul, tandis que l'agent assistif fonctionne principalement sous la supervision d'un humain.",
+      "explanation": "La différence essentielle réside dans le degré d'autonomie. Un agent autonome peut décider et agir de manière largement indépendante, alors qu'un agent assistif accompagne l'utilisateur et nécessite généralement une validation ou une intervention humaine.",
+      "answer_status": "explicit",
+      "maps_to_card": "PROPOSED:bld-spectre-autonomie",
+      "toolkit_section": "build",
+      "diagnostic_note": "Agent autonome vs assistif - materiau pour la fiche spectre d'autonomie."
+    },
+    {
+      "id": "Q-W5-025",
+      "week": "W5",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "1. Quelle est la principale caractéristique qui d…",
+      "concept_tested": "Multi-agent systems",
+      "type": "single_choice",
+      "question": "Quelle est la caractéristique principale d'un système multi-agents ?",
+      "options": [
+        "Il intègre plusieurs agents spécialisés qui collaborent pour résoudre des tâches complexes."
+      ],
+      "correct_answer": "Il intègre plusieurs agents spécialisés qui collaborent pour résoudre des tâches complexes.",
+      "explanation": "Un système multi-agents est constitué de plusieurs agents spécialisés qui communiquent et coopèrent. Chaque agent apporte une expertise particulière, ce qui permet au système dans son ensemble de résoudre des problèmes plus complexes qu'un agent unique.",
+      "answer_status": "explicit",
+      "maps_to_card": "(unmapped)",
+      "toolkit_section": "build",
+      "diagnostic_note": "Systemes multi-agents: non couverts."
+    },
+    {
+      "id": "Q-W5-015",
+      "week": "W5",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "Q-5411",
+      "concept_tested": "AI Agent development frameworks",
+      "type": "multiple_choice",
+      "question": "Quelles plateformes sont citées comme frameworks actuels pour le développement d'agents IA ? (2 réponses correctes)",
+      "options": [
+        "LangChain",
+        "CrewAI"
+      ],
+      "correct_answer": [
+        "LangChain",
+        "CrewAI"
+      ],
+      "explanation": "None provided",
+      "answer_status": "explicit",
+      "maps_to_card": "(unmapped)",
+      "toolkit_section": "build",
+      "diagnostic_note": "LangChain / CrewAI - liste d'outils, faible valeur seule."
+    },
+    {
+      "id": "Q-W5-027",
+      "week": "W5",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "1. Quelle est la principale caractéristique qui d…",
+      "concept_tested": "First step of implementation",
+      "type": "single_choice",
+      "question": "Quelle est la première étape d'une démarche structurée pour mettre en œuvre des agents IA ?",
+      "options": [
+        "Identifier et définir clairement le problème métier à résoudre."
+      ],
+      "correct_answer": "Identifier et définir clairement le problème métier à résoudre.",
+      "explanation": "Avant toute décision technique, il is indispensable de comprendre précisément le problème métier. Cette étape constitue la base de toutes les décisions suivantes et garantit que la solution développée répond à un besoin réel.",
+      "answer_status": "explicit",
+      "maps_to_card": "bld-gate-zero",
+      "toolkit_section": "build",
+      "diagnostic_note": "Definir le probleme metier AVANT toute decision technique."
+    },
+    {
+      "id": "Q-W5-028",
+      "week": "W5",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "1. Quelle est la principale caractéristique qui d…",
+      "concept_tested": "Business integration KPIs",
+      "type": "single_choice",
+      "question": "Quel est l'un des principaux facteurs de succès lors de l'intégration d'agents IA dans les processus métier ?",
+      "options": [
+        "Définir clairement des objectifs mesurables et des critères de réussite avant le lancement du projet."
+      ],
+      "correct_answer": "Définir clairement des objectifs mesurables et des critères de réussite avant le lancement du projet.",
+      "explanation": "Des objectifs clairs et mesurables permettent d'évaluer le succès du projet et de démontrer la valeur métier apportée par l'agent IA. Sans indicateurs précis, il est impossible de mesurer le retour sur investissement.",
+      "answer_status": "explicit",
+      "maps_to_card": "bld-gate-zero",
+      "toolkit_section": "build",
+      "diagnostic_note": "Objectifs mesurables definis avant le lancement."
+    },
+    {
+      "id": "Q-W5-029",
+      "week": "W5",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "1. Quelle est la principale caractéristique qui d…",
+      "concept_tested": "Evaluating AI viability",
+      "type": "single_choice",
+      "question": "Quel est le critère le plus important pour déterminer si un cas d'usage des agents IA est réaliste ou simplement surmédiatisé ?",
+      "options": [
+        "La résolution démontrable d'un problème concret avec une valeur ajoutée mesurable."
+      ],
+      "correct_answer": "La résolution démontrable d'un problème concret avec une valeur ajoutée mesurable.",
+      "explanation": "Un cas d'usage réaliste répond à un besoin clairement identifié et produit des bénéfices quantifiables. Ce n'est ni la popularité du sujet, ni la technologie employée qui comptent, mais l'impact concret obtenu.",
+      "answer_status": "explicit",
+      "maps_to_card": "(unmapped)",
+      "toolkit_section": "evaluation",
+      "diagnostic_note": "Probleme concret + valeur mesurable = critere realiste vs surmedatise."
+    },
+    {
+      "id": "Q-W5-019",
+      "week": "W5",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "Q-5411",
+      "concept_tested": "AI hype analysis",
+      "type": "single_choice",
+      "question": "Quels cas d'utilisation des agents IA sont considérés comme « surévalués » (overhyped) et actuellement peu adaptés à un usage pratique ?",
+      "options": [
+        "Les agents destinés au grand public (par exemple pour les réservations de vacances)."
+      ],
+      "correct_answer": "Les agents destinés au grand public (par exemple pour les réservations de vacances).",
+      "explanation": "None provided",
+      "answer_status": "explicit",
+      "maps_to_card": "(unmapped)",
+      "toolkit_section": "evaluation",
+      "diagnostic_note": "Agents grand public = cas surevalues."
+    },
+    {
+      "id": "Q-W5-030",
+      "week": "W5",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "1. Quelle est la principale caractéristique qui d…",
+      "concept_tested": "Mature industrial use cases",
+      "type": "single_choice",
+      "question": "Lequel des cas d'usage suivants est aujourd'hui considéré comme réaliste et déjà applicable ?",
+      "options": [
+        "Des agents IA capables de répondre automatiquement aux questions fréquentes des clients en s'intégrant aux systèmes CRM existants."
+      ],
+      "correct_answer": "Des agents IA capables de répondre automatiquement aux questions fréquentes des clients en s'intégrant aux systèmes CRM existants.",
+      "explanation": "L'automatisation des réponses aux questions fréquentes (FAQ) avec intégration à un CRM est aujourd'hui un cas d'usage mature. Les technologies nécessaires (compréhension du langage, reconnaissance de modèles, intégration via API) sont suffisamment fiables et largement déployées en entreprise.",
+      "answer_status": "explicit",
+      "maps_to_card": "bld-discover-do-escalate",
+      "toolkit_section": "build",
+      "diagnostic_note": "FAQ automatisee + integration CRM = cas mature."
+    },
+    {
+      "id": "Q-W5-020",
+      "week": "W5",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "Q-5411",
+      "concept_tested": "Contextual limits of AI Agents",
+      "type": "single_choice",
+      "question": "Quels défis doivent être pris en compte lors de la mise en œuvre d'agents IA ?",
+      "options": [
+        "Le manque de contexte peut compliquer la prise de décision des agents IA."
+      ],
+      "correct_answer": "Le manque de contexte peut compliquer la prise de décision des agents IA.",
+      "explanation": "None provided",
+      "answer_status": "explicit",
+      "maps_to_card": "prm-debug-agent",
+      "toolkit_section": "prompts",
+      "diagnostic_note": "Le manque de contexte complique la decision de l'agent."
+    },
+    {
+      "id": "Q-W5-018",
+      "week": "W5",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "Q-5411",
+      "concept_tested": "AI Agent target areas",
+      "type": "single_choice",
+      "question": "Dans quel domaine les agents IA présentent-ils le plus grand potentiel pour transformer les processus d'entreprise ?",
+      "options": [
+        "L'automatisation de tâches répétitives, simples et clairement définies."
+      ],
+      "correct_answer": "L'automatisation de tâches répétitives, simples et clairement définies.",
+      "explanation": "None provided",
+      "answer_status": "explicit",
+      "maps_to_card": "bld-gate-zero",
+      "toolkit_section": "build",
+      "diagnostic_note": "Taches repetitives, simples et clairement definies."
+    },
+    {
+      "id": "Q-W6-011",
+      "week": "W6",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W6T2_quiz / 6. Un nouvel outil d'IA obtient des milliers d'étoiles sur GitHub...",
+      "concept_tested": "Distinction entre tendance durable et hype technologique",
+      "type": "Single Choice",
+      "question": "Ein neues KI-Tool erhält innerhalb weniger Tage tausende Stars auf GitHub und wird in zahlreichen Tech-Blogs besprochen. Welcher Faktor ist am wichtigsten, um zu beurteilen, ob es sich um einen nachhaltigen Trend oder einen kurzlebigen Hype handelt? / Un nouvel outil d'IA obtient des milliers d'etoiles sur GitHub en quelques jours et est largement relaye dans les blogs technologiques. Quel est le facteur le plus important pour determiner s'il s'agit d'une tendance durable ou d'un simple effet de mode?",
+      "options": [
+        "L'intégration pratique dans les workflows existants et dans des cas d'utilisation réels."
+      ],
+      "correct_answer": "L'intégration pratique dans les workflows existants et dans des cas d'utilisation réels.",
+      "explanation": "L'intégration dans des systèmes productifs et la résolution démontrée de problèmes montrent la pertinence durable d'une technologie.",
+      "answer_status": "Explicit",
+      "maps_to_card": "(unmapped)",
+      "toolkit_section": "evaluation",
+      "diagnostic_note": "Integration dans des workflows reels = seul signal fiable."
+    },
+    {
+      "id": "Q-W6-008",
+      "week": "W6",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W6T1_quiz / 9. À quelle phase du cycle de vie d'une tendance est-il généralement le plus pertinent pour une entreprise établie d'adopter une nouvelle technologie d'IA ?",
+      "concept_tested": "Timing d'adoption technologique",
+      "type": "Single Choice",
+      "question": "In welcher Phase des Trend-Lebenszyklus ist es für etablierte Unternehmen typischerweise am sinnvollsten, in eine neue KI-Technologie einzusteigen? / A quelle phase du cycle de vie d'une tendance est-il generalement le plus pertinent pour une entreprise etablie d'adopter une nouvelle technologie d'IA?",
+      "options": [
+        "Le chemin de l'illumination (Pfad der Erleuchtung), lorsque les attentes irréalistes ont été dépassées."
+      ],
+      "correct_answer": "Le chemin de l'illumination (Pfad der Erleuchtung), lorsque les attentes irréalistes ont été dépassées.",
+      "explanation": "À ce stade, les attentes excessives se sont normalisées, les premières applications pratiques ont fait leurs preuves et les risques sont plus prévisibles que dans les phases précédentes.",
+      "answer_status": "Explicit",
+      "maps_to_card": "(unmapped)",
+      "toolkit_section": "evaluation",
+      "diagnostic_note": "Entrer sur la pente de l'illumination."
+    },
+    {
+      "id": "Q-W6-005",
+      "week": "W6",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W6T1_quiz / 6. Quels facteurs sont des attributs fondamentaux des tendances durables en IA ?",
+      "concept_tested": "Attributs des tendances durables en IA",
+      "type": "Multiple Choice",
+      "question": "Welche der folgenden Faktoren sind Kernattribute nachhaltiger KI-Trends? (2 von 4 Antworten sind richtig) / Quels facteurs sont des attributs fondamentaux des tendances durables en IA?",
+      "options": [
+        "Scalabilité technologique (Technologische Skalierbarkeit)",
+        "Viabilité économique (Ökonomische Tragfähigkeit)"
+      ],
+      "correct_answer": [
+        "Scalabilité technologique (Technologische Skalierbarkeit)",
+        "Viabilité économique (Ökonomische Tragfähigkeit)"
+      ],
+      "explanation": "La scalabilité technologique et la viabilité économique sont deux des quatre attributs fondamentaux des tendances durables en IA.",
+      "answer_status": "Explicit",
+      "maps_to_card": "(unmapped)",
+      "toolkit_section": "evaluation",
+      "diagnostic_note": "Scalabilite technologique + viabilite economique."
+    },
+    {
+      "id": "Q-W6-006",
+      "week": "W6",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W6T1_quiz / 7. Quel instrument réglementaire établit un système de classification des risques pour les applications d'IA dans l'Union européenne ?",
+      "concept_tested": "Regulation de l'IA de l'Union Europeenne",
+      "type": "Single Choice",
+      "question": "Welches regulatorische Instrument etabliert ein Risikoklassifizierungssystem für KI-Anwendungen in der Europäischen Union? / Quel instrument reglementaire etablit un systeme de classification des risques pour les applications d'IA dans l'Union europeenne?",
+      "options": [
+        "EU AI Act."
+      ],
+      "correct_answer": "EU AI Act.",
+      "explanation": "L'EU AI Act classe les applications d'IA selon leur niveau de risque et définit les exigences correspondantes, contrairement aux autres réglementations qui ne sont pas spécifiquement consacrées à l'IA.",
+      "answer_status": "Explicit",
+      "maps_to_card": "PROPOSED:gov-ai-act-risques",
+      "toolkit_section": "governance",
+      "diagnostic_note": "L'EU AI Act n'a AUCUNE fiche dans le Toolkit."
+    },
+    {
+      "id": "Q-W6-018",
+      "week": "W6",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W6T3_quiz / 3. Quel est le plus grand défi des PME lors de la mise en œuvre...",
+      "concept_tested": "Defis d'implementation de l'IA pour les PME",
+      "type": "Single Choice",
+      "question": "Welches ist die größte Herausforderung für KMUs bei der Implementierung von KI-Lösungen? / Quel est le plus grand defi des PME lors de la mise en oeuvre de solutions d'IA?",
+      "options": [
+        "Ressources limitées concernant le budget, le personnel qualifié et la qualité des données."
+      ],
+      "correct_answer": "Ressources limitées concernant le budget, le personnel qualifié et la qualité des données.",
+      "explanation": "Les ressources limitées constituent le principal obstacle à l'implémentation de l'IA dans les PME.",
+      "answer_status": "Explicit",
+      "maps_to_card": "(unmapped)",
+      "toolkit_section": "enablement",
+      "diagnostic_note": "Budget, competences, qualite des donnees."
+    },
+    {
+      "id": "Q-W6-019",
+      "week": "W6",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W6T3_quiz / 4. Quelle stratégie s'est révélée particulièrement prometteuse...",
+      "concept_tested": "Strategie d'implementation IA ciblee",
+      "type": "Single Choice",
+      "question": "Welche Strategie hat sich für KMUs bei der KI-Implementierung als besonders erfolgversprechend erwiesen? / Quelle strategie s'est revelee particulierement prometteuse pour les PME lors de l'implementation de l'IA?",
+      "options": [
+        "Optimisation ciblée de certaines étapes de processus dans des domaines de niche spécifiques."
+      ],
+      "correct_answer": "Optimisation ciblée de certaines étapes de processus dans des domaines de niche spécifiques.",
+      "explanation": "Cette approche ciblée permet d'obtenir des gains d'efficacité importants avec des ressources limitées.",
+      "answer_status": "Explicit",
+      "maps_to_card": "(unmapped)",
+      "toolkit_section": "enablement",
+      "diagnostic_note": "Optimiser des etapes de processus en niche plutot que globalement."
+    },
+    {
+      "id": "Q-W6-020",
+      "week": "W6",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W6T3_quiz / 6. Quels défis techniques apparaissent généralement lors du déploiement...",
+      "concept_tested": "Defis techniques d'infrastructure a l'echelle d'entreprise",
+      "type": "Multiple Choice",
+      "question": "Welche technischen Herausforderungen treten typischerweise bei der unternehmensweiten Implementierung von KI-Systemen? / Quels defis techniques apparaissent generalement lors du deploiement de systemes d'IA a l'echelle de l'entreprise? (2 reponses)",
+      "options": [
+        "Silos de données (Datensilos) et qualité insuffisante des données de l'entreprise.",
+        "Intégration with les infrastructures informatiques existantes (Legacy-IT-Infrastrukturen)."
+      ],
+      "correct_answer": [
+        "Silos de données (Datensilos) et qualité insuffisante des données de l'entreprise.",
+        "Intégration with les infrastructures informatiques existantes (Legacy-IT-Infrastrukturen)."
+      ],
+      "explanation": "Les silos de données, la qualité des données et l'intégration avec les systèmes existants représentent les principaux défis techniques.",
+      "answer_status": "Explicit",
+      "maps_to_card": "bld-gate-zero",
+      "toolkit_section": "build",
+      "diagnostic_note": "Silos de donnees + integration au legacy."
+    },
+    {
+      "id": "Q-W6-022",
+      "week": "W6",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W6T3_quiz / 8. Quel nouveau risque apparaît pour les entreprises utilisant...",
+      "concept_tested": "Risques des places de marche de l'IA (Vendor Lock-in)",
+      "type": "Single Choice",
+      "question": "Welches neue Risiko entsteht für Unternehmen bei der Nutzung von KI-Marketplaces? / Quel nouveau risque apparait pour les entreprises utilisant des places de marche d'IA?",
+      "options": [
+        "Dépendance accrue envers des fournisseurs technologiques externes."
+      ],
+      "correct_answer": "Dépendance accrue envers des fournisseurs technologiques externes.",
+      "explanation": "L'utilisation d'algorithmes d'IA loués peut créer une dépendance critique vis-à-vis des prestataires externes.",
+      "answer_status": "Explicit",
+      "maps_to_card": "(unmapped)",
+      "toolkit_section": "governance",
+      "diagnostic_note": "Dependance aux fournisseurs externes (vendor lock-in)."
+    },
+    {
+      "id": "Q-W6-023",
+      "week": "W6",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W6T3_quiz / 9. Quel principe organisationnel s'est révélé déterminant...",
+      "concept_tested": "Gouvernance organisationnelle (Human-in-the-loop)",
+      "type": "Single Choice",
+      "question": "Welches Organisationsprinzip hat sich bei erfolgreichen KI-Implementierungen als entscheidend erwiesen? / Quel principe organisationnel s'est revele determinant pour les implementations reussies de l'IA?",
+      "options": [
+        "Équilibre entre l'automatisation et la prise de décision humaine."
+      ],
+      "correct_answer": "Équilibre entre l'automatisation et la prise de décision humaine.",
+      "explanation": "Les entreprises performantes utilisent l'IA comme un soutien plutôt que comme un remplacement complet de l'expertise humaine.",
+      "answer_status": "Explicit",
+      "maps_to_card": "gov-responsible-ai",
+      "toolkit_section": "governance",
+      "diagnostic_note": "Equilibre automatisation / decision humaine = principe organisationnel determinant."
+    },
+    {
+      "id": "Q-W6-024",
+      "week": "W6",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W6T3_quiz / 10. Quels facteurs sont déterminants pour une intégration réussie...",
+      "concept_tested": "Criteres de reussite pour l'integration de l'IA",
+      "type": "Multiple Choice",
+      "question": "Welche Faktoren sind entscheidend für eine erfolgreiche KI-Integration in Unternehmensprozesse? / Quels facteurs sont determinants pour une integration reussie de l'IA dans les processus de l'entreprise? (2 reponses)",
+      "options": [
+        "Investissements ciblés dans la formation des collaborateurs et le développement des compétences en IA (KI-Kompetenzaufbau).",
+        "Évaluation continue et adaptation des systèmes d'IA."
+      ],
+      "correct_answer": [
+        "Investissements ciblés dans la formation des collaborateurs et le développement des compétences en IA (KI-Kompetenzaufbau).",
+        "Évaluation continue et adaptation des systèmes d'IA."
+      ],
+      "explanation": "La formation des collaborateurs ainsi que l'évaluation et l'adaptation continues des systèmes d'IA sont essentielles au succès de l'intégration.",
+      "answer_status": "Explicit",
+      "maps_to_card": "PROPOSED:enb-trust-gap",
+      "toolkit_section": "enablement",
+      "diagnostic_note": "Formation des collaborateurs + evaluation continue."
+    },
+    {
+      "id": "Q-W6-003",
+      "week": "W6",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W6T1_quiz / 4. Lesquelles des affirmations suivantes concernant les méthodes quantitatives et qualitatives d'évaluation du marché de l'IA sont correctes ?",
+      "concept_tested": "Methodes d'evaluation quantitatives vs qualitatives",
+      "type": "Multiple Choice",
+      "question": "Welche der folgenden Aussagen zu quantitativen und qualitativen Methoden der KI-Marktbewertung sind korrekt? (2 von 5 Antworten sind richtig) / Lesquelles des affirmations suivantes concernant les methodes quantitatives et qualitatives d'evaluation du marche de l'IA sont correctes?",
+      "options": [
+        "Les méthodes quantitatives comprennent l'analyse des volumes d'investissement (Investmentsummen), des dépôts de brevets (Patentanmeldungen) et des taux d'implémentation (Implementierungsraten).",
+        "Les méthodes qualitatives, comme les entretiens avec des experts (Experteninterviews), sont particulièrement adaptées pour évaluer l'applicabilité pratique et l'acceptation sociétale des technologies d'IA."
+      ],
+      "correct_answer": [
+        "Les méthodes quantitatives comprennent l'analyse des volumes d'investissement (Investmentsummen), des dépôts de brevets (Patentanmeldungen) et des taux d'implémentation (Implementierungsraten).",
+        "Les méthodes qualitatives, comme les entretiens avec des experts (Experteninterviews), sont particulièrement adaptées pour évaluer l'applicabilité pratique et l'acceptation sociétale des technologies d'IA."
+      ],
+      "explanation": "La combinaison des indicateurs d'investissement/brevets (quantitatifs) et des entretiens (qualitatifs) permet d'avoir une vision globale et pragmatique du marché.",
+      "answer_status": "Explicit",
+      "maps_to_card": "evl-benchmarks",
+      "toolkit_section": "evaluation",
+      "diagnostic_note": "Combiner indicateurs quantitatifs et avis d'experts."
+    },
+    {
+      "id": "Q-W7-001",
+      "week": "W7",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "1. Quelle affirmation concernant les pratiques ma… / W7t1_quiz",
+      "concept_tested": "Prohibited manipulative AI practices",
+      "type": "Single Choice",
+      "question": "Quelle affirmation concernant les pratiques manipulatrices interdites en vertu de l’article 5 du règlement sur l’IA est correcte ?",
+      "options": [
+        "Les pratiques sont interdites lorsqu’elles modifient de manière significative le comportement et compromettent la capacité de décision.",
+        "Les pratiques sont interdites pour les entreprises privées uniquement.",
+        "Les pratiques sont autorisées avec l'accord de l'utilisateur."
+      ],
+      "correct_answer": "Les pratiques sont interdites lorsqu’elles modifient de manière significative le comportement et compromettent la capacité de décision.",
+      "explanation": "Selon l’article 5 du règlement sur l’IA, la mise sur le marché, la mise en service ou l’utilisation de systèmes d’IA employant des techniques manipulatrices pour modifier de manière significative le comportement d’une personne en compromettant sa capacité de décision est interdite.",
+      "answer_status": "explicit",
+      "maps_to_card": "PROPOSED:gov-ai-act-risques",
+      "toolkit_section": "governance",
+      "diagnostic_note": ""
+    },
+    {
+      "id": "Q-W7-002",
+      "week": "W7",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "1. Quelle affirmation concernant les pratiques ma… / W7t1_quiz",
+      "concept_tested": "Exploitation of vulnerabilities (handicap)",
+      "type": "Single Choice",
+      "question": "Une entreprise développe une application d’IA qui identifie spécifiquement les personnes ayant des limitations cognitives et leur propose des produits de manière ciblée ; comment cette pratique est-elle classée selon le règlement sur l’IA ?",
+      "options": [
+        "La pratique est interdite lorsqu’elle exploite de manière ciblée la vulnérabilité liée au handicap.",
+        "La pratique est classée comme haut risque.",
+        "La pratique est classée comme risque limité."
+      ],
+      "correct_answer": "La pratique est interdite lorsqu’elle exploite de manière ciblée la vulnérabilité liée au handicap.",
+      "explanation": "Selon l’article 5 du règlement sur l’IA, il est interdit d’utiliser des systèmes d’IA qui exploitent de manière ciblée la vulnérabilité ou le besoin de protection d’une personne en raison d’un handicap.",
+      "answer_status": "explicit",
+      "maps_to_card": "PROPOSED:gov-ai-act-risques",
+      "toolkit_section": "governance",
+      "diagnostic_note": ""
+    },
+    {
+      "id": "Q-W7-003",
+      "week": "W7",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "1. Quelle affirmation concernant les pratiques ma… / W7t1_quiz",
+      "concept_tested": "Subliminal techniques",
+      "type": "Single Choice",
+      "question": "Laquelle des applications d’IA suivantes constitue une pratique interdite selon l’article 5 du règlement sur l’IA ?",
+      "options": [
+        "Une IA qui utilise des messages subliminaux pour influencer les décisions d’achat.",
+        "Un système de recommandation de films.",
+        "Un assistant virtuel de support client."
+      ],
+      "correct_answer": "Une IA qui utilise des messages subliminaux pour influencer les décisions d’achat.",
+      "explanation": "Une IA qui utilise des messages subliminaux pour influencer les décisions d’achat relève des pratiques interdites par l’article 5 du règlement sur l’IA.",
+      "answer_status": "explicit",
+      "maps_to_card": "PROPOSED:gov-ai-act-risques",
+      "toolkit_section": "governance",
+      "diagnostic_note": ""
+    },
+    {
+      "id": "Q-W7-004",
+      "week": "W7",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "1. Quelle affirmation concernant les pratiques ma… / W7t1_quiz",
+      "concept_tested": "Social Scoring",
+      "type": "Single Choice",
+      "question": "Quelle affirmation concernant les systèmes de notation sociale (Social-Scoring-Systeme) selon l’article 5 du règlement sur l’IA est correcte ?",
+      "options": [
+        "Les systèmes de notation sociale (Social-Scoring-Systeme) sont interdits lorsqu’ils entraînent des désavantages injustifiés.",
+        "Ils sont autorisés s'ils sont gérés par des entreprises privées.",
+        "Ils sont soumis à de simples exigences de transparence."
+      ],
+      "correct_answer": "Les systèmes de notation sociale (Social-Scoring-Systeme) sont interdits lorsqu’ils entraînent des désavantages injustifiés.",
+      "explanation": "L’article 5 du règlement sur l’IA interdit les systèmes de notation sociale lorsqu’ils entraînent un désavantage injustifié pour certaines personnes ou certains groupes.",
+      "answer_status": "explicit",
+      "maps_to_card": "PROPOSED:gov-ai-act-risques",
+      "toolkit_section": "governance",
+      "diagnostic_note": ""
+    },
+    {
+      "id": "Q-W7-005",
+      "week": "W7",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "1. Quelle affirmation concernant les pratiques ma… / W7t1_quiz",
+      "concept_tested": "Predictive policing profiling ban",
+      "type": "Single Choice",
+      "question": "Une entreprise développe un système d’IA pour l’évaluation prédictive de la criminalité ; dans quel cas ce système serait-il interdit selon le règlement sur l’IA ?",
+      "options": [
+        "Lorsqu’il repose exclusivement sur le profilage (Profiling) de personnes physiques.",
+        "Lorsqu'il est utilisé par la police.",
+        "Lorsqu'il analyse des données publiques."
+      ],
+      "correct_answer": "Lorsqu’il repose exclusivement sur le profilage (Profiling) de personnes physiques.",
+      "explanation": "Selon l’article 5 du règlement sur l’IA, un système d’IA d’évaluation de la criminalité est interdit lorsqu’il prédit le risque de futures infractions exclusivement sur la base du profilage ou de l’évaluation de caractéristiques personnelles.",
+      "answer_status": "explicit",
+      "maps_to_card": "PROPOSED:gov-ai-act-risques",
+      "toolkit_section": "governance",
+      "diagnostic_note": ""
+    },
+    {
+      "id": "Q-W7-006",
+      "week": "W7",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "1. Quelle affirmation concernant les pratiques ma… / W7t1_quiz",
+      "concept_tested": "Sensitive biometric categorization",
+      "type": "Single Choice",
+      "question": "Lequel des systèmes de catégorisation biométrique suivants est interdit selon l’article 5 du règlement sur l’IA ?",
+      "options": [
+        "Un système qui utilise des données biométriques pour déduire des opinions politiques.",
+        "Un scanner d'empreintes digitales pour l'accès aux bureaux.",
+        "Un système de reconnaissance faciale pour débloquer un smartphone."
+      ],
+      "correct_answer": "Un système qui utilise des données biométriques pour déduire des opinions politiques.",
+      "explanation": "L’article 5 du règlement sur l’IA interdit explicitement les systèmes de catégorisation biométrique utilisés pour déduire des caractéristiques sensibles telles que les opinions politiques.",
+      "answer_status": "explicit",
+      "maps_to_card": "PROPOSED:gov-ai-act-risques",
+      "toolkit_section": "governance",
+      "diagnostic_note": ""
+    },
+    {
+      "id": "Q-W7-007",
+      "week": "W7",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "1. Quelle affirmation concernant les pratiques ma… / W7t1_quiz",
+      "concept_tested": "Emotion recognition workplace exceptions",
+      "type": "Single Choice",
+      "question": "Dans quelles circonstances l’utilisation de systèmes de reconnaissance des émotions sur le lieu de travail est-elle autorisée selon le règlement sur l’IA ?",
+      "options": [
+        "Lorsqu’ils sont utilisés pour des raisons médicales ou de sécurité.",
+        "Avec le consentement explicite de l'employé.",
+        "Pour l'évaluation des performances lors des entretiens."
+      ],
+      "correct_answer": "Lorsqu’ils sont utilisés pour des raisons médicales ou de sécurité.",
+      "explanation": "Selon l’article 5 du règlement sur l’IA, l’utilisation de systèmes d’IA pour déduire les émotions d’une personne sur le lieu de travail est en principe interdite, sauf lorsque le système est introduit pour des raisons médicales ou de sécurité.",
+      "answer_status": "explicit",
+      "maps_to_card": "PROPOSED:gov-ai-act-risques",
+      "toolkit_section": "governance",
+      "diagnostic_note": "Interdiction sur le lieu de travail sauf raisons medicales/securite."
+    },
+    {
+      "id": "Q-W7-008",
+      "week": "W7",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "1. Quelle affirmation concernant les pratiques ma… / W7t1_quiz",
+      "concept_tested": "Facial image scraping",
+      "type": "Single Choice",
+      "question": "Laquelle des pratiques suivantes de constitution de bases de données de reconnaissance faciale est interdite selon l’article 5 du règlement sur l’IA ?",
+      "options": [
+        "Le scraping non ciblé d’images faciales provenant de profils publics sur les réseaux sociaux.",
+        "La collecte d'images avec le consentement de l'utilisateur.",
+        "Le stockage d'images cryptées pour la sécurité nationale."
+      ],
+      "correct_answer": "Le scraping non ciblé d’images faciales provenant de profils publics sur les réseaux sociaux.",
+      "explanation": "L’article 5 du règlement sur l’IA interdit explicitement la mise sur le marché, la mise en service ou l’utilisation de systèmes d’IA qui créent des bases de données de reconnaissance faciale par l’extraction non ciblée (Scraping) d’images faciales provenant d’Internet.",
+      "answer_status": "explicit",
+      "maps_to_card": "PROPOSED:gov-ai-act-risques",
+      "toolkit_section": "governance",
+      "diagnostic_note": ""
+    },
+    {
+      "id": "Q-W7-009",
+      "week": "W7",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "1. Quelle affirmation concernant les pratiques ma… / W7t1_quiz",
+      "concept_tested": "Real-time remote biometric identification exceptions",
+      "type": "Single Choice",
+      "question": "Dans lequel des cas suivants l’utilisation de systèmes d’identification biométrique à distance en temps réel dans des espaces accessibles au public à des fins répressives est-elle autorisée ?",
+      "options": [
+        "Pour la recherche ciblée d’un enfant disparu avec une autorisation préalable de l’autorité compétente.",
+        "Pour surveiller les infractions routières de manière préventive.",
+        "Pour le suivi publicitaires des clients."
+      ],
+      "correct_answer": "Pour la recherche ciblée d’un enfant disparu avec une autorisation préalable de l’autorité compétente.",
+      "explanation": "Selon l’article 5 du règlement sur l’IA, l’utilisation de systèmes d’identification biométrique à distance en temps réel dans des espaces accessibles au public à des fins répressives est en principe interdite, avec notamment une exception pour la recherche ciblée de personnes disparues avec une autorisation préalable de l’autorité compétente.",
+      "answer_status": "explicit",
+      "maps_to_card": "PROPOSED:gov-ai-act-risques",
+      "toolkit_section": "governance",
+      "diagnostic_note": ""
+    },
+    {
+      "id": "Q-W7-010",
+      "week": "W7",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "1. Quelle affirmation concernant les pratiques ma… / W7t1_quiz",
+      "concept_tested": "Logging and traceability requirements",
+      "type": "Multiple Choice",
+      "question": "Quelles exigences légales s’appliquent à l’employeur concernant la conservation des journaux pour les systèmes d’IA à haut risque ? (2 réponses correctes)",
+      "options": [
+        "Les journaux (Protokolle) doivent être conservés pendant au moins 6 mois.",
+        "La conservation doit garantir la traçabilité des décisions de l’IA.",
+        "Les journaux doivent être partagés publiquement sur internet.",
+        "Les journaux doivent être détruits immédiatement après utilisation."
+      ],
+      "correct_answer": [
+        "Les journaux (Protokolle) doivent être conservés pendant au moins 6 mois.",
+        "La conservation doit garantir la traçabilité des décisions de l’IA."
+      ],
+      "explanation": "Selon le AI Act, les employeurs agissant comme exploitants de systèmes d’IA à haut risque doivent conserver les journaux générés pendant au moins 6 mois et garantir la traçabilité des décisions de l’IA, cette journalisation étant obligatoire pour tous les systèmes d’IA à haut risque sous leur contrôle.",
+      "answer_status": "explicit",
+      "maps_to_card": "PROPOSED:gov-ai-act-risques",
+      "toolkit_section": "governance",
+      "diagnostic_note": "Journaux conserves >= 6 mois pour les systemes a haut risque."
+    },
+    {
+      "id": "Q-W7-011",
+      "week": "W7",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "Your Answers (Q-7180)",
+      "concept_tested": "Significance of Trustworthy AI Guidelines",
+      "type": "Multiple Choice",
+      "question": "Welche Bedeutung haben die 2019 veröffentlichten EU-Leitlinien für vertrauenswürdige KI im Kontext der europäischen KI-Regulierung?",
+      "options": [
+        "Sie bilden ein ethisches Rahmenwerk und eine konzeptionelle Grundlage für den AI Act.",
+        "Sie definieren verbindliche Bewertungskriterien für die Zulassung von KI-Systemen im europäischen Markt.",
+        "Sie wurden als Ergänzung zu bestehenden Datenschutzrichtlinien entwickelt.",
+        "Sie regulieren primär den Einsatz von KI-Technologien in der öffentlichen Verwaltung."
+      ],
+      "correct_answer": "Sie bilden ein ethisches Rahmenwerk und eine konzeptionelle Grundlage für den AI Act.",
+      "explanation": "Die EU-Leitlinien für vertrauenswürdige KI von 2019 haben als ethisches Rahmenwerk gedient und bildeten eine wesentliche konzeptionelle Grundlage für die spätere Entwicklung des AI Acts. [32-0701-01-711, Q-711]",
+      "answer_status": "explicit",
+      "maps_to_card": "gov-responsible-ai",
+      "toolkit_section": "governance",
+      "diagnostic_note": "Les lignes directrices EU 2019 fondent l'AI Act."
+    },
+    {
+      "id": "Q-W7-012",
+      "week": "W7",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "Your Answers (Q-7181)",
+      "concept_tested": "Transparency and Explainability",
+      "type": "Multiple Choice",
+      "question": "Welches der sieben Prinzipien für vertrauenswürdige KI nach den EU-Leitlinien bezieht sich auf die Fähigkeit von KI-Systemen, ihre Entscheidungen zu erklären?",
+      "options": [
+        "Transparenz",
+        "Rechenschaftspflicht",
+        "Technische Robustheit",
+        "Schutz der Privatsphäre"
+      ],
+      "correct_answer": "Transparenz",
+      "explanation": "Das Prinzip der Transparenz fordert explizit, dass KI-Systeme in der Lage sein sollten, ihre Entscheidungsprozesse nachvollziehbar zu machen und zu erklären. [32-0701-02-712, Q-712]",
+      "answer_status": "explicit",
+      "maps_to_card": "gov-responsible-ai",
+      "toolkit_section": "governance",
+      "diagnostic_note": "SEPT principes EU cites - la fiche en decrit SIX (couches Playbook). Cadres differents."
+    },
+    {
+      "id": "Q-W7-013",
+      "week": "W7",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "Your Answers (Q-7182)",
+      "concept_tested": "Technical Robustness and Safety definition",
+      "type": "Multiple Choice",
+      "question": "Welche Aspekte umfasst das Prinzip \"Technische Robustheit und Sicherheit\" gemäß den EU-Leitlinien für vertrauenswürdige KI?",
+      "options": [
+        "Datenschutz, Datenminimierung, Informationssicherheit, Verschlüsselung",
+        "Erklärbarkeit, Nachverfolgbarkeit, Transparenz, Kommunikation",
+        "Nichtdiskriminierung, Barrierefreiheit, Vielfalt, Einbeziehung aller Interessengruppen",
+        "Widerstandsfähigkeit gegen Angriffe, Präzision, Zuverlässigkeit, Reproduzierbarkeit"
+      ],
+      "correct_answer": "Widerstandsfähigkeit gegen Angriffe, Präzision, Zuverlässigkeit, Reproduzierbarkeit",
+      "explanation": "Das Prinzip \"Technische Robustheit und Sicherheit\" umfasst gemäß den EU-Leitlinien die Widerstandsfähigkeit gegen Angriffe, allgemeine Sicherheit, Präzision, Zuverlässigkeit und Reproduzierbarkeit. [32-0701-02-712, Q-713]",
+      "answer_status": "explicit",
+      "maps_to_card": "gov-responsible-ai",
+      "toolkit_section": "governance",
+      "diagnostic_note": ""
+    },
+    {
+      "id": "Q-W4-019",
+      "week": "W4",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W4T2_Quiz (Passage 55)",
+      "concept_tested": "Documentation Best Practices",
+      "type": "Single Choice",
+      "question": "Que doit absolument contenir une bonne documentation d’une application web d’IA ?",
+      "options": [
+        "Une description des fonctionnalités et des limites des composants d’IA.",
+        "La liste complète de toutes les requêtes d'entraînement du LLM.",
+        "La biographie de l'ensemble de l'équipe de développement.",
+        "La signature numérique de l'organisme certificateur national."
+      ],
+      "correct_answer": "Une description des fonctionnalités et des limites des composants d’IA.",
+      "explanation": "Les utilisateurs et développeurs doivent savoir ce que l’IA peut ou ne peut pas faire.",
+      "answer_status": "",
+      "maps_to_card": "gov-datasheet-dataset",
+      "toolkit_section": "governance",
+      "diagnostic_note": "Documenter les fonctionnalites ET LES LIMITES des composants IA."
+    },
+    {
+      "id": "Q-W4-020",
+      "week": "W4",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W4T2_Quiz (Passage 55)",
+      "concept_tested": "AI App Quality Assurance",
+      "type": "Single Choice",
+      "question": "Quel aspect est particulièrement important lors de l’assurance qualité d’une application web d’IA ?",
+      "options": [
+        "Vérifier la cohérence et l’exactitude des résultats de l’IA.",
+        "Vérifier l'uniformité de la couleur d'arrière-plan sur tous les boutons.",
+        "S'assurer que la température reste bloquée sur 1.5 en permanence.",
+        "Garder toutes les données de test en clair dans le code du client."
+      ],
+      "correct_answer": "Vérifier la cohérence et l’exactitude des résultats de l’IA.",
+      "explanation": "Les réponses de l’IA doivent être fiables, cohérentes et conformes aux attentes.",
+      "answer_status": "",
+      "maps_to_card": "evl-benchmarks",
+      "toolkit_section": "evaluation",
+      "diagnostic_note": "Verifier la coherence et l'exactitude des sorties."
+    },
+    {
+      "id": "Q-W4-018",
+      "week": "W4",
+      "provenance": "original",
+      "provenance_note": "Question reprise verbatim de l'extraction NotebookLM de la semaine, sans reformulation.",
+      "source_reference": "W4T2_Quiz (Passage 54)",
+      "concept_tested": "Maintenance of AI applications",
+      "type": "Single Choice",
+      "question": "Quelle tâche fait partie de la maintenance de base d’une application web d’IA ?",
+      "options": [
+        "Installer régulièrement les mises à jour de sécurité.",
+        "Réécrire le code frontend de zéro tous les trimestres.",
+        "Modifier les prompts système de manière aléatoire.",
+        "Optimiser manuellement la température des requêtes à chaque appel."
+      ],
+      "correct_answer": "Installer régulièrement les mises à jour de sécurité.",
+      "explanation": "Les mises à jour corrigent les failles de sécurité et améliorent la stabilité.",
+      "answer_status": "",
+      "maps_to_card": "gov-cycle-de-vie",
+      "toolkit_section": "governance",
+      "diagnostic_note": "Mises a jour de securite regulieres."
+    }
+  ]
+}
