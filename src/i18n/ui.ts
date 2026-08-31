@@ -53,6 +53,7 @@ interface Textes {
     restart: string;
     correct: string;
     incorrect: string;
+    partial: string;
     score: string;
     end: string;
     seeCard: string;
@@ -135,6 +136,7 @@ export const T: Record<Langue, Textes> = {
       restart: "Restart",
       correct: "Correct",
       incorrect: "Incorrect",
+      partial: "Partially correct — you selected {c} of {n} correct answers",
       score: "{a} answered · {c} correct",
       end: "End of the set — {c} / {n} correct",
       seeCard: "Read the matching card →",
@@ -235,6 +237,7 @@ export const T: Record<Langue, Textes> = {
       restart: "Recommencer",
       correct: "Bonne réponse",
       incorrect: "Mauvaise réponse",
+      partial: "Partiellement correct — vous avez coché {c} bonne(s) réponse(s) sur {n}",
       score: "{a} répondues · {c} correctes",
       end: "Fin de la série — {c} / {n} correctes",
       seeCard: "Lire la fiche correspondante →",
@@ -335,6 +338,7 @@ export const T: Record<Langue, Textes> = {
       restart: "Neu starten",
       correct: "Richtig",
       incorrect: "Falsch",
+      partial: "Teilweise richtig — Sie haben {c} von {n} richtigen Antworten ausgewählt",
       score: "{a} beantwortet · {c} richtig",
       end: "Ende der Serie — {c} / {n} richtig",
       seeCard: "Zur passenden Karte →",

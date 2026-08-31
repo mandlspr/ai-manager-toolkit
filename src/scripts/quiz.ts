@@ -172,8 +172,9 @@ export function initQuiz(): void {
         let cls = "quiz-option";
         if (state.revealed) {
           cls += " revealed";
-          if (cs.has(o)) cls += " is-correct";
+          if (cs.has(o)) cls += picked ? " is-correct-picked" : " is-correct-missed";
           else if (picked) cls += " is-wrong";
+          // otherwise: neither picked nor correct — no treatment
         } else if (picked) {
           cls += " is-picked";
         }
@@ -188,10 +189,15 @@ export function initQuiz(): void {
 
     let reveal = "";
     if (state.revealed) {
-      const ok = isRight(q);
-      reveal += `<p class="quiz-verdict ${ok ? "ok" : "ko"}">${esc(
-        ok ? t("correct") : t("incorrect"),
-      )}</p>`;
+      const total = cs.size;
+      const correctPicked = [...state.picks].filter((p) => cs.has(p)).length;
+      let verdict: string;
+      if (isRight(q)) verdict = t("correct");
+      else if (correctPicked === 0) verdict = t("incorrect");
+      else verdict = t("partial", { c: correctPicked, n: total });
+      reveal += `<p class="quiz-verdict ${
+        isRight(q) ? "ok" : "ko"
+      }">${esc(verdict)}</p>`;
       if (q.explanation)
         reveal += `<p class="quiz-expl">${esc(q.explanation)}</p>`;
       if (q.maps_to_card !== "(unmapped)")

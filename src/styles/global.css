@@ -723,15 +723,22 @@ main {
 }
 .quiz-option.revealed {
   cursor: default;
+  pointer-events: none;
 }
-.quiz-option.revealed:hover {
-  background: var(--fond);
-}
-.quiz-option.is-correct {
+/* picked + correct — most affirmed: green fill, tick kept visible */
+.quiz-option.is-correct-picked {
   border-color: var(--valide);
   background: #e7f0ea;
   color: var(--valide);
 }
+.quiz-option.is-correct-picked input {
+  accent-color: var(--valide);
+}
+/* correct but missed — green outline, neutral fill */
+.quiz-option.is-correct-missed {
+  border-color: var(--valide);
+}
+/* picked + incorrect — a-resourcer amber */
 .quiz-option.is-wrong {
   border-color: var(--ambre);
   background: #f5eedd;
