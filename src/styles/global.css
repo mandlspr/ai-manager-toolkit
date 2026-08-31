@@ -725,22 +725,31 @@ main {
   cursor: default;
   pointer-events: none;
 }
-/* picked + correct — most affirmed: green fill, tick kept visible */
+/* Three revealed levels, thickened with an inset ring (no layout shift):
+   picked+correct = full green, missed = faint green, wrong = amber.
+   Neutral revealed options keep the plain 1px grey border. */
+
+/* picked + correct — most affirmed: green fill + green text + visible tick */
 .quiz-option.is-correct-picked {
   border-color: var(--valide);
+  box-shadow: inset 0 0 0 1px var(--valide);
   background: #e7f0ea;
   color: var(--valide);
 }
 .quiz-option.is-correct-picked input {
   accent-color: var(--valide);
 }
-/* correct but missed — green outline, neutral fill */
+/* correct but missed — green ring + a paler green fill than is-correct-picked,
+   neutral text so it never reads as "found" */
 .quiz-option.is-correct-missed {
   border-color: var(--valide);
+  box-shadow: inset 0 0 0 1px var(--valide);
+  background: color-mix(in srgb, var(--valide) 8%, var(--blanc));
 }
 /* picked + incorrect — a-resourcer amber */
 .quiz-option.is-wrong {
   border-color: var(--ambre);
+  box-shadow: inset 0 0 0 1px var(--ambre);
   background: #f5eedd;
   color: var(--ambre);
 }
