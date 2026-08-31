@@ -1,0 +1,1469 @@
+[
+  {
+    "id": "Q-W1-005",
+    "question": "Q-1131: Which competencies does an AI Manager need to work successfully? (2 of 5 answers possible)",
+    "options": [
+      "The ability to critically evaluate different AI technologies and their applications",
+      "The competence to communicate complex AI topics in an audience-appropriate way",
+      "Programming neural networks at expert level",
+      "Maintenance and repair of AI hardware components",
+      "Detailed knowledge of historical computer systems"
+    ],
+    "correct_answer": [
+      "The ability to critically evaluate different AI technologies and their applications",
+      "The competence to communicate complex AI topics in an audience-appropriate way"
+    ],
+    "explanation": "AI Managers must have both technical understanding and communication skills.",
+    "type": "multiple",
+    "section": "general",
+    "maps_to_card": "(unmapped)",
+    "week": "W1"
+  },
+  {
+    "id": "Q-W1-004",
+    "question": "Q-1121: Which ethical challenges are particularly relevant in the context of AI development? (2 of 5 answers possible)",
+    "options": [
+      "The comprehensive protection of personal data in the development and use of AI systems",
+      "The growing danger of deepfakes and their use for targeted manipulation of information",
+      "The systematic reduction of production speed through AI-supported optimisation processes",
+      "The continuous development of new programming languages for machine learning and data analysis",
+      "The rising investment costs for AI hardware and their impact on small businesses"
+    ],
+    "correct_answer": [
+      "The comprehensive protection of personal data in the development and use of AI systems",
+      "The growing danger of deepfakes and their use for targeted manipulation of information"
+    ],
+    "explanation": "The course materials particularly emphasise the importance of data protection and the dangers of deepfakes as central ethical challenges.",
+    "type": "multiple",
+    "section": "governance",
+    "maps_to_card": "(unmapped)",
+    "week": "W1"
+  },
+  {
+    "id": "Q-W1-028",
+    "question": "When introducing AI tools in a company, which approach is recommended?",
+    "options": [
+      "The rollout happens simultaneously across all business units",
+      "The rollout starts with one selected business unit",
+      "The rollout is coordinated independently by each department",
+      "The rollout is governed by the available staff resources"
+    ],
+    "correct_answer": "The rollout starts with one selected business unit",
+    "explanation": "A focused start makes it possible to gather experience and transfer it.",
+    "type": "single",
+    "section": "governance",
+    "maps_to_card": "gov-cycle-de-vie",
+    "week": "W1"
+  },
+  {
+    "id": "Q-W1-037",
+    "question": "Q-1412: How should AI systems be introduced in teams?",
+    "options": [
+      "Through central mandating of usage times",
+      "Through training of three team members",
+      "Through gradual integration into workflows",
+      "Through setting daily usage quotas"
+    ],
+    "correct_answer": "Through gradual integration into workflows",
+    "explanation": "Gradual integration enables sustainable adoption.",
+    "type": "single",
+    "section": "general",
+    "maps_to_card": "(unmapped)",
+    "week": "W1"
+  },
+  {
+    "id": "Q-W1-023",
+    "question": "Q-1351: Which step in the machine learning workflow is particularly critical for model quality?",
+    "options": [
+      "The technical implementation of the chosen algorithm directly in the development environment",
+      "The systematic preparation and cleaning of the available training data before learning",
+      "The final deployment of the trained model on the production infrastructure in the system",
+      "The continuous monitoring of model performance during operation in the application"
+    ],
+    "correct_answer": "The systematic preparation and cleaning of the available training data before learning",
+    "explanation": "Data preparation is the most critical step in the ML workflow, because the quality of the training data directly determines the model's performance.",
+    "type": "single",
+    "section": "build",
+    "maps_to_card": "bld-gate-zero",
+    "week": "W1"
+  },
+  {
+    "id": "Q-W1-045",
+    "question": "Q-1543: What role does data quality play in the context of AI applications?",
+    "options": [
+      "It supports the practical implementation of defined project requirements",
+      "It enables the formal documentation of processing steps carried out",
+      "It serves the technical validation of implemented system components",
+      "It forms the fundamental basis for reliable analyses and predictions"
+    ],
+    "correct_answer": "It forms the fundamental basis for reliable analyses and predictions",
+    "explanation": "The fundamental importance of data quality is essential for reliable AI applications.",
+    "type": "single",
+    "section": "governance",
+    "maps_to_card": "gov-datasheet-dataset",
+    "week": "W1"
+  },
+  {
+    "id": "Q-W1-030",
+    "question": "Q-1431: Which steps are necessary in AI-supported data analysis? (2 of 5 answers are correct)",
+    "options": [
+      "Creating an analysis plan with defined objectives",
+      "Carrying out the analysis in a single work step",
+      "Reviewing the results with domain experts",
+      "Using five different AI tools",
+      "Processing all available data sources"
+    ],
+    "correct_answer": [
+      "Creating an analysis plan with defined objectives",
+      "Reviewing the results with domain experts"
+    ],
+    "explanation": "Planning and validation are central elements of a sound analysis.",
+    "type": "multiple",
+    "section": "governance",
+    "maps_to_card": "gov-responsible-ai",
+    "week": "W1"
+  },
+  {
+    "id": "Q-W1-035",
+    "question": "Q-1433: How should complex AI tasks be handled?",
+    "options": [
+      "By handling them within a single time block",
+      "By splitting them into defined sub-tasks",
+      "By using several AI systems in parallel",
+      "By prescribing technical solution paths"
+    ],
+    "correct_answer": "By splitting them into defined sub-tasks",
+    "explanation": "Splitting them up enables structured and controlled processing.",
+    "type": "single",
+    "section": "prompts",
+    "maps_to_card": "prm-3c",
+    "week": "W1"
+  },
+  {
+    "id": "Q-W1-033",
+    "question": "Q-1452: How can the quality of AI results be ensured?",
+    "options": [
+      "By increasing the computing power per task",
+      "By using three control instances",
+      "By comparing against defined quality objectives",
+      "By doubling the processing time"
+    ],
+    "correct_answer": "By comparing against defined quality objectives",
+    "explanation": "Orienting to defined objectives enables an objective assessment.",
+    "type": "single",
+    "section": "evaluation",
+    "maps_to_card": "evl-benchmarks",
+    "week": "W1"
+  },
+  {
+    "id": "Q-W2-002",
+    "question": "Which fundamental elements does a well-structured prompt contain?",
+    "options": [
+      "Syntax, system, scaling of parameters",
+      "Input, output, error handling of the data",
+      "Role, context, concrete instruction for action",
+      "Format, function, error tolerances"
+    ],
+    "correct_answer": "Role, context, concrete instruction for action",
+    "explanation": "An effective prompt typically defines the role of the AI system, the relevant context and a concrete instruction for action. These three components form the 3C framework (Character, Context, Command).",
+    "type": "single",
+    "section": "prompts",
+    "maps_to_card": "prm-3c",
+    "week": "W2"
+  },
+  {
+    "id": "Q-W2-009",
+    "question": "Why is defining an AI role in the prompt important?",
+    "options": [
+      "To improve computing efficiency",
+      "To focus the AI's answers",
+      "To reduce the token count",
+      "To optimise runtime"
+    ],
+    "correct_answer": "To focus the AI's answers",
+    "explanation": "A defined role helps the AI system generate answers in the right context and with a fitting perspective. This is a central element of the 3C framework.",
+    "type": "single",
+    "section": "prompts",
+    "maps_to_card": "prm-3c",
+    "week": "W2"
+  },
+  {
+    "id": "Q-W2-033",
+    "question": "Which of the following descriptions represents the most effective use of role prompting?",
+    "options": [
+      "As a general AI assistant, I support you with the detailed analysis and preparation of the datasets at hand.",
+      "As a data science expert for time-series analysis in the finance sector, I examine the presented data against industry standards.",
+      "As an experienced data analyst with comprehensive expertise in statistical methods, I carry out the requested investigation.",
+      "As a certified business intelligence specialist focused on predictive analytics, I produce the requested evaluation."
+    ],
+    "correct_answer": "As a data science expert for time-series analysis in the finance sector, I examine the presented data against industry standards.",
+    "explanation": "The correct answer demonstrates the key elements of effective role prompting: it defines a specific expertise, a concrete field and a relevant domain.",
+    "type": "single",
+    "section": "prompts",
+    "maps_to_card": "prm-3c",
+    "week": "W2"
+  },
+  {
+    "id": "Q-W2-010",
+    "question": "What are central elements of successful prompts?",
+    "options": [
+      "Technical system specifications",
+      "Clear instructions for action",
+      "Detailed model parameters",
+      "Specific output formats"
+    ],
+    "correct_answer": [
+      "Clear instructions for action",
+      "Specific output formats"
+    ],
+    "explanation": "Clear instructions for action and specific output formats are decisive for successful prompts, regardless of technical details. These elements give the AI system a clear direction.",
+    "type": "multiple",
+    "section": "prompts",
+    "maps_to_card": "prm-3c",
+    "week": "W2"
+  },
+  {
+    "id": "Q-W2-003",
+    "question": "What distinguishes zero-shot from few-shot prompting?",
+    "options": [
+      "The processing speed of the requests",
+      "The use of examples in the request",
+      "The maximum length of the input texts",
+      "The type of AI models used"
+    ],
+    "correct_answer": "The use of examples in the request",
+    "explanation": "The main difference lies in the use of examples: zero-shot works without examples, whereas few-shot uses examples to clarify the desired output.",
+    "type": "single",
+    "section": "prompts",
+    "maps_to_card": "(unmapped)",
+    "week": "W2"
+  },
+  {
+    "id": "Q-W2-035",
+    "question": "Why is few-shot prompting an important technique in AI development?",
+    "options": [
+      "It reduces the token count compared to zero-shot prompting",
+      "It leads to a clear improvement in model accuracy",
+      "It enables the model to learn from concrete examples",
+      "It fully replaces the need for model training",
+      "It only works with newer AI models"
+    ],
+    "correct_answer": [
+      "It leads to a clear improvement in model accuracy",
+      "It enables the model to learn from concrete examples"
+    ],
+    "explanation": "Few-shot prompting is effective because it allows the model to learn from concrete examples while significantly improving accuracy. The technique improves model performance through learning from examples, without a full training run being required.",
+    "type": "multiple",
+    "section": "prompts",
+    "maps_to_card": "(unmapped)",
+    "week": "W2"
+  },
+  {
+    "id": "Q-W2-004",
+    "question": "What purpose does chain-of-thought prompting serve?",
+    "options": [
+      "Speeding up the processing rate",
+      "Minimising the memory footprint of requests",
+      "Structured presentation of the solution path",
+      "Automation of routine tasks"
+    ],
+    "correct_answer": "Structured presentation of the solution path",
+    "explanation": "Chain-of-thought prompting enables AI systems to lay out solution paths step by step and traceably. This method of systematic problem decomposition helps tackle complex tasks more transparently.",
+    "type": "single",
+    "section": "prompts",
+    "maps_to_card": "(unmapped)",
+    "week": "W2"
+  },
+  {
+    "id": "Q-W2-007",
+    "question": "What characterises tree-of-thoughts prompting?",
+    "options": [
+      "Linear processing of task lists",
+      "Branched exploration of solution paths",
+      "Sequential data processing",
+      "Parallel prompt processing"
+    ],
+    "correct_answer": "Branched exploration of solution paths",
+    "explanation": "Tree of thoughts enables the branched exploration of different solution paths, similar to a tree structure. This method of systematic problem decomposition lets the AI system follow different lines of thought.",
+    "type": "single",
+    "section": "prompts",
+    "maps_to_card": "(unmapped)",
+    "week": "W2"
+  },
+  {
+    "id": "Q-W2-008",
+    "question": "What advantage does prompt chaining offer?",
+    "options": [
+      "Reduction of network load",
+      "Splitting of complex tasks",
+      "Optimisation of model size",
+      "Improvement of tokenisation"
+    ],
+    "correct_answer": "Splitting of complex tasks",
+    "explanation": "Prompt chaining enables the sensible splitting of complex tasks into manageable sub-steps. This technique improves the quality of the results by passing the output of each step on as input for the following steps.",
+    "type": "single",
+    "section": "prompts",
+    "maps_to_card": "(unmapped)",
+    "week": "W2"
+  },
+  {
+    "id": "Q-W2-006",
+    "question": "What is the goal of reverse prompt engineering?",
+    "options": [
+      "The analysis of the technical model architecture",
+      "The reconstruction of successful prompts",
+      "The optimisation of system resources",
+      "The evaluation of model accuracy"
+    ],
+    "correct_answer": "The reconstruction of successful prompts",
+    "explanation": "Reverse prompt engineering aims to reconstruct the original, successful prompts from given outputs. This technique makes it possible to derive effective prompt structures from existing results.",
+    "type": "single",
+    "section": "prompts",
+    "maps_to_card": "(unmapped)",
+    "week": "W2"
+  },
+  {
+    "id": "Q-W2-005",
+    "question": "What are prompt templates used for in practice?",
+    "options": [
+      "To measure system performance",
+      "To standardise proven prompt structures",
+      "To optimise server load",
+      "To automate model training"
+    ],
+    "correct_answer": "To standardise proven prompt structures",
+    "explanation": "Prompt templates serve the standardised reuse of successful prompt structures across different use cases. They provide a structured template that can be adapted to achieve consistent results.",
+    "type": "single",
+    "section": "prompts",
+    "maps_to_card": "(unmapped)",
+    "week": "W2"
+  },
+  {
+    "id": "Q-W2-011",
+    "question": "What main function does a system prompt fulfil in an AI chat?",
+    "options": [
+      "It controls the length of the chat outputs",
+      "It checks the inputs in the chat history",
+      "It sets the role in the chat system",
+      "It stores the chat interactions"
+    ],
+    "correct_answer": "It sets the role in the chat system",
+    "explanation": "A system prompt defines the basic role and behavioural guidelines for the AI system in the chat.",
+    "type": "single",
+    "section": "build",
+    "maps_to_card": "bld-config-agent",
+    "week": "W2"
+  },
+  {
+    "id": "Q-W2-014",
+    "question": "Which behaviour indicates a prompt injection?",
+    "options": [
+      "Too many tokens in the chat input",
+      "Circumventing the chat rules",
+      "An error in the chat syntax",
+      "Spam in the chat history"
+    ],
+    "correct_answer": "Circumventing the chat rules",
+    "explanation": "A prompt injection tries to circumvent the given system rules and restrictions.",
+    "type": "single",
+    "section": "governance",
+    "maps_to_card": "(unmapped)",
+    "week": "W2"
+  },
+  {
+    "id": "Q-W2-018",
+    "question": "Which AI security risks exist?",
+    "options": [
+      "Prompt leaking in the chat",
+      "Chat server outages",
+      "Rule circumvention in the chat",
+      "Chat data losses"
+    ],
+    "correct_answer": [
+      "Prompt leaking in the chat",
+      "Rule circumvention in the chat"
+    ],
+    "explanation": "Prompt leaking and the circumvention of security rules (jailbreaking/injection) are central risks in AI systems.",
+    "type": "multiple",
+    "section": "governance",
+    "maps_to_card": "(unmapped)",
+    "week": "W2"
+  },
+  {
+    "id": "Q-W2-019",
+    "question": "How do you check AI outputs?",
+    "options": [
+      "Adjust parameters",
+      "Validate sources",
+      "Restart the system",
+      "Expand the input"
+    ],
+    "correct_answer": "Validate sources",
+    "explanation": "Validation against reliable sources is the best way to check AI outputs.",
+    "type": "single",
+    "section": "governance",
+    "maps_to_card": "gov-anti-hallucination",
+    "week": "W2"
+  },
+  {
+    "id": "Q-W2-016",
+    "question": "What controls the AI's creativity?",
+    "options": [
+      "The input parameter",
+      "The system parameter",
+      "The temperature value",
+      "The context parameter"
+    ],
+    "correct_answer": "The temperature value",
+    "explanation": "The temperature parameter influences the ratio between creative and fact-based answers.",
+    "type": "single",
+    "section": "build",
+    "maps_to_card": "bld-config-agent",
+    "week": "W2"
+  },
+  {
+    "id": "Q-W2-031",
+    "question": "Which fundamental distinction exists in the application of prompting techniques?",
+    "options": [
+      "Static and dynamic prompting",
+      "Single-shot and conversational prompting",
+      "Frontend and backend prompting",
+      "Dynamic and asynchronous prompting"
+    ],
+    "correct_answer": "Single-shot and conversational prompting",
+    "explanation": "The fundamental distinction lies between single-shot prompting (for automations without follow-up questions) and conversational prompting (for iterative human-AI interaction). This distinction is essential for developing scalable AI systems.",
+    "type": "single",
+    "section": "prompts",
+    "maps_to_card": "prm-single-shot",
+    "week": "W2"
+  },
+  {
+    "id": "Q-W2-032",
+    "question": "A company wants to build an automated system for classifying customer requests. Which type of prompting is best suited for this?",
+    "options": [
+      "Conversational prompting, because it enables dynamic adaptation to different situations",
+      "Single-shot prompting, because it is optimised for automated workflows without human interaction",
+      "Mixed prompting, because it enables a flexible combination of different prompting strategies",
+      "Interactive prompting, because it implements a direct feedback loop with the user"
+    ],
+    "correct_answer": "Single-shot prompting, because it is optimised for automated workflows without human interaction",
+    "explanation": "Single-shot prompting is the best choice for automated systems, because it works without human interaction and delivers scalable, reliable results.",
+    "type": "single",
+    "section": "prompts",
+    "maps_to_card": "prm-single-shot",
+    "week": "W2"
+  },
+  {
+    "id": "Q-W2-038",
+    "question": "What must be considered when developing single-shot prompts for automated systems?",
+    "options": [
+      "They must contain as many follow-up options as possible",
+      "They should leave room for manual adjustments",
+      "They must deliver the right answer on the first attempt",
+      "They should be designed primarily for user interaction"
+    ],
+    "correct_answer": "They must deliver the right answer on the first attempt",
+    "explanation": "Single-shot prompts must work precisely and reliably from the start, since there is no opportunity for follow-up questions or manual adjustments. This is essential for automated systems.",
+    "type": "single",
+    "section": "prompts",
+    "maps_to_card": "prm-single-shot",
+    "week": "W2"
+  },
+  {
+    "id": "Q-W2-034",
+    "question": "The \"Lost in the Middle\" effect describes an important phenomenon when working with AI models. Which statement about it is correct?",
+    "options": [
+      "The effect significantly strengthens the processing of information in the middle of the prompt",
+      "Lengthening the context leads to the complete elimination of the effect",
+      "The effect occurs exclusively when processing numeric sequences",
+      "Critical information achieves higher effectiveness at the beginning or end of the prompt"
+    ],
+    "correct_answer": "Critical information achieves higher effectiveness at the beginning or end of the prompt",
+    "explanation": "Important information should be placed at the beginning or end of a prompt, since information in the middle of a long context is often neglected.",
+    "type": "single",
+    "section": "prompts",
+    "maps_to_card": "prm-lost-in-the-middle",
+    "week": "W2"
+  },
+  {
+    "id": "Q-W2-036",
+    "question": "Integrating emotional elements into prompts (e.g. \"This task is very important to me\") can influence the performance of AI models. For which kind of tasks is this effect strongest?",
+    "options": [
+      "When processing standardised routine tasks of low complexity",
+      "When carrying out medium-difficulty analysis and classification tasks",
+      "When handling complex tasks with a high degree of difficulty",
+      "When performing mathematical calculations and logical operations"
+    ],
+    "correct_answer": "When handling complex tasks with a high degree of difficulty",
+    "explanation": "Integrating emotional elements into prompts shows the strongest effect on complex tasks. For such tasks, the emotional component leads to more careful and thorough processing by the model.",
+    "type": "single",
+    "section": "prompts",
+    "maps_to_card": "(unmapped)",
+    "week": "W2"
+  },
+  {
+    "id": "Q-W2-041",
+    "question": "What is the main purpose of Retrieval-Augmented Generation (RAG) in AI systems?",
+    "options": [
+      "Speeding up the training process through more efficient processing of the model inputs",
+      "Linking to external knowledge bases to reduce AI hallucinations",
+      "Creating synthetic training data to extend the model's foundations",
+      "Improving the model architecture to increase processing speed"
+    ],
+    "correct_answer": "Linking to external knowledge bases to reduce AI hallucinations",
+    "explanation": "Based on the core function of RAG for avoiding hallucinations.",
+    "type": "single",
+    "section": "evaluation",
+    "maps_to_card": "evl-prompt-rag-finetune",
+    "week": "W2"
+  },
+  {
+    "id": "Q-W2-044",
+    "question": "Which of the following properties best characterises fine-tuning as an AI optimisation method?",
+    "options": [
+      "The adaptation of a model through additional training with specific data",
+      "The optimisation of model speed through technical hardware improvements",
+      "The development of new prompts to improve the model's answers in direct dialogue",
+      "The integration of external data sources into the model's knowledge base at runtime"
+    ],
+    "correct_answer": "The adaptation of a model through additional training with specific data",
+    "explanation": "Describes the basic definition of fine-tuning.",
+    "type": "single",
+    "section": "evaluation",
+    "maps_to_card": "evl-prompt-rag-finetune",
+    "week": "W2"
+  },
+  {
+    "id": "Q-W2-043",
+    "question": "In which scenario is the combination of RAG and fine-tuning most sensible?",
+    "options": [
+      "When developing a text classification system without an external knowledge base",
+      "When developing a system for processing standardised forms",
+      "When developing a chatbot for basic support requests",
+      "When developing an expert system with domain-specific knowledge"
+    ],
+    "correct_answer": "When developing an expert system with domain-specific knowledge",
+    "explanation": "Based on understanding the complementary strengths of both approaches (RAG for up-to-date knowledge, fine-tuning for domain behaviour/vocabulary).",
+    "type": "single",
+    "section": "evaluation",
+    "maps_to_card": "evl-prompt-rag-finetune",
+    "week": "W2"
+  },
+  {
+    "id": "Q-W2-047",
+    "question": "A company wants to optimise its AI application. Which strategy is most sensible?",
+    "options": [
+      "Implementing a fine-tuning process based on existing training data",
+      "Building a RAG system to extend the existing knowledge base",
+      "Systematically evaluating the optimisation methods, starting with prompt engineering",
+      "Implementing all available optimisation methods in parallel to increase efficiency"
+    ],
+    "correct_answer": "Systematically evaluating the optimisation methods, starting with prompt engineering",
+    "explanation": "Systematic evaluation starting with the least complex/expensive method (prompt engineering).",
+    "type": "single",
+    "section": "evaluation",
+    "maps_to_card": "evl-prompt-rag-finetune",
+    "week": "W2"
+  },
+  {
+    "id": "Q-W2-040",
+    "question": "Which approach represents the most efficient first step when optimising an AI model?",
+    "options": [
+      "Carrying out a systematic error analysis before optimisation measures are implemented",
+      "Putting the model into production in order to gather performance data from real use",
+      "Implementing a complex RAG system to directly extend the knowledge base",
+      "Running a fine-tuning process with an optimised training dataset for the model"
+    ],
+    "correct_answer": "Carrying out a systematic error analysis before optimisation measures are implemented",
+    "explanation": "Based on the principle 'error analysis first, then optimisation!'",
+    "type": "single",
+    "section": "evaluation",
+    "maps_to_card": "evl-prompt-rag-finetune",
+    "week": "W2"
+  },
+  {
+    "id": "Q-W2-021",
+    "question": "Which factors are most important when assessing the performance of a Large Language Model (LLM)?",
+    "options": [
+      "The technical specifications such as parameter count and model size determine performance.",
+      "User-friendliness and the speed of text generation are decisive.",
+      "The ability for context-aware processing and multi-step problem solving.",
+      "Support for different programming languages and file formats."
+    ],
+    "correct_answer": "The ability for context-aware processing and multi-step problem solving.",
+    "explanation": "The core capabilities of an LLM lie in the intelligent processing of context and the solving of complex tasks.",
+    "type": "single",
+    "section": "evaluation",
+    "maps_to_card": "evl-benchmarks",
+    "week": "W2"
+  },
+  {
+    "id": "Q-W2-026",
+    "question": "How should the selection of an AI system for companies be carried out?",
+    "options": [
+      "Based on cost and technical data.",
+      "Through systematic analysis and pilot projects.",
+      "According to the providers' current market shares.",
+      "Through direct implementation without prior analysis."
+    ],
+    "correct_answer": "Through systematic analysis and pilot projects.",
+    "explanation": "A sound decision requires practical tests and systematic evaluation.",
+    "type": "single",
+    "section": "evaluation",
+    "maps_to_card": "evl-profil-utilisateur",
+    "week": "W2"
+  },
+  {
+    "id": "Q-W2-030",
+    "question": "What characterises an effective AI training concept?",
+    "options": [
+      "A one-off foundational training.",
+      "Modular training with practical exercises.",
+      "Provision of documentation.",
+      "Self-study by employees."
+    ],
+    "correct_answer": "Modular training with practical exercises.",
+    "explanation": "Effective training combines theory and practice in adapted modules.",
+    "type": "single",
+    "section": "general",
+    "maps_to_card": "(unmapped)",
+    "week": "W2"
+  },
+  {
+    "id": "Q-W3-009",
+    "question": "What is the primary ethical challenge of realistic AI-generated avatars?",
+    "options": [],
+    "correct_answer": "The potential to mislead viewers about the AI origin of the content (Täuschung / KI-Ursprung / Authentizität)",
+    "explanation": "Generating photorealistic human clones makes it easy to trick viewers into believing they are seeing real people.",
+    "type": "single",
+    "section": "governance",
+    "maps_to_card": "gov-ip-brand-fit",
+    "week": "W3"
+  },
+  {
+    "id": "Q-W3-010",
+    "question": "What is the most effective way to ensure the authenticity of AI-generated commercial videos?",
+    "options": [],
+    "correct_answer": "Clearly disclose AI usage and combine it with authentic human elements (Offenlegung des KI-Ursprungs / authentische menschliche Elemente)",
+    "explanation": "Disclosures paired with human performances establish transparency and ground trust.",
+    "type": "single",
+    "section": "governance",
+    "maps_to_card": "gov-ip-brand-fit",
+    "week": "W3"
+  },
+  {
+    "id": "Q-W3-019",
+    "question": "Which ethical challenge is at the center of the discussion surrounding AI influencers like Aitana Lopez or Lil Miquela?",
+    "options": [
+      "The insufficient technical quality of the generated content",
+      "The lack of transparency/recognizability as AI-generated personalities for the audience",
+      "Copyright infringement during image generation",
+      "The limited international availability of the content"
+    ],
+    "correct_answer": "The lack of transparency/recognizability as AI-generated personalities for the audience",
+    "explanation": "At the center of the ethical discussion surrounding AI influencers is the question of transparency and recognizability. If virtual personalities are not clearly labeled as AI-generated, it creates an authenticity issue that raises questions of trust.",
+    "type": "single",
+    "section": "governance",
+    "maps_to_card": "gov-ip-brand-fit",
+    "week": "W3"
+  },
+  {
+    "id": "Q-W3-020",
+    "question": "Which societal implications of deepfakes are most frequently discussed in safety-relevant debates? (Select 2 of 5)",
+    "options": [
+      "The potential for political manipulation through forged statements",
+      "The possibility of creating unauthorized biometric profiles",
+      "The displacement of human creative professions by AI technologies",
+      "The increased energy consumption caused by complex AI calculations",
+      "The impact on consumer behavior through personalized advertising"
+    ],
+    "correct_answer": [
+      "The potential for political manipulation through forged statements",
+      "The possibility of creating unauthorized biometric profiles"
+    ],
+    "explanation": "Deepfakes present acute risks for targeted misinformation in democratic processes and the extraction of personal biometric signatures.",
+    "type": "multiple",
+    "section": "governance",
+    "maps_to_card": "(unmapped)",
+    "week": "W3"
+  },
+  {
+    "id": "Q-W3-035",
+    "question": "What is an ethical risk of using Text-to-Image AI for employee photos?",
+    "options": [],
+    "correct_answer": "AI models may unintentionally reinforce stereotypes.",
+    "explanation": "Biases in original training data frequently cause image models to over-represent specific demographic profiles for certain careers (e.g. nurses, executives).",
+    "type": "single",
+    "section": "prompts",
+    "maps_to_card": "(unmapped)",
+    "week": "W3"
+  },
+  {
+    "id": "Q-W3-034",
+    "question": "Which statement about data security in Text-to-Image AI is correct?",
+    "options": [],
+    "correct_answer": "Only open-source models provide full control over data processing.",
+    "explanation": "Proprietary, online cloud models require data and images to be sent to external hosts, whereas open-source weights can run locally on private hardware.",
+    "type": "single",
+    "section": "governance",
+    "maps_to_card": "gov-regime-contractuel",
+    "week": "W3"
+  },
+  {
+    "id": "Q-W3-029",
+    "question": "Which aspect is most important when choosing an AI tool for enterprise applications from a compliance perspective?",
+    "options": [],
+    "correct_answer": "The data protection policies of the provider (Die Datenschutzrichtlinien des Anbieters)",
+    "explanation": "From a compliance perspective, the data protection and security policies of the provider are crucial, as they must ensure compliance with regulatory requirements and the protection of sensitive corporate data.",
+    "type": "single",
+    "section": "governance",
+    "maps_to_card": "gov-regime-contractuel",
+    "week": "W3"
+  },
+  {
+    "id": "Q-W3-023",
+    "question": "Which criteria are decisive when selecting AI models for enterprise use? (2 of 5 answers are correct)",
+    "options": [
+      "The hardware requirements and the associated costs",
+      "The geographic proximity to the provider",
+      "The integrability into existing systems",
+      "The number of employees on the AI team",
+      "The age of the company"
+    ],
+    "correct_answer": [
+      "The hardware requirements and the associated costs",
+      "The integrability into existing systems"
+    ],
+    "explanation": "When selecting AI models for companies, the hardware requirements and associated costs as well as the integrability into existing systems are particularly decisive, since these have a direct impact on implementation and ongoing operation.",
+    "type": "multiple",
+    "section": "evaluation",
+    "maps_to_card": "evl-profil-utilisateur",
+    "week": "W3"
+  },
+  {
+    "id": "Q-W3-049",
+    "question": "What is required ethically for voice cloning?",
+    "options": [],
+    "correct_answer": "Transparent labeling and user consent.",
+    "explanation": "To protect individuals against biometric forgery, clones require the explicit consent of the target speaker and clear disclosure to audiences.",
+    "type": "single",
+    "section": "governance",
+    "maps_to_card": "gov-ip-brand-fit",
+    "week": "W3"
+  },
+  {
+    "id": "Q-W5-002",
+    "question": "What are the main causes of business process failure in companies?",
+    "options": [
+      "Unclear objectives, a lack of transparency and overly complex processes."
+    ],
+    "correct_answer": "Unclear objectives, a lack of transparency and overly complex processes.",
+    "explanation": "",
+    "type": "single",
+    "section": "build",
+    "maps_to_card": "bld-gate-zero",
+    "week": "W5"
+  },
+  {
+    "id": "Q-W5-017",
+    "question": "Which steps are part of a structured approach to succeeding with an AI-agent automation project? (2 correct answers)",
+    "options": [
+      "Define the objectives clearly.",
+      "Document the steps."
+    ],
+    "correct_answer": [
+      "Define the objectives clearly.",
+      "Document the steps."
+    ],
+    "explanation": "",
+    "type": "multiple",
+    "section": "build",
+    "maps_to_card": "bld-gate-zero",
+    "week": "W5"
+  },
+  {
+    "id": "Q-W5-016",
+    "question": "Which pitfall of automation with AI agents leads to inefficiency by automating unnecessary or poorly defined processes?",
+    "options": [
+      "Overautomation."
+    ],
+    "correct_answer": "Overautomation.",
+    "explanation": "",
+    "type": "single",
+    "section": "build",
+    "maps_to_card": "bld-gate-zero",
+    "week": "W5"
+  },
+  {
+    "id": "Q-W5-008",
+    "question": "Which challenge must be taken into account when introducing AI-based automation solutions?",
+    "options": [
+      "They require a significant initial investment and setup time."
+    ],
+    "correct_answer": "They require a significant initial investment and setup time.",
+    "explanation": "",
+    "type": "single",
+    "section": "build",
+    "maps_to_card": "bld-gate-zero",
+    "week": "W5"
+  },
+  {
+    "id": "Q-W5-011",
+    "question": "What is the definition of an AI agent?",
+    "options": [
+      "An AI agent is an autonomous, intelligent system able to identify objectives, break them down into tasks and autonomously carry out the actions needed to reach those objectives."
+    ],
+    "correct_answer": "An AI agent is an autonomous, intelligent system able to identify objectives, break them down into tasks and autonomously carry out the actions needed to reach those objectives.",
+    "explanation": "",
+    "type": "single",
+    "section": "build",
+    "maps_to_card": "bld-config-agent",
+    "week": "W5"
+  },
+  {
+    "id": "Q-W5-012",
+    "question": "What are the three essential elements that make up the basic structure of an AI agent?",
+    "options": [
+      "System Prompt",
+      "Toolbox",
+      "Agenda (objectives)"
+    ],
+    "correct_answer": [
+      "System Prompt",
+      "Toolbox",
+      "Agenda (objectives)"
+    ],
+    "explanation": "",
+    "type": "multiple",
+    "section": "build",
+    "maps_to_card": "bld-config-agent",
+    "week": "W5"
+  },
+  {
+    "id": "Q-W5-031",
+    "question": "What are the three main components of an AI agent according to the modern architecture?",
+    "options": [
+      "The model (LLM)",
+      "The tools / external APIs",
+      "The orchestration"
+    ],
+    "correct_answer": [
+      "The model (LLM)",
+      "The tools / external APIs",
+      "The orchestration"
+    ],
+    "explanation": "Modern dynamic architecture prioritizes the core brain (LLM), standard tools/endpoints, and the orchestration controller.",
+    "type": "multiple",
+    "section": "build",
+    "maps_to_card": "bld-config-agent",
+    "week": "W5"
+  },
+  {
+    "id": "Q-W5-022",
+    "question": "Which of the statements best describes the fundamental definition of an AI agent?",
+    "options": [
+      "An AI agent is an autonomous system that pursues objectives, perceives its environment and acts accordingly."
+    ],
+    "correct_answer": "An AI agent is an autonomous system that pursues objectives, perceives its environment and acts accordingly.",
+    "explanation": "An AI agent is an autonomous system able to pursue a defined objective, perceive its environment or context, and then act accordingly. This definition rests on three essential pillars: goal orientation, a perception capability, an action capability.",
+    "type": "single",
+    "section": "build",
+    "maps_to_card": "bld-config-agent",
+    "week": "W5"
+  },
+  {
+    "id": "Q-W5-023",
+    "question": "What is the role of the \"Toolbox\" in an AI agent?",
+    "options": [
+      "It provides the tools and API connections that let the agent carry out actions."
+    ],
+    "correct_answer": "It provides the tools and API connections that let the agent carry out actions.",
+    "explanation": "The toolbox gathers all the tools, functions and APIs the agent can access in order to carry out concrete actions. These tools let it, among other things, interact with external systems, process data or execute specific tasks.",
+    "type": "single",
+    "section": "build",
+    "maps_to_card": "bld-config-agent",
+    "week": "W5"
+  },
+  {
+    "id": "Q-W5-024",
+    "question": "What does the \"Agenda\" represent as an essential component of an AI agent?",
+    "options": [
+      "Structured planning, prioritisation of tasks and tracking of objectives."
+    ],
+    "correct_answer": "Structured planning, prioritisation of tasks and tracking of objectives.",
+    "explanation": "The Agenda corresponds to the agent's ability to organise its work: plan tasks, prioritise them, break them into steps and track their progress until the objective is reached.",
+    "type": "single",
+    "section": "build",
+    "maps_to_card": "bld-config-agent",
+    "week": "W5"
+  },
+  {
+    "id": "Q-W5-014",
+    "question": "What is the main difference between workflows and agents?",
+    "options": [
+      "Workflows follow fixed steps, whereas agents make decisions autonomously."
+    ],
+    "correct_answer": "Workflows follow fixed steps, whereas agents make decisions autonomously.",
+    "explanation": "",
+    "type": "single",
+    "section": "build",
+    "maps_to_card": "(unmapped)",
+    "week": "W5"
+  },
+  {
+    "id": "Q-W5-021",
+    "question": "What is the main characteristic that distinguishes an AI agent from a simple workflow automation?",
+    "options": [
+      "An AI agent can make decisions autonomously and carry out actions."
+    ],
+    "correct_answer": "An AI agent can make decisions autonomously and carry out actions.",
+    "explanation": "The main characteristic of an AI agent is its ability to make decisions autonomously based on its understanding of the task, and then carry out the appropriate actions. Unlike a classic automation, which follows a strictly predefined process, an AI agent can adapt its behaviour to the context and choose different strategies to reach its objective.",
+    "type": "single",
+    "section": "build",
+    "maps_to_card": "(unmapped)",
+    "week": "W5"
+  },
+  {
+    "id": "Q-W5-026",
+    "question": "What is the main difference between an autonomous agent and an assistive agent?",
+    "options": [
+      "The autonomous agent makes decisions and acts on its own, whereas the assistive agent works mainly under the supervision of a human."
+    ],
+    "correct_answer": "The autonomous agent makes decisions and acts on its own, whereas the assistive agent works mainly under the supervision of a human.",
+    "explanation": "The essential difference lies in the degree of autonomy. An autonomous agent can decide and act largely independently, whereas an assistive agent accompanies the user and generally needs human validation or intervention.",
+    "type": "single",
+    "section": "build",
+    "maps_to_card": "(unmapped)",
+    "week": "W5"
+  },
+  {
+    "id": "Q-W5-025",
+    "question": "What is the main characteristic of a multi-agent system?",
+    "options": [
+      "It brings together several specialised agents that collaborate to solve complex tasks."
+    ],
+    "correct_answer": "It brings together several specialised agents that collaborate to solve complex tasks.",
+    "explanation": "A multi-agent system consists of several specialised agents that communicate and cooperate. Each agent brings a particular expertise, which lets the system as a whole solve more complex problems than a single agent could.",
+    "type": "single",
+    "section": "build",
+    "maps_to_card": "(unmapped)",
+    "week": "W5"
+  },
+  {
+    "id": "Q-W5-015",
+    "question": "Which platforms are cited as current frameworks for developing AI agents? (2 correct answers)",
+    "options": [
+      "LangChain",
+      "CrewAI"
+    ],
+    "correct_answer": [
+      "LangChain",
+      "CrewAI"
+    ],
+    "explanation": "",
+    "type": "multiple",
+    "section": "build",
+    "maps_to_card": "(unmapped)",
+    "week": "W5"
+  },
+  {
+    "id": "Q-W5-027",
+    "question": "What is the first step of a structured approach to implementing AI agents?",
+    "options": [
+      "Identify and clearly define the business problem to be solved."
+    ],
+    "correct_answer": "Identify and clearly define the business problem to be solved.",
+    "explanation": "Before any technical decision, it is essential to understand the business problem precisely. This step is the basis for all subsequent decisions and ensures that the solution developed addresses a real need.",
+    "type": "single",
+    "section": "build",
+    "maps_to_card": "bld-gate-zero",
+    "week": "W5"
+  },
+  {
+    "id": "Q-W5-028",
+    "question": "What is one of the main success factors when integrating AI agents into business processes?",
+    "options": [
+      "Clearly defining measurable objectives and success criteria before the project starts."
+    ],
+    "correct_answer": "Clearly defining measurable objectives and success criteria before the project starts.",
+    "explanation": "Clear, measurable objectives make it possible to assess the project's success and demonstrate the business value delivered by the AI agent. Without precise indicators, it is impossible to measure the return on investment.",
+    "type": "single",
+    "section": "build",
+    "maps_to_card": "bld-gate-zero",
+    "week": "W5"
+  },
+  {
+    "id": "Q-W5-029",
+    "question": "What is the most important criterion for determining whether an AI-agent use case is realistic or simply overhyped?",
+    "options": [
+      "The demonstrable solving of a concrete problem with measurable added value."
+    ],
+    "correct_answer": "The demonstrable solving of a concrete problem with measurable added value.",
+    "explanation": "A realistic use case addresses a clearly identified need and produces quantifiable benefits. What counts is neither the popularity of the topic nor the technology used, but the concrete impact achieved.",
+    "type": "single",
+    "section": "evaluation",
+    "maps_to_card": "(unmapped)",
+    "week": "W5"
+  },
+  {
+    "id": "Q-W5-019",
+    "question": "Which AI-agent use cases are considered \"overhyped\" and currently poorly suited to practical use?",
+    "options": [
+      "Agents aimed at the general public (for example for holiday bookings)."
+    ],
+    "correct_answer": "Agents aimed at the general public (for example for holiday bookings).",
+    "explanation": "",
+    "type": "single",
+    "section": "evaluation",
+    "maps_to_card": "(unmapped)",
+    "week": "W5"
+  },
+  {
+    "id": "Q-W5-030",
+    "question": "Which of the following use cases is today considered realistic and already applicable?",
+    "options": [
+      "AI agents able to answer customers' frequent questions automatically by integrating with existing CRM systems."
+    ],
+    "correct_answer": "AI agents able to answer customers' frequent questions automatically by integrating with existing CRM systems.",
+    "explanation": "Automating answers to frequently asked questions (FAQ) with CRM integration is a mature use case today. The technologies required (language understanding, pattern recognition, API integration) are reliable enough and widely deployed in companies.",
+    "type": "single",
+    "section": "build",
+    "maps_to_card": "bld-discover-do-escalate",
+    "week": "W5"
+  },
+  {
+    "id": "Q-W5-020",
+    "question": "Which challenges must be taken into account when implementing AI agents?",
+    "options": [
+      "A lack of context can complicate AI agents' decision-making."
+    ],
+    "correct_answer": "A lack of context can complicate AI agents' decision-making.",
+    "explanation": "",
+    "type": "single",
+    "section": "prompts",
+    "maps_to_card": "prm-debug-agent",
+    "week": "W5"
+  },
+  {
+    "id": "Q-W5-018",
+    "question": "In which domain do AI agents offer the greatest potential to transform business processes?",
+    "options": [
+      "The automation of repetitive, simple and clearly defined tasks."
+    ],
+    "correct_answer": "The automation of repetitive, simple and clearly defined tasks.",
+    "explanation": "",
+    "type": "single",
+    "section": "build",
+    "maps_to_card": "bld-gate-zero",
+    "week": "W5"
+  },
+  {
+    "id": "Q-W6-011",
+    "question": "A new AI tool gets thousands of stars on GitHub within a few days and is widely covered in tech blogs. Which factor is most important for judging whether it is a lasting trend or a short-lived hype?",
+    "options": [
+      "Practical integration into existing workflows and into real use cases."
+    ],
+    "correct_answer": "Practical integration into existing workflows and into real use cases.",
+    "explanation": "Integration into productive systems and the demonstrated solving of problems show the lasting relevance of a technology.",
+    "type": "single",
+    "section": "evaluation",
+    "maps_to_card": "(unmapped)",
+    "week": "W6"
+  },
+  {
+    "id": "Q-W6-008",
+    "question": "At which phase of a trend's life cycle is it typically most sensible for an established company to adopt a new AI technology?",
+    "options": [
+      "The slope of enlightenment, once unrealistic expectations have been worked through."
+    ],
+    "correct_answer": "The slope of enlightenment, once unrealistic expectations have been worked through.",
+    "explanation": "At this stage, excessive expectations have normalised, the first practical applications have proven themselves, and the risks are more predictable than in the earlier phases.",
+    "type": "single",
+    "section": "evaluation",
+    "maps_to_card": "(unmapped)",
+    "week": "W6"
+  },
+  {
+    "id": "Q-W6-005",
+    "question": "Which of the following factors are core attributes of sustainable AI trends? (2 of 4 answers are correct)",
+    "options": [
+      "Technological scalability",
+      "Economic viability"
+    ],
+    "correct_answer": [
+      "Technological scalability",
+      "Economic viability"
+    ],
+    "explanation": "Technological scalability and economic viability are two of the four core attributes of sustainable AI trends.",
+    "type": "multiple",
+    "section": "evaluation",
+    "maps_to_card": "(unmapped)",
+    "week": "W6"
+  },
+  {
+    "id": "Q-W6-006",
+    "question": "Which regulatory instrument establishes a risk classification system for AI applications in the European Union?",
+    "options": [
+      "EU AI Act."
+    ],
+    "correct_answer": "EU AI Act.",
+    "explanation": "The EU AI Act classifies AI applications by their risk level and defines the corresponding requirements, unlike other regulations that are not specifically dedicated to AI.",
+    "type": "single",
+    "section": "governance",
+    "maps_to_card": "gov-ai-act-risques",
+    "week": "W6"
+  },
+  {
+    "id": "Q-W6-018",
+    "question": "What is the biggest challenge for SMEs when implementing AI solutions?",
+    "options": [
+      "Limited resources in terms of budget, skilled staff and data quality."
+    ],
+    "correct_answer": "Limited resources in terms of budget, skilled staff and data quality.",
+    "explanation": "Limited resources are the main obstacle to implementing AI in SMEs.",
+    "type": "single",
+    "section": "general",
+    "maps_to_card": "(unmapped)",
+    "week": "W6"
+  },
+  {
+    "id": "Q-W6-019",
+    "question": "Which strategy has proven particularly promising for SMEs when implementing AI?",
+    "options": [
+      "Targeted optimisation of specific process steps in particular niche domains."
+    ],
+    "correct_answer": "Targeted optimisation of specific process steps in particular niche domains.",
+    "explanation": "This targeted approach makes it possible to achieve significant efficiency gains with limited resources.",
+    "type": "single",
+    "section": "build",
+    "maps_to_card": "(unmapped)",
+    "week": "W6"
+  },
+  {
+    "id": "Q-W6-020",
+    "question": "Which technical challenges typically appear when deploying AI systems across the enterprise? (2 answers)",
+    "options": [
+      "Data silos and insufficient quality of the company's data.",
+      "Integration with existing legacy IT infrastructure."
+    ],
+    "correct_answer": [
+      "Data silos and insufficient quality of the company's data.",
+      "Integration with existing legacy IT infrastructure."
+    ],
+    "explanation": "Data silos, data quality and integration with existing systems represent the main technical challenges.",
+    "type": "multiple",
+    "section": "build",
+    "maps_to_card": "bld-gate-zero",
+    "week": "W6"
+  },
+  {
+    "id": "Q-W6-022",
+    "question": "Which new risk arises for companies when using AI marketplaces?",
+    "options": [
+      "Increased dependence on external technology providers."
+    ],
+    "correct_answer": "Increased dependence on external technology providers.",
+    "explanation": "Using rented AI algorithms can create a critical dependence on external providers.",
+    "type": "single",
+    "section": "governance",
+    "maps_to_card": "(unmapped)",
+    "week": "W6"
+  },
+  {
+    "id": "Q-W6-023",
+    "question": "Which organisational principle has proven decisive for successful AI implementations?",
+    "options": [
+      "A balance between automation and human decision-making."
+    ],
+    "correct_answer": "A balance between automation and human decision-making.",
+    "explanation": "High-performing companies use AI as a support rather than as a complete replacement for human expertise.",
+    "type": "single",
+    "section": "governance",
+    "maps_to_card": "gov-responsible-ai",
+    "week": "W6"
+  },
+  {
+    "id": "Q-W6-024",
+    "question": "Which factors are decisive for a successful integration of AI into company processes? (2 answers)",
+    "options": [
+      "Targeted investment in employee training and AI competence building.",
+      "Continuous evaluation and adaptation of the AI systems."
+    ],
+    "correct_answer": [
+      "Targeted investment in employee training and AI competence building.",
+      "Continuous evaluation and adaptation of the AI systems."
+    ],
+    "explanation": "Training employees, together with the continuous evaluation and adaptation of the AI systems, is essential to a successful integration.",
+    "type": "multiple",
+    "section": "general",
+    "maps_to_card": "(unmapped)",
+    "week": "W6"
+  },
+  {
+    "id": "Q-W6-003",
+    "question": "Which of the following statements about quantitative and qualitative methods of AI market assessment are correct? (2 of 5 answers are correct)",
+    "options": [
+      "Quantitative methods include analysing investment volumes, patent filings and implementation rates.",
+      "Qualitative methods, such as expert interviews, are particularly suited to assessing the practical applicability and societal acceptance of AI technologies."
+    ],
+    "correct_answer": [
+      "Quantitative methods include analysing investment volumes, patent filings and implementation rates.",
+      "Qualitative methods, such as expert interviews, are particularly suited to assessing the practical applicability and societal acceptance of AI technologies."
+    ],
+    "explanation": "Combining investment/patent indicators (quantitative) with interviews (qualitative) gives a comprehensive and pragmatic view of the market.",
+    "type": "multiple",
+    "section": "evaluation",
+    "maps_to_card": "evl-benchmarks",
+    "week": "W6"
+  },
+  {
+    "id": "Q-W7-001",
+    "question": "Which statement about manipulative practices prohibited under Article 5 of the AI Act is correct?",
+    "options": [
+      "The practices are prohibited when they significantly change behaviour and impair the capacity to decide.",
+      "The practices are prohibited for private companies only.",
+      "The practices are allowed with the user's consent."
+    ],
+    "correct_answer": "The practices are prohibited when they significantly change behaviour and impair the capacity to decide.",
+    "explanation": "Under Article 5 of the AI Act, placing on the market, putting into service or using AI systems that employ manipulative techniques to significantly change a person's behaviour by impairing their capacity to decide is prohibited.",
+    "type": "single",
+    "section": "governance",
+    "maps_to_card": "gov-ai-act-risques",
+    "week": "W7"
+  },
+  {
+    "id": "Q-W7-002",
+    "question": "A company develops an AI application that specifically identifies people with cognitive limitations and offers them products in a targeted way; how is this practice classified under the AI Act?",
+    "options": [
+      "The practice is prohibited when it exploits, in a targeted way, the vulnerability linked to a disability.",
+      "The practice is classified as high risk.",
+      "The practice is classified as limited risk."
+    ],
+    "correct_answer": "The practice is prohibited when it exploits, in a targeted way, the vulnerability linked to a disability.",
+    "explanation": "Under Article 5 of the AI Act, it is prohibited to use AI systems that exploit, in a targeted way, the vulnerability or need for protection of a person on account of a disability.",
+    "type": "single",
+    "section": "governance",
+    "maps_to_card": "gov-ai-act-risques",
+    "week": "W7"
+  },
+  {
+    "id": "Q-W7-003",
+    "question": "Which of the following AI applications constitutes a prohibited practice under Article 5 of the AI Act?",
+    "options": [
+      "An AI that uses subliminal messages to influence purchasing decisions.",
+      "A film recommendation system.",
+      "A virtual customer support assistant."
+    ],
+    "correct_answer": "An AI that uses subliminal messages to influence purchasing decisions.",
+    "explanation": "An AI that uses subliminal messages to influence purchasing decisions falls under the practices prohibited by Article 5 of the AI Act.",
+    "type": "single",
+    "section": "governance",
+    "maps_to_card": "gov-ai-act-risques",
+    "week": "W7"
+  },
+  {
+    "id": "Q-W7-004",
+    "question": "Which statement about social scoring systems under Article 5 of the AI Act is correct?",
+    "options": [
+      "Social scoring systems are prohibited when they lead to unjustified disadvantages.",
+      "They are allowed if operated by private companies.",
+      "They are subject only to simple transparency requirements."
+    ],
+    "correct_answer": "Social scoring systems are prohibited when they lead to unjustified disadvantages.",
+    "explanation": "Article 5 of the AI Act prohibits social scoring systems when they lead to an unjustified disadvantage for certain people or groups.",
+    "type": "single",
+    "section": "governance",
+    "maps_to_card": "gov-ai-act-risques",
+    "week": "W7"
+  },
+  {
+    "id": "Q-W7-005",
+    "question": "A company develops an AI system for the predictive assessment of crime; in which case would this system be prohibited under the AI Act?",
+    "options": [
+      "When it relies exclusively on the profiling of natural persons.",
+      "When it is used by the police.",
+      "When it analyses public data."
+    ],
+    "correct_answer": "When it relies exclusively on the profiling of natural persons.",
+    "explanation": "Under Article 5 of the AI Act, an AI system for crime assessment is prohibited when it predicts the risk of future offences exclusively on the basis of profiling or of assessing personal characteristics.",
+    "type": "single",
+    "section": "governance",
+    "maps_to_card": "gov-ai-act-risques",
+    "week": "W7"
+  },
+  {
+    "id": "Q-W7-006",
+    "question": "Which of the following biometric categorisation systems is prohibited under Article 5 of the AI Act?",
+    "options": [
+      "A system that uses biometric data to infer political opinions.",
+      "A fingerprint scanner for office access.",
+      "A facial recognition system to unlock a smartphone."
+    ],
+    "correct_answer": "A system that uses biometric data to infer political opinions.",
+    "explanation": "Article 5 of the AI Act explicitly prohibits biometric categorisation systems used to infer sensitive characteristics such as political opinions.",
+    "type": "single",
+    "section": "governance",
+    "maps_to_card": "gov-ai-act-risques",
+    "week": "W7"
+  },
+  {
+    "id": "Q-W7-007",
+    "question": "Under which circumstances is the use of emotion recognition systems in the workplace allowed under the AI Act?",
+    "options": [
+      "When they are used for medical or safety reasons.",
+      "With the explicit consent of the employee.",
+      "For performance assessment during interviews."
+    ],
+    "correct_answer": "When they are used for medical or safety reasons.",
+    "explanation": "Under Article 5 of the AI Act, using AI systems to infer a person's emotions in the workplace is in principle prohibited, except when the system is introduced for medical or safety reasons.",
+    "type": "single",
+    "section": "governance",
+    "maps_to_card": "gov-ai-act-risques",
+    "week": "W7"
+  },
+  {
+    "id": "Q-W7-008",
+    "question": "Which of the following practices for building facial recognition databases is prohibited under Article 5 of the AI Act?",
+    "options": [
+      "The untargeted scraping of facial images from public social media profiles.",
+      "Collecting images with the user's consent.",
+      "Storing encrypted images for national security."
+    ],
+    "correct_answer": "The untargeted scraping of facial images from public social media profiles.",
+    "explanation": "Article 5 of the AI Act explicitly prohibits placing on the market, putting into service or using AI systems that create facial recognition databases through the untargeted scraping of facial images from the internet.",
+    "type": "single",
+    "section": "governance",
+    "maps_to_card": "gov-ai-act-risques",
+    "week": "W7"
+  },
+  {
+    "id": "Q-W7-009",
+    "question": "In which of the following cases is the use of real-time remote biometric identification systems in publicly accessible spaces for law-enforcement purposes allowed?",
+    "options": [
+      "For the targeted search for a missing child with prior authorisation from the competent authority.",
+      "To monitor traffic offences preventively.",
+      "For the advertising tracking of customers."
+    ],
+    "correct_answer": "For the targeted search for a missing child with prior authorisation from the competent authority.",
+    "explanation": "Under Article 5 of the AI Act, the use of real-time remote biometric identification systems in publicly accessible spaces for law-enforcement purposes is in principle prohibited, with an exception in particular for the targeted search for missing persons with prior authorisation from the competent authority.",
+    "type": "single",
+    "section": "governance",
+    "maps_to_card": "gov-ai-act-risques",
+    "week": "W7"
+  },
+  {
+    "id": "Q-W7-010",
+    "question": "Which legal requirements apply to the employer regarding the retention of logs for high-risk AI systems? (2 correct answers)",
+    "options": [
+      "The logs must be retained for at least 6 months.",
+      "Retention must ensure the traceability of the AI's decisions.",
+      "The logs must be shared publicly on the internet.",
+      "The logs must be destroyed immediately after use."
+    ],
+    "correct_answer": [
+      "The logs must be retained for at least 6 months.",
+      "Retention must ensure the traceability of the AI's decisions."
+    ],
+    "explanation": "Under the AI Act, employers acting as deployers of high-risk AI systems must retain the logs generated for at least 6 months and ensure the traceability of the AI's decisions; this logging is mandatory for all high-risk AI systems under their control.",
+    "type": "multiple",
+    "section": "governance",
+    "maps_to_card": "gov-ai-act-risques",
+    "week": "W7"
+  },
+  {
+    "id": "Q-W7-011",
+    "question": "What significance do the EU Guidelines for Trustworthy AI published in 2019 have in the context of European AI regulation?",
+    "options": [
+      "They form an ethical framework and a conceptual basis for the AI Act.",
+      "They define binding assessment criteria for the authorisation of AI systems on the European market.",
+      "They were developed as a supplement to existing data protection guidelines.",
+      "They primarily regulate the use of AI technologies in public administration."
+    ],
+    "correct_answer": "They form an ethical framework and a conceptual basis for the AI Act.",
+    "explanation": "The EU Guidelines for Trustworthy AI from 2019 served as an ethical framework and formed an essential conceptual basis for the later development of the AI Act. [32-0701-01-711, Q-711]",
+    "type": "single",
+    "section": "governance",
+    "maps_to_card": "gov-responsible-ai",
+    "week": "W7"
+  },
+  {
+    "id": "Q-W7-012",
+    "question": "Which of the seven principles for trustworthy AI under the EU Guidelines relates to the ability of AI systems to explain their decisions?",
+    "options": [
+      "Transparency",
+      "Accountability",
+      "Technical robustness",
+      "Privacy protection"
+    ],
+    "correct_answer": "Transparency",
+    "explanation": "The transparency principle explicitly requires AI systems to be able to make their decision processes traceable and explainable. [32-0701-02-712, Q-712]",
+    "type": "single",
+    "section": "governance",
+    "maps_to_card": "gov-responsible-ai",
+    "week": "W7"
+  },
+  {
+    "id": "Q-W7-013",
+    "question": "Which aspects does the principle \"Technical robustness and safety\" cover under the EU Guidelines for Trustworthy AI?",
+    "options": [
+      "Data protection, data minimisation, information security, encryption",
+      "Explainability, traceability, transparency, communication",
+      "Non-discrimination, accessibility, diversity, involvement of all stakeholders",
+      "Resilience to attacks, accuracy, reliability, reproducibility"
+    ],
+    "correct_answer": "Resilience to attacks, accuracy, reliability, reproducibility",
+    "explanation": "The principle \"Technical robustness and safety\" covers, under the EU Guidelines, resilience to attacks, general safety, accuracy, reliability and reproducibility. [32-0701-02-712, Q-713]",
+    "type": "single",
+    "section": "governance",
+    "maps_to_card": "gov-responsible-ai",
+    "week": "W7"
+  },
+  {
+    "id": "Q-W4-019",
+    "question": "What must a good documentation of an AI web application absolutely contain?",
+    "options": [
+      "A description of the features and limits of the AI components.",
+      "The complete list of all the LLM's training queries.",
+      "The biography of the entire development team.",
+      "The digital signature of the national certification body."
+    ],
+    "correct_answer": "A description of the features and limits of the AI components.",
+    "explanation": "Users and developers must know what the AI can and cannot do.",
+    "type": "single",
+    "section": "governance",
+    "maps_to_card": "gov-datasheet-dataset",
+    "week": "W4"
+  },
+  {
+    "id": "Q-W4-020",
+    "question": "Which aspect is particularly important in the quality assurance of an AI web application?",
+    "options": [
+      "Checking the consistency and accuracy of the AI's results.",
+      "Checking the uniformity of the background colour across all buttons.",
+      "Ensuring the temperature stays locked at 1.5 at all times.",
+      "Keeping all test data in cleartext in the client code."
+    ],
+    "correct_answer": "Checking the consistency and accuracy of the AI's results.",
+    "explanation": "The AI's answers must be reliable, consistent and in line with expectations.",
+    "type": "single",
+    "section": "evaluation",
+    "maps_to_card": "evl-benchmarks",
+    "week": "W4"
+  },
+  {
+    "id": "Q-W4-018",
+    "question": "Which task is part of the basic maintenance of an AI web application?",
+    "options": [
+      "Regularly installing security updates.",
+      "Rewriting the frontend code from scratch every quarter.",
+      "Changing the system prompts at random.",
+      "Manually optimising the temperature of requests on every call."
+    ],
+    "correct_answer": "Regularly installing security updates.",
+    "explanation": "Updates fix security vulnerabilities and improve stability.",
+    "type": "single",
+    "section": "governance",
+    "maps_to_card": "gov-cycle-de-vie",
+    "week": "W4"
+  }
+]
