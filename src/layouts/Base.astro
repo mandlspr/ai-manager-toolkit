@@ -23,6 +23,7 @@ const nav = [
     match: b === "cases" ? "/cases/" : `/${b}/`,
     label: tt.navBloc[b],
   })),
+  { href: lx("/quiz/"), match: "/quiz/", label: tt.nav.quiz },
   { href: lx("/a-propos/"), match: "/a-propos/", label: tt.nav.about },
 ];
 

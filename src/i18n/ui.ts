@@ -42,8 +42,22 @@ type BlocKey = "governance" | "prompts" | "build" | "evaluation" | "cases";
 
 interface Textes {
   htmlLang: string;
-  nav: { about: string; print: string };
+  nav: { about: string; print: string; quiz: string };
   navBloc: Record<BlocKey, string>;
+  quiz: {
+    intro: string;
+    sectionGeneral: string;
+    selectN: string;
+    check: string;
+    next: string;
+    restart: string;
+    correct: string;
+    incorrect: string;
+    score: string;
+    end: string;
+    seeCard: string;
+    emptyPool: string;
+  };
   bloc: Record<BlocKey, { label: string; description: string }>;
   breadcrumbHome: string;
   home: { intro: string; methodLink: string };
@@ -109,8 +123,23 @@ const commonBloc = {
 export const T: Record<Langue, Textes> = {
   en: {
     htmlLang: "en",
-    nav: { about: "Method", print: "Printable version" },
+    nav: { about: "Method", print: "Printable version", quiz: "Quiz" },
     navBloc: commonBloc.navBloc.en,
+    quiz: {
+      intro:
+        "96 questions from the W1–W7 course, drawn from the same sources as the cards. Filter by section, answer one at a time. The score lives in memory only and resets when you change the filter or reload.",
+      sectionGeneral: "General",
+      selectN: "Select {n} answers",
+      check: "Check",
+      next: "Next",
+      restart: "Restart",
+      correct: "Correct",
+      incorrect: "Incorrect",
+      score: "{a} answered · {c} correct",
+      end: "End of the set — {c} / {n} correct",
+      seeCard: "Read the matching card →",
+      emptyPool: "No question matches this selection.",
+    },
     bloc: {
       governance: {
         label: "Governance & risk",
@@ -194,8 +223,23 @@ export const T: Record<Langue, Textes> = {
 
   fr: {
     htmlLang: "fr",
-    nav: { about: "À propos", print: "Version imprimable" },
+    nav: { about: "À propos", print: "Version imprimable", quiz: "Quiz" },
     navBloc: commonBloc.navBloc.fr,
+    quiz: {
+      intro:
+        "96 questions du cursus W1–W7, tirées des mêmes sources que les fiches. Filtrez par bloc, répondez une à une. Le score n'existe qu'en mémoire et repart de zéro si vous changez le filtre ou rechargez la page.",
+      sectionGeneral: "Général",
+      selectN: "Sélectionnez {n} réponses",
+      check: "Valider",
+      next: "Suivante",
+      restart: "Recommencer",
+      correct: "Bonne réponse",
+      incorrect: "Mauvaise réponse",
+      score: "{a} répondues · {c} correctes",
+      end: "Fin de la série — {c} / {n} correctes",
+      seeCard: "Lire la fiche correspondante →",
+      emptyPool: "Aucune question ne correspond à cette sélection.",
+    },
     bloc: {
       governance: {
         label: "Gouvernance & risque",
@@ -279,8 +323,23 @@ export const T: Record<Langue, Textes> = {
 
   de: {
     htmlLang: "de",
-    nav: { about: "Methode", print: "Druckversion" },
+    nav: { about: "Methode", print: "Druckversion", quiz: "Quiz" },
     navBloc: commonBloc.navBloc.de,
+    quiz: {
+      intro:
+        "96 Fragen aus dem Kurs W1–W7, aus denselben Quellen wie die Karten. Nach Bereich filtern, eine nach der anderen beantworten. Der Punktestand liegt nur im Speicher und wird bei Filterwechsel oder Neuladen zurückgesetzt.",
+      sectionGeneral: "Allgemein",
+      selectN: "{n} Antworten auswählen",
+      check: "Prüfen",
+      next: "Weiter",
+      restart: "Neu starten",
+      correct: "Richtig",
+      incorrect: "Falsch",
+      score: "{a} beantwortet · {c} richtig",
+      end: "Ende der Serie — {c} / {n} richtig",
+      seeCard: "Zur passenden Karte →",
+      emptyPool: "Keine Frage entspricht dieser Auswahl.",
+    },
     bloc: {
       governance: {
         label: "Governance & Risiko",

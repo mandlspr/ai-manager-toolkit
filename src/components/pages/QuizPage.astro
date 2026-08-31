@@ -1,0 +1,98 @@
+---
+import Base from "../../layouts/Base.astro";
+import quizData from "../../content/quiz.json";
+import { BLOC_ORDER, blocLabel } from "../../lib/entries";
+import { T, cheminLocalise, type Langue } from "../../i18n/ui";
+
+interface Props {
+  lang: Langue;
+}
+const { lang } = Astro.props;
+const tt = T[lang];
+const lx = (p: string) => cheminLocalise(lang, p);
+
+// Section filter pills: the 5 toolkit blocks + "general".
+const sectionPills = [
+  ...BLOC_ORDER.map((k) => ({ value: k, label: blocLabel(lang, k) })),
+  { value: "general", label: tt.quiz.sectionGeneral },
+];
+
+// Strings the client script needs (interpolation with {n}/{a}/{c}).
+const scriptStrings = {
+  selectN: tt.quiz.selectN,
+  check: tt.quiz.check,
+  next: tt.quiz.next,
+  restart: tt.quiz.restart,
+  correct: tt.quiz.correct,
+  incorrect: tt.quiz.incorrect,
+  score: tt.quiz.score,
+  end: tt.quiz.end,
+  seeCard: tt.quiz.seeCard,
+  emptyPool: tt.quiz.emptyPool,
+};
+
+// Embedded once; parsed client-side. `<` escaped so a stray "</script>" in
+// question text can never break out of the block.
+const quizJson = JSON.stringify(quizData).replace(/</g, "\\u003c");
+---
+
+<Base
+  lang={lang}
+  chemin="/quiz/"
+  titre={tt.nav.quiz}
+  description={tt.quiz.intro}
+>
+  <article class="quiz-page">
+    <p class="fil"><a href={lx("/")}>{tt.breadcrumbHome}</a> / {tt.nav.quiz}</p>
+    <h1>{tt.nav.quiz}</h1>
+    <p class="bloc-desc">{tt.quiz.intro}</p>
+
+    <section
+      class="quiz"
+      data-quiz
+      data-lang={lang}
+      data-t={JSON.stringify(scriptStrings)}
+    >
+      <form class="filtres" data-quiz-filtres>
+        <div class="facettes">
+          <div
+            class="facette"
+            data-facette="section"
+            data-mode="multi"
+            aria-label={tt.facet.bloc}
+          >
+            <span class="facette-label">{tt.facet.bloc}</span>
+            <div class="pastilles">
+              {
+                sectionPills.map((s) => (
+                  <button
+                    type="button"
+                    class="pastille"
+                    data-value={s.value}
+                    aria-pressed="false"
+                  >
+                    {s.label}
+                  </button>
+                ))
+              }
+            </div>
+          </div>
+          <button type="button" class="pastille pastille-reset" data-quiz-reset>
+            {tt.reset}
+          </button>
+        </div>
+      </form>
+
+      <p class="quiz-score" data-quiz-score aria-live="polite"></p>
+      <div class="quiz-card" data-quiz-card></div>
+    </section>
+
+    <script is:inline type="application/json" data-quiz-data set:html={quizJson}
+    />
+  </article>
+</Base>
+
+<script>
+  import { initQuiz } from "../../scripts/quiz";
+  initQuiz();
+</script>
