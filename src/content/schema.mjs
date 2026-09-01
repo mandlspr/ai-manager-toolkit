@@ -18,7 +18,13 @@ export const STATUSES = ["valid", "to-resource", "draft"];
 // Cross-cutting axis values are kept as-is (not part of the data-vocabulary rename).
 export const CROSSCUTTING = ["cout", "hitl", "tracabilite"];
 export const LANGS = ["fr", "de", "en"];
-export const NATURES_SOURCE = ["projet", "notebook", "playbook", "externe"];
+export const NATURES_SOURCE = [
+  "projet",
+  "notebook",
+  "playbook",
+  "externe",
+  "experience",
+];
 export const PORTFOLIO = ["oui", "non", "pas-encore"];
 
 // --- sub-schema: a single source -----------------------------------------------
