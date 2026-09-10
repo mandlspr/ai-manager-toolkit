@@ -96,6 +96,10 @@ export const entryFrontmatterSchema = z
 
     portfolio: z.enum(PORTFOLIO),
     summary: z.string().min(1),
+
+    // Optional reference diagram, shown full-width at the top of the card body.
+    // Value = SVG file name without extension, in src/assets/diagrams/.
+    diagram: z.string().min(1).optional(),
   })
   .strict()
   .superRefine((data, ctx) => {

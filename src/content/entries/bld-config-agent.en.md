@@ -8,6 +8,7 @@ status: valid
 crosscutting: []
 lang: en
 translations: []
+diagram: ifg-04-change-what
 sources:
   - titre: "Notebook W5"
     emplacement: "Projet Claude / AI Manager Toolkit"

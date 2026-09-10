@@ -1,0 +1,68 @@
+---
+import Base from "../../layouts/Base.astro";
+import Diagram from "../Diagram.astro";
+import { getCanonicalEntries, cote, type Entry } from "../../lib/entries";
+import { DIAGRAM_ORDER } from "../../lib/diagrams";
+import { T, cheminLocalise, type Langue } from "../../i18n/ui";
+
+interface Props {
+  lang: Langue;
+}
+const { lang } = Astro.props;
+const tt = T[lang];
+const lx = (p: string) => cheminLocalise(lang, p);
+
+// The card each diagram is attached to comes from the frontmatter `diagram`
+// field — the single source of truth, not a table kept here.
+const all = await getCanonicalEntries();
+const cardBySlug = new Map<string, Entry>();
+for (const e of all) if (e.data.diagram) cardBySlug.set(e.data.diagram, e);
+
+const attached = DIAGRAM_ORDER.filter((s) => cardBySlug.has(s));
+const unattached = DIAGRAM_ORDER.filter((s) => !cardBySlug.has(s));
+---
+
+<Base
+  lang={lang}
+  chemin="/diagrams/"
+  titre={tt.nav.diagrams}
+  description={tt.diagrams.intro}
+>
+  <article class="diagrams-page">
+    <p class="fil">
+      <a href={lx("/")}>{tt.breadcrumbHome}</a> / {tt.nav.diagrams}
+    </p>
+    <h1>{tt.nav.diagrams}</h1>
+    <p class="bloc-desc">{tt.diagrams.intro}</p>
+
+    <section class="diagrams-group">
+      <h2>{tt.diagrams.attachedHeading}</h2>
+      {
+        attached.map((slug) => {
+          const e = cardBySlug.get(slug)!;
+          return (
+            <div class="diagram-item">
+              <Diagram slug={slug} />
+              <p class="diagram-cardlink">
+                <a href={lx(`/${e.data.section}/${e.data.id}/`)}>
+                  {cote(e)} — {e.data.title} →
+                </a>
+              </p>
+            </div>
+          );
+        })
+      }
+    </section>
+
+    <section class="diagrams-group">
+      <h2>{tt.diagrams.unattachedHeading}</h2>
+      {
+        unattached.map((slug) => (
+          <div class="diagram-item">
+            <Diagram slug={slug} />
+          </div>
+        ))
+      }
+    </section>
+  </article>
+</Base>

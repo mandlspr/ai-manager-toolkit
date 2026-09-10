@@ -8,6 +8,7 @@ status: valid
 crosscutting: []
 lang: en
 translations: []
+diagram: ifg-01-what-to-optimise
 sources:
   - titre: "Notebook W2"
     emplacement: "Projet Claude / AI Manager Toolkit"

@@ -8,6 +8,7 @@ status: valid
 crosscutting: [hitl, tracabilite]
 lang: en
 translations: []
+diagram: ifg-06-what-reaches-the-model
 sources:
   - titre: "Playbook AI Governance"
     emplacement: "Projet Claude / AI Manager Toolkit"

@@ -8,6 +8,7 @@ status: valid
 crosscutting: []
 lang: en
 translations: []
+diagram: ifg-02-who-in-the-room
 sources:
   - titre: "Notebook W7"
     emplacement: "Projet Claude / AI Manager Toolkit"

@@ -232,7 +232,8 @@ main {
 /* --- bloc page ------------------------------------------------------ */
 
 .bloc-page h1,
-.fiche-tete h1 {
+.fiche-tete h1,
+.diagrams-page h1 {
   font-size: 1.7rem;
   margin: 0 0 0.4rem;
 }
@@ -553,6 +554,64 @@ main {
   font-size: 0.92rem;
 }
 
+/* --- diagram (card body + gallery) --------------------------------- */
+/* SVGs are autonomous: they carry their own fonts and colours and are
+   never restyled here. The frame only holds them and lets them scroll
+   sideways on narrow screens rather than being squeezed. */
+
+.fiche-diagram {
+  /* break out of the 44rem card column, up to the main content width */
+  width: min(calc(100vw - 3rem), calc(var(--wrap) - 2.5rem));
+  margin: 1.5rem 0 2rem;
+}
+.fiche-diagram-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  background: var(--blanc);
+  border: 1px solid var(--bordure);
+  border-radius: 6px;
+  padding: 0.75rem;
+}
+.fiche-diagram-scroll svg {
+  display: block;
+  height: auto;
+  max-width: none; /* keep intrinsic width — scroll, never compress */
+  margin-inline: auto; /* centred when it fits; collapses to 0 when it overflows */
+}
+.fiche-diagram figcaption {
+  margin-top: 0.5rem;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.02em;
+  color: var(--gris-meta);
+}
+
+/* --- diagrams gallery page --------------------------------------- */
+
+.diagrams-page {
+  max-width: 44rem;
+}
+.diagrams-group {
+  margin-top: 2.5rem;
+}
+.diagrams-group > h2 {
+  font-family: var(--titre);
+  font-weight: 800;
+  font-size: 1.3rem;
+  margin: 0 0 1rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 2px solid var(--encre);
+}
+.diagram-item {
+  margin: 1.75rem 0 2.5rem;
+}
+.diagram-cardlink {
+  margin: 0.6rem 0 0;
+  font-family: var(--titre);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
 /* --- about ------------------------------------------------ */
 
 .prose {
@@ -824,5 +883,15 @@ main {
 @media print {
   .lang-selector {
     display: none !important;
+  }
+  /* Diagrams stay in the printout — full page width, no clipping frame. */
+  .fiche-diagram {
+    width: 100%;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .fiche-diagram-scroll {
+    overflow: visible;
+    border-color: #999;
   }
 }

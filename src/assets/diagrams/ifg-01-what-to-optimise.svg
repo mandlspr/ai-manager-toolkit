@@ -1,0 +1,101 @@
+<svg viewBox="0 0 880 610" xmlns="http://www.w3.org/2000/svg" width="880" height="610" role="img" aria-label="Two-axis matrix with prompt technique ladder">
+  <title>What to optimise, and in which order</title>
+  <defs>
+    <style>
+      .h  { font-family: Archivo, system-ui, sans-serif; font-weight: 800; }
+      .t  { font-family: Archivo, system-ui, sans-serif; font-weight: 700; }
+      .l  { font-family: Archivo, system-ui, sans-serif; font-weight: 600; }
+      .m  { font-family: 'IBM Plex Mono', ui-monospace, monospace; }
+      .b  { font-family: Newsreader, Georgia, serif; }
+      .bi { font-family: Newsreader, Georgia, serif; font-style: italic; }
+    </style>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#5A3FD6"/>
+    </marker>
+    <marker id="arg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#171522"/>
+    </marker>
+  </defs>
+
+  <rect width="880" height="610" fill="#F4F2FA"/>
+
+  <text x="40" y="44" class="h" font-size="21" fill="#171522">What to optimise, and in which order</text>
+  <text x="40" y="68" class="bi" font-size="14" fill="#3C4148">Two independent questions, not one scale of power.</text>
+
+  <!-- LADDER -->
+  <rect x="40" y="100" width="196" height="386" fill="#FFFFFF" stroke="#D8D5E0" stroke-width="1" rx="3"/>
+  <text x="56" y="126" class="m" font-size="9.5" fill="#6B6875">EXHAUST THESE FIRST</text>
+  <text x="56" y="150" class="t" font-size="14" fill="#171522">Prompt techniques</text>
+
+  <line x1="66" y1="170" x2="66" y2="440" stroke="#5A3FD6" stroke-width="1.5" stroke-dasharray="3 3"/>
+
+  <circle cx="66" cy="184" r="4" fill="#5A3FD6"/>
+  <text x="82" y="182" class="l" font-size="12" fill="#171522">Zero-shot</text>
+  <text x="82" y="197" class="b" font-size="11" fill="#6B6875">Ask, no examples.</text>
+
+  <circle cx="66" cy="228" r="4" fill="#5A3FD6"/>
+  <text x="82" y="226" class="l" font-size="12" fill="#171522">Role prompting</text>
+  <text x="82" y="241" class="b" font-size="11" fill="#6B6875">Give it a perspective.</text>
+
+  <circle cx="66" cy="272" r="4" fill="#5A3FD6"/>
+  <text x="82" y="270" class="l" font-size="12" fill="#171522">Few-shot</text>
+  <text x="82" y="285" class="b" font-size="11" fill="#6B6875">Show examples of the output.</text>
+
+  <circle cx="66" cy="316" r="4" fill="#5A3FD6"/>
+  <text x="82" y="314" class="l" font-size="12" fill="#171522">Chain-of-thought</text>
+  <text x="82" y="329" class="b" font-size="11" fill="#6B6875">Make the reasoning visible.</text>
+
+  <circle cx="66" cy="360" r="4" fill="#5A3FD6"/>
+  <text x="82" y="358" class="l" font-size="12" fill="#171522">Tree of thoughts</text>
+  <text x="82" y="373" class="b" font-size="11" fill="#6B6875">Explore branching paths.</text>
+
+  <circle cx="66" cy="404" r="4" fill="#5A3FD6"/>
+  <text x="82" y="402" class="l" font-size="12" fill="#171522">Prompt chaining</text>
+  <text x="82" y="417" class="b" font-size="11" fill="#6B6875">Split it. Each output feeds</text>
+  <text x="82" y="431" class="b" font-size="11" fill="#6B6875">the next step.</text>
+
+  <text x="56" y="466" class="bi" font-size="11.5" fill="#B03A2E">Only then look at the matrix.</text>
+
+  <!-- bridge chevron, right of the ladder panel, clear of the axis label -->
+  <path d="M 246 285 L 258 297 L 246 309" stroke="#5A3FD6" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- MATRIX -->
+  <line x1="300" y1="480" x2="826" y2="480" stroke="#171522" stroke-width="1.5" marker-end="url(#arg)"/>
+  <line x1="300" y1="480" x2="300" y2="132" stroke="#171522" stroke-width="1.5" marker-end="url(#arg)"/>
+
+  <text x="566" y="518" class="l" font-size="12" fill="#171522" text-anchor="middle">HOW the model must ACT</text>
+  <text x="566" y="535" class="m" font-size="10" fill="#6B6875" text-anchor="middle">MODEL OPTIMISATION</text>
+
+  <text transform="translate(266,306) rotate(-90)" class="l" font-size="12" fill="#171522" text-anchor="middle">WHAT the model must KNOW</text>
+  <text transform="translate(283,306) rotate(-90)" class="m" font-size="10" fill="#6B6875" text-anchor="middle">CONTEXT OPTIMISATION</text>
+
+  <!-- quadrants, 30px gutters between them -->
+  <rect x="314" y="326" width="228" height="140" fill="#EDE9FB" stroke="#5A3FD6" stroke-width="2" rx="3"/>
+  <text x="330" y="352" class="m" font-size="9.5" fill="#5A3FD6">START HERE</text>
+  <text x="330" y="378" class="t" font-size="16" fill="#171522">Prompt Engineering</text>
+  <text x="330" y="402" class="b" font-size="12.5" fill="#3C4148">Baseline. First tests.</text>
+  <text x="330" y="422" class="b" font-size="12.5" fill="#3C4148">The cheapest thing that</text>
+  <text x="330" y="439" class="b" font-size="12.5" fill="#3C4148">can work.</text>
+
+  <rect x="314" y="156" width="228" height="140" fill="#FFFFFF" stroke="#D8D5E0" stroke-width="1" rx="3"/>
+  <text x="330" y="190" class="t" font-size="16" fill="#171522">RAG</text>
+  <text x="330" y="216" class="b" font-size="12.5" fill="#3C4148">Short memory.</text>
+  <text x="330" y="240" class="t" font-size="13" fill="#3E6B4F">Adds facts.</text>
+
+  <rect x="572" y="326" width="228" height="140" fill="#FFFFFF" stroke="#D8D5E0" stroke-width="1" rx="3"/>
+  <text x="588" y="354" class="t" font-size="16" fill="#171522">Fine-Tuning</text>
+  <text x="588" y="378" class="b" font-size="12.5" fill="#3C4148">Long memory. Style, format.</text>
+  <rect x="588" y="392" width="196" height="52" fill="#F7E9E7" stroke="#B03A2E" stroke-width="1.5" rx="3"/>
+  <text x="600" y="412" class="t" font-size="12.5" fill="#B03A2E">Adds NO facts.</text>
+  <text x="600" y="431" class="b" font-size="11" fill="#B03A2E">It cannot learn your catalogue.</text>
+
+  <rect x="572" y="156" width="228" height="140" fill="#FFFFFF" stroke="#D8D5E0" stroke-width="1" rx="3"/>
+  <text x="588" y="190" class="t" font-size="16" fill="#171522">Both</text>
+  <text x="588" y="216" class="b" font-size="12.5" fill="#3C4148">Domain expert system.</text>
+
+  <!-- default-path arrows sit in the gutters, never over a box -->
+  <path d="M 428 322 L 428 300" stroke="#5A3FD6" stroke-width="2.5" fill="none" marker-end="url(#ar)"/>
+  <path d="M 546 396 L 568 396" stroke="#5A3FD6" stroke-width="2.5" fill="none" marker-end="url(#ar)"/>
+
+  <text x="40" y="576" class="m" font-size="10" fill="#6B6875">EXHAUST THE LADDER · THEN MOVE OUTWARD FROM THE BOTTOM-LEFT · NEVER START ELSEWHERE</text>
+</svg>

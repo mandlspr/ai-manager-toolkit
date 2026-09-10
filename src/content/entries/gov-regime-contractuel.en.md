@@ -8,6 +8,7 @@ status: valid
 crosscutting: [tracabilite]
 lang: en
 translations: []
+diagram: ifg-05-can-you-send-this
 sources:
   - titre: "Playbook AI Governance"
     emplacement: "Projet Claude / AI Manager Toolkit"

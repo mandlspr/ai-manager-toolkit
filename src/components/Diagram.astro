@@ -1,0 +1,25 @@
+---
+// One reference diagram: inline SVG (selectable text, prints as-is) inside a
+// horizontal-scroll frame so it is never compressed on narrow screens.
+import { diagramMarkup, diagramTitle } from "../lib/diagrams";
+
+interface Props {
+  slug: string;
+  /** Overrides the caption; defaults to the SVG's own <title>. */
+  caption?: string;
+}
+const { slug, caption } = Astro.props;
+const svg = diagramMarkup(slug);
+const title = diagramTitle(slug);
+---
+
+{
+  svg && (
+    <figure class="fiche-diagram">
+      <div class="fiche-diagram-scroll">
+        <Fragment set:html={svg} />
+      </div>
+      <figcaption>{caption ?? title}</figcaption>
+    </figure>
+  )
+}

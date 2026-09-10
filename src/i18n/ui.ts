@@ -42,8 +42,13 @@ type BlocKey = "governance" | "prompts" | "build" | "evaluation" | "cases";
 
 interface Textes {
   htmlLang: string;
-  nav: { about: string; print: string; quiz: string };
+  nav: { about: string; print: string; quiz: string; diagrams: string };
   navBloc: Record<BlocKey, string>;
+  diagrams: {
+    intro: string;
+    attachedHeading: string;
+    unattachedHeading: string;
+  };
   quiz: {
     intro: string;
     sectionGeneral: string;
@@ -124,8 +129,19 @@ const commonBloc = {
 export const T: Record<Langue, Textes> = {
   en: {
     htmlLang: "en",
-    nav: { about: "Method", print: "Printable version", quiz: "Quiz" },
+    nav: {
+      about: "Method",
+      print: "Printable version",
+      quiz: "Quiz",
+      diagrams: "Diagrams",
+    },
     navBloc: commonBloc.navBloc.en,
+    diagrams: {
+      intro:
+        "Ten reference diagrams from the course. Each turns one decision — what to optimise, who to involve, how much autonomy to grant, what may reach a model — into a single picture. Six are attached to a card; four are not yet.",
+      attachedHeading: "Attached to a card",
+      unattachedHeading: "Not yet attached to a card",
+    },
     quiz: {
       intro:
         "96 questions from the W1–W7 course, drawn from the same sources as the cards. Filter by section, answer one at a time. The score lives in memory only and resets when you change the filter or reload.",
@@ -225,8 +241,19 @@ export const T: Record<Langue, Textes> = {
 
   fr: {
     htmlLang: "fr",
-    nav: { about: "À propos", print: "Version imprimable", quiz: "Quiz" },
+    nav: {
+      about: "À propos",
+      print: "Version imprimable",
+      quiz: "Quiz",
+      diagrams: "Schémas",
+    },
     navBloc: commonBloc.navBloc.fr,
+    diagrams: {
+      intro:
+        "Dix schémas de référence issus du cursus. Chacun ramène une décision — quoi optimiser, qui impliquer, quelle autonomie accorder, ce qui peut atteindre un modèle — à une seule image. Six sont rattachés à une fiche ; quatre ne le sont pas encore.",
+      attachedHeading: "Rattachés à une fiche",
+      unattachedHeading: "Pas encore rattachés à une fiche",
+    },
     quiz: {
       intro:
         "96 questions du cursus W1–W7, tirées des mêmes sources que les fiches. Filtrez par bloc, répondez une à une. Le score n'existe qu'en mémoire et repart de zéro si vous changez le filtre ou rechargez la page.",
@@ -326,8 +353,19 @@ export const T: Record<Langue, Textes> = {
 
   de: {
     htmlLang: "de",
-    nav: { about: "Methode", print: "Druckversion", quiz: "Quiz" },
+    nav: {
+      about: "Methode",
+      print: "Druckversion",
+      quiz: "Quiz",
+      diagrams: "Diagramme",
+    },
     navBloc: commonBloc.navBloc.de,
+    diagrams: {
+      intro:
+        "Zehn Referenzdiagramme aus dem Kurs. Jedes bringt eine Entscheidung — was optimieren, wen einbeziehen, wie viel Autonomie gewähren, was ein Modell erreichen darf — auf ein einziges Bild. Sechs sind einer Karte zugeordnet; vier noch nicht.",
+      attachedHeading: "Einer Karte zugeordnet",
+      unattachedHeading: "Noch keiner Karte zugeordnet",
+    },
     quiz: {
       intro:
         "96 Fragen aus dem Kurs W1–W7, aus denselben Quellen wie die Karten. Nach Bereich filtern, eine nach der anderen beantworten. Der Punktestand liegt nur im Speicher und wird bei Filterwechsel oder Neuladen zurückgesetzt.",

@@ -1,6 +1,7 @@
 ---
 import { render } from "astro:content";
 import Base from "../../layouts/Base.astro";
+import Diagram from "../Diagram.astro";
 import {
   getCanonicalEntries,
   cote,
@@ -178,6 +179,8 @@ const ax = (k: string) => tt.optAxe[k as keyof typeof tt.optAxe];
                     )}
                   </dl>
                 </div>
+
+                {d.diagram && <Diagram slug={d.diagram} />}
 
                 <div class="fiche-corps">
                   <Content />
