@@ -36,7 +36,7 @@ Easiest path: copy an existing card of the same `type` and adapt its frontmatter
 ### The file
 
 A YAML frontmatter block between `---`, then a body of `##` sections. Bodies are
-placeholders for now (`<!-- to write -->`); keep the section headings.
+placeholders for now; keep the section headings.
 
 - `type: principle` -> sections *Principle*, *Why it matters*, *How to apply it*,
   *Watch out* (the last one is optional).
